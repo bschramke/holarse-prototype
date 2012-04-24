@@ -100,5 +100,9 @@ describe User do
     user.save.should be_false          
   end    
   
+  it "should require a minecraft username when minecraft is active" do
+    user = build(:user, :minecraft => true, :minecraft_username => nil)
+    user.save.should be_false
+  end
   
 end

@@ -35,6 +35,8 @@ class User
   validates_length_of :minecraft_username, :within => 0..30
   validates_length_of :desura, :within => 0..30
   
+  validates_presence_of :minecraft_username, :if => Proc.new { |u| u.minecraft }
+  
   def authenticate_legacy(old_password)
     active && Digest::MD5.hexdigest(old_password) == old_password_hash
   end
