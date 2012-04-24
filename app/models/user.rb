@@ -30,6 +30,8 @@ class User
   
   has_mongoid_attached_file :avatar
   
+  has_many :articles, :inverse_of => :author
+  
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
   validates_length_of :username, :within => 3..20
