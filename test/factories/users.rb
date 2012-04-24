@@ -19,5 +19,7 @@ FactoryGirl.define do
     f.minecraft_username Forgery(:internet).user_name
     f.desura Forgery(:internet).user_name
     f.avatar File.new(Rails.root + 'test/fixtures/images/rails.png')
+    f.favourite_games [Forgery(:name).title, Forgery(:name).title, Forgery(:name).title]
+    f.roles [Forgery(:name).title]
   end
 end

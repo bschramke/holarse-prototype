@@ -23,6 +23,11 @@ class User
   field :minecraft_username
   field :desura
   
+  field :favourite_games, :type => Array
+  field :roles, :type => Array
+  
+  field :last_activity, :type => DateTime, :default => Time.now
+  
   has_mongoid_attached_file :avatar
   
   validates_presence_of :username, :email
@@ -49,8 +54,12 @@ class User
     if old_password_hash.empty?
       fail("No legacy password given to migrate")
     end
-    old_password_hash = nil
-    password = old_password
+    self.old_password_hash = nil
+    self.password = old_password
+  end
+  
+  def touch
+    self.last_activity = DateTime.now
   end
   
 end

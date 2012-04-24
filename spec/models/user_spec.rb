@@ -45,7 +45,8 @@ describe User do
   it "should migrate a legacy password and delete it" do
     user = build(:user)
     user.migrate_password("test123old")
-    user.old_password_hash.should_not be_nil
+    user.old_password_hash.should be_nil
+    user.password_digest.should_not be_nil
   end
   
   it "should migrate only if a legacy password is given" do
@@ -103,6 +104,13 @@ describe User do
   it "should require a minecraft username when minecraft is active" do
     user = build(:user, :minecraft => true, :minecraft_username => nil)
     user.save.should be_false
+  end
+  
+  it "should update the user's last activity" do
+    user = build(:user, :last_activity => DateTime.now - 1.hours)
+    user.touch
+    
+    user.last_activity.should be > DateTime.now - 1.hours
   end
   
 end
