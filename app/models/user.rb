@@ -5,6 +5,8 @@ class User
   include Mongoid::Paperclip
   
   has_secure_password
+
+  attr_protected :roles # avoid mass-assignment
   
   field :username
   field :email
