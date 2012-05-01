@@ -24,7 +24,7 @@ class User
   field :desura
   
   field :favourite_games, :type => Array
-  field :roles, :type => Array
+  field :roles, :type => Array, :default => []
   
   field :last_activity, :type => DateTime, :default => Time.now
   
