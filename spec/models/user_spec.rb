@@ -113,4 +113,12 @@ describe User do
     user.last_activity.should be > DateTime.now - 1.hours
   end
   
+  it "should have at least empty roles" do
+    user = build(:user)
+    user.save
+    
+    user2 = User.find(user.id)
+    user2.roles.should == []
+  end
+  
 end

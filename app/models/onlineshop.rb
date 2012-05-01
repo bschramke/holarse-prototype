@@ -4,6 +4,6 @@ class Onlineshop
   field :name
   field :url
   
-  embedded_in :articles
+  embedded_in :article
   
 end

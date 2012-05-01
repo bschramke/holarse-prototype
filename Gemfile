@@ -39,6 +39,7 @@ group :test do
 	gem 'factory_girl_rails'
 	gem 'capybara'
   gem 'forgery'
+  gem 'mongoid-rspec'
 end
 
 # JQuery

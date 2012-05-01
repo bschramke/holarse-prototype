@@ -20,9 +20,6 @@ FactoryGirl.define do
     desura Forgery(:internet).user_name
     avatar File.new(Rails.root + 'test/fixtures/images/rails.png')
     favourite_games [Forgery(:lorem_ipsum).word, Forgery(:lorem_ipsum).word, Forgery(:lorem_ipsum).word]
-
-    factory :admin do
-      roles ["admin"]
-    end
+    roles []
   end
 end
