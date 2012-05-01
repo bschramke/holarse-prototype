@@ -3,31 +3,23 @@ require 'digest'
 
 describe User do
   
-  it "has an username" do
-    user = build(:user, :username => nil)
-    user.save.should be_false
-  end
-  
   it "has an unique username" do
-    user = build(:user, :username => "testuser")
-    user.save.should be_true
-    
-    user2 = build(:user, :username => "testuser")
-    user2.save.should be_false
+    should validate_presence_of(:username)
+    should validate_uniqueness_of(:username)
   end
   
   it "has an email address" do
-    user = build(:user, :email => nil)
-    user.save.should be_false
+    should validate_presence_of(:email)
+    should validate_uniqueness_of(:email)
   end  
   
-  it "has an unique email address" do
-    user = build(:user, :email => "test@test.com")
-    user.save.should be_true
-    
-    user2 = build(:user, :email => "test@test.com")
-    user2.save.should be_false
+  it "should be referenced in article" do
+    should have_many(:articles).as_inverse_of(:author)
   end
+  
+  it "should be referenced in news" do
+    should have_many(:news).as_inverse_of(:author)
+  end  
   
   it "should save an encrypted password" do
     user = create(:user, :password => "test")

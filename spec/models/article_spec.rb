@@ -1,20 +1,27 @@
 require 'spec_helper'
 
 describe Article do
-  
+ 
   it "should require an author" do
-    article = build(:article, :author => nil)
-    article.save.should be_false    
+    should validate_presence_of(:author)
+    should belong_to(:author)  
   end
   
   it "should have a title" do
-    article = build(:article, :title => nil)
-    article.save.should be_false
+    should validate_presence_of(:title)    
   end
   
   it "should have content" do
-    article = build(:article, :content => nil)
-    article.save.should be_false
+    should validate_presence_of(:content)        
+  end
+  
+  it "should have fields" do
+    should have_fields(:alternatives, :reviseme, :releasedate, :ftp, :nouploads, :redirection)    
+  end
+  
+  it "should have a crossover/wine reference" do
+    should embed_one(:wine)
+    should embed_one(:crossover)
   end
   
   it "should have at least one tag" do
