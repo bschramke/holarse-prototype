@@ -8,4 +8,5 @@ describe Onlineshop do
   it "should be embedded in article" do
     should be_embedded_in(:article)
   end
+
 end

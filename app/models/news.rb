@@ -1,7 +1,6 @@
 class News
   include Mongoid::Document  
   include Mongoid::Timestamps
-  include Mongoid::Paperclip  
 
   field :title
   field :subtitle  
@@ -10,6 +9,12 @@ class News
   field :disabled, :type => Boolean, :default => false
   field :frozen, :type => Boolean, :default => false
 
+  embeds_many :screenshots  
+  embeds_many :attachments  
+  embeds_many :videos  
+  embeds_many :newsupdates
+  embeds_many :links  
+  
   validates_presence_of :title  
   validates_presence_of :content
   validates_presence_of :author  

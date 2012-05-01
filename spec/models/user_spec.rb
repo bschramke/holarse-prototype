@@ -3,6 +3,10 @@ require 'digest'
 
 describe User do
   
+  it "should be timestamped" do
+    should be_timestamped_document    
+  end  
+  
   it "has an unique username" do
     should validate_presence_of(:username)
     should validate_uniqueness_of(:username)
@@ -20,6 +24,10 @@ describe User do
   it "should be referenced in news" do
     should have_many(:news).as_inverse_of(:author)
   end  
+  
+  it "should have field avatar" do
+    should have_mongoid_attached_file(:avatar)
+  end
   
   it "should save an encrypted password" do
     user = create(:user, :password => "test")

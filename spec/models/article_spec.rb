@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Article do
  
+  it "should be timestamped" do
+    should be_timestamped_document    
+  end
+  
   it "should require an author" do
     should validate_presence_of(:author)
     should belong_to(:author)  
@@ -19,10 +23,30 @@ describe Article do
     should have_fields(:alternatives, :reviseme, :releasedate, :ftp, :nouploads, :redirection)    
   end
   
-  it "should have a crossover/wine reference" do
+  it "should have links" do
+    should embed_many(:links)
+  end    
+  
+  it "should have screenshots" do
+    should embed_many(:screenshots)
+  end
+  
+  it "should have attachments" do
+    should embed_many(:attachments)
+  end
+  
+  it "should have videos" do
+    should embed_many(:videos)
+  end
+  
+  it "should have a crossover/wine" do
     should embed_one(:wine)
     should embed_one(:crossover)
   end
+  
+  it "should have onlineshops" do
+    should embed_many(:onlineshops)
+  end  
   
   it "should have at least one tag" do
     article = build(:article, :tags => nil)

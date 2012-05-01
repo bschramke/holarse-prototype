@@ -1,7 +1,6 @@
 class Article
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Paperclip  
 
   field :title
   field :content
@@ -18,6 +17,10 @@ class Article
   
   belongs_to :author, :class_name => "User", :inverse_of => :articles
   embeds_many :onlineshops
+  embeds_many :screenshots
+  embeds_many :attachments  
+  embeds_many :videos    
+  embeds_many :links
 
   embeds_one :crossover
   embeds_one :wine

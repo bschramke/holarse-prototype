@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe News do
   
+  it "should be timestamped" do
+    should be_timestamped_document    
+  end  
+  
    it "should require an author" do
     should validate_presence_of(:author)
     should belong_to(:author)
@@ -11,6 +15,10 @@ describe News do
     should validate_presence_of(:title)    
   end
   
+  it "should have links" do
+    should embed_many(:links)
+  end    
+  
   it "should have content" do
     should validate_presence_of(:content)        
   end
@@ -19,8 +27,20 @@ describe News do
     should have_fields(:subtitle)    
   end
   
-  it "should have many updates" do
-    should embed_many(:updates) 
+  it "should have screenshots" do
+    should embed_many(:screenshots)
+  end
+  
+  it "should have attachments" do
+    should embed_many(:attachments)
+  end
+  
+  it "should have videos" do
+    should embed_many(:videos)
+  end  
+  
+  it "should have updates" do
+    should embed_many(:newsupdates) 
   end
   
   it "should not be updatable when frozen" do
