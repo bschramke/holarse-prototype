@@ -30,5 +30,9 @@ describe Newsupdate do
     should have_fields(:content)
     should validate_presence_of(:content)
   end
+  
+  it "should have at least 10 characters of content" do
+    should validate_length_of(:content).with_minimum(10)
+  end
 
 end

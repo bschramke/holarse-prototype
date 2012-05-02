@@ -13,6 +13,7 @@ class Newsupdate
   embeds_many :links  
   
   validates_presence_of :content
-  validates_presence_of :author  
+  validates_presence_of :author 
+  validates :content, :length => { :minimum => 10 }
   
 end

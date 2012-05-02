@@ -26,7 +26,10 @@ class Article
   embeds_one :wine
   
   validates_presence_of :title  
+  validates_uniqueness_of :title
+  validates :title, :length => { :minimum => 3 }    
   validates_presence_of :content
+  validates :content, :length => { :minimum => 10 } 
   validates_presence_of :author
   validates_presence_of :tags
 

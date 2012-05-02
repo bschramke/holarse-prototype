@@ -15,6 +15,18 @@ describe News do
     should validate_presence_of(:title)    
   end
   
+  it "should have a unique title" do
+    should validate_uniqueness_of(:title)    
+  end  
+  
+  it "should have at least 10 characters of content" do
+    should validate_length_of(:content).with_minimum(10)
+  end
+  
+  it "should have at least 3 characters of title" do
+    should validate_length_of(:title).with_minimum(3)
+  end  
+  
   it "should have links" do
     should embed_many(:links)
   end    
