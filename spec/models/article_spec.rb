@@ -39,6 +39,10 @@ describe Article do
     should embed_many(:links)
   end    
   
+  it "should have comments" do
+    should embed_many(:comments)
+  end
+  
   it "should have screenshots" do
     should embed_many(:screenshots)
   end

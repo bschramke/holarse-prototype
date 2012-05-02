@@ -10,6 +10,10 @@ describe Newsupdate do
     should embed_many(:videos)
   end
   
+  it "should be embedded into news" do
+    should be_embedded_in(:news)
+  end
+  
   it "should be timestamped" do
     should be_timestamped_document    
   end   

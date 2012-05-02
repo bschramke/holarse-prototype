@@ -31,6 +31,10 @@ describe News do
     should embed_many(:links)
   end    
   
+  it "should have comments" do
+    should embed_many(:comments)
+  end  
+  
   it "should have content" do
     should validate_presence_of(:content)        
   end

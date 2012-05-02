@@ -21,6 +21,7 @@ class Article
   embeds_many :attachments  
   embeds_many :videos    
   embeds_many :links
+  embeds_many :comments
 
   embeds_one :crossover
   embeds_one :wine

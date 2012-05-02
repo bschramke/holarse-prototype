@@ -14,6 +14,7 @@ class News
   embeds_many :videos  
   embeds_many :newsupdates
   embeds_many :links  
+  embeds_many :comments
   
   validates_presence_of :title  
   validates_uniqueness_of :title
