@@ -25,4 +25,10 @@ class Forumthread
   validates_length_of :title, :minimum => 3
   validates_length_of :content, :minimum => 10
   
+  index(
+    [
+      [ :title, Mongo::ASCENDING ],
+      [ :forum, Mongo::ASCENDING ]
+    ])
+  
 end

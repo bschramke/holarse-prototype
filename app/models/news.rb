@@ -24,4 +24,7 @@ class News
   validates :content, :length => { :minimum => 10 }
   
   belongs_to :author, :class_name => "User", :inverse_of => :news
+  
+  index :title
+  index :tags
 end

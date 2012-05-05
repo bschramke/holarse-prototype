@@ -34,6 +34,10 @@ class User
   
   has_many :articles, :inverse_of => :author
   has_many :news, :inverse_of => :author  
+  embeds_many :karmas, :inverse_of => :author
+  
+  index :username, :unqiue => true  
+  index :email, :unqiue => true    
   
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
