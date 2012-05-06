@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe WelcomeController do
 
-  describe "home page" do
-    it "welcomes first visit users" do
-      visit '/'
-      page.should have_content("Willkommen, Linux-Spieler")
+  describe "GET 'index'" do
+    it "returns http success" do
+      get 'index'
+      response.should be_success
     end
   end
 
