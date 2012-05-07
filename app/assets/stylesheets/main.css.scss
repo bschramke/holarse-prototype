@@ -1,0 +1,49 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #f9f9f9;
+  font-family: verdana, sans-serif;
+  line-height: 1.5em;
+  letter-spacing: 0;
+  height: auto; 
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+ul{margin:0;padding:0;}
+li{list-style-type:none;padding:10px;}
+
+a:link { }
+    
+a:visited { }
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+#nav {
+	float: left;
+        width: 250px;
+        background: rgba(141, 52, 53, 0.9);
+	margin-bottom: 5px;
+        border-radius: 7px 0px 0px 7px;
+        border: 1px solid #000;
+}
+
+#content {
+	margin: 0px 20px 50px 250px;
+        background-color: #fbf8f9;
+        padding: 10px 20px 90px 20px;
+        border-radius: 0px 7px 7px 0px;
+        background-image: image-url("tux.png");
+        background-repeat: no-repeat;
+        background-position: bottom right; 
+        border: 1px solid #000;
+}

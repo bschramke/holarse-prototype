@@ -1,0 +1,8 @@
+/ Warnmeldungen
+.flash
+  .warning
+    = flash[:warning] if flash.present?
+  .error
+    = flash[:error] if flash.present?
+  .notice
+    = flash[:notice] if flash.present?

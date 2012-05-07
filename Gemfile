@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'activerecord-jdbcmysql-adapter'
+gem 'mysql2'
 
 gem 'json'
 

@@ -1,0 +1,35 @@
+ #header {
+	height: 120px;
+        background: rgba(34, 35, 51, 0.85);
+	margin-bottom: 15px;
+
+        padding: 5px;
+
+        border: 1px solid #000;
+
+        #logo {
+          position: absolute;
+          top: 25px;
+          width: 120px;
+        }
+
+        #title {
+          position: absolute;
+          top: 25px;
+          left: 150px;
+        }
+
+        #motto {
+          font-size: 37px;
+          font-family: verdana, sans-serif;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: #666;
+          position: absolute;
+          top: 57px;
+          right: 30px;
+          span.red {
+            color: #8d3435;
+          }
+        }
+}
