@@ -30,14 +30,13 @@ a:hover {
 
 #container {
   width: 100%;
-}
+  box-shadow: 12px 38px 52px 1px #000;
+}    
 
 #content {
         margin-left: 300px;
-	/*margin: 0px 20px 50px 250px;*/
         background-color: #eee;
         padding: 10px 20px 90px 20px;
-        border-radius: 0px 0px 7px 0px;
         background-image: image-url("tux.png");
         background-repeat: no-repeat;
         background-position: bottom right; 

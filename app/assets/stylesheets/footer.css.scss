@@ -1,7 +1,12 @@
 #footer {
-	clear: both;
-        width: 99%;
-        font-size: 0.6em;
-        text-align: center;
-        color: #555;
+    width: 100%;
+    background-color: rgba(141, 52, 53, 0.9);
+    height: 25px;
+    font-size: 0.6em;
+    text-align: center;
+    color: #222;
+    border-radius: 0px 0px 7px 7px;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
 }

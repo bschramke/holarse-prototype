@@ -10,18 +10,19 @@
     = csrf_meta_tags
     = favicon_link_tag "favicon.png"
   %body
-    #container
+    #main
+      #flash
+        = render "flash"
       %header#header
         = render "header"
       %nav#search
         = render "search"
       %nav#primarynav
         = render "primary_navigation"
-      %nav#secondarynav
-        = render "secondary_navigation"
-      #flash
-        = render "flash"
-      %section#content
-        = yield
+      #container
+        %nav#secondarynav
+          = render "secondary_navigation"
+        %section#content
+          = yield
       %footer#footer
         = render "footer"
