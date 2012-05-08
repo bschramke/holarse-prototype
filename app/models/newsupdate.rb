@@ -1,9 +1,12 @@
 class Newsupdate
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::FullTextSearch  
 
   field :author
   field :content
+  
+  fulltext_search_in :content, :index_name => 'nodes'  
   
   embedded_in :news
   

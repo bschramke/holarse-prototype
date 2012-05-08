@@ -1,6 +1,7 @@
 class News
   include Mongoid::Document  
   include Mongoid::Timestamps
+  include Mongoid::FullTextSearch
 
   field :title
   field :subtitle  
@@ -9,6 +10,9 @@ class News
   field :disabled, :type => Boolean, :default => false
   field :frozen, :type => Boolean, :default => false
 
+  fulltext_search_in :title, :subtitle, :content, :index_name => 'nodes',
+                   :filters => { :is_not_disabled => lambda { |x| !x.disabled }}
+  
   embeds_many :screenshots  
   embeds_many :attachments  
   embeds_many :videos  

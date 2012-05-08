@@ -11,6 +11,7 @@ gem 'mongoid'
 gem 'bson_ext'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'mongoid_slug'
+gem 'mongoid_fulltext'
 
 # JRuby-specific
 gem 'jruby-openssl'

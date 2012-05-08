@@ -1,6 +1,7 @@
 class Article
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::FullTextSearch
 
   field :title
   field :content
@@ -14,6 +15,10 @@ class Article
   field :nouploads, :type => Boolean, :default => false
   field :redirection
   field :historical, :type => Boolean, :default => false
+  
+  fulltext_search_in :title, :content, :index_name => 'nodes',
+                  :filters => { :is_not_disabled => lambda { |x| !x.disabled },
+                                :is_not_historical => lambda { |x| !x.historical }}
   
   belongs_to :author, :class_name => "User", :inverse_of => :articles
   embeds_many :onlineshops
@@ -39,6 +44,8 @@ class Article
   
   index :title, :unqiue => true
   index :tags
+  index :alternatives
+  index "comments.created_at"
   
   def keep_frozen_article
     errors.add(:title, "is not allowed to change") if (frozen_changed? && author.present? && !author.roles.include?("admin"))
