@@ -17,8 +17,8 @@
 }
 
 #primarynav {
-  width: 100%;
-  background-color: #252525;
+
+  background-color: #656565;
   height: 25px;
   color: #8d3435;
   font-weight: bold;
@@ -29,6 +29,8 @@
     padding: 0px;
     padding-left: 50px;
   }
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
 }
 
 #secondarynav {
@@ -37,4 +39,8 @@
         background: rgba(141, 52, 53, 0.9);
         border-top: 1px solid #000;
         border-left: 1px solid #000;
+        position:relative;
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
+        overflow:hidden;
 }
