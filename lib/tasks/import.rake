@@ -11,22 +11,6 @@ namespace :import do
 		mysql = Mysql2::Client.new(:host => "localhost", :username => "root", :password => "", :database => "holarse")
 
 		#
-		# Rollen auslesen
-		#
-		Role.delete_all
-		p "Rollen übertragen"
-		role_query = "select name from role  inner join users_roles using (rid) group by rid"
-		Role.delete_all
-		mysql.query(role_query).each do |role|
-			r = Role.new(:name => role['name'])
-			r.save!
-		end
-
-		# Standardrolle hinzufügen
-		rdef = Role.new(:name => "Registrierter Benutzer")
-		rdef.save!
-
-		#
 		# Benutzer auslesen
 		#
 		user_query = "select uid, name, pass, mail, picture, from_unixtime(created) as created, from_unixtime(login) as login, (select group_concat(name) from users_roles inner join role on role.rid = users_roles.rid where users_roles.uid = users.uid) as roles, (select signature from users_signature where users_signature.uid = users.uid) as signature from users where name != '' and status = 1;";

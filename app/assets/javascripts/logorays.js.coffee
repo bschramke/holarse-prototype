@@ -1,5 +1,5 @@
 jQuery ->
-  $("body").pow
+  $("header").pow
     rays: 32,
     bgColorStart: "#252525"
     rayColorStart: "#8d3435",
