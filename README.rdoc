@@ -2,18 +2,7 @@
 * Ruby-Version: JRuby 1.6.7 als Ruby 1.9
 * MongoDB     : 2.0
 
-== Abhängigkeiten
-Keine außer denen aus dem Gemfile. Die Daten sind als Fixtures via Factory_girl definiert.
-
-== JRuby-Konfiguration
-JRuby sollte als Ruby 1.9 laufen. Konfigurationsdatei ~/.jrubyrc anlegen und dort
-den Eintrag
-
-+compat.version=1.9+
-
-eintragen.
-
-== MongoDB-Konfiguration
-+mkdir /tmp/holarse+
-+mongod --dbpath /tmp/holarse+
+[Abhängigkeiten] Keine außer denen aus dem Gemfile. Die Daten sind als Fixtures via Factory_girl definiert.
+[JRuby-Konfiguration] JRuby sollte als Ruby 1.9 laufen. Konfigurationsdatei ~/.jrubyrc anlegen und dort den Eintrag 'compat.version=1.9' eintragen.
+[MongoDB-Konfiguration] Keine besondere Konfiguration nötig. Nur starten mit 'mongod --dbpath /tmp/holarse'
 
