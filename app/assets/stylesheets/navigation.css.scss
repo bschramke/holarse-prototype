@@ -1,11 +1,17 @@
 
 #search {
-  float: right;
+  //float: right;
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  width:100%;
   padding-right: 15px;
   input {
     height: 15px;
+    width: 35%;
     border-radius: 7px;
     padding-left: 5px;
+    margin-right: 5px;
   }
 
   button {
@@ -17,20 +23,27 @@
 }
 
 #primarynav {
-
-  background-color: #656565;
-  height: 25px;
+  position:absolute;
+  top: 95px;
+  right: 20px;
+  width: 20%;
+  height: 28px;
   color: #8d3435;
   font-weight: bold;
   ul { 
+
   }
   li {
-    display: inline-block; 
     padding: 0px;
-    padding-left: 50px;
+    margin: 0px;
+    display: inline-block; 
+    height: 28px;
+    width: 28px;
+    background-color: #222222;
+    text-align: center;
+    border: 1px solid #000;
+
   }
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
 }
 
 #secondarynav {
