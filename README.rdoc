@@ -6,7 +6,7 @@
 Keine außer denen aus dem Gemfile. Die Daten sind als Fixtures via Factory_girl definiert.
 
 == JRuby-Konfiguration
-JRuby sollte als Ruyb 1.9 laufen. Konfigurationsdatei ~/.jrubyrc anlegen und dort
+JRuby sollte als Ruby 1.9 laufen. Konfigurationsdatei ~/.jrubyrc anlegen und dort
 den Eintrag
 
 +compat.version=1.9+
