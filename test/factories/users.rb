@@ -15,7 +15,7 @@ FactoryGirl.define do
     city Forgery(:name).location
     computer Forgery(:lorem_ipsum).words(3)
     distro "OpenSUSE"
-    minecraft true
+    minecraft_active true
     minecraft_username Forgery(:internet).user_name
     desura Forgery(:internet).user_name
     avatar File.new(Rails.root + 'test/fixtures/images/rails.png')

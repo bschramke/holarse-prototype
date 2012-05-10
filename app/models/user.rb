@@ -3,6 +3,7 @@ class User
   include ActiveModel::SecurePassword
   include Mongoid::Timestamps
   include Mongoid::Paperclip
+  include Mongoid::Slug
   
   has_secure_password
 
@@ -17,11 +18,12 @@ class User
   
   field :signature
   field :jabber
+  field :icq
   
   field :city
   field :computer
   field :distro
-  field :minecraft, :type => Boolean
+  field :minecraft_active, :type => Boolean
   field :minecraft_username
   field :desura
   
@@ -29,6 +31,8 @@ class User
   field :roles, :type => Array, :default => []
   
   field :last_activity, :type => DateTime, :default => Time.now
+  
+  slug :username, :history => true
   
   has_mongoid_attached_file :avatar
   
@@ -41,15 +45,14 @@ class User
   
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
-  validates_length_of :username, :within => 3..20
-  validates_length_of :signature, :within => 0..140
+  validates_length_of :username, :within => 2..30
+  validates_length_of :signature, :within => 0..1024
   validates_length_of :city, :within => 0..30
   validates_length_of :computer, :within => 0..30
-  validates_length_of :distro, :within => 0..30
   validates_length_of :minecraft_username, :within => 0..30
   validates_length_of :desura, :within => 0..30
   
-  validates_presence_of :minecraft_username, :if => Proc.new { |u| u.minecraft }
+  #validates_presence_of :minecraft_username, :if => Proc.new { |u| u.minecraft_active }
   
   def authenticate_legacy(old_password)
     active && Digest::MD5.hexdigest(old_password) == old_password_hash

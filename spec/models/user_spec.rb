@@ -66,8 +66,8 @@ describe User do
     user.do_authenticate("test123").should be_false
   end
   
-  it "should not have a signature larger than 140 characters" do
-    user = build(:user, :signature => Forgery(:lorem_ipsum).characters(145))
+  it "should not have a signature larger than 1024 characters" do
+    user = build(:user, :signature => Forgery(:lorem_ipsum).characters(1025))
     user.save.should be_false
   end
   
@@ -75,11 +75,6 @@ describe User do
     user = build(:user, :computer => Forgery(:lorem_ipsum).characters(145))
     user.save.should be_false    
   end
-  
-  it "should not allow distro descriptions larger than 30 characters" do
-    user = build(:user, :distro => Forgery(:lorem_ipsum).characters(35))
-    user.save.should be_false        
-  end  
   
   it "should not allow minecraft usernames larger than 30 characters" do
     user = build(:user, :minecraft_username => Forgery(:lorem_ipsum).characters(35))
@@ -102,7 +97,7 @@ describe User do
   end    
   
   it "should require a minecraft username when minecraft is active" do
-    user = build(:user, :minecraft => true, :minecraft_username => nil)
+    user = build(:user, :minecraft_active => true, :minecraft_username => nil)
     user.save.should be_false
   end
   

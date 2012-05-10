@@ -1,4 +1,6 @@
 Holarse::Application.routes.draw do
+  get "service/minecraft"
+
   get "media/video"
 
   get "welcome/index"

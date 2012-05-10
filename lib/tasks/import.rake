@@ -8,7 +8,7 @@ namespace :import do
 		puts "Importiere alles"
 
 		p "Verbinde zur alten MySQL-Datenbank"
-		mysql = Mysql2::Client.new(:host => "localhost", :username => "root", :password => "", :database => "holarse")
+		mysql = Mysql2::Client.new(:host => "localhost", :username => "holarse", :password => "holarse", :database => "holarse")
 
 		#
 		# Benutzer auslesen
@@ -37,8 +37,7 @@ namespace :import do
 
 			u.roles = []
 			mysql.query(user_role_query + " uid = '#{row['uid']}'").each do |rowr|
-				r = Role.where(:name => rowr['name']).first
-				u.roles << r
+				u.roles << rowr['name']
 			end
 
 			mysql.query(user_personal_query + " and uid = #{row['uid']}").each do |rowp|

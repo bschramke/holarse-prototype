@@ -2,6 +2,7 @@ class Article
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::FullTextSearch
+  include Mongoid::Slug
 
   field :title
   field :content
@@ -15,6 +16,8 @@ class Article
   field :nouploads, :type => Boolean, :default => false
   field :redirection
   field :historical, :type => Boolean, :default => false
+  
+  slug :title, :history => true
   
   fulltext_search_in :title, :content, :index_name => 'nodes',
                   :filters => { :is_not_disabled => lambda { |x| !x.disabled },
