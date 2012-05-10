@@ -1,4 +1,6 @@
 Holarse::Application.routes.draw do
+  get "media/video"
+
   get "welcome/index"
 
   root :to => "welcome#index"
