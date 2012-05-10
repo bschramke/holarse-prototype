@@ -9,7 +9,8 @@ function showVideos(start) {
 			var id = item.media$group.yt$videoid.$t;
 			var name = item.title.$t
 			var img_url = item.media$group.media$thumbnail[1].url;
-		        var desc = item.media$group.media$description.$t.replace(/\n/g, "<br />");
+		        var desc = item.media$group.media$description.$t.split('--')[0].replace(/\n/g, "<br />");
+			
 			$(PARENT_ELEMENT).append("<div id='video'><div id='video_name'>" + name + "</div><div id='video_img'><img src='" + img_url + "' /></div><div id='video_desc'>" + desc + "</div></div>");
 		});
 	});
