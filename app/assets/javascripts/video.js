@@ -12,7 +12,7 @@ function showVideos(start) {
 		        var desc = item.media$group.media$description.$t.split('--')[0].replace(/\n/g, "<br />");
 			var link = item.link[0].href;
 			
-			$(PARENT_ELEMENT).append("<div id='video'><div id='video_name'><a href='"+ link +"'>" + name + "</a></div><div id='video_img'><a href='"+ link +"'><img src='" + img_url + "' /></a></div><div id='video_desc'>" + desc + "</div></div>");
+			$(PARENT_ELEMENT).append("<div class='video'><div class='video_name'><a href='"+ link +"'>" + name + "</a></div><div class='video_img'><a href='"+ link +"'><img src='" + img_url + "' /></a></div><div class='video_desc'>" + desc + "</div></div>");
 		});
 	});
 }

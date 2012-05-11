@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#video {
+.video {
 	text-align: center;
 	display: table;
 	padding: 5px;
@@ -12,19 +12,19 @@
 	//border: 1px solid #000;
 }
 
-#video_name {
+.video_name {
 	font-weight: bold;
 	a {
 		color: rgba(141, 52, 53, 0.9); 
 	}
 }
 
-#video_img {
+.video_img {
 	float: left;
 	padding: 15px;
 }
 
-#video_desc {
+.video_desc {
 	text-align: left;
 	padding: 15px;
 	font-size: 10px;
