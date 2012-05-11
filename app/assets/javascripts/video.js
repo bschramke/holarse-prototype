@@ -10,8 +10,9 @@ function showVideos(start) {
 			var name = item.title.$t
 			var img_url = item.media$group.media$thumbnail[1].url;
 		        var desc = item.media$group.media$description.$t.split('--')[0].replace(/\n/g, "<br />");
+			var link = item.link[0].href;
 			
-			$(PARENT_ELEMENT).append("<div id='video'><div id='video_name'>" + name + "</div><div id='video_img'><img src='" + img_url + "' /></div><div id='video_desc'>" + desc + "</div></div>");
+			$(PARENT_ELEMENT).append("<div id='video'><div id='video_name'><a href='"+ link +"'>" + name + "</a></div><div id='video_img'><a href='"+ link +"'><img src='" + img_url + "' /></a></div><div id='video_desc'>" + desc + "</div></div>");
 		});
 	});
 }
