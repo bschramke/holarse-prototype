@@ -15,10 +15,13 @@
         = render "flash"
       %header#header
         = render "header"
-      %nav#search
-        = render "search"
       %nav#primarynav
-        = render "primary_navigation"
+        %nav#profile
+          = render "profile"
+        %nav#search
+          = render "search"
+        %nav#primarylinks
+          = render "primary_navigation"
       #container
         %nav#secondarynav
           = render "secondary_navigation"
