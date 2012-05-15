@@ -3,7 +3,7 @@ class Video
   include Mongoid::Timestamps
 
   field :description  
-  field :data
+  field :url
 
   embedded_in :article
   embedded_in :news

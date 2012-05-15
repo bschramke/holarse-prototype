@@ -13,7 +13,7 @@ class Forumthread
   
   fulltext_search_in :title, :content, :index_name => 'nodes',
                     :filters => {  :is_not_deleted => lambda { |x| !x.deleted }}    
-  
+    
   belongs_to :author, :class_name => "User", :inverse_of => :forumthreads  
   
   embeds_many :screenshots

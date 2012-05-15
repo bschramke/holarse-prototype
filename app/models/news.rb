@@ -27,8 +27,8 @@ class News
   validates_uniqueness_of :title
   validates :title, :length => { :minimum => 3 }  
   validates_presence_of :content
-  validates_presence_of :author  
-  validates :content, :length => { :minimum => 10 }
+  #validates_presence_of :author  
+  #validates :content, :length => { :minimum => 10 }
   
   belongs_to :author, :class_name => "User", :inverse_of => :news
   

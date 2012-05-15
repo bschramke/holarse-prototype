@@ -20,7 +20,7 @@ class Comment
   embeds_many :videos    
   embeds_many :links  
   
-  validates_presence_of :author
-  validates :content, :length => { :minimum => 10 }
+  #validates_presence_of :author
+  #validates :content, :length => { :minimum => 10 }
   
 end

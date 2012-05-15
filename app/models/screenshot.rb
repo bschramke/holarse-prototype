@@ -4,6 +4,7 @@ class Screenshot
   include Mongoid::Paperclip  
 
   field :description  
+  field :position, :type => Integer, :default => 0
   
   has_mongoid_attached_file :img
 
