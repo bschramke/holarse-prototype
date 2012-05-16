@@ -1,4 +1,9 @@
 Holarse::Application.routes.draw do
+  match "login" => "sessions#new"
+  match "logout" => "sessions#destroy"
+  
+  resource :session
+
   get "service/minecraft"
 
   get "media/video"

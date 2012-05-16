@@ -11,7 +11,7 @@ class User
   
   field :username
   field :email
-  field :active, :type => Boolean
+  field :active, :type => Boolean, :default => true
   
   field :old_password_hash
   field :password_digest
