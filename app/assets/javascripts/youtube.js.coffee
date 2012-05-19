@@ -1,4 +1,5 @@
 $ ->
+  return if $("#youtube-videos").length == 0
   $.getJSON "http://gdata.youtube.com/feeds/api/users/holarse/uploads?max-results=15&start-index=1&v=2&alt=json&callback=?", (data) ->
     videos_data = []
     $.each data.feed.entry, (i, item) ->
