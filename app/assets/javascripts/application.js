@@ -12,4 +12,9 @@
 //
 //= require jquery_ujs
 //= require "pow"
+//= require "jquery.fancybox.pack"
+//= require "jquery.fancybox-media"
+//= require "jquery.fancybox-buttons"
+//= require "jquery.fancybox-thumbs"
+//= require "jquery.mousewheel-3.0.6.pack"
 //= require_tree .

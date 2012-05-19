@@ -7,9 +7,18 @@ $ ->
         id: item.media$group.yt$videoid.$t
         name: item.title.$t
         img_url: item.media$group.media$thumbnail[1].url
-        desc: item.media$group.media$description.$t.split('--')[0].replace(/\n/g, "<br />")
+        desc: item.media$group.media$description.$t
         link: item.link[0].href
 
       videos_data.push video_data
 		
     $("#youtube-tmpl").tmpl(videos_data).appendTo("#youtube-videos")  
+    
+  $(".fancybox-media").fancybox({
+    openEffect  : 'none'
+    closeEffect : 'none'
+		helpers : {
+			media : {}
+		}
+  })
+    
