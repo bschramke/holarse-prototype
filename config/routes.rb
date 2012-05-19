@@ -1,13 +1,13 @@
 Holarse::Application.routes.draw do
+
+  resources :users
+
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
-  
   resource :session
 
   get "service/minecraft"
-
   get "media/video"
-
   get "welcome/index"
 
   root :to => "welcome#index"
