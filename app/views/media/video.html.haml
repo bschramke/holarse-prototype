@@ -1,2 +1,13 @@
-%script{:type => "text/javascript", :charset => "utf-8"}
-  showVideos()
+/ JQuery-Template
+%script{:id => "youtube-tmpl", :type => "text/x-jquery-tmpl"}
+  .video
+    .video_name
+      %a{:href=> "${link}"}
+        ${name}
+    .video_img
+      %a{:href=> "${link}"}
+        %img{:src => "${img_url}"}
+    .video_desc
+      ${desc}
+
+#youtube-videos
