@@ -1,4 +1,7 @@
 / JQuery-Template
+#youtube-loadingtext
+  Dein Internet ist broken!
+
 %script{:id => "youtube-tmpl", :type => "text/x-jquery-tmpl"}
   .video
     .video_name
@@ -7,7 +10,9 @@
     .video_img
       %a{:href=> "${link}", :class => "fancybox-media"}
         %img{:src => "${img_url}"}
-    .video_desc
-      ${desc}
+    .video_desc ${desc}
 
 #youtube-videos
+#youtube-next-btn
+
+

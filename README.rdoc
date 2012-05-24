@@ -6,3 +6,5 @@
 [JRuby-Konfiguration] JRuby sollte als Ruby 1.9 laufen. Konfigurationsdatei ~/.jrubyrc anlegen und dort den Eintrag 'compat.version=1.9' eintragen.
 [MongoDB-Konfiguration] Keine besondere Konfiguration nötig. Nur starten mit 'mongod --dbpath /tmp/holarse'
 
+== Weitere Requirements
+Installation und Benutzung von Lolcommit (https://github.com/mroth/lolcommits) erforderlich!
