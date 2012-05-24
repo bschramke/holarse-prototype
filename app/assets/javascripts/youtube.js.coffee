@@ -11,9 +11,10 @@ $ ->
         link: item.link[0].href
 
       videos_data.push video_data
-		
     $("#youtube-tmpl").tmpl(videos_data).appendTo("#youtube-videos")  
-    
+  .success ->
+    $('#youtube-loadingtext').hide()
+
   $(".fancybox-media").fancybox({
     openEffect  : 'none'
     closeEffect : 'none'
@@ -21,4 +22,3 @@ $ ->
 			media : {}
 		}
   })
-    
