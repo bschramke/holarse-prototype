@@ -10,6 +10,7 @@ Holarse::Application.routes.draw do
   match "youtube" => "media#youtube"
   get "welcome/index"
   match "twitter" => redirect("https://twitter.com/#!/holarse")
+  match "youtube_channel" => redirect("https://www.youtube.com/user/holarse")
 
   root :to => "welcome#index"
   
