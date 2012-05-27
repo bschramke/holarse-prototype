@@ -7,8 +7,9 @@ Holarse::Application.routes.draw do
   resource :session
 
   get "service/minecraft"
-  get "media/video"
+  match "youtube" => "media#youtube"
   get "welcome/index"
+  match "twitter" => redirect("https://twitter.com/#!/holarse")
 
   root :to => "welcome#index"
   
