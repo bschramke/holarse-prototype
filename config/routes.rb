@@ -1,10 +1,13 @@
 Holarse::Application.routes.draw do
 
+  get "search" => "search#show"
+
   resources :users
 
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
   resource :session
+  resources :news
 
   get "service/minecraft"
   match "youtube" => "media#youtube"

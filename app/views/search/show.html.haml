@@ -1,0 +1,6 @@
+%h1
+  #{@news.count} Suchergebnisse zu '#{params[:q]}'
+  
+%ul
+  = render :partial => "news/listelement", :collection => @news
+

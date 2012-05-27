@@ -1,0 +1,4 @@
+%li
+  = listelement.created_at
+  = link_to listelement.title, listelement
+  = t('.comments', :count => listelement.comments.count)

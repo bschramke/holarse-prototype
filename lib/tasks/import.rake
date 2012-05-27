@@ -4,8 +4,8 @@ require "mysql2"
 
 namespace :importdrupal do
   
-	p "Verbinde zur alten MySQL-Datenbank"
-	mysql = Mysql2::Client.new(:host => "localhost", :username => "reto", :password => "", :database => "test")
+	puts "Verbinde zur alten MySQL-Datenbank"
+	mysql = Mysql2::Client.new(:host => "localhost", :username => "holarse", :password => "holarse", :database => "holarse")
  
 	desc "import data from drupal"
 	task :users => :environment do	

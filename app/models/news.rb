@@ -34,4 +34,9 @@ class News
   
   index :title
   index :tags
+  
+  def self.search(q)
+    News.fulltext_search(q, { :max_results => 30 })
+  end
+  
 end

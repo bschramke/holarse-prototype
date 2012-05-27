@@ -1,0 +1,7 @@
+de:
+  news:
+    listelement:
+      comments:
+        one: "Ein Kommentar"
+        other: "%{count} Kommentare"
+
