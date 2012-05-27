@@ -1,4 +1,4 @@
 class MediaController < ApplicationController
-  def video
+  def youtube
   end
 end
