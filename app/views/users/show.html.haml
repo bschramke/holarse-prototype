@@ -2,19 +2,36 @@
   = image_tag @user.avatar
   = @user.username
 
+%h2
+  = t('.created_at', :date => @user.created_at)
+
 %ul
   %li
-    Distro: 
+    = t('.distro') 
     = @user.distro
   %li
-    ICQ:
+    = t('.computer')
+    = @user.computer
+  %li
+    = t('.graphics')
+    = @user.graphics
+  %li
+    = t('.icq')
     = @user.icq
   %li
-    Jabber/XMPP:
+    = t('.jabber')
     = @user.jabber
   %li
-    Ort: 
+    = t('.city')
     = link_to_osm @user.city
   %li
-    Minecraft:
+    = t('.minecraft')
     = @user.minecraft_username
+    = @user.minecraft_whitelisted ? "ja" : "nein"
+    
+%h2
+  = t('.favourite_games')
+%ul
+  - @user.favourite_games.each do |game|
+    %li
+      = game

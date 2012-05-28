@@ -46,9 +46,14 @@ namespace :importdrupal do
         when 'Holarse Services'
           case rowp['title']
           when 'Minecraft'
-            u.minecraft_active = true
+            u.minecraft_whitelisted = true
           when 'Minecraft-Benutzername'
             u.minecraft_username = rowp['value']
+          end
+        when 'Linuxspiele'
+          case rowp['title']
+          when 'Lieblingsspiele'
+            u.favourite_games = rowp['value'].split("\r\n")
           end
         when 'Kontakt'
           case rowp['title']
@@ -68,6 +73,8 @@ namespace :importdrupal do
           case rowp['title']
           when 'Betriebssystem'
             u.distro = rowp['value']
+          when 'Grafikkarte'
+            u.graphics = rowp['value']
           end
         end
       end

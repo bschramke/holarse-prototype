@@ -2,6 +2,22 @@
   = @news.title
 %h2
   = @news.subtitle
-
+%h3
+  = link_to @news.author.username, @news.author if @news.author
+     
 %p
   = @news.content
+  
+%h4
+  = t('.videos')
+%ul
+  - @news.videos.each do |video|
+    %li
+      = link_to "click me", video.url, { :class => 'fancybox-media' }
+
+%h4
+  = t('.links')
+%ul
+  - @news.links.each do |link|
+    %li
+      = link_to link.description, link.url  

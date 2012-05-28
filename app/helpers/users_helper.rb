@@ -4,7 +4,11 @@ module UsersHelper
   # Links to the given city
   #
   def link_to_osm(city)
-    link_to city, osm_path(:city => city), {:class => "osm"}
+    if city.present?
+      link_to city, osm_path(:city => city), {:class => "osm"}
+    else
+      city
+    end
   end
   
 

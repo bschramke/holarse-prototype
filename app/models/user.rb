@@ -22,8 +22,9 @@ class User
   
   field :city
   field :computer
+  field :graphics
   field :distro
-  field :minecraft_active, :type => Boolean
+  field :minecraft_whitelisted, :type => Boolean
   field :minecraft_username
   field :desura
   
