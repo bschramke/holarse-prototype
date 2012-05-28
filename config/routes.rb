@@ -12,9 +12,9 @@ Holarse::Application.routes.draw do
   get "service/minecraft"
   match "youtube" => "media#youtube"
   get "welcome/index"
-  match "twitter" => redirect("https://twitter.com/#!/holarse")
-  match "youtube_channel" => redirect("https://www.youtube.com/user/holarse")
-
+  match "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), :as => :twitter
+  match "/redirect/youtube_channel" => redirect("https://www.youtube.com/user/holarse"), :as => :youtube_channel
+  match '/redirect/osm/:city' => redirect("http://nominatim.openstreetmap.org/search.php?q=%{city}"), :as => :osm
   root :to => "welcome#index"
   
   # The priority is based upon order of creation:

@@ -1,1 +1,20 @@
-%h1= @user.username
+%h1
+  = image_tag @user.avatar
+  = @user.username
+
+%ul
+  %li
+    Distro: 
+    = @user.distro
+  %li
+    ICQ:
+    = @user.icq
+  %li
+    Jabber/XMPP:
+    = @user.jabber
+  %li
+    Ort: 
+    = link_to_osm @user.city
+  %li
+    Minecraft:
+    = @user.minecraft_username
