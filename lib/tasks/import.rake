@@ -153,7 +153,16 @@ namespace :importdrupal do
       n.links = []
       mysql.query(homepage_query + " #{row['vid']}").each do |rowweb|
         text = rowweb['field_homepage_value']
-        link = Link.new(:url => text)
+        case text
+         when /(http:\S+)\s+(\w+)/; # [http://url beschreibung]
+          elements = text.scan(/(http:\S+)\s+(\w+)/)
+          link = Link.new(:url => elements[0], :description => elements[1])
+         when /(http:\S+)/;
+          elements = text.scan(/(http:\S+)/)
+          link = Link.new(:url => elements[0])
+         else
+          link = Link.new(:url => text)
+        end
 
         n.links << link
       end
