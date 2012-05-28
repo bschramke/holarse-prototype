@@ -15,7 +15,7 @@ namespace :importdrupal do
     #
     user_query = "select uid, name, pass, mail, picture, from_unixtime(created) as created, from_unixtime(login) as login, (select group_concat(name) from users_roles inner join role on role.rid = users_roles.rid where users_roles.uid = users.uid) as roles, (select signature from users_signature where users_signature.uid = users.uid) as signature from users where name != '' and status = 1 order by name;";
     
-    user_personal_query = "select * from field_view where fid != 3";
+    user_personal_query = "select * from field_view ";
     
     create_fields_view = "create or replace view field_view as select category, title, value, profile_values.fid as fid, profile_values.uid as uid from profile_values inner join profile_fields on profile_values.fid = profile_fields.fid;";
     mysql.query(create_fields_view);
@@ -33,7 +33,7 @@ namespace :importdrupal do
       u.password = (0...8).map{65.+(rand(25)).chr}.join # generate a random password
       u.avatar = File.open(row['picture']) unless row['picture'].nil? || row['picture'].empty?
       u.created_at = row['created']
-      u.signature = row['signature']
+      u.signature = row['signature'] unless row['signature'].nil?
       u.email = row['mail']
       
       u.roles = []
@@ -41,8 +41,8 @@ namespace :importdrupal do
         u.roles << rowr['name']
       end
       
-      mysql.query(user_personal_query + " and uid = #{row['uid']}").each do |rowp|
-        case rowp['category']
+      mysql.query(user_personal_query + " where uid = #{row['uid']}").each do |rowp|
+        case rowp['category'].force_encoding("utf-8")
         when 'Holarse Services'
           case rowp['title']
           when 'Minecraft'
@@ -68,6 +68,8 @@ namespace :importdrupal do
             u.job = rowp['value']
           when 'Stadt'
             u.city = rowp['value']
+          when 'Geburtstag'
+            u.birthday = Date.parse(rowp['value'].scan(/"(\d+)"/).join("-")) unless rowp['value'].empty?
           end
         when 'Rechnerkonfiguration'
           case rowp['title']

@@ -3,8 +3,15 @@
   = @user.username
 
 %h2
+  = t('.signature')
+%p
+  = @user.signature    
+
+%h2
   = t('.created_at', :date => @user.created_at)
 
+%h2
+  = t('.technical')
 %ul
   %li
     = t('.distro') 
@@ -15,6 +22,10 @@
   %li
     = t('.graphics')
     = @user.graphics
+  
+%h2
+  = t('.personal')
+%ul  
   %li
     = t('.icq')
     = @user.icq
@@ -24,6 +35,15 @@
   %li
     = t('.city')
     = link_to_osm @user.city
+  %li
+    = t('.job')
+    = @user.job
+  %li
+    = t('.birthday')
+    = @user.birthday
+%h2
+  = t('.holarse_services')    
+%ul  
   %li
     = t('.minecraft')
     = @user.minecraft_username
@@ -35,3 +55,5 @@
   - @user.favourite_games.each do |game|
     %li
       = game
+      
+

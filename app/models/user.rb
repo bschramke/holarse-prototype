@@ -21,6 +21,8 @@ class User
   field :icq
   
   field :city
+  field :job
+  field :birthday, :type => DateTime
   field :computer
   field :graphics
   field :distro
