@@ -38,7 +38,7 @@ class User
   
   slug :username, :history => true
   
-  has_mongoid_attached_file :avatar
+  has_mongoid_attached_file :avatar, :default_url => '/assets/missingavatar.png'
   
   has_many :articles, :inverse_of => :author
   has_many :news, :inverse_of => :author  
