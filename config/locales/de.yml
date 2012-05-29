@@ -18,6 +18,9 @@ de:
       services: "Holarse Services"
       hardware: "Hardware und Treiber"
       links: "Links"
+    footer:
+      copyright: "&copy 2000 - %{date}"
+      icons: "Icons von GNOME G-Flat SVG"
   search:
     show:
       search_time: "Die Suche dauerte %{time} ms."
