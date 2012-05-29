@@ -14,15 +14,19 @@ body {
 
 a {
   text-decoration: none;
-  color: #eeeeee;
+  color: #000;
 }
 
 ul{margin:0;padding:0;}
 li{list-style-type:none;padding:10px;}
 
-a:link { }
+a:link { 
+  text-decoration: none;
+}
     
-a:visited { }
+a:visited { 
+  text-decoration: none;
+}
 
 a:hover {
   text-decoration: underline;
@@ -43,10 +47,5 @@ a:hover {
         background-position: bottom right; 
         border-left: 1px solid #000;
         border-right: 1px solid #000;
-        text-align: justify;
-        
-        a {
-          text-decoration: underline;
-          color: #000;
-        }        
+        text-align: justify;      
 }

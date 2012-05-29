@@ -1,17 +1,25 @@
 %ul.content
   %li
-    = image_tag "mail-inbox.svg", :size => "28x28"
+    = link_to image_tag("gnome-home.svg", :alt => t('.home'), :size => "28x28"), root_path
   %li
-    = image_tag "evolution-calendar.svg", :size => "28x28"
+    = link_to image_tag("pan.svg", :alt => t('.news'), :size => "28x28"), news_index_path
   %li
-    = image_tag "applications-chat-panel.svg", :size => "28x28"
+    = image_tag "mail.svg", :alt => t('.contact'), :size => "28x28"
   %li
-    = image_tag "applications-games.svg", :size => "28x28", :alt => 'holarse services'
+    = link_to image_tag("MPlayer.svg", :alt => t('.videos'), :size => "28x28"), youtube_path
   %li
-    = image_tag "evolution.svg", :size => "28x28", :alt => 'contact'
+    = image_tag "streamtuner.svg", :alt => t('.podcast'), :size => "28x28"
   %li
-    = link_to image_tag("twitter.svg", :size => "28x28", :alt => 'holarse zwitschern'), twitter_path
+    = image_tag "gnome-joystick.svg", :alt => t('.games'), :size => "28x28"
   %li
-    = link_to image_tag("video-x-generic.svg", :size => "28x28", :alt => 'holarse videos'), youtube_path
+    = image_tag "wine.svg", :alt => t('.wine'), :size => "28x28"
+  %li
+    = image_tag "linuxconf.svg", :alt => t('.hardware'), :size => "28x28"            
+  %li
+    = image_tag "isp.svg", :alt => t('.services'), :size => "28x28"
+  %li
+    = image_tag "web-browser.svg", :alt => t('.links'), :size => "28x28"    
+  %li
+    = link_to image_tag("im.svg", :size => "28x28", :alt => 'holarse zwitschern'), twitter_path
 
   

@@ -1,0 +1,12 @@
+%li.news
+  .title
+    = link_to news.title, news  
+  .author
+    = t('.author')
+    = link_to news.author.username, news.author if news.author
+  .created_at
+    = t('.created_at', :date => l(news.created_at))
+  .comments
+    = t('.comments', :count => news.comments.count)        
+  .content
+    = news.content

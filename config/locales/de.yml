@@ -1,6 +1,32 @@
 de:
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%m"
+  application:
+    profile:
+      login: "Anmelden"
+      logout: "%{username} abmelden"
+      register: "Registrieren"
+    primarylinks:
+      home: "Startseite"
+      news: "Neuigkeiten"
+      contact: "Kontakt"
+      videos: "Videos"
+      games: "Linuxspiele"
+      wine: "Windowsspiele"
+      podcast: "P3Cast - Linuxspiele-Podcast"
+      services: "Holarse Services"
+      hardware: "Hardware und Treiber"
+      links: "Links"
+  search:
+    show:
+      search_time: "Die Suche dauerte %{time} ms."
   news:
-    listelement:
+    index:
+      title: "Die Linuxspiele-News"
+    news:
+      author: "geschrieben von"
+      created_at: "am %{date}"
       comments:
         one: "Ein Kommentar"
         other: "%{count} Kommentare"

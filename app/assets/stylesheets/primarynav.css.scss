@@ -9,25 +9,22 @@
 
 #profile {
     display: inline-block;
-    font-weight: bold;
-    position: absolute;
-    left: 50px;
-    ul.profile { 
-      padding-left: 30px;
+    ul.profile {
       li {
-        color: #959595;
         font-size: 0.75em;
-        font-weight: bold;
         text-transform: uppercase;
-        margin: 0px;
-        display: inline-block; 
+        display: inline-block;
         height: 28px;
-        text-align: center;
+        vertical-align: middle;
+        a {
+          color: #bbb;         
+        }
+        a.register {
+          color: #8d3435;
+        }
       }
     }
-    float: left;
 }
-
 #search {
   display: inline-block;
   padding-left: 25px;

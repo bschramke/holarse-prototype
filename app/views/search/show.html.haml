@@ -2,5 +2,7 @@
   #{@news.count} Suchergebnisse zu '#{params[:q]}'
   
 %ul
-  = render :partial => "news/listelement", :collection => @news
+  = render @news
 
+.search_time
+  = t('.search_time', :time => Time.now - @search_start)

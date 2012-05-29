@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   def index
+    @news = News.desc(:created_at).limit(25)
   end
 
   def new
