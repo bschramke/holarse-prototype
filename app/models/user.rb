@@ -12,6 +12,7 @@ class User
   field :username
   field :email
   field :active, :type => Boolean, :default => true
+  field :twitteruser
   
   field :old_password_hash
   field :password_digest
@@ -37,7 +38,7 @@ class User
   
   slug :username, :history => true
   
-  has_mongoid_attached_file :avatar
+  has_mongoid_attached_file :avatar, :default_url => '/assets/missingavatar.png'
   
   has_many :articles, :inverse_of => :author
   has_many :news, :inverse_of => :author  
@@ -54,6 +55,7 @@ class User
   validates_length_of :computer, :within => 0..30
   validates_length_of :minecraft_username, :within => 0..30
   validates_length_of :desura, :within => 0..30
+  validates :twitteruser, :format => { :with => /(@\w+)/, :message => "Valid Twitter-Account required" }
   
   #validates_presence_of :minecraft_username, :if => Proc.new { |u| u.minecraft_active }
   
