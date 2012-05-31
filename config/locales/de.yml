@@ -1,4 +1,7 @@
 de:
+  layouts:
+    application:
+      title: "Holarse - Spielen unter Linux"
   time:
     formats:
       default: "%d.%m.%Y %H:%m"
@@ -21,6 +24,8 @@ de:
     footer:
       copyright: "&copy 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
+  session:
+    login_ok: "Erfolgreich eingeloggt"
   search:
     show:
       search_time: "Die Suche dauerte %{time} ms."

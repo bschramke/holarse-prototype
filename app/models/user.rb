@@ -12,7 +12,7 @@ class User
   field :username
   field :email
   field :active, :type => Boolean, :default => true
-  field :twitteruser
+  field :twitter
   
   field :old_password_hash
   field :password_digest
@@ -37,6 +37,8 @@ class User
   field :last_login, :type => DateTime
   field :last_activity, :type => DateTime
   
+  field :failed_logins, :type => Integer, :default => 0
+  
   slug :username, :history => true
   
   has_mongoid_attached_file :avatar, :default_url => '/assets/nobody.svg'
@@ -55,28 +57,19 @@ class User
   validates_length_of :computer, :within => 0..30
   validates_length_of :minecraft_username, :within => 0..30
   validates_length_of :desura, :within => 0..30
-  validates :twitteruser, :format => { :with => /(@\w+)/, :message => "Valid Twitter-Account required" }
+  validates :failed_logins, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 3 }  
   
   #validates_presence_of :minecraft_username, :if => Proc.new { |u| u.minecraft_active }
   
   def authenticate_legacy(old_password)
-    active && Digest::MD5.hexdigest(old_password) == old_password_hash
-  end
-  
-  def do_authenticate(password)
-    active && authenticate(password)
+    Digest::MD5.hexdigest(old_password) == old_password_hash
   end
   
   def migrate_password(old_password)
     if old_password_hash.empty?
       fail("No legacy password given to migrate")
     end
-    self.old_password_hash = nil
     self.password = old_password
-  end
-  
-  def touch
-    self.last_activity = DateTime.now
   end
   
 end

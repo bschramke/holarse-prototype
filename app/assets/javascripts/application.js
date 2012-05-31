@@ -17,4 +17,5 @@
 //= require "jquery.fancybox-buttons"
 //= require "jquery.fancybox-thumbs"
 //= require "jquery.mousewheel-3.0.6.pack"
+//= require "jquery.noty"
 //= require_tree .

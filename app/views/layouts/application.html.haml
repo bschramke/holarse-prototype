@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title=Holarse
+    %title=t('.title')
     %meta{:charset => "utf-8"}
     %meta{:name => "description", :content => ""}
     %meta{:name => "viewport", :content => "width=device-width"}
@@ -16,8 +16,14 @@
     = favicon_link_tag "favicon.png"
   %body
     #main
-      #flash
-        = render "flash"
+      .flash
+        / Benachrichtigungen
+        .notice
+          = flash[:notice] if flash && flash[:notice]
+        .warning
+          = flash[:warning] if flash && flash[:warning]
+        .error
+          = flash[:error] if flash && flash[:error]
       %header#header
         = render "header"
       %nav#primarynav
