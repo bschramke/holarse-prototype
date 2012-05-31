@@ -34,7 +34,8 @@ class User
   field :favourite_games, :type => Array
   field :roles, :type => Array, :default => []
   
-  field :last_activity, :type => DateTime, :default => Time.now
+  field :last_login, :type => DateTime
+  field :last_activity, :type => DateTime
   
   slug :username, :history => true
   
@@ -42,7 +43,6 @@ class User
   
   has_many :articles, :inverse_of => :author
   has_many :news, :inverse_of => :author  
-  embeds_many :karmas, :inverse_of => :author
   
   index :username, :unqiue => true  
   index :email, :unqiue => true    

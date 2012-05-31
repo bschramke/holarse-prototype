@@ -8,6 +8,7 @@ class Comment
   field :deleted, :type => Boolean, :default => false
   field :released, :type => Boolean, :default => false
   
+  
   fulltext_search_in :content, :index_name => 'nodes',
                     :filters => {  :is_not_deleted => lambda { |x| !x.deleted },
                                    :is_released => lambda { |x| x.released }}
@@ -19,7 +20,8 @@ class Comment
   embeds_many :attachments  
   embeds_many :videos    
   embeds_many :links  
-  
+  embeds_many :karmas
+    
   #validates_presence_of :author
   #validates :content, :length => { :minimum => 10 }
   
