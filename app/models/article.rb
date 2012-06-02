@@ -16,7 +16,8 @@ class Article
   field :nouploads, :type => Boolean, :default => false
   field :redirection
   field :historical, :type => Boolean, :default => false
-  
+  field :changelog
+    
   slug :title, :history => true
   
   fulltext_search_in :title, :content, :index_name => 'nodes',
@@ -41,6 +42,7 @@ class Article
   validates :content, :length => { :minimum => 10 } 
   validates_presence_of :author
   validates_presence_of :tags
+#  validates_presence_of :changelog  
 
   validate :keep_frozen_article
   validate :keep_disabled_article

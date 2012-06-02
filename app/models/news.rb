@@ -11,6 +11,8 @@ class News
   field :disabled, :type => Boolean, :default => false
   field :frozen, :type => Boolean, :default => false
 
+  field :changelog
+
   slug :title, :history => true  
   
   fulltext_search_in :title, :subtitle, :content, :index_name => 'nodes',
@@ -27,6 +29,7 @@ class News
   validates_uniqueness_of :title
   validates :title, :length => { :minimum => 3 }  
   validates_presence_of :content
+#  validates_presence_of :changelog
   #validates_presence_of :author  
   #validates :content, :length => { :minimum => 10 }
   
