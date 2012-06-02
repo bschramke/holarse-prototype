@@ -26,7 +26,6 @@ class News
   embeds_many :comments
   
   validates_presence_of :title  
-  validates_uniqueness_of :title
   validates :title, :length => { :minimum => 3 }  
   validates_presence_of :content
 #  validates_presence_of :changelog
