@@ -7,6 +7,8 @@ Holarse::Application.routes.draw do
   resources :users
   resources :news
   
+  resource :twitter
+  
   # login und sessionverwaltung
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
@@ -20,7 +22,7 @@ Holarse::Application.routes.draw do
   match "youtube" => "media#youtube"
 
   # redirects
-  match "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), :as => :twitter
+  match "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), :as => :holarse_twitter
   match "/redirect/youtube_channel" => redirect("https://www.youtube.com/user/holarse"), :as => :youtube_channel
   match '/redirect/osm/:city' => redirect("http://nominatim.openstreetmap.org/search.php?q=%{city}"), :as => :osm
   

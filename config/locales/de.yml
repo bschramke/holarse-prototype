@@ -21,6 +21,7 @@ de:
       services: "Holarse Services"
       hardware: "Hardware und Treiber"
       links: "Links"      
+      twitter: "Twitterwall"
     footer:
       copyright: "&copy 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
@@ -29,6 +30,9 @@ de:
   search:
     show:
       search_time: "Die Suche dauerte %{time} ms."
+  twitters:
+    show:
+      title: "Linuxgaming Twitter-Wall"
   news:
     index:
       title: "Die Linuxspiele-News"
