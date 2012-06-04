@@ -10,7 +10,7 @@ de:
       login: "Anmelden"
       logout: "%{username} abmelden"
       register: "Registrieren"
-    primarylinks:
+    secondary_navigation:
       home: "Startseite"
       news: "Neuigkeiten"
       contact: "Kontakt"
@@ -20,7 +20,7 @@ de:
       podcast: "P3Cast - Linuxspiele-Podcast"
       services: "Holarse Services"
       hardware: "Hardware und Treiber"
-      links: "Links"
+      links: "Links"      
     footer:
       copyright: "&copy 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"

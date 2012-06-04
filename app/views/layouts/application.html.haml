@@ -10,7 +10,7 @@
     = javascript_include_tag "http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"
     = javascript_include_tag "http://imakewebthings.com/jquery-waypoints/waypoints.min.js"
     = javascript_include_tag "application"
-    = stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/dark-hive/jquery-ui.css", :media => "all"
+    = stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/black-tie/jquery-ui.css", :media => "all"
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     = favicon_link_tag "favicon.png"
@@ -27,9 +27,8 @@
       %header#header
         = render "header"
       %nav#primarynav
-        %nav#profile= render "profile"
-        %nav#search= render "search"
-        %nav#primarylinks= render "primarylinks"
+        = render "profile"
+        = render "search"
       #container
         %nav#secondarynav
           = render "secondary_navigation"
