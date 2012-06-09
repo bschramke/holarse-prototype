@@ -24,15 +24,15 @@
           = flash[:warning] if flash && flash[:warning]
         .error
           = flash[:error] if flash && flash[:error]
+      %nav#primarynav
+        = render "primarynav"          
+      %nav#secondarynav
+        = render "secondarynav"              
+      %nav#contextnav
+        = render "contextnav"
       %header#header
         = render "header"
-      %nav#primarynav
-        = render "profile"
-        = render "search"
-      #container
-        %nav#secondarynav
-          = render "secondary_navigation"
-        %section#content
-          = yield
+      %section#content
+        = yield
       %footer#footer
         = render "footer"

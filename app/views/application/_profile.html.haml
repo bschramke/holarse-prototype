@@ -1,9 +1,10 @@
-#profile
-  %ul.profile
-    - if current_user
-      %li= link_to image_tag(current_user.avatar, :size => "20x20"), current_user, :class => 'button'
-      %li= link_to t('.logout', :username => current_user.username), logout_path, :class => 'button'
-    - else
-      %li= link_to t('.login'), login_path, :id => "login-btn"
-      %li= link_to t('.register'), new_user_path, :id => "new-user-btn"
+- if current_user
+  %li= link_to image_tag(current_user.avatar, :size => "20x20"), current_user, :class => 'button'
+  %li= link_to t('.logout', :username => current_user.username), logout_path, :class => 'button'
+- else
+  %li= link_to t('.login'), login_path
+  %li= link_to t('.register'), new_user_path
+  %li= link_to t('.forgotten_password'), ''
+  %li= link_to t('.token_login'), ''
+
 

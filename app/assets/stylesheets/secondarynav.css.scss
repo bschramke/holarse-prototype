@@ -1,13 +1,29 @@
-nav#secondarynav {
-	float: left;
-  background-color: #934343;
-  width: 300px;
-  border-right: 1px solid #000;
-  position:relative;
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
-  overflow:hidden;
-  size: 0.75em;
+#secondarynav {
+  position: absolute;
+  //top: 140px;
+  top: 33px;
+  left: 0px;
+  height: 35px;
+  z-index: 1;
+  width: 350px;
+
+  display: inline-block;
+    
+  li {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+
+    a {
+	    padding: 8px 10px;
+	    text-decoration: none;
+	    font-weight: bold;
+    	color: #8d3435;
+    }
+    
+    a:hover {
+    	color: #fff;   
+    }
+  }  
+  
 }
-
-
