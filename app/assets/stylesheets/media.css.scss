@@ -2,33 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.video {
-	text-align: center;
-	display: table;
-	padding: 5px;
-	background: #ddd;
-	margin: 5px;
-	width: 100%;
-	//border: 1px solid #000;
+#youtube-videos {
+  list-style: none;
+
+  li {  
+    .video_img {
+      float: left;
+      padding-right: 30px;
+    }
+    
+    .video_name {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    
+    .video_desc {
+    }
+
+    padding: 20px;  
+    clear: both;    
+  }
 }
 
-.video_name {
-	font-weight: bold;
-	a {
-		color: rgba(141, 52, 53, 0.9); 
-	}
-}
 
-.video_img {
-	float: left;
-	padding: 15px;
-}
-
-.video_desc {
-	text-align: left;
-	padding: 15px;
-	font-size: 10px;
-	max-height: 200px;
-	overflow: auto;
-	white-space: pre-wrap;
-}

@@ -1,18 +1,19 @@
-/ JQuery-Template
 #youtube-loadingtext
-  Dein Internet ist broken!
+  = t('.loadingtext')
 
+/ JQuery-Template
 %script{:id => "youtube-tmpl", :type => "text/x-jquery-tmpl"}
-  .video
+  %li
+    .video_img
+      %a{:href=> "${link}", :class => "fancybox-media"}
+        %img{:src => "${img_url}"}  
     .video_name
       %a{:href=> "${link}"}
         ${name}
-    .video_img
-      %a{:href=> "${link}", :class => "fancybox-media"}
-        %img{:src => "${img_url}"}
     .video_desc ${desc}
 
-#youtube-videos
+%ul#youtube-videos
+  
 #youtube-next-btn
 
 
