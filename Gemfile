@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
-#gem 'mysql2'
 
 gem 'json'
 
@@ -12,6 +11,7 @@ gem 'bson_ext'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'mongoid_slug'
 gem 'mongoid_fulltext'
+gem 'jdbc-mysql'
 
 # JRuby-specific
 gem 'jruby-openssl'
