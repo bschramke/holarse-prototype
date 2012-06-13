@@ -141,7 +141,7 @@ namespace :import do
       puts "Übertrage #{n.created_at} #{n.title}"      
       n.updated_at = convert_to_isodate(rs.getTimestamp("updated_at"))
       n.content = rs.getObject("body")
-      n.author = User.find_by_slug(rs.getObject("username"))
+      n.author = User.where(:username => rs.getObject("username")).first
       
       # Comments
       n.comments = []
