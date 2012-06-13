@@ -196,7 +196,7 @@ namespace :import do
       stmt_videos.setObject(1, rs.getObject("vid"))
       rs_videos = stmt_videos.execute_query
       while (rs_videos.next) do
-        m = Video.new(:url => rs.getObject("video"), :description => '')
+        m = Video.new(:url => rs_videos.getObject("video"), :description => '')
 
         n.videos << m
       end
