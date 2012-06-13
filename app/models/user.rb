@@ -53,7 +53,7 @@ class User
   validates_uniqueness_of :username, :email
   validates_length_of :username, :within => 2..30
   validates_length_of :signature, :within => 0..1024
-  validates_length_of :city, :within => 0..30
+  validates_length_of :city, :within => 0..100
   validates_length_of :computer, :within => 0..30
   validates_length_of :minecraft_username, :within => 0..30
   validates_length_of :desura, :within => 0..30

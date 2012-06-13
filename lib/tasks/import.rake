@@ -24,14 +24,6 @@ namespace :import do
 	  # Die bisherigen Bilder löschen
 	  #
 	  FileUtils.remove_dir "#{Rails.root}/public/system/users", true
-	  
-	  #
-	  # Bessere Sicht auf die Felder erzeugen
-	  #
-    create_fields_view = "create or replace view field_view as select category, title, value, profile_values.fid as fid, profile_values.uid as uid from profile_values inner join profile_fields on profile_values.fid = profile_fields.fid;";
-    stmt = connection.create_statement
-    stmt.execute_update create_fields_view
-    stmt.close    
     
     #
     # Benutzer auslesen
@@ -49,11 +41,11 @@ namespace :import do
       uid = rs.getObject("uid")
       u = User.new
       u.username = rs.getObject("name").force_encoding("utf-8")
+      puts "Übertrage #{u.username}"            
       u.old_password_hash = rs.getObject("pass")
       u.password = (0...8).map{65.+(rand(25)).chr}.join # generate a random password
       u.avatar = File.open(rs.getObject("picture")) unless rs.getObject("picture").nil? || rs.getObject("picture").empty?
       u.created_at = convert_to_isodate(rs.getTimestamp("created"))
-      puts "Übertrage #{rs.getObject('name')} vom #{u.created_at} aus #{rs.getTimestamp('created')}"      
       u.last_login = convert_to_isodate(rs.getTimestamp("login"))
       u.signature = rs.getObject("signature") unless rs.getObject("signature").nil?
       u.email = rs.getObject("mail")
@@ -66,6 +58,7 @@ namespace :import do
         u.roles << rs_roles.getObject("name")
       end
       stmt_roles.close
+      rs_roles.close
       
       stmt_personal = connection.prepare_statement user_personal_query
       stmt_personal.setObject(1, uid)
