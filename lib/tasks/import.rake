@@ -3,6 +3,13 @@ require 'rubygems'
 require 'jdbc/mysql'
 require 'java'
 
+#
+# converts a unix timestamp to mongodb isodate
+#
+def convert_to_isodate(timestamp)
+  (timestamp.getTime() / 1000).to_i
+end
+
 namespace :import do
   
   puts "Verbinde zur alten MySQL-Datenbank..."
@@ -16,7 +23,7 @@ namespace :import do
 	  #
 	  # Die bisherigen Bilder löschen
 	  #
-	  FileUtils.remove_dir "#{Rails.root}/public/system/users"
+	  FileUtils.remove_dir "#{Rails.root}/public/system/users", true
 	  
 	  #
 	  # Bessere Sicht auf die Felder erzeugen
@@ -40,14 +47,14 @@ namespace :import do
     rs = stmt.execute_query user_query
     while (rs.next) do
       uid = rs.getObject("uid")
-      puts "Übertrage #{rs.getObject("name")}"
       u = User.new
       u.username = rs.getObject("name").force_encoding("utf-8")
       u.old_password_hash = rs.getObject("pass")
       u.password = (0...8).map{65.+(rand(25)).chr}.join # generate a random password
       u.avatar = File.open(rs.getObject("picture")) unless rs.getObject("picture").nil? || rs.getObject("picture").empty?
-      u.created_at = rs.getTimestamp("created").getTime()
-      u.last_login = rs.getTimestamp("login").getTime()
+      u.created_at = convert_to_isodate(rs.getTimestamp("created"))
+      puts "Übertrage #{rs.getObject('name')} vom #{u.created_at} aus #{rs.getTimestamp('created')}"      
+      u.last_login = convert_to_isodate(rs.getTimestamp("login"))
       u.signature = rs.getObject("signature") unless rs.getObject("signature").nil?
       u.email = rs.getObject("mail")
       
@@ -114,7 +121,7 @@ namespace :import do
 	  #
 	  # Die bisherigen Bilder löschen
 	  #
-	  FileUtils.remove_dir "#{Rails.root}/public/system/news"
+	  FileUtils.remove_dir "#{Rails.root}/public/system/news", true
 	    
     #
     # News auslesen
@@ -137,10 +144,9 @@ namespace :import do
     while (rs.next) do
       n = News.new
       n.title = rs.getObject("title").force_encoding("utf-8")
-      # TODO timestamp wird seltsam umgewandelt
-      n.created_at = rs.getTimestamp("created_at").getTime()
+      n.created_at = convert_to_isodate(rs.getTimestamp("created_at"))
       puts "Übertrage #{n.created_at} #{n.title}"      
-      n.updated_at = rs.getTimestamp("updated_at").getTime()
+      n.updated_at = convert_to_isodate(rs.getTimestamp("updated_at"))
       n.content = rs.getObject("body")
       n.author = User.find_by_slug(rs.getObject("username"))
       
@@ -152,7 +158,7 @@ namespace :import do
       while (rs_comments.next) do
         c = Comment.new
         c.content = rs_comments.getObject("content")
-        c.created_at = rs_comments.getTimestamp("created_at").getTime()
+        c.created_at = convert_to_isodate(rs.getTimestamp("created_at"))
         c.author = rs_comments.getObject("username")
         c.released = true
         
@@ -210,7 +216,7 @@ namespace :import do
       stmt_links.setObject(1, rs.getObject("vid"))
       rs_links = stmt_links.execute_query
       while (rs_links.next) do
-        text = rs.getObject("field_homepage_value")
+        text = rs_links.getObject("field_homepage_value")
         case text
          when /(http:\S+)\s+(\w+)/; # [http://url beschreibung]
           elements = text.scan(/(http:\S+)\s+(\w+)/)
