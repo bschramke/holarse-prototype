@@ -126,7 +126,7 @@ namespace :import do
 
     images_query = "select delta as position, filepath from content_field_screenshots inner join files on content_field_screenshots.field_screenshots_fid = files.fid where filepath is not null and vid = ?"
     files_query = "select filepath from content_field_attachments inner join files on content_field_attachments.field_attachments_fid = files.fid where vid = ?"
-    videos_query = "select field_video_embed as video from content_field_video where field_video_embed is not null and vid = ?"
+    videos_query = "select field_video_embed as video from content_field_video where vid = ?"
 
     voting_query = "select value, users.name as username from votingapi_vote inner join users using (uid) where uid > 0 and content_id =";
     homepage_query = "select * from content_field_homepage where field_homepage_value is not null and vid = ?";
