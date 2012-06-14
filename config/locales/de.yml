@@ -10,16 +10,21 @@ de:
       login: "Anmelden"
       logout: "%{username} abmelden"
       register: "Registrieren"
-    secondary_navigation:
+      forgotten_password: "Passwort vergessen?"
+      token_login: "Einmal-Login"
+    primarynav:
+      holarse_services: "Holarse Services"
+      contact: "Kontakt"
+      about: "Über Holarse"
+    secondarynav:
       home: "Startseite"
       news: "Neuigkeiten"
-      contact: "Kontakt"
       videos: "Videos"
       games: "Linuxspiele"
       wine: "Windowsspiele"
-      podcast: "P3Cast - Linuxspiele-Podcast"
+      podcast: "P3Cast"
       services: "Holarse Services"
-      hardware: "Hardware und Treiber"
+      hardware: "Hardware"
       links: "Links"      
       twitter: "Twitterwall"
     footer:
