@@ -1,12 +1,25 @@
-#logo
+.title
   = link_to root_path do
-    = image_tag "tux.png"
-    
-#title
-  = link_to root_path do
-    = image_tag "title-holarse-short.svg"
+    .logo
+      = image_tag "tux.png"
+    .pagename
+      HOL 
+      %span.red.a
+        a
+      RSE -
+    .motto
+      Spielen unter
+      %span.red
+        Linux
+      
+%nav.primary
+  %ul
+    %li.item.search.left    
+      = render "search"
+    %li.item.login
+      = link_to t('.login'), login_path
+    %li.item.register
+      = link_to t('.register'), session_path
+    %li.item.about
+      = t('.about')
 
-#motto
-  Spielen unter
-  %span.red
-    Linux

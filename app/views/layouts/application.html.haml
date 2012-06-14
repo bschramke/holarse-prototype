@@ -15,24 +15,17 @@
     = csrf_meta_tags
     = favicon_link_tag "favicon.png"
   %body
-    #main
-      .flash
-        / Benachrichtigungen
-        .notice
-          = flash[:notice] if flash && flash[:notice]
-        .warning
-          = flash[:warning] if flash && flash[:warning]
-        .error
-          = flash[:error] if flash && flash[:error]
-      %nav#primarynav
-        = render "primarynav"          
-      %nav#secondarynav
-        = render "secondarynav"              
-      %nav#contextnav
-        = render "contextnav"
-      %header#header
-        = render "header"
-      %section#content
-        = yield
-      %footer#footer
-        = render "footer"
+    .flash
+      / Benachrichtigungen
+      .notice
+        = flash[:notice] if flash && flash[:notice]
+      .warning
+        = flash[:warning] if flash && flash[:warning]
+      .error
+        = flash[:error] if flash && flash[:error]
+    %header.main
+      = render "header"
+    %section.content
+      = yield
+    %footer.main
+      = render "footer"

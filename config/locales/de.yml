@@ -6,27 +6,11 @@ de:
     formats:
       default: "%d.%m.%Y %H:%m"
   application:
-    profile:
+    header:
+      about: "Über Holarse"
       login: "Anmelden"
       logout: "%{username} abmelden"
       register: "Registrieren"
-      forgotten_password: "Passwort vergessen?"
-      token_login: "Einmal-Login"
-    primarynav:
-      holarse_services: "Holarse Services"
-      contact: "Kontakt"
-      about: "Über Holarse"
-    secondarynav:
-      home: "Startseite"
-      news: "Neuigkeiten"
-      videos: "Videos"
-      games: "Linuxspiele"
-      wine: "Windowsspiele"
-      podcast: "P3Cast"
-      services: "Holarse Services"
-      hardware: "Hardware"
-      links: "Links"      
-      twitter: "Twitterwall"
     footer:
       copyright: "&copy 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"

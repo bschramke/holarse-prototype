@@ -1,22 +1,129 @@
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: sans-serif;
-  font-size: 0.75em;
-  font-weight: normal;
-  color: #000;
-  line-height: 1.75em;
+html {
+    font-family: sans-serif;
+    font-size: 0.8em;
+    background-color: #E9E9E9;    
 }
 
-#container {
-  width: 100%;
+body {
+  margin: 0;
+  position: relative; 
 }
 
 a {
+  color: #000;
   text-decoration: none;
-  color: #8d3435;
+}
+
+a:visited {
 }
 
 a:hover {
   text-decoration: underline;
 }
+
+header.main {
+  background-color: #fff;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #CDCDCD;
+  background-color: #FFFFFF;
+  background-image: -moz-linear-gradient(center top , #FFFFFF, #F8F8F8);  
+  z-index: 100;
+  
+  .title {
+    display: inline-block;
+    float: left;   
+    line-height: 40px;       
+        
+    .logo {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    a:hover {
+      text-decoration: none;    
+    }
+    
+    font-size: 2.5em;
+    font-weight: bold;
+    
+    .pagename {
+      display: inline-block;    
+      color: #333;
+      font-size: 1.25em;
+            
+      span.red.a {
+        text-transform: lowercase;
+        color: #8d3435;
+        font-size: 1.4em;
+        font-family: "URW Gothic L";
+        font-weight: normal;
+      }
+    }
+    
+    .motto {
+      font-size: 1.25em;    
+      display: inline-block;      
+      opacity: 0.5;
+      text-transform: uppercase;
+      span.red {
+        color: #8d3435;
+      }
+    }
+  }
+
+  nav.primary {
+    display: inline-block;  
+    float: right;  
+    
+    li.item {
+      display: inline-block;    
+
+      padding-left: 10px;
+      padding-right: 10px;
+      border-left: 1px solid #E8E8E8;
+      line-height: 20px;
+    }
+    
+    .search {
+      input {
+          background-color: #CCC;
+          border: 0 none;
+          border-radius: 3px 3px 3px 3px;
+          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+          color: #333333;
+          height: 25px;
+      }
+    }
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+section.content {
+  width: 75%;
+  padding-left: 2%;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+footer.main {
+  width: 25%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.7em;
+  border-top: 1px solid #ccc;
+  
+  li {
+    display: inline-block;
+    padding: 15px;
+  }
+  
+}
+
+
