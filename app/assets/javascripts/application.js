@@ -11,6 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+//= require jquery
+//= require jquery-ui
+//= require waypoints.min
 //= require "jquery.fancybox.pack"
 //= require "jquery.fancybox-media"
 //= require "jquery.fancybox-buttons"
