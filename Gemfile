@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.8'
 
 gem 'json'
 
 # Database backend
 #
 gem 'mongoid'
-gem 'bson_ext'
+gem 'bson', :platform => :jruby
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'mongoid_slug'
 gem 'mongoid_fulltext'
