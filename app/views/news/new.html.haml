@@ -1,2 +1,19 @@
-%h1 News#new
-%p Find me in app/views/news/new.html.haml
+= form_for @news do |f|
+  %p
+    = f.label :title, "Titel"
+    = f.text_field :title
+  %p
+    = f.label :subtitle, "Untertitel"
+    = f.text_field :subtitle
+  %p
+    = f.label :content
+    = f.text_field :content
+  %p
+    = f.label :tags, "Tags durch Kommas getrennt"
+    = f.text_field :tags
+  %p
+    = f.label :screenshots
+    = f.file_field :screenshots
+  %p
+    = f.submit "Speichern"
+

@@ -8,26 +8,27 @@ class NewsController < ApplicationController
   end
 
   def create
+    params[:news][:tags] = params[:news][:tags].split(',')
     @news = News.new(params[:news])
- 
+
     respond_to do |format|
       if @news.save
         format.html  { redirect_to(@news, :notice => 'News wurde erstellt.') }
       else
         format.html  { render :action => "new" }
       end
-    end    
+    end
   end
 
   def update
     @old_news = News.find(params[:id])
     @news = @old_news.clone
-        
+
     @old_news.historical = true
     @old_news.save
-    
+
     @news.author = current_user
-    
+
     respond_to do |format|
     if @news.update_attributes(params[:news])
       format.html  { redirect_to(@news, :notice => 'News wurde aktualisiert.') }

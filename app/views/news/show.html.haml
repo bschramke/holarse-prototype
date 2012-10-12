@@ -4,10 +4,13 @@
   = @news.subtitle
 %h3
   = link_to @news.author.username, @news.author if @news.author
-     
+
 %p
   = @news.content
-  
+
+%p
+  = @news.tags.join(', ')
+
 %h4
   = t('.videos')
 %ul
@@ -20,4 +23,4 @@
 %ul
   - @news.links.each do |link|
     %li
-      = link_to link.description, link.url  
+      = link_to link.description, link.url
