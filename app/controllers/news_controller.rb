@@ -5,6 +5,7 @@ class NewsController < ApplicationController
 
   def new
       @news = News.new
+      @news.videos.build
   end
 
   def create

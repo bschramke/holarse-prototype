@@ -5,8 +5,8 @@ class Video
   field :description  
   field :url
 
-  embedded_in :article
-  embedded_in :news
+  embedded_in :article, :inverse_of => :videos
+  embedded_in :news, :inverse_of => :videos
   embedded_in :newsupdate
   
 end

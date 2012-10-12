@@ -20,10 +20,13 @@ class News
   
   embeds_many :screenshots  
   embeds_many :attachments  
-  embeds_many :videos  
+  embeds_many :videos
   embeds_many :newsupdates
-  embeds_many :links  
+  embeds_many :links
   embeds_many :comments
+
+  accepts_nested_attributes_for :videos
+
   
   validates_presence_of :title  
   validates :title, :length => { :minimum => 3 }  

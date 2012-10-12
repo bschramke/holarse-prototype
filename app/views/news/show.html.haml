@@ -16,7 +16,9 @@
 %ul
   - @news.videos.each do |video|
     %li
-      = link_to_youtube video
+      = video[:description]
+      %br/
+      = render partial: "youtube", locals: {url: video[:url].gsub!("watch?v=","embed/")}
 
 %h4
   = t('.links')

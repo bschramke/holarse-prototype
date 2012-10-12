@@ -18,5 +18,11 @@
     = f.label :screenshots
     = f.file_field :screenshots
   %p
+    = f.fields_for(:videos) do |v|
+      = v.label :url, "Videourl"
+      = v.text_field :url
+      = v.label :description, "Videobeschreibung"
+      = v.text_field :description
+  %p
     = f.submit "Speichern"
 
