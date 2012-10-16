@@ -11,6 +11,12 @@ de:
       login: "Anmelden"
       logout: "Abmelden"
       register: "Registrieren"
+      games: "Spiele"
+      hardware: "Hardware"
+      community: "Community"
+      news: "News"
+      videos: "Videos"
+      twitter: "Twitter"
     footer:
       copyright: "&copy 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"

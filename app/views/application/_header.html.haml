@@ -1,19 +1,33 @@
-.title
-  = link_to root_path do
-    = image_tag "holarse_logo.png"
-      
 %nav.primary
   %ul
-    %li.item.search.left    
-      = render "search"
-    %li.item.login
+    %li.item.logo
+      = link_to root_path do
+        = image_tag "holarse_logo.png", :class => "logo"
+    %li.item      
+      = t('.games')
+    %li.item      
+      = t('.hardware')
+    %li.item      
+      = t('.community')
+    %li.item
+      = link_to t('.news'), news_index_path     
+    %li.item
       - if current_user.present?
-        = link_to(current_user.username, current_user)
-        = link_to(t('.logout'), logout_path)
+        %li.item
+          = link_to(current_user.username, current_user)
+        %li.item
+          = link_to(t('.logout'), logout_path)
       - else
-        = link_to(t('.login'), login_path)
-    %li.item.register
-      = link_to t('.register'), new_user_path
-    %li.item.about
+        %li.item
+          = link_to(t('.login'), login_path)
+        %li.item
+          = link_to t('.register'), new_user_path
+    %li.item
+      = link_to t('.videos'), youtube_path
+    %li.item
+      = link_to t('.twitter'), twitter_path                        
+    %li.item
       = t('.about')
+    %li.item
+      = render "search"
 
