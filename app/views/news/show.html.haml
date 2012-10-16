@@ -18,7 +18,7 @@
     %li
       = video[:description]
       %br/
-      = render partial: "youtube", locals: {url: video[:url].gsub!("watch?v=","embed/")}
+      != embed_youtube video
 
 %h4
   = t('.links')
