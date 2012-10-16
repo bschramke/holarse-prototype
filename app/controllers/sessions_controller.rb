@@ -48,9 +48,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       
       # erfolgreiches login vermerken
-      user.last_login = Time.now
-      user.failed_logins = 0      
-      user.save
+      user.update_attributes(failed_logins: 0, last_login: Time.now)
 
       Rails.logger.debug("Login ok")      
       # zurück zur hauptseite
@@ -62,7 +60,6 @@ class SessionsController < ApplicationController
     
     # fehlgeschlagene versuche hochzählen
     user.inc(:failed_logins, 1)
-    user.save   
      
     # zurück zur hauptseite
     flash[:error] = "Login fehlgeschlagen."
@@ -94,9 +91,7 @@ class SessionsController < ApplicationController
     if user && user.active && user.old_password_hash && user.authenticate_legacy(params[:password])
 
       # wandle das alte passwort in das neue um
-      user.migrate_password(params[:password])
-      
-      user.save
+      user.update_attributes(password: params[:password])
       
       # das alte passwort löschen
       user.unset(:old_password_hash)

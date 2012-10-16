@@ -9,7 +9,7 @@ de:
     header:
       about: "Über Holarse"
       login: "Anmelden"
-      logout: "%{username} abmelden"
+      logout: "Abmelden"
       register: "Registrieren"
     footer:
       copyright: "&copy 2000 - %{date}"

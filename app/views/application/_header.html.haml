@@ -7,9 +7,13 @@
     %li.item.search.left    
       = render "search"
     %li.item.login
-      = link_to t('.login'), login_path
+      - if current_user.present?
+        = link_to(current_user.username, current_user)
+        = link_to(t('.logout'), logout_path)
+      - else
+        = link_to(t('.login'), login_path)
     %li.item.register
-      = link_to t('.register'), session_path
+      = link_to t('.register'), new_user_path
     %li.item.about
       = t('.about')
 

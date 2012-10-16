@@ -60,16 +60,9 @@ class User
   validates :failed_logins, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 3 }  
   
   #validates_presence_of :minecraft_username, :if => Proc.new { |u| u.minecraft_active }
-  
+    
   def authenticate_legacy(old_password)
     Digest::MD5.hexdigest(old_password) == old_password_hash
   end
-  
-  def migrate_password(old_password)
-    if old_password_hash.empty?
-      fail("No legacy password given to migrate")
-    end
-    self.password = old_password
-  end
-  
+    
 end
