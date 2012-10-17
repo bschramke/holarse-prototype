@@ -4,11 +4,14 @@
 
 %h2
   = t('.signature')
-%p
-  = @user.signature    
+%ul
+  %li
+    = @user.signature.present? ? @user.signature : t('.no_signature_available')    
 
 %h2
-  = t('.created_at', :date => @user.created_at)
+  = t('.registration')
+%ul
+  %li= t('.created_at', :date => l(@user.created_at))
 
 %h2
   = t('.technical')
@@ -47,7 +50,7 @@
   %li
     = t('.minecraft')
     = @user.minecraft_username
-    = @user.minecraft_whitelisted ? "ja" : "nein"
+    = display_mc_whitelist_status(@user.minecraft_whitelisted)
     
 %h2
   = t('.favourite_games')

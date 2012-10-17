@@ -39,7 +39,13 @@ de:
         other: "%{count} Kommentare"
   users:
     show:
-      created_at: "Angemeldet am %{date}"
+      created_at: "Registriert am %{date}"
+      registration: "Registrierung"
+      signature: "Signatur"
+      no_signature_available: "Noch keine Signatur hinterlegt"
+      technical: "Technisches"
+      personal: "Persönliches"
+      holarse_services: "HOLARSE-Dienste"
       distro: "Distribution"
       computer: "Rechner"
       graphics: "Grafikkarte"
@@ -48,5 +54,7 @@ de:
       city: "Stadt"
       minecraft: "Minecraft-Benutzername"
       minecraft_whitelisted: "Freigegeben für Holarse"
+      whitelisted: "Freigeschaltet"
+      not_whitelisted: "Noch nicht freigeschaltet"
       favourite_games: "Lieblingsspiele"
       
