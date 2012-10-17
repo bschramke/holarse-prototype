@@ -31,7 +31,6 @@ a:hover {
 nav.primary {
    position: fixed;
    width: 100%;
-   opacity: 75%;
    box-shadow: 1px 1px 10px;
    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.7);
    border-bottom: 1px solid rgba(225, 225, 225, 0.3);
@@ -41,6 +40,10 @@ nav.primary {
 
    li {
       display: inline;
+      :hover {
+         text-shadow: 1px 1px 15px;
+         text-decoration: none;
+      }
    }
 
    a {
@@ -54,10 +57,11 @@ nav.primary {
 nav.user {
    position: fixed;
    right: 10px;
-   top: 69px;
+   top: 48px;
 
    list-style: none;
    text-align: center;
+   text-transform: uppercase;
 
    li {
       display: inline;
@@ -65,8 +69,8 @@ nav.user {
 
    a {
       display: inline-block;
-      color: #ff0000;
-      font-size: 0.75em;
+      color: #fff;
+      font-size: 0.55em;
       padding-left: 15px;
       font-weight: bold;
       text-shadow: 1px 1px 15px;
@@ -116,11 +120,11 @@ footer.main {
 }
 
 h2 {
-  font-family: serif;
+  font-family: "Lucida", "Verdana", serif;
   text-transform: lowercase;
   font-size: 1.75em;
   border-bottom: 1px solid #bbb;
   word-spacing: 1px;
-  text-shadow: 2px 1px 5px;  
+  text-shadow: 0px 0px 25px;  
 }
 
