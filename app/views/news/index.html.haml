@@ -1,5 +1,7 @@
-%h1
-  = t('.title')
-  
-%ul
-  = render @news
+%article.news
+  %hgroup
+    %h1
+      = t('.title')
+ 
+  %ul
+    = render @news

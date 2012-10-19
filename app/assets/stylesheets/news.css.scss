@@ -1,3 +1,31 @@
-.content {
-  width: 95%;
+li.news {
+  padding-bottom: 25px;
+  
+  header {
+    display: inline-block;
+  }
+
+  .author, .date, .comments {
+    display: inline-block;
+  }
+
+  h1 {
+    display: inline;
+    font-size: 1.5em;
+    text-shadow: none;
+    border-bottom: none;
+  }
+
+  h2 {
+    display: inline;
+    font-size: 0.80em;
+    color: #bbb;
+    padding-left: 30px;
+  }
+
+  article {
+    color: #555;
+    font-size: inherit;
+  }
+
 }

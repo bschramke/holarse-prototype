@@ -9,6 +9,7 @@
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     = favicon_link_tag "favicon.png"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans:400,700"
   %body
     .flash
       / Benachrichtigungen
@@ -18,9 +19,9 @@
         = flash[:warning] if flash && flash[:warning]
       .error
         = flash[:error] if flash && flash[:error]
-    %header.main
+    %header
       = render "header"
     %section.content
       = yield
-    %footer.main
+    %footer
       = render "footer"
