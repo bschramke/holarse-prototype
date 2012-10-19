@@ -31,12 +31,19 @@ de:
     index:
       title: "Die Linuxspiele-News"
     news:
-      author: "geschrieben von"
+      author: "geschrieben von %{name}"
       created_at: "am %{date}"
       comments:
         one: "Ein Kommentar"
         other: "%{count} Kommentare"
   users:
+    new:
+      title: "Benutzer-Registrierung"
+      username: "Benutzername"
+      email: "Email-Adresse"
+      password: "Passwort"
+      password_confirmation: "Bestätigung Passwort"
+      submit: "Abschicken"
     show:
       created_at: "Registriert am %{date}"
       registration: "Registrierung"
@@ -56,4 +63,15 @@ de:
       whitelisted: "Freigeschaltet"
       not_whitelisted: "Noch nicht freigeschaltet"
       favourite_games: "Lieblingsspiele"
-      
+      job: "Beruf"
+      birthday: "Geburtstag"
+    navcontext:
+      title: "Benutzermenü"
+      messages: "Deine Nachrichten"
+      workspace: "Deine Beiträge"
+      bookmarks: "Deine Lesezeichen"
+  sessions:
+      loginform:
+        username: "Benutzername"
+        password: "Passwort"      
+

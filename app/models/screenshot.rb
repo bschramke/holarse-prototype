@@ -6,7 +6,7 @@ class Screenshot
   field :description  
   field :position, :type => Integer, :default => 0
   
-  has_mongoid_attached_file :img
+  has_mongoid_attached_file :img, :default_url => '/assets/nobody.png'
 
   embedded_in :article
   embedded_in :news

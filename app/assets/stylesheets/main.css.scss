@@ -84,6 +84,26 @@ nav.user {
    }
 }
 
+nav.context {
+  position: relative;
+  display: inline-block;
+  min-width: 50px;
+  width: 150px;
+  vertical-align: top;
+  margin-top: 85px;
+  margin-left: 20px;
+
+  h1 {
+    font-size: 1.25em;
+    font-weight: bold;
+    text-shadow: none;
+  }
+
+  text-align: right;
+  font-size: 0.75em;
+
+}
+
 aside.search {
   input.search_field {
      position: fixed;
@@ -107,9 +127,10 @@ ul {
 }
 
 section {
+  display: inline-block;
   position: relative;
   top: 95px;
-  width: 75%;
+  width: 85%;
   margin-left: 25px;
   padding-left: 25px;
   padding-right: 25px;

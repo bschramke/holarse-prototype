@@ -46,10 +46,10 @@ class Article
   validate :keep_frozen_article
   validate :keep_disabled_article
   
-  index :title, :unqiue => true
-  index :tags
-  index :alternatives
-  index "comments.created_at"
+  index({title: 1}, {unique: true})
+  index({tags: 1}, {unique: true})
+  index({alternatives: 1})
+  index "comments.created_at" => 1
   
   def keep_frozen_article
     errors.add(:title, "is not allowed to change") if (frozen_changed? && author.present? && !author.roles.include?("admin"))

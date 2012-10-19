@@ -1,9 +1,11 @@
-%h1
-  = @news.title
-%h2
-  = @news.subtitle
-%h3
-  = link_to @news.author.username, @news.author if @news.author
+%article
+  %header
+    %h1
+      = @news.title
+    %h2
+      = @news.subtitle
+    %h3
+      = link_user @news.author
 
 %p
   = @news.content
@@ -11,18 +13,18 @@
 %p
   = @news.tags.join(', ')
 
-%h4
+%p
   = t('.videos')
-%ul
-  - @news.videos.each do |video|
-    %li
-      = video[:description]
-      %br/
-      != embed_youtube video
+  %ul
+    - @news.videos.each do |video|
+      %li
+        = video[:description]
+        %br/
+        != embed_youtube video
 
-%h4
+%p
   = t('.links')
-%ul
-  - @news.links.each do |link|
-    %li
-      = link_to link.description, link.url
+  %ul
+    - @news.links.each do |link|
+      %li
+        = link_to link.url

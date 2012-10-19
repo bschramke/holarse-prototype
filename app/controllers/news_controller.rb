@@ -48,10 +48,10 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news = News.find_by_slug(params[:id])
+    @news = News.find params[:id]
   end
 
   def edit
-    @news = News.find_by_slug(params[:id])
+    @news = News.find params[:id]
   end
 end

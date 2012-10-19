@@ -31,7 +31,7 @@ class User
   field :minecraft_username
   field :desura
   
-  field :favourite_games, :type => Array
+  field :favourite_games, :type => Array, :default => []
   field :roles, :type => Array, :default => []
   
   field :last_login, :type => DateTime
@@ -41,13 +41,13 @@ class User
   
   slug :username, :history => true
   
-  has_mongoid_attached_file :avatar, :default_url => '/assets/nobody.svg'
+  has_mongoid_attached_file :avatar, :default_url => '/assets/nobody.png'
   
   has_many :articles, :inverse_of => :author
   has_many :news, :inverse_of => :author  
   
-  index :username, :unqiue => true  
-  index :email, :unqiue => true    
+  index({username: 1}, {unique: true})  
+  index({email: 1}, {unique: true})
   
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email

@@ -7,7 +7,7 @@ class News
   field :title
   field :subtitle  
   field :content
-  field :tags, :type => Array
+  field :tags, :type => Array, :default => ["News"]
   field :disabled, :type => Boolean, :default => false
   field :frozen, :type => Boolean, :default => false
 
@@ -37,8 +37,8 @@ class News
   
   belongs_to :author, :class_name => "User", :inverse_of => :news
   
-  index :title
-  index :tags
+  index({ title: 1 })
+  index({ tags: 1 })
   
   def self.search(q)
     News.fulltext_search(q, { :max_results => 30 })
