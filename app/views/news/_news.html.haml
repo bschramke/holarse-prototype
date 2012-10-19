@@ -1,5 +1,5 @@
 %li.news
-  %header
+  %header.news
     %h1
       = link_to news.title, news
     %h2
@@ -10,5 +10,5 @@
         = t('.created_at', :date => l(news.created_at))
       .comments
         = t('.comments', :count => news.comments.count)        
-  %article
+  %article.newsitem{:"data-id" => "#{news.id}"}
     = news.content

@@ -11,19 +11,19 @@ li.news {
 
   h1 {
     display: inline;
-    font-size: 1.5em;
+    font-size: 1.25em;
     text-shadow: none;
     border-bottom: none;
   }
 
   h2 {
     display: inline;
-    font-size: 0.80em;
+    font-size: 0.75em;
     color: #bbb;
     padding-left: 30px;
   }
 
-  article {
+  article.newsitem {
     color: #555;
     font-size: inherit;
   }

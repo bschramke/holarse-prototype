@@ -4,6 +4,7 @@
     %title=t('.title')
     %meta{:charset => "utf-8"}
     %meta{:name => "description", :content => ""}
+    %meta{:name => "keywords", :content => "linux, spiele, spielen unter linux"}
     %meta{:name => "viewport", :content => "width=device-width"}
     = javascript_include_tag "application"
     = stylesheet_link_tag "application", :media => "all"
@@ -21,7 +22,13 @@
         = flash[:error] if flash && flash[:error]
     %header
       = render "header"
+    %nav.primary
+      = render "navprimary"
+    %nav.user
+      = render "navuser"
     %section.content
       = yield
+    %aside.search
+      = render "search"
     %footer
       = render "footer"

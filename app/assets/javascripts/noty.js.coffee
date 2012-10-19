@@ -2,7 +2,7 @@
   if msg isnt ""
     noty
       text: msg
-      layout: "topCenter"
+      layout: "bottomRight"
       theme: "noty_theme_default"
       type: "success"
       easing: "swing"
@@ -21,7 +21,7 @@
   if msg isnt ""
     noty
       text: msg
-      layout: "topCenter"
+      layout: "bottomRight"
       theme: "noty_theme_default"
       type: "alert"
       easing: "swing"
@@ -40,7 +40,7 @@
   if msg isnt ""
     noty
       text: msg
-      layout: "topCenter"
+      layout: "bottomRight"
       theme: "noty_theme_default"
       type: "error"
       easing: "swing"

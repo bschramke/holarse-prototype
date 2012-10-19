@@ -6,5 +6,13 @@ $ ->
     title: "An Holarse anmelden",
     width: 450,    
     height: 350,
-    modal: true
+    modal: true,
+    autoOpen: false
+
+$ ->
+  $("#loginform-link").click (event) ->
+    event.preventDefault()
+    event.stopPropagation()
+    $("#loginform").dialog('open')
+
   
