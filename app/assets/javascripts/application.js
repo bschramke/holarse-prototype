@@ -21,4 +21,5 @@
 //= require "jquery.mousewheel-3.0.6.pack"
 //= require "jquery.noty"
 //= require "jquery.tweet"
+//= require "rainbow-custom.min"
 //= require_tree .

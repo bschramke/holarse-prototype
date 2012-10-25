@@ -1,5 +1,5 @@
 html {
-    font-family: "Droid Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 1.0em;
     background-color: #DDD;    
 }
@@ -85,13 +85,16 @@ nav.user {
 }
 
 nav.context {
-  position: relative;
-  display: inline-block;
-  min-width: 50px;
-  width: 150px;
-  vertical-align: top;
-  margin-top: 85px;
-  margin-left: 20px;
+  position: fixed;
+  width: 550px;
+  margin-top: 66px;
+  height: 25px;
+  right: 150px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
 
   h1 {
     font-size: 1.25em;
@@ -101,7 +104,9 @@ nav.context {
 
   text-align: right;
   font-size: 0.75em;
-
+  background: #777;  
+  z-index: 8999;
+  opacity: 0.75;
 }
 
 aside.search {
@@ -127,15 +132,14 @@ ul {
 }
 
 section {
-  display: inline-block;
   position: relative;
-  top: 95px;
+  top: 125px;
   width: 85%;
-  margin-left: 25px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 70px;
   background-color: #fff;
   border-right: 1px dashed #bbb;
 }
@@ -146,8 +150,7 @@ article {
   text-align: justify;
   color: #302B2B;
   font-weight: normal;
-  vertical-align: baseline;
-  font-size: 0.85em;
+  font-size: 0.95em;
 }
 
 footer {
@@ -166,10 +169,11 @@ footer {
 }
 
 h1 {
+  font-family: "Droid Serif", serif;
   text-transform: lowercase;
   font-size: 1.75em;
   border-bottom: 1px solid #bbb;
   word-spacing: 1px;
-  text-shadow: 0px 0px 2px;  
 }
+
 
