@@ -1,7 +1,8 @@
 Holarse::Application.routes.draw do
 
   # die suche
-  get "search" => "search#show"
+  get "search/(:q)" => "search#show"
+  get "tags/:q" => "search#tags"
 
   # webseiten resourcen
   resources :users

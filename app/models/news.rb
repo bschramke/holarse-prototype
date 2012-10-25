@@ -40,8 +40,15 @@ class News
   index({ title: 1 })
   index({ tags: 1 })
   
-  def self.search(q)
-    News.fulltext_search(q, { :max_results => 30 })
+  def self.search(type, q)
+    case type
+    when :tags
+      News.where(:tags => /#{q}/i)
+    when :content
+      News.fulltext_search(q, { :max_results => 30 })
+    else
+      raise "Invalid search type"
+    end
   end
   
 end

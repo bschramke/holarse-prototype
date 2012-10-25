@@ -6,25 +6,28 @@
       = @news.subtitle
     %h3
       = link_user @news.author
+    %h4
+      = @news.tags.join(",")
 
-%p
-  = @news.content
+  %p
+    = @news.content
 
-%p
-  = @news.tags.join(', ')
+  .accord
+    %h3
+      = t('.videos')
+    .videos
+      %ul
+        - @news.videos.each do |video|
+          %li
+            = video[:description]
+            %br/
+            != embed_youtube video
 
-%p
-  = t('.videos')
-  %ul
-    - @news.videos.each do |video|
-      %li
-        = video[:description]
-        %br/
-        != embed_youtube video
-
-%p
-  = t('.links')
-  %ul
-    - @news.links.each do |link|
-      %li
-        = link_to link.url
+    %h3
+      = t('.links')
+    .links
+      %ul
+        - @news.links.each do |link|
+          %li
+            = link_to link.url
+    

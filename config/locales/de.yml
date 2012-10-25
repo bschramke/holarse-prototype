@@ -36,6 +36,9 @@ de:
       comments:
         one: "Ein Kommentar"
         other: "%{count} Kommentare"
+    show:
+      videos: "Videos"
+      links: "Relevante Links"
   users:
     new:
       title: "Benutzer-Registrierung"
