@@ -12,22 +12,21 @@
   %p
     = @news.content
 
-  .accord
-    %h3
-      = t('.videos')
-    .videos
-      %ul
-        - @news.videos.each do |video|
-          %li
-            = video[:description]
-            %br/
-            != embed_youtube video
+  %h3
+    = t('.videos')
+  .videos
+    %ul
+      - @news.videos.each do |video|
+        %li
+          = video[:description]
+          %br/
+          != embed_youtube video
 
-    %h3
-      = t('.links')
-    .links
-      %ul
-        - @news.links.each do |link|
-          %li
-            = link_to link.url
+  %h3
+    = t('.links')
+  .links
+    %ul
+      - @news.links.each do |link|
+        %li
+          = link_to link.url
     

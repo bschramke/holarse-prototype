@@ -60,6 +60,29 @@ nav.primary {
    }
 }
 
+nav.secondary {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 9000;  
+  padding: 5px;
+
+  li {
+    display: inline;
+    :hover {
+      text-shadow: 1px 1px 15px;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 25px;
+    color: #B62319;
+    font-size: 0.6em;
+  }
+}
+
 nav.user {
    position: fixed;
    right: 10px;

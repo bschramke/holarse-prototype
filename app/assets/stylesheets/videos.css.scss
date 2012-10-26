@@ -1,0 +1,26 @@
+ul.videos {
+  li {
+    display: inline-block;
+    padding-bottom: 25px;
+
+    .video_img {
+      float: left;
+      baseline: top;
+      padding-right: 25px;
+    }
+
+    .video_name {
+      float: left;
+    }
+
+    .video_desc {
+      font-size: 0.85em;
+    }
+
+    .updated {
+      margin-top: 25px;      
+      font-size: 0.5em;
+      color: #bbb;
+    }
+  }
+}

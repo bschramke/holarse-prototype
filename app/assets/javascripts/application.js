@@ -13,6 +13,7 @@
 //= require jquery_ujs
 //= require jquery
 //= require jquery-ui
+//= require jquery.tmpl.min
 //= require waypoints.min
 //= require "jquery.fancybox.pack"
 //= require "jquery.fancybox-media"
