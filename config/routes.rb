@@ -7,6 +7,7 @@ Holarse::Application.routes.draw do
   # webseiten resourcen
   resources :users
   resources :news
+  resources :articles
   
   resource :twitter
   
