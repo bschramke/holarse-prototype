@@ -7,15 +7,12 @@
     .video_name
       %a{:href=> "${link}"}
         ${name}
-    .updated ${updated}
+    .video_details
+      .author ${author}
+      .updated ${updated}
     .video_desc ${desc}
 
 %h1
-  = t('.holarse')
-%ul#holarse-yt-videos.videos
-
-%h1
-  = t('.gtuxtv')
-%ul#gtuxtv-yt-videos.videos
-
+  = t('.videos')
+%ul#yt-videos.videos
 

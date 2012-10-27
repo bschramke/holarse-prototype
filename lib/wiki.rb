@@ -1,47 +1,24 @@
-module Wiki
-  def self.parse(wikitext)
+module Holarse
+  class Wiki
 
-    heading_3 = /^=== (.+) ===$/
-    heading_4 = /^==== (.+) ====$/
-    ext_link = /\[(.+) (.+)\]/
-    int_link = /\[\[(.+)\]\]/
-    u_list_1 = /^(?!\*).*((\n\*+.*)+)\n(?!\*).*/
-    u_list_2 = /^(?!\*{2,}).*((\n\*{2,}.*)+)\n(?!\*{2,}).*/
-    list_item = /^\*+(.*)/
-    code = /\[code\](.*)\[\/code\]/
+    @mapping_table = {
+      /^=== (.+) ===$/    => "<h3>#{$1}</h3>",                                                   # heading 3
+      /^==== (.+) ====$/  => "<h4>#{$1}</h3>",                                                   # heading 4
+      /\[(.+) (.+)\]/     => "<a href=\"#{$1}\">#{$2}</a>",                                      # externer link
+      /\[\[(.+)\]\]/      => "<a href=\"#{link_to article_path{:id => $1.to_url}}\">#{$1}</a>",  # interner link
+      /^(?!\*).*((\n\*+.*)+)\n(?!\*).*/ =>  "<ul>#{$1}\n</ul>", # liste
+      /^(?!\*{2,}).*((\n\*{2,}.*)+)\n(?!\*{2,}).*/ =>  "<ul>#{$1}\n</ul>",  # liste 2
+      /^\*+(.*)/  => "<li>#{$1}</li>", # listelement
+      /\[code\](.*)\[\/code\]/ => "<div class=\"code\">#{$1}</div>" # code
+    }
 
-    wikitext.gsub!(heading_3) do |match|
-      "<h3>#{$1}</h3>"
+    def initialize(wikitext)
+      @wikitext = wikitext
     end
 
-    wikitext.gsub!(heading_4) do |match|
-      "<h3>#{4}</h4>"
+    def to_html
+      @wikitext.gsub(Regexp.union(@mapping_table.keys))
     end
 
-    wikitext.gsub!(ext_link) do |match|
-      "<a href=\"#{$1}\">#{$2}</a>"
-    end
-
-    wikitext.gsub!(int_link) do |match|
-      "<a href=\"#{link_to article_path{:id => $1.to_url}}\">#{$1}</a>"
-    end
-
-    wikitext.gsub!(u_list) do |match|
-      "<ul>#{$1}\n</ul>"
-    end
-
-    wikitext.gsub!(u_list_2) do |match|
-      "<ul>#{$1}\n</ul>"
-    end
-
-    wikitext.gsub!(list_item) do |match|
-      "<li>#{$1}</li>"
-    end
-
-    wikitext.gsub!(code) do |match|
-      "<div class=\"code\">#{$1}</div>"
-    end
-
-    return wikitext
   end
 end
