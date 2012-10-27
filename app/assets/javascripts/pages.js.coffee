@@ -1,8 +1,4 @@
 $ ->
-  $(".accord").accordion
-    "heightStyle": "auto"
-
-$ ->
   $("nav.context").toggle ->
     $(this).animate
       "height": "300px"

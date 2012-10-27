@@ -12,6 +12,9 @@ de:
       hardware: "Hardware"
       community: "Community"
       news: "News"
+    navsecondary:
+      videos: "Videos"
+      twitter: "Twitter-Wall"
     navuser:
       login: "Anmelden"
       logout: "Abmelden"
