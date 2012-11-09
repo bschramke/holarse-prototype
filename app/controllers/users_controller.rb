@@ -23,20 +23,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     
-    respond_to do |format|
-      if @user.save
-        format.html  { redirect_to(@user, :notice => 'Benutzer wurde erstellt.') }
-      else
-        format.html  { render :action => "new" }
-      end
-    end    
+    if @user.save && !is_spammer?(@user)
+      flash[:notice] = "Benutzer #{@user.username} wurde erstellt."
+      redirect_to root_path
+    else
+      render :action => "new"
+    end
   end
 
   #
   # aktualisiert ein benutzerprofil
   #
   def update
-    
+      
   end
 
   #
@@ -94,6 +93,15 @@ class UsersController < ApplicationController
   #
   def accesses_own_profile
     params[:username] == current_user.username
+  end
+
+  def is_spammer?(user)
+    require 'lib/spammercheck'
+    a = Holarse::Spam::Spammer.new
+    a.email = user.email
+    a.username = user.username
+
+    Holarse::Spam::SpammerCheck.new.is_spammer?(a)
   end
 
 end
