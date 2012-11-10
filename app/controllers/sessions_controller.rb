@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   
   def create
     # benutzer-account erstmal finden
-    user = User.where(:username => params[:username]).first        
+    user = User.find params[:username]
 
     begin
       UserValidator.new(user).is_valid?
