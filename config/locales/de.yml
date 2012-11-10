@@ -22,6 +22,7 @@ de:
     footer:
       copyright: "&copy 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
+      version: "App-Version %{version}"
   session:
     login_ok: "Erfolgreich eingeloggt"
   search:

@@ -30,6 +30,8 @@ Holarse::Application.routes.draw do
   match "/redirect/gtux_channel" => redirect("https://www.youtube.com/user/gtux"), :as => :gtux_channel
 
   match '/redirect/osm/:city' => redirect("http://nominatim.openstreetmap.org/search.php?q=%{city}"), :as => :osm
+
+  get '/version/:commitid' => redirect("https://bitbucket.org/holarse/holarse/changeset/%{commitid}"), :as => :version
   
   # root
   root :to => "welcome#index"
