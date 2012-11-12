@@ -10,7 +10,7 @@
       = @news.tags.join(",")
 
   %p
-    = @news.content
+    = wiki_to_html @news.content
 
   %h3
     = t('.videos')
