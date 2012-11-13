@@ -10,6 +10,11 @@
       = @news.tags.join(",")
 
   %p
+    %pre
+      %codei{:data => {:language => "wiki"}}
+        = @news.content
+
+  %p
     = wiki_to_html @news.content
 
   %h3

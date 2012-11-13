@@ -3,14 +3,12 @@ module Holarse
     
     class Parser
       include Rails.application.routes.url_helpers
+      include ActionView::Helpers::TagHelper
+      include ActionView::Context
 
-      def initialize(wikitext)
-        @wikitext = wikitext
-      end
-
-      def format_to_html
-        txt = @wikitext
-        get_parse_types.each do |parsetype|
+      def format_to_html(wikitext, *parsetypes)
+        txt = wikitext
+        parsetypes.each do |parsetype|
           txt = send(parsetype, txt)
         end
         txt
@@ -18,29 +16,28 @@ module Holarse
 
       private
 
-      def get_parse_types
-        [:wiki_links, :external_links]
-      end
-
-      def plain(text)
-        text
-      end
-
       def external_links(text)
         text.gsub(/\[(.*) (.*)\]/) { |match|
-          ActionController::Base.helpers.link_to("{$2}", "${1}")
+          ActionController::Base.helpers.link_to("#{$2}", "#{$1}")
         }
      end
 
-      def wiki_links(text)
-        text.gsub(/\[\[([\w \|]+)\]\]/) { |match|
+      def article_links(text)
+        text.gsub(/\[\[(.+)\]\]/) { |match|
           ActionController::Base.helpers.link_to("#{$1}", Rails.application.routes.url_helpers.articles_path("#{$1}".to_url) )
         }
       end
 
-      def bla(text)
-        "bla"
+      def code(text)
+        text.gsub(/\[code\](.*)\[\/code\]/m) { |match|
+          content_tag :pre do
+            content_tag :code, :data => {:language => "bash"} do
+              "#{$1}"
+            end
+          end
+        }
       end
+
     end
 
   end
