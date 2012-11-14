@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def wiki_to_html(text)
-    Holarse::Wiki::Parser.new.format_to_html(text, :external_links, :article_links, :code).html_safe
+    Holarse::Wiki::Parser.new.format_to_html(text, :article_links, :external_links, :code).html_safe
   end
 
 end

@@ -45,7 +45,7 @@ class User
   
   has_many :articles, :inverse_of => :author
   has_many :news, :inverse_of => :author  
-  
+   
   index({username: 1}, {unique: true})  
   index({email: 1}, {unique: true})
   
