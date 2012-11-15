@@ -38,4 +38,12 @@ describe 'wiki' do
     result = @parser.format_to_html(txt, :article_links, :external_links)
     expect(result).to eq(expected)
   end
+
+  it "should parse multiple article links" do
+    txt = "this is [[Braid]] and this is [[Machinarium]] and this is [[Sword Soldiers: The Return]], which are all good games."
+    expected = "this is <a href=\"/articles/braid\">Braid</a> and this is <a href=\"/articles/machinarium\">Machinarium</a> and this is <a href=\"/articles/sword_soldiers_return\">Sword Soldiers: The Return</a>, which are all good games."
+
+    result = @parser.format_to_html(txt, :article_links)
+    expect(result).to eq(expected)
+  end
 end

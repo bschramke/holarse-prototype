@@ -27,7 +27,7 @@ module Holarse
       # Formatiert externe Links
       #
       def external_links(text)
-        text.gsub(/\[(.*) (.*)\]/) { |match|
+        text.gsub(/\[(\S*) (.*)\]/) { |match|
           ActionController::Base.helpers.link_to("#{$2}", "#{$1}")
         }
       end
@@ -36,7 +36,7 @@ module Holarse
       # Formatiert interne Wiki-Links
       #
       def article_links(text)
-        text.gsub(/\[\[(.+)\]\]/) { |match|
+        text.gsub(/\[\[([\w|\s]+)\]\]/) { |match|
           name = "#{$1}".strip
           ActionController::Base.helpers.link_to("#{name}", Rails.application.routes.url_helpers.article_path("#{name}".to_url) )
         }
