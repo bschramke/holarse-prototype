@@ -11,10 +11,10 @@ $ ->
     if $(window).scrollTop() > 19
       $("aside.search input.search_field").css({'position': 'fixed', 'top': 0})
       if !window.scrolled
-        $(".user").animate({'right': '115px'},500)
+        $(".user").animate({'right': '115px'},400)
         window.scrolled = true
     else
       $("aside.search input.search_field").css({'position': 'absolute', 'top': '19px'})
       if window.scrolled
-        $(".user").animate({'right': '10px'}, 500)
+        $(".user").animate({'right': '10px'},400)
         window.scrolled = false
