@@ -4,9 +4,11 @@ $ ->
     if $(window).scrollTop() > 50
       $(".secondary").css({'position': 'fixed', 'top': 0})
       $(".user").css({'position': 'fixed', 'top': 0})
+      $(".context").css({'position': 'fixed', 'top': '16px'})
     else
       $(".secondary").css({'position': 'absolute', 'top': '50px'})
       $(".user").css({'position': 'absolute', 'top': '48px'})
+      $(".context").css({'position': 'absolute', 'top': '66px'})
 
     if $(window).scrollTop() > 19
       $("aside.search input.search_field").css({'position': 'fixed', 'top': 0})

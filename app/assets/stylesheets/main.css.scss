@@ -122,9 +122,9 @@ nav.user {
 }
 
 nav.context {
-  position: fixed;
+  position: absolute;
   width: 550px;
-  margin-top: 66px;
+  top: 66px;
   height: 25px;
   right: 150px;
   border-bottom-left-radius: 15px;
