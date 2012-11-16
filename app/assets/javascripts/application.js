@@ -24,3 +24,5 @@
 //= require "jquery.tweet"
 //= require "rainbow-custom.min"
 //= require_tree .
+// require flexslider
+//= require jquery.flexslider

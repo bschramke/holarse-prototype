@@ -5,17 +5,10 @@ class NewsController < ApplicationController
 
   def new
       @news = News.new
-      @news.videos.build
   end
 
   def create
-    params[:news][:tags] = params[:news][:tags].split(',')
-
     @news = News.new(params[:news])
-
-    @news.videos.each do |video|
-      video[:url] = video[:url].match(/\Ahttp:\/\/(w{3}.)?youtube\.com\/watch\?v=[\w]{11}/).to_s
-    end
 
     respond_to do |format|
       if @news.save

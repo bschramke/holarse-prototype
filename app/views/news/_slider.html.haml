@@ -1,0 +1,7 @@
+%li.news
+  %h3
+    = news.title
+  - if news.content.length > 600
+    = news.content[0..600] + "..."
+  - else
+    = news.content

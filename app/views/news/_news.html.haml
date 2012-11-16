@@ -8,7 +8,7 @@
       %time.date{:datetime => "#{news.created_at}"}
         = t('.created_at', :date => l(news.created_at))
       .comments
-        = t('.comments', :count => news.comments.count)        
+        = t('.comments', :count => news.comments.count)
   %article.newsitem{:"data-id" => "#{news.id}"}
     = image_tag(news.screenshots.first.img) if news.has_screenshots?
     = news.content

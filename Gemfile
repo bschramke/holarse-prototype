@@ -46,5 +46,9 @@ end
 # JQuery
 gem 'jquery-rails'
 
+
+# Flexslider
+gem "flexslider", "~> 2.0.1"
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

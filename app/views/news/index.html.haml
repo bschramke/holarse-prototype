@@ -4,9 +4,12 @@
 
 %nav
 
-%article 
+%article
+  .flexslider
+    %ul.slides
+      = render partial: "slider", collection: @news[0..3], as: :news
   %ul
-    = render @news
+    = render partial: "news", collection: @news
 
 %footer
 
