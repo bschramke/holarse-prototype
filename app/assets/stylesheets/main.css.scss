@@ -81,7 +81,9 @@ nav.secondary {
 
   li {
     display: inline;
-    :hover {
+    font-size: 20px;
+    font-weight: 600;
+    &:hover {
       text-shadow: 1px 1px 15px;
       text-decoration: none;
     }
