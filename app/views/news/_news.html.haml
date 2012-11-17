@@ -11,4 +11,7 @@
         = t('.comments', :count => news.comments.count)
   %article.newsitem{:"data-id" => "#{news.id}"}
     = image_tag(news.screenshots.first.img) if news.has_screenshots?
-    = news.content
+    - if news.content.length > 500
+      = news.content[0..500] + "..."
+    - else
+      = news.content

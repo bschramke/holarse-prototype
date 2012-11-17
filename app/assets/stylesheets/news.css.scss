@@ -1,8 +1,22 @@
+ul.newsgrid li {
+  display: block;
+  float: left;
+  width: 25%;
+  margin: 50px 30px;
+  &:nth-child(3n+1) {
+    clear: both;
+  }
+}
+
 li.news {
   padding-bottom: 25px;
-  
+
   header {
     display: inline-block;
+  }
+
+  .newsgrid:nth-child(3n+1) {
+    color: red;
   }
 
   .author, .date, .comments {
@@ -17,14 +31,13 @@ li.news {
   }
 
   h2 {
-    display: inline;
+    /*display: inline;*/
     font-size: 0.75em;
     color: #bbb;
-    padding-left: 30px;
   }
 
   article.newsitem {
-    color: #555;
+    /*color: #555;*/
     font-size: inherit;
   }
 

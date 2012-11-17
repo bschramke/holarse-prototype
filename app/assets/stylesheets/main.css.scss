@@ -170,6 +170,7 @@ ul {
 
 section {
   position: relative;
+  overflow: hidden;
   top: 125px;
   width: 85%;
   margin: 0 auto;
@@ -198,6 +199,7 @@ footer {
   border-top: 1px solid #ccc;
   position: relative;
   margin-top: 150px;
+  clear: both;
  
   li {
     display: inline-block;
