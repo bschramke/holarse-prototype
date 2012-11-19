@@ -32,5 +32,5 @@
     %ul
       - @news.links.each do |link|
         %li
-          = link_to link.url
+          = link_to link.description, link.url
     
