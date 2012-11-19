@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe 'wiki' do
@@ -44,6 +45,14 @@ describe 'wiki' do
     expected = "this is <a href=\"/articles/braid\">Braid</a> and this is <a href=\"/articles/machinarium\">Machinarium</a> and this is <a href=\"/articles/sword-soldiers-the-return\">Sword Soldiers: The Return</a>, which are all good games."
 
     result = @parser.format_to_html(txt, :article_links)
+    expect(result).to eq(expected)
+  end
+
+  it "should parse this correctly" do
+    txt = "Der Indie-Space-Invader-Clone [[Voxeliens]] erhält eine Portierung auf Linux. Das Spiel selbst ist DRM-frei und der Kauf enthält die Windows und Linuxversion, sobald das Spiel auch auf Linux fertig portiert wurde. Das Spiel ist für $3,99 erhältlich. Den Fortschritt der Linuxportierung ist im firmeneigenen [http://www.volumesoffun.com/blog/ Blog] nachzulesen ([http://www.volumesoffun.com/voxeliens-linux-port-progress-report/ Blog-Eintrag zum Stand der Portierung])."
+    expected = "Der Indie-Space-Invader-Clone <a href=\"/articles/voxeliens\">Voxeliens</a> erhält eine Portierung auf Linux. Das Spiel selbst ist DRM-frei und der Kauf enthält die Windows und Linuxversion, sobald das Spiel auch auf Linux fertig portiert wurde. Das Spiel ist für $3,99 erhältlich. Den Fortschritt der Linuxportierung ist im firmeneigenen <a href=\"http://www.volumesoffun.com/blog/\">Blog</a> nachzulesen (<a href=\"http://www.volumesoffun.com/voxeliens-linux-port-progress-report/\">Blog-Eintrag zum Stand der Portierung</a>)."
+
+    result = @parser.format_to_html(txt, :article_links, :external_links)
     expect(result).to eq(expected)
   end
 end
