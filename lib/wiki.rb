@@ -17,10 +17,17 @@ module Holarse
       private
 
       #
-      # Ein Rohtext-Formatierer
+      # ein formatierer, der nichts tut
       #
       def plain(text)
         text
+      end
+
+      #
+      # Ein Rohtext-Formatierer fuer die Vorschau
+      #
+      def preview(text)
+        text.gsub(/[^\w.!,?:\/\/\s]/, "")
       end
 
       #

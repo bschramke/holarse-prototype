@@ -1,8 +1,5 @@
 %li.news
-  %a{href: (url_for news)}
+  = link_to news do
     %h3
       = news.title
-    - if news.content.length > 600
-      = news.content[0..600] + "..."
-    - else
-      = news.content
+    = wiki_preview shorten news.content

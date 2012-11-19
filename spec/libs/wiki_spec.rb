@@ -8,12 +8,11 @@ describe 'wiki' do
     @parsetypes = :plain
   end
 
-  it "should print out plain" do
-    txt = "hallo welt."
-
-    result = @parser.format_to_html(txt, @parsetypes)
-
-    expect(result).to eq(txt)
+  it "should print out preview" do
+    txt = "hallo welt. Mit einem [[Link]] auf [http://www.google.de Google]. Da steht die Welt Kope!!! Da kannste, nix machen?"
+    result = @parser.format_to_html(txt, :preview)
+    expected = "hallo welt. Mit einem Link auf http://www.google.de Google. Da steht die Welt Kope!!! Da kannste, nix machen?"
+    expect(result).to eq(expected)
   end
 
   it "should parse web links" do
