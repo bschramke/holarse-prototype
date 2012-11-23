@@ -9,6 +9,7 @@ $ ->
         position: 'fixed'
         top: '16px'
       $("#smalltux").fadeIn 'fast'
+      $("#smalltuxtext").fadeIn 'fast'
     else
       $(".secondary").css
         position: 'absolute'
@@ -20,6 +21,7 @@ $ ->
         position: 'absolute'
         top: '66px'
       $("#smalltux").fadeOut 'fast'
+      $("#smalltuxtext").fadeOut 'fast'
 
     if $(window).scrollTop() > 19
       $(".search_field").css

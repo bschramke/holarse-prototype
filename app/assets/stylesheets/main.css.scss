@@ -222,3 +222,18 @@ h1 {
   left: 0;
   display: none;
 }
+
+#smalltuxtext {
+  position: absolute;
+  left: 60px;
+  display: none;
+  text-transform: uppercase;
+
+  color: #fff;
+  wrap: virtual;
+  
+  .red {
+    margin: 0px;
+    color: #c00;
+  }
+}
