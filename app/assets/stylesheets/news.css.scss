@@ -10,6 +10,8 @@ ul.newsgrid li {
 
 li.news {
   padding-bottom: 25px;
+  word-wrap: break-word;
+
 
   header {
     display: inline-block;
@@ -40,7 +42,6 @@ li.news {
     /*color: #555;*/
     font-size: inherit;
   }
-
 }
 
 ul.slides li.news {
