@@ -36,10 +36,10 @@ end
 # Testing-Gems
 # 
 gem "rspec-rails", :group => [:test, :development]
+gem "factory_girl_rails", :group => [:test, :development]
+gem "forgery", :group => [:test, :development]
 group :test do
-	gem 'factory_girl_rails'
 	gem 'capybara'
-  gem 'forgery'
   gem 'mongoid-rspec'
 end
 

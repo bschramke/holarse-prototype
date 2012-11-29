@@ -3,16 +3,17 @@ namespace :holarse do
 
     desc "adds demo users"
     task :users => :environment do
-      u1 = User.new(:username => "user1", :password => "user1", :email => "user1@aol.com")
-      u1.save!
+      for i in 0..10
+        u = FactoryGirl.create(:user)  
+        puts "Created #{u.username}"
+      end
     end
 
     desc "adds demo news"
     task :news => :environment do
-      n1 = News.new(:title => "Eine neue News", :subtitle => "News sind wichtig!", :content => "Laber rhababer auf [[PokerTH]].")
-      n1.author = User.find "user1"
-      n1.links << Link.new(:url => "http://www.duckduckgo.com", :description => "Suchmaschinen-Link")
-      n1.save!
+      for i in 0..10
+        u = FactoryGirl.create(:news)
+      end
     end
 
     desc "adds demo articles"
