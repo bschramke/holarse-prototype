@@ -6,5 +6,12 @@ FactoryGirl.define do
     password { "#{username}" }
     email { Forgery::Internet.email_address }
     city  { Forgery::Address.city }
+    birthday { Forgery::Date.date(:past => true) }
+    jabber { "#{username}@holarse-linuxgaming.de" }
   end
+
+  factory :admin, :parent => :user do
+    roles { ["admin"] }
+  end
+
 end
