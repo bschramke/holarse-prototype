@@ -8,6 +8,7 @@ FactoryGirl.define do
     city  { Forgery::Address.city }
     birthday { Forgery::Date.date(:past => true) }
     jabber { "#{username}@holarse-linuxgaming.de" }
+    avatar { File.open Rails.root.join('test','fixtures','images',"avatar#{rand(9)+1}.png") }
   end
 
   factory :admin, :parent => :user do
