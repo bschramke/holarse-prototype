@@ -1,2 +1,9 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+%h1
+  = t('.title')
+
+#users
+  - @users.each do |user|
+    .user
+      = link_to user do
+        = image_tag user.avatar
+      = user.username

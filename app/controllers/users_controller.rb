@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # zeigt alle benutzer
   #
   def index
-    @users = User.all
+    @users = User.all.asc(:username)
   end
 
   #
