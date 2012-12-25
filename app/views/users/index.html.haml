@@ -1,6 +1,10 @@
 %h1
   = t('.title')
 
+.sort
+  %ul#sort-by
+    = render "sorting"
+
 #users
   - @users.each do |user|
     .user
