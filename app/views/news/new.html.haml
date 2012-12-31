@@ -24,5 +24,9 @@
       = v.label :description, "Videobeschreibung"
       = v.text_field :description
   %p
+    = f.fields_for :links do |builder|
+      = render 'link_fields', :f => builder
+    = link_to_add_fields "Add links", f, :links
+  %p
     = f.submit "Speichern"
 

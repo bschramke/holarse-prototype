@@ -4,7 +4,8 @@ class NewsController < ApplicationController
   end
 
   def new
-      @news = News.new
+    @news = News.new
+    @news.links.build
   end
 
   def create
@@ -23,7 +24,7 @@ class NewsController < ApplicationController
     @old_news = News.find(params[:id])
     @news = @old_news.clone
 
-    @old_news.historical = true
+    #@old_news.historical = true
     @old_news.save
 
     @news.author = current_user
@@ -46,5 +47,6 @@ class NewsController < ApplicationController
 
   def edit
     @news = News.find params[:id]
+    @news.links.build
   end
 end

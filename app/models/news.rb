@@ -27,6 +27,8 @@ class News
 
   accepts_nested_attributes_for :videos
 
+  accepts_nested_attributes_for :links, :reject_if => lambda { |a| a[:url].blank? }, :allow_destroy => true
+
   
   validates_presence_of :title  
   validates :title, :length => { :minimum => 3 }  

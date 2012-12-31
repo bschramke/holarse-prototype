@@ -26,3 +26,4 @@
 //= require "rainbow-custom.min"
 //= require_tree .
 //= require flexslider
+
