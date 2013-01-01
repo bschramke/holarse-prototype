@@ -1,6 +1,5 @@
 %li
-  %a{ href: "#ascending" }
-    Aufsteigend
+  = link_to t('.ascending'), "#ascending", :remote => true
 %li
-  %a{ href: "#descending" }
-    Absteigend
+  = link_to t('.descending'), "#descending", :remote => true
+

@@ -44,6 +44,8 @@ de:
       videos: "Videos"
       links: "Relevante Links"
   users:
+    index:
+      title: "Aktive Benutzer"
     new:
       title: "Benutzer-Registrierung"
       username: "Benutzername"
@@ -77,6 +79,9 @@ de:
       messages: "Deine Nachrichten"
       workspace: "Deine Beiträge"
       bookmarks: "Deine Lesezeichen"
+    sorting:
+      ascending: "Aufsteigend"
+      descending: "Absteigend"
   sessions:
       loginform:
         username: "Benutzername"
