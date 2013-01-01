@@ -18,7 +18,7 @@ class News
   fulltext_search_in :title, :subtitle, :content, :index_name => 'nodes',
                    :filters => { :is_not_disabled => lambda { |x| !x.disabled }}
   
-  embeds_many :screenshots  
+  embeds_many :screenshots, :cascade_callbacks => true
   embeds_many :attachments  
   embeds_many :videos
   embeds_many :newsupdates
@@ -28,6 +28,8 @@ class News
   accepts_nested_attributes_for :videos
 
   accepts_nested_attributes_for :links, :reject_if => lambda { |a| a[:url].blank? }, :allow_destroy => true
+
+  accepts_nested_attributes_for :screenshots, :reject_if => lambda { |a| a[:img].blank? }, :allow_destroy => true
 
   
   validates_presence_of :title  

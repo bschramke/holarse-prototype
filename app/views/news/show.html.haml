@@ -17,6 +17,15 @@
     = wiki_detail @news.content
 
   %h3
+    Screenshots
+  .screenshots
+    %ul
+      -@news.screenshots.each do |screenshot|
+        %li
+          = screenshot[:description]
+          = image_tag screenshot.img.url
+
+  %h3
     = t('.videos')
   .videos
     %ul

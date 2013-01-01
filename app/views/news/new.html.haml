@@ -15,8 +15,9 @@
     = f.label :tags, "Tags durch Kommas getrennt"
     = f.text_field :tags
   %p
-    = f.label :screenshots
-    = f.file_field :screenshots
+    = f.fields_for :screenshots do |builder|
+      = render 'screenshot_fields', :f => builder
+    = link_to_add_fields "Screenshot hinzufügen", f, :screenshots
   %p
     = f.fields_for(:videos) do |v|
       = v.label :url, "Videourl"
@@ -26,7 +27,7 @@
   %p
     = f.fields_for :links do |builder|
       = render 'link_fields', :f => builder
-    = link_to_add_fields "Add links", f, :links
+    = link_to_add_fields "Link hinzufügen", f, :links
   %p
     = f.submit "Speichern"
 
