@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :admin, :parent => :user do
-    roles { ["admin"] }
+    roles { [:administrator.to_s] }
   end
 
 end
