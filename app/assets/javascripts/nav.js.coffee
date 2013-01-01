@@ -5,9 +5,6 @@ $ ->
       $(".secondary, .usernav").css
         position: 'fixed'
         top: 0
-      $(".context").css
-        position: 'fixed'
-        top: '16px'
       $("#smalltux").fadeIn 'fast'
       $("#smalltuxtext").fadeIn 'fast'
     else
@@ -17,9 +14,6 @@ $ ->
       $(".usernav").css 
         position: 'absolute'
         top: '48px'
-      $(".context").css
-        position: 'absolute'
-        top: '66px'
       $("#smalltux").fadeOut 'fast'
       $("#smalltuxtext").fadeOut 'fast'
 

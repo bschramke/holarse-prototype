@@ -31,10 +31,9 @@
     %nav.usernav
       = render "navuser"
     .maincontent
-      %nav.context
-        .navcontext
-          = render "navcontext"
       %section.content
+        %nav.context
+          = render "navcontext"
         = yield
     %aside.search
       = render "search"
