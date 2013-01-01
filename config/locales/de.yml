@@ -47,6 +47,8 @@ de:
       created_at: "am %{date}"
     navcontext:
       edit: "Diese News bearbeiten"
+    edit:
+      title: "Bearbeiten von '%{title}'"
   users:
     index:
       title: "Aktive Benutzer"

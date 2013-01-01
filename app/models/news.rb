@@ -7,7 +7,7 @@ class News
   field :title
   field :subtitle  
   field :content
-  field :tags, :type => Array, :default => ["News"]
+  field :tags, :type => Array, :default => Array.new
   field :disabled, :type => Boolean, :default => false
   field :frozen, :type => Boolean, :default => false
 

@@ -10,6 +10,7 @@ class NewsController < ApplicationController
     @news = News.new
     @news.links.build
     @news.screenshots.build
+    @news.tags < "News"
   end
 
   def create
@@ -57,7 +58,7 @@ class NewsController < ApplicationController
 
   def require_edit_permissions
     unless has_role(:administrator, :reporter)
-      flash[:warn] = "Es werden erweiterte Rechte ben&ouml;tigt, um diese News bearbeiten zu k&ouml;nnen."
+      flash[:warning] = "Es werden erweiterte Rechte ben&ouml;tigt, um diese News bearbeiten zu k&ouml;nnen."
       redirect_to news_path
     end 
   end
