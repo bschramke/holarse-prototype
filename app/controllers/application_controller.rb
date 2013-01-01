@@ -12,12 +12,11 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  def has_role(rolename)
-    current_user.roles.include?(rolename.to_s)
+  def has_role(*rolenames)
+    return false unless is_logged_in?   
+    current_user.roles.any? { |x| rolenames.map{|r| r.to_s }.include?(x) }
   end
-  
+ 
   helper_method :current_user, :is_logged_in?
 
-
-  
 end

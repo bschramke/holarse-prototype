@@ -5,12 +5,14 @@
     %h2
       = @news.subtitle
     %h3
-      = link_user @news.author
+      = raw t('.author', :name => link_user(@news.author))
+      %time.date{:datetime => "#{@news.updated_at}"}
+      = t('.created_at', :date => l(@news.updated_at))
     %h4
 
   %p
     %pre
-      %codei{:data => {:language => "wiki"}}
+      %code{:data => {:language => "wiki"}}
         = @news.content
 
   %p

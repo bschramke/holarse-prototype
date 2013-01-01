@@ -43,6 +43,10 @@ de:
     show:
       videos: "Videos"
       links: "Relevante Links"
+      author: "geschrieben von %{name}"
+      created_at: "am %{date}"
+    navcontext:
+      edit: "Diese News bearbeiten"
   users:
     index:
       title: "Aktive Benutzer"

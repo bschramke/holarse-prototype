@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   # 3. die anzuzeigende benutzerseite dem aktuell eingeloggtem benutzer entspricht
   #
   def require_edit_permissions
-    unless is_logged_in? && (has_role(:administrator) || accesses_own_profile)
+    unless has_role(:administrator) || accesses_own_profile
       flash[:error] = "Keine ausreichenden Rechte f&uuml;r diese Seite"
       redirect_to root_path
     end
