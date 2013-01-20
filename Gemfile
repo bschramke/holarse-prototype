@@ -6,15 +6,14 @@ gem 'json'
 
 # Database backend
 #
-gem 'mongoid'
-gem 'bson', :platform => :jruby
-gem "mongoid-paperclip", :require => "mongoid_paperclip"
-gem 'mongoid_slug'
-gem 'mongoid_fulltext'
-gem 'jdbc-mysql'
+platforms :jruby do
+    gem 'activerecord-jdbchsqldb-adapter'
+    gem 'jdbc-hsqldb', '~> 2.2.9', :require => "jdbc/hsqldb"
+    gem 'jdbc-mysql' # fuer datenmigration von mysql
+    gem 'jruby-openssl'
+end
 
-# JRuby-specific
-gem 'jruby-openssl'
+gem 'paperclip'
 
 # View
 # 
@@ -40,7 +39,6 @@ gem "factory_girl_rails", :group => [:test, :development]
 gem "forgery", :group => [:test, :development]
 group :test do
 	gem 'capybara'
-  gem 'mongoid-rspec'
 end
 
 # JQuery
