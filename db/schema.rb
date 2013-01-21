@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120231939) do
+ActiveRecord::Schema.define(:version => 20130121224812) do
 
   create_table "roles", :force => true do |t|
     t.string    "name"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(:version => 20130120231939) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "user_id", :limit => 32
     t.integer "role_id", :limit => 32
+  end
+
+  create_table "shops", :force => true do |t|
+    t.string    "name"
+    t.timestamp "created_at", :limit => 26, :null => false
+    t.timestamp "updated_at", :limit => 26, :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -47,6 +53,10 @@ ActiveRecord::Schema.define(:version => 20130120231939) do
     t.integer   "failed_logins",         :limit => 32,       :default => 0
     t.timestamp "created_at",            :limit => 26,                          :null => false
     t.timestamp "updated_at",            :limit => 26,                          :null => false
+    t.string    "avatar_file_name"
+    t.string    "avatar_content_type"
+    t.integer   "avatar_file_size",      :limit => 32
+    t.timestamp "avatar_updated_at",     :limit => 26
   end
 
 end

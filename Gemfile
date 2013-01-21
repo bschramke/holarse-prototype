@@ -13,7 +13,7 @@ platforms :jruby do
     gem 'jruby-openssl'
 end
 
-gem 'paperclip'
+gem 'paperclip', "~> 3.0"
 
 # View
 # 

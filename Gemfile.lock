@@ -190,7 +190,7 @@ DEPENDENCIES
   jquery-rails
   jruby-openssl
   json
-  paperclip
+  paperclip (~> 3.0)
   rails (= 3.2.10)
   rspec-rails
   sass-rails (~> 3.2.3)

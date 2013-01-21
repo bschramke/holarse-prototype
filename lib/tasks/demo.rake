@@ -15,6 +15,9 @@ namespace :holarse do
         puts "Created #{u.username}"
       end
 
+      # admin-rolle anlegen
+      FactoryGirl.create(:adminrole) unless Role.find_by_name(:admin).present?
+    
       1.times do
         u = FactoryGirl.create(:admin)
         puts "Created admin #{u.username}"

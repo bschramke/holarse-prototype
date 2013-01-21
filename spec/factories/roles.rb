@@ -2,5 +2,10 @@
 
 FactoryGirl.define do
   factory :role do
+    name "generic"
+  end
+
+  factory :adminrole, :parent => :role do
+    name :admin.to_s
   end
 end
