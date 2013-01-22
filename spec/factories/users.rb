@@ -11,7 +11,7 @@ FactoryGirl.define do
     avatar { File.open Rails.root.join('test','fixtures','images',"avatar#{rand(9)+1}.png") }
   end
 
-  factory :admin, :parent => :user do
-    roles [ Role.find_by_name(:admin) ]
-  end
+  #factory :admin, :parent => :user do
+  #  roles [ Role.find_by_name(:admin) ]
+  #end
 end
