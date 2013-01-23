@@ -10,5 +10,5 @@
       .comments
         = t('.comments', :count => news.comments.count)
   %article.newsitem{:"data-id" => "#{news.id}"}
-    = image_tag(news.screenshots.first.img) if news.has_screenshots?
+    -#= image_tag(news.screenshots.first.img) if news.has_screenshots?
     = wiki_preview shorten news.content, 500

@@ -36,9 +36,9 @@ namespace :holarse do
           u.links << FactoryGirl.create(:link)
         end
 
-        1..rand(10) do
-          u.comments << FactoryGirl.create(:comment, :author => users[rand(users.length)])
-        end
+        #1..rand(10) do
+          #u.comments << FactoryGirl.create(:comment, :author => users[rand(users.length)])
+        #end
 
         u.save!
         puts "Created news #{u.title} from #{u.author.username} with #{u.comments.length} comments"

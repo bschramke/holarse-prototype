@@ -3,7 +3,8 @@ class Comment < ActiveRecord::Base
 
 	# referenzen
 	belongs_to :user
-	belongs_to :comment
+	belongs_to :news
+    belongs_to :article
 
 	# validierungen
 	validates_presence_of :content
