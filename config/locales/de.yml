@@ -91,5 +91,8 @@ de:
   sessions:
       loginform:
         username: "Benutzername"
-        password: "Passwort"      
+        password: "Passwort"
+  media:
+      videos:
+        title: "Videos von Holarse & Co."
 
