@@ -13,7 +13,7 @@ function load_yt_playlist(channelname, maxresults) {
           img_url: item.media$group.media$thumbnail[1].url,
           desc: item.media$group.media$description.$t,
           link: item.link[0].href,
-          updated: item.updated.$t
+          updated: new Date(item.updated.$t)
         };
         videos.push(video);
       });
@@ -29,9 +29,9 @@ $(document).ready(function() {
                             load_yt_playlist("gtuxtv", 15) 
                           );
 
-  // sortieren nach datum
+  // sortieren nach Datum
   var sorted_vids = all_vids.sort(function(a,b) {
-    return a.updated > b.updated;
+    return b.updated - a.updated;
   });
 
 
