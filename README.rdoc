@@ -1,6 +1,37 @@
-== HOLARSE 2012
-* Java    : OpenJDK 1.7u4 oder größer
-* Ruby    : JRuby 1.7.x
+== Installationsanleitung ==
 
-== Weitere Requirements
-Installation und Benutzung von Lolcommit (https://github.com/mroth/lolcommits) erforderlich! ;-)
+=== Software ===
+* JRuby: 1.7.2 oder höher
+* Java: OpenJDK 7 / Oracle JDK 7
+
+=== Rails-Installation ===
+{{{
+$ gem install bundler
+$ gem install jruby-openssl
+}}}
+Im Holarse-Verzeichnis dann:
+{{{
+$ bundle install
+}}}
+
+=== Datenbank anlegen ===
+{{{
+$ mkdir /tmp/holarse
+$ rake db:migrate
+}}}
+
+Die Datenbank wird dann unter /tmp/holarse als development und testing angelegt.
+
+=== Testdatensätze einfügen ===
+Dieses Feature kann unter Umständen fehlerhaft sein. Siehe Issues dazu.
+{{{
+$ rake holarse:demo:users
+}}}
+
+=== Tests laufen lassen ===
+Derzeit funktionieren die Tests nicht.
+
+=== Webserver starten ===
+{{{
+rails s
+}}}
