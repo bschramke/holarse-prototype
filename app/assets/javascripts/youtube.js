@@ -6,6 +6,7 @@ function load_yt_playlist(channelname, maxresults) {
     dataType: 'json',
     success: function(data) {
       $.each(data.feed.entry, function(i, item) {
+      	var updated = new Date(item.updated.$t);
         var video = {
           id: item.media$group.yt$videoid.$t,
           author: item.author[0].name.$t,
@@ -13,7 +14,8 @@ function load_yt_playlist(channelname, maxresults) {
           img_url: item.media$group.media$thumbnail[1].url,
           desc: item.media$group.media$description.$t,
           link: item.link[0].href,
-          updated: new Date(item.updated.$t)
+          updated: updated,
+          updatedLocaleString: updated.toLocaleString()
         };
         videos.push(video);
       });
