@@ -12,5 +12,7 @@ class Article < ActiveRecord::Base
     has_many :links
     has_many :attachments
 
+    has_many :comments
+
 end
 

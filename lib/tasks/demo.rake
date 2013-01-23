@@ -8,13 +8,6 @@ namespace :holarse do
       User.delete_all
     end
 
-    desc "adds demo roles"
-    task :roles => :environment do
-    	Role.create(:name => :admin)
-	Role.create(:name => :reporter)
-	Role.create(:name => :moderator)
-    end
-
     desc "adds demo users"
     task :users => :environment do
       10.times do
@@ -23,12 +16,12 @@ namespace :holarse do
       end
 
       # admin-rolle anlegen
-      #FactoryGirl.create(:adminrole) unless Role.find_by_name(:admin).present?
+      FactoryGirl.create(:adminrole) unless Role.find_by_name(:admin).present?
     
-      #1.times do
-      #  u = FactoryGirl.create(:admin)
-      #  puts "Created admin #{u.username}"
-      #end
+      1.times do
+        u = FactoryGirl.create(:admin)
+        puts "Created admin #{u.username}"
+      end
     end
 
     desc "adds demo news"
