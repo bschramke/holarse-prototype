@@ -1,14 +1,7 @@
-class Attachment
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include Mongoid::Paperclip  
+class Attachment < ActiveRecord::Base
+    attr_accessible :description, :attachfile
 
-  field :description  
-  
-  has_mongoid_attached_file :attachmentfile
+    has_attached_file :attachfile
+    belongs_to :article
 
-  embedded_in :article
-  embedded_in :news
-  embedded_in :newsupdate
-  
 end

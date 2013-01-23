@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122205304) do
+ActiveRecord::Schema.define(:version => 20130123115613) do
 
   create_table "article_histories", :force => true do |t|
     t.string    "title"
@@ -38,6 +38,36 @@ ActiveRecord::Schema.define(:version => 20130122205304) do
     t.integer   "user_id",         :limit => 32
     t.timestamp "created_at",      :limit => 26,                          :null => false
     t.timestamp "updated_at",      :limit => 26,                          :null => false
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.integer   "article_id",              :limit => 32
+    t.string    "description"
+    t.timestamp "created_at",              :limit => 26, :null => false
+    t.timestamp "updated_at",              :limit => 26, :null => false
+    t.string    "attachfile_file_name"
+    t.string    "attachfile_content_type"
+    t.integer   "attachfile_file_size",    :limit => 32
+    t.timestamp "attachfile_updated_at",   :limit => 26
+  end
+
+  create_table "links", :force => true do |t|
+    t.string    "url"
+    t.string    "description"
+    t.integer   "article_id",  :limit => 32
+    t.timestamp "created_at",  :limit => 26, :null => false
+    t.timestamp "updated_at",  :limit => 26, :null => false
+  end
+
+  create_table "node_images", :force => true do |t|
+    t.string    "description"
+    t.integer   "article_id",         :limit => 32
+    t.timestamp "created_at",         :limit => 26, :null => false
+    t.timestamp "updated_at",         :limit => 26, :null => false
+    t.string    "image_file_name"
+    t.string    "image_content_type"
+    t.integer   "image_file_size",    :limit => 32
+    t.timestamp "image_updated_at",   :limit => 26
   end
 
   create_table "roles", :force => true do |t|
@@ -84,6 +114,14 @@ ActiveRecord::Schema.define(:version => 20130122205304) do
     t.string    "avatar_content_type"
     t.integer   "avatar_file_size",      :limit => 32
     t.timestamp "avatar_updated_at",     :limit => 26
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string    "url"
+    t.string    "description"
+    t.integer   "article_id",  :limit => 32
+    t.timestamp "created_at",  :limit => 26, :null => false
+    t.timestamp "updated_at",  :limit => 26, :null => false
   end
 
 end

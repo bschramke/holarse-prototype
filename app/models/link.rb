@@ -1,14 +1,7 @@
-class Link
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Link < ActiveRecord::Base
+    attr_accessible :description, :url
 
-  field :description
-  field :url
-  
-  validates_presence_of :url
-  
-  embedded_in :article
-  embedded_in :news
-  embedded_in :newsupdate
-  
+    validates_presence_of :url
+
+    belongs_to :article
 end
