@@ -1,14 +1,4 @@
+#SQLite3
 development:
- adapter: jdbc
- driver: org.hsqldb.jdbcDriver
- url: jdbc:hsqldb:file:/tmp/holarse/development
- username: SA
- password:
-
-test:
- adapter: jdbc
- driver: org.hsqldb.jdbcDriver
- url: jdbc:hsqldb:file:/tmp/holarse/test
- username: SA
- password:
-
+  adapter: jdbcsqlite3
+  database: db/development.sqlite3

@@ -8,6 +8,13 @@ namespace :holarse do
       User.delete_all
     end
 
+    desc "adds demo roles"
+    task :roles => :environment do
+    	Role.create(:name => :admin)
+	Role.create(:name => :reporter)
+	Role.create(:name => :moderator)
+    end
+
     desc "adds demo users"
     task :users => :environment do
       10.times do

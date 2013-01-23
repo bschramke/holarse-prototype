@@ -6,7 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Role.delete_all
-Role.create(:name => :admin)
-Role.create(:name => :reporter)
-Role.create(:name => :moderator)
-puts "Rollen angelegt"
+Role.create([{name: 'admin'},{name: 'reporter'}, {name: 'moderator'}])
+puts "#{Role.count} Rollen angelegt"

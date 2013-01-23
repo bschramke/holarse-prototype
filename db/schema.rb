@@ -14,114 +14,114 @@
 ActiveRecord::Schema.define(:version => 20130123115613) do
 
   create_table "article_histories", :force => true do |t|
-    t.string    "title"
-    t.string    "alternate_title"
-    t.text      "content",         :limit => 16777216
-    t.integer   "user_id",         :limit => 32
-    t.integer   "article_id",      :limit => 32
-    t.timestamp "created_at",      :limit => 26,       :null => false
-    t.timestamp "updated_at",      :limit => 26,       :null => false
+    t.string   "title"
+    t.string   "alternate_title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "articles", :force => true do |t|
-    t.string    "title",                                                  :null => false
-    t.string    "alternate_title"
-    t.text      "content",         :limit => 16777216
-    t.boolean   "enabled",         :limit => 8,        :default => true
-    t.boolean   "isfrozen",        :limit => 8,        :default => false
-    t.boolean   "reviseme",        :limit => 8,        :default => false
-    t.boolean   "unreleased",      :limit => 8,        :default => false
-    t.boolean   "allowuploads",    :limit => 8,        :default => true
-    t.boolean   "hasftp",          :limit => 8,        :default => false
-    t.string    "releasedate"
-    t.string    "changelog"
-    t.integer   "user_id",         :limit => 32
-    t.timestamp "created_at",      :limit => 26,                          :null => false
-    t.timestamp "updated_at",      :limit => 26,                          :null => false
+    t.string   "title",                              :null => false
+    t.string   "alternate_title"
+    t.text     "content"
+    t.boolean  "enabled",         :default => true
+    t.boolean  "isfrozen",        :default => false
+    t.boolean  "reviseme",        :default => false
+    t.boolean  "unreleased",      :default => false
+    t.boolean  "allowuploads",    :default => true
+    t.boolean  "hasftp",          :default => false
+    t.string   "releasedate"
+    t.string   "changelog"
+    t.integer  "user_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "attachments", :force => true do |t|
-    t.integer   "article_id",              :limit => 32
-    t.string    "description"
-    t.timestamp "created_at",              :limit => 26, :null => false
-    t.timestamp "updated_at",              :limit => 26, :null => false
-    t.string    "attachfile_file_name"
-    t.string    "attachfile_content_type"
-    t.integer   "attachfile_file_size",    :limit => 32
-    t.timestamp "attachfile_updated_at",   :limit => 26
+    t.integer  "article_id"
+    t.string   "description"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "attachfile_file_name"
+    t.string   "attachfile_content_type"
+    t.integer  "attachfile_file_size"
+    t.datetime "attachfile_updated_at"
   end
 
   create_table "links", :force => true do |t|
-    t.string    "url"
-    t.string    "description"
-    t.integer   "article_id",  :limit => 32
-    t.timestamp "created_at",  :limit => 26, :null => false
-    t.timestamp "updated_at",  :limit => 26, :null => false
+    t.string   "url"
+    t.string   "description"
+    t.integer  "article_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "node_images", :force => true do |t|
-    t.string    "description"
-    t.integer   "article_id",         :limit => 32
-    t.timestamp "created_at",         :limit => 26, :null => false
-    t.timestamp "updated_at",         :limit => 26, :null => false
-    t.string    "image_file_name"
-    t.string    "image_content_type"
-    t.integer   "image_file_size",    :limit => 32
-    t.timestamp "image_updated_at",   :limit => 26
+    t.string   "description"
+    t.integer  "article_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "roles", :force => true do |t|
-    t.string    "name"
-    t.timestamp "created_at", :limit => 26, :null => false
-    t.timestamp "updated_at", :limit => 26, :null => false
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
-    t.integer "user_id", :limit => 32
-    t.integer "role_id", :limit => 32
+    t.integer "user_id"
+    t.integer "role_id"
   end
 
   create_table "shops", :force => true do |t|
-    t.string    "name"
-    t.timestamp "created_at", :limit => 26, :null => false
-    t.timestamp "updated_at", :limit => 26, :null => false
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string    "username"
-    t.string    "email"
-    t.boolean   "active",                :limit => 8,        :default => true
-    t.string    "old_password_hash"
-    t.string    "password_digest"
-    t.text      "signature",             :limit => 16777216
-    t.string    "jabber"
-    t.string    "icq"
-    t.string    "twitter"
-    t.string    "homepage"
-    t.string    "city"
-    t.string    "job"
-    t.date      "birthday",              :limit => 10
-    t.string    "computer"
-    t.string    "graphics"
-    t.string    "distro"
-    t.boolean   "minecraft_whitelisted", :limit => 8,        :default => false
-    t.string    "minecraft_username"
-    t.timestamp "lastlogin",             :limit => 26
-    t.integer   "failed_logins",         :limit => 32,       :default => 0
-    t.timestamp "created_at",            :limit => 26,                          :null => false
-    t.timestamp "updated_at",            :limit => 26,                          :null => false
-    t.string    "avatar_file_name"
-    t.string    "avatar_content_type"
-    t.integer   "avatar_file_size",      :limit => 32
-    t.timestamp "avatar_updated_at",     :limit => 26
+    t.string   "username"
+    t.string   "email"
+    t.boolean  "active",                :default => true
+    t.string   "old_password_hash"
+    t.string   "password_digest"
+    t.text     "signature"
+    t.string   "jabber"
+    t.string   "icq"
+    t.string   "twitter"
+    t.string   "homepage"
+    t.string   "city"
+    t.string   "job"
+    t.date     "birthday"
+    t.string   "computer"
+    t.string   "graphics"
+    t.string   "distro"
+    t.boolean  "minecraft_whitelisted", :default => false
+    t.string   "minecraft_username"
+    t.datetime "lastlogin"
+    t.integer  "failed_logins",         :default => 0
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "videos", :force => true do |t|
-    t.string    "url"
-    t.string    "description"
-    t.integer   "article_id",  :limit => 32
-    t.timestamp "created_at",  :limit => 26, :null => false
-    t.timestamp "updated_at",  :limit => 26, :null => false
+    t.string   "url"
+    t.string   "description"
+    t.integer  "article_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

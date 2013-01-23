@@ -7,10 +7,10 @@ gem 'json'
 # Database backend
 #
 platforms :jruby do
-    gem 'activerecord-jdbchsqldb-adapter'
-    gem 'jdbc-hsqldb', '~> 2.2.9', :require => "jdbc/hsqldb"
-    gem 'jdbc-mysql' # fuer datenmigration von mysql
-    gem 'jruby-openssl'
+	gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
+	gem 'jdbc-sqlite3'
+    	gem 'jdbc-mysql' # fuer datenmigration von mysql
+	gem 'jruby-openssl'
 end
 
 gem 'paperclip', "~> 3.0"

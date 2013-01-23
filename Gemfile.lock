@@ -23,9 +23,9 @@ GEM
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
     activerecord-jdbc-adapter (1.2.5)
-    activerecord-jdbchsqldb-adapter (1.2.5)
+    activerecord-jdbcsqlite3-adapter (1.2.5)
       activerecord-jdbc-adapter (~> 1.2.5)
-      jdbc-hsqldb (>= 1.8)
+      jdbc-sqlite3 (~> 3.7.2)
     activeresource (3.2.10)
       activemodel (= 3.2.10)
       activesupport (= 3.2.10)
@@ -76,8 +76,8 @@ GEM
       railties (>= 3.1, < 4.1)
     hike (1.2.1)
     i18n (0.6.1)
-    jdbc-hsqldb (2.2.9)
     jdbc-mysql (5.1.22)
+    jdbc-sqlite3 (3.7.2.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -177,7 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-jdbchsqldb-adapter
+  activerecord-jdbcsqlite3-adapter
   bcrypt-ruby (~> 3.0.0)
   capybara
   coffee-rails (~> 3.2.1)
@@ -185,8 +185,8 @@ DEPENDENCIES
   flexslider (~> 2.0.2)
   forgery
   haml-rails
-  jdbc-hsqldb (~> 2.2.9)
   jdbc-mysql
+  jdbc-sqlite3
   jquery-rails
   jruby-openssl
   json
