@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
     # referenzen
     belongs_to :user
     has_many :article_histories
-    has_many :node_images
+    has_many :screenshots
     has_many :videos
     has_many :links
     has_many :attachments

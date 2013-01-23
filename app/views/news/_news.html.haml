@@ -4,7 +4,7 @@
       = link_to news.title, news
     %h2
       .author
-        = raw t('.author', :name => link_user(news.author))
+        = raw t('.author', :name => link_user(news.user))
       %time.date{:datetime => "#{news.updated_at}"}
         = t('.created_at', :date => l(news.updated_at))
       .comments
