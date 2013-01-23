@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123115613) do
+ActiveRecord::Schema.define(:version => 20130123204718) do
 
   create_table "article_histories", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(:version => 20130123115613) do
     t.string   "attachfile_content_type"
     t.integer  "attachfile_file_size"
     t.datetime "attachfile_updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "content"
+    t.boolean  "enabled",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "links", :force => true do |t|
