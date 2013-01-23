@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :link do
-    url "MyString"
+    url { "http://#{Forgery::Internet.domain_name}.#{Forgery::Internet.top_level_domain}" }
     description "MyString"
   end
 end

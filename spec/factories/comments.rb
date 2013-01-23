@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :comment do
+    content { Forgery::LoremIpsum.sentences(30) }
   end
 end
