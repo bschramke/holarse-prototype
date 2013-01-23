@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20130123225803) do
     t.string   "url"
     t.string   "description"
     t.integer  "article_id"
+    t.integer  "news_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

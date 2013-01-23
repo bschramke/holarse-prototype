@@ -29,7 +29,7 @@ namespace :holarse do
 
       10.times do
         u = FactoryGirl.build(:news)
-        u.author = users[rand(users.length)]
+        u.user = users[rand(users.length)]
 
         3.times do
           u.links << FactoryGirl.create(:link)
@@ -40,7 +40,7 @@ namespace :holarse do
         end
 
         u.save!
-        puts "Created news #{u.title} from #{u.author.username} with #{u.comments.length} comments"
+        puts "Created news #{u.title} from #{u.user.username} with #{u.comments.length} comments"
       end
     end
 
