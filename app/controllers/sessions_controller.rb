@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   
   def create
     # benutzer-account erstmal finden
-    user = User.find params[:username]
+    user = User.find_by_username(params[:username])
 
     begin
       UserValidator.new(user).is_valid?
@@ -32,14 +32,17 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       
       # erfolgreiches login vermerken
-      user.update_attributes(failed_logins: 0, last_login: Time.now)
+      user.successfull_login()
+      Rails.logger.debug("User: #{user.inspect}")
+      user.save!
 
       Rails.logger.debug("Login ok")      
       # zurück zur hauptseite
       flash[:notice] = "Der Login war erfolgreich."
       redirect_to root_path and return
     else
-      user.inc(:failed_logins, 1)
+      user.increment_failed_logins()
+      user.save!
       flash[:error] = "Login fehlgeschlagen"
       redirect_to root_path and return
     end
@@ -93,7 +96,8 @@ class UserMigrator
   end
 
   def migrate
-    @user.update_attributes(password: @password)
-    @user.unset(:old_password_hash)
+    @user.password = @password
+    @user.old_password_hash = nil
+    @user.save!
   end
 end

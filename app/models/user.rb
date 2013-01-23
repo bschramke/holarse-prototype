@@ -15,6 +15,18 @@ class User < ActiveRecord::Base
     validates_presence_of :username, :email
     validates_uniqueness_of :username, :email
 #    validates_uniqueness_of :minecraft_username
-    validates_presence_of :password, :on => :update
+    validates_presence_of :password, :on => :create
+    
+    def successfull_login
+        self.failed_logins = 0
+        self.lastlogin = Time.now
+    end
+    
+    def increment_failed_logins
+        self.increment(:failed_logins)
+    end
 
+    def authenticate_legacy(old_password)
+        Digest::MD5.hexdigest(old_password) == old_password_hash
+    end
 end
