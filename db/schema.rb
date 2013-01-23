@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123204718) do
+ActiveRecord::Schema.define(:version => 20130123215656) do
 
   create_table "article_histories", :force => true do |t|
     t.string   "title"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20130123204718) do
     t.boolean  "enabled",    :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.integer  "news_id"
+    t.integer  "article_id"
   end
 
   create_table "links", :force => true do |t|
@@ -65,6 +67,23 @@ ActiveRecord::Schema.define(:version => 20130123204718) do
     t.integer  "article_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "title",                              :null => false
+    t.string   "alternate_title"
+    t.text     "content"
+    t.boolean  "enabled",         :default => true
+    t.boolean  "isfrozen",        :default => false
+    t.boolean  "reviseme",        :default => false
+    t.boolean  "unreleased",      :default => false
+    t.boolean  "allowuploads",    :default => true
+    t.boolean  "hasftp",          :default => false
+    t.string   "releasedate"
+    t.string   "changelog"
+    t.integer  "user_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "node_images", :force => true do |t|

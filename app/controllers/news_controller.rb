@@ -3,7 +3,7 @@ class NewsController < ApplicationController
   before_filter :require_edit_permissions, :only => [:edit, :update, :destroy]
 
   def index
-    @news = News.desc(:created_at).limit(25)
+    @news = News.order('created_at DESC').limit(25)
   end
 
   def new
