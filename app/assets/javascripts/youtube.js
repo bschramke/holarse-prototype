@@ -1,7 +1,7 @@
 function load_yt_playlist(channelname, maxresults) {
   var videos = [];
   $.ajax({
-    url: "http://gdata.youtube.com/feeds/api/users/" + channelname + "/uploads?max-results=" + maxresults + "&start-index=1&v=2&alt=json",
+    url: "//gdata.youtube.com/feeds/api/users/" + channelname + "/uploads?max-results=" + maxresults + "&start-index=1&v=2&alt=json",
     async: false,
     dataType: 'json',
     success: function(data) {
