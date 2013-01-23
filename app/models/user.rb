@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
     # references
     has_and_belongs_to_many :roles
+    has_many :articles
+    has_many :article_histories
 
     # der benutzer-avatar
     has_attached_file :avatar, :default_url => '/assets/nobody.png'

@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121224812) do
+ActiveRecord::Schema.define(:version => 20130122205304) do
+
+  create_table "article_histories", :force => true do |t|
+    t.string    "title"
+    t.string    "alternate_title"
+    t.text      "content",         :limit => 16777216
+    t.integer   "user_id",         :limit => 32
+    t.integer   "article_id",      :limit => 32
+    t.timestamp "created_at",      :limit => 26,       :null => false
+    t.timestamp "updated_at",      :limit => 26,       :null => false
+  end
+
+  create_table "articles", :force => true do |t|
+    t.string    "title",                                                  :null => false
+    t.string    "alternate_title"
+    t.text      "content",         :limit => 16777216
+    t.boolean   "enabled",         :limit => 8,        :default => true
+    t.boolean   "isfrozen",        :limit => 8,        :default => false
+    t.boolean   "reviseme",        :limit => 8,        :default => false
+    t.boolean   "unreleased",      :limit => 8,        :default => false
+    t.boolean   "allowuploads",    :limit => 8,        :default => true
+    t.boolean   "hasftp",          :limit => 8,        :default => false
+    t.string    "releasedate"
+    t.string    "changelog"
+    t.integer   "user_id",         :limit => 32
+    t.timestamp "created_at",      :limit => 26,                          :null => false
+    t.timestamp "updated_at",      :limit => 26,                          :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string    "name"
