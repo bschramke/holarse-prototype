@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe NodeImage do
+describe Screenshot do
   pending "add some examples to (or delete) #{__FILE__}"
 end

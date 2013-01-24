@@ -5,6 +5,15 @@ de:
   time:
     formats:
       default: "%d.%m.%Y %H:%m"
+  activerecord:
+    errors:
+        messages:
+            record_invalid: "Ungültiger Datensatz: %{errors}"
+        models:
+            user:
+                attributes:
+                    username:
+                        taken: "Benutzername wird bereits vergeben"
   application:
     header:
     navprimary:

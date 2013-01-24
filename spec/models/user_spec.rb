@@ -23,4 +23,16 @@ describe User do
         user.successfull_login()
         expect(user.lastlogin).to_not be(nil)
     end
+    
+    it "should not allow to users with the same username" do
+        user = FactoryGirl.create(:user, :username => "testuser")
+        user2 = FactoryGirl.build(:user, :username => "testuser")
+        expect(user2.save).to be(false)
+    end
+
+    it "should not allow duplicate email addresses" do
+        user = FactoryGirl.create(:user, :email => "test@test.com")
+        user2 = FactoryGirl.build(:user, :email => "test@test.com")
+        expect(user2.save).to be(false)
+    end
 end
