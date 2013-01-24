@@ -14,6 +14,10 @@ de:
                 attributes:
                     username:
                         taken: "Benutzername wird bereits vergeben"
+            news:
+                attributes:
+                    user:
+                        blank: "Der Benutzer der News ist nicht gesetzt"
   application:
     header:
     navprimary:
