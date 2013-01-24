@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def has_role(*rolenames)
     return false unless is_logged_in?   
-    current_user.roles.any? { |x| rolenames.map{|r| r.to_s }.include?(x) }
+    current_user.roles.any? { |x| rolenames.map{|r| r.to_s }.include?(x.name) }
   end
  
   helper_method :current_user, :is_logged_in?

@@ -57,7 +57,7 @@ class NewsController < ApplicationController
   private
 
   def require_edit_permissions
-    unless has_role(:administrator, :reporter)
+    unless has_role('admin', 'reporter')
       flash[:warning] = "Es werden erweiterte Rechte ben&ouml;tigt, um diese News bearbeiten zu k&ouml;nnen."
       redirect_to news_path
     end 
