@@ -15,6 +15,7 @@ class NewsController < ApplicationController
 
   def create
     @news = News.new(params[:news])
+    @news.user = current_user
 
     respond_to do |format|
       if @news.save
