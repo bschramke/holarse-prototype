@@ -10,7 +10,7 @@ class NewsController < ApplicationController
     @news = News.new
     @news.links.build
     @news.screenshots.build
-    @news.tags < "News"
+    @news.tag_list = "News"
   end
 
   def create

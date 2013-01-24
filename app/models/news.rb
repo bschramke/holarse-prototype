@@ -7,6 +7,8 @@ class News < ActiveRecord::Base
   has_many :links
   has_many :comments
 
+  acts_as_taggable
+
   validates_presence_of :title  
   validates :title, :length => { :minimum => 3 }  
   validates_presence_of :content
