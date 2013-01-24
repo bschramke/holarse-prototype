@@ -1,4 +1,4 @@
-- if !@news.respond_to?("length")
+- if !@news.respond_to?("length") && !@news.new_record?
   %nav.context
     %ul
       %li
