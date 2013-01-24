@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :article do
+    title { Forgery::LoremIpsum.words(3) }
+    content { Forgery::LoremIpsum.sentences(30) }
   end
 end
