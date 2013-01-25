@@ -24,9 +24,11 @@
     %ul
       -@news.screenshots.each do |screenshot|
         %li
-          = screenshot[:description]
-          = image_tag screenshot.image.url(:small)
-
+          = link_to image_tag(screenshot.image.url(:small)),
+                            screenshot.image.url,
+                            { :title => screenshot.description,
+                              :rel => 'screenshots',
+                              :class => 'fancybox-media' }
   %h3
     = t('.videos')
   .videos
