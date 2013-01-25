@@ -33,7 +33,7 @@ class NewsController < ApplicationController
     #@old_news.historical = true
     @old_news.save
 
-    @news.author = current_user
+    @news.user = current_user
 
     respond_to do |format|
     if @news.update_attributes(params[:news])

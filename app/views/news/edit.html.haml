@@ -15,8 +15,8 @@
         %br/
         = f.text_area :content, :class => "content"
       %p
-        = f.label :tags, "Tags durch Kommas getrennt"
-        = f.text_field :tags
+        = f.label :tag_list, "Tags durch Kommas getrennt"
+        = f.text_field :tag_list
       %p
         = f.fields_for :screenshots do |builder|
           = render 'screenshot_fields', :f => builder

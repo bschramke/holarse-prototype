@@ -25,7 +25,7 @@
       -@news.screenshots.each do |screenshot|
         %li
           = screenshot[:description]
-          = image_tag screenshot.img.url
+          = image_tag screenshot.image.url(:small)
 
   %h3
     = t('.videos')
