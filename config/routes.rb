@@ -7,9 +7,12 @@ Holarse::Application.routes.draw do
   # webseiten resourcen
   resources :users
   resources :news
+  resources :news do
+    resources :comments, :except => :index
+  end
   resources :articles
-  
-  resource :twitter
+ 
+  get '/twitter' => 'twitter#show', :as => :twitter
   
   # login und sessionverwaltung
   match "login" => "sessions#new"
