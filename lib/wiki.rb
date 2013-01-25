@@ -34,7 +34,7 @@ module Holarse
       # Formatiert externe Links
       #
       def external_links(text)
-        text.gsub(/\[(\S*) (.*)\]/) { |match|
+        text.gsub(/\[(\S*) ([^\[]*)\]/) { |match|
           ActionController::Base.helpers.link_to("#{$2}", "#{$1}")
         }
       end
