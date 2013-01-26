@@ -59,3 +59,14 @@ ul.slides li.news {
 .screenshots li {
   display: inline;
 }
+
+.screenshot {
+  display: table;
+  .edit {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  img {
+    display: table-cell;
+  }
+}

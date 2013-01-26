@@ -32,6 +32,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Development-Gems
+group :development do
+  gem 'better_errors'
+  #gem 'binding_of_caller'
+  gem 'meta_request'
+end
 #
 # Testing-Gems
 # 

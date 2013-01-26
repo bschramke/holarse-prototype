@@ -1,0 +1,9 @@
+.screenshot.fields
+  = image_tag f.object.image.url(:small)
+  .edit
+    = f.label :description, "Beschreibung"
+    %br/
+    = f.text_field :description
+    %br/
+    = link_to_remove_fields "remove", f
+%hr/

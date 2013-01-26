@@ -53,6 +53,9 @@ class NewsController < ApplicationController
 
   def edit
     @news = News.find params[:id]
+    @news.links.build
+    @news.screenshots.build
+    @news.videos.build
   end
   
   private
