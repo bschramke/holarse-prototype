@@ -47,3 +47,10 @@
         %li
           = link_to link.description, link.url
     
+  %h3
+    = t('.comments')
+  .comments
+    %ul
+      = render :partial => "newscomments/comment", :collection => @news.comments
+    %p
+      = render :partial => "newscomments/new", :locals => { :news => @news, :comment => Comment.new }

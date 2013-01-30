@@ -74,6 +74,8 @@ GEM
     ffi (1.2.0-java)
     flexslider (2.0.2)
     forgery (0.5.0)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -198,6 +200,7 @@ DEPENDENCIES
   factory_girl_rails
   flexslider (~> 2.0.2)
   forgery
+  formtastic
   haml-rails
   jdbc-mysql
   jdbc-sqlite3

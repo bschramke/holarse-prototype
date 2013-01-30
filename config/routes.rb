@@ -8,7 +8,7 @@ Holarse::Application.routes.draw do
   resources :users
   resources :news
   resources :news do
-    resources :comments, :except => :index
+    resources :comments, :controller => "newscomments"
   end
   resources :articles
  
