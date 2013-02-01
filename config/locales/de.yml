@@ -59,6 +59,7 @@ de:
       author: "geschrieben von %{name}"
       created_at: "am %{date}"
       notcommentable: "Kommentarfunktion gesperrt"
+      login_required: "Nur registrierte Benutzer können kommentieren."
     navcontext:
       edit: "Diese News bearbeiten"
     edit:
