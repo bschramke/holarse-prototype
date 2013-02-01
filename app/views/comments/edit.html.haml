@@ -1,2 +1,3 @@
-%h1 Comment#edit
-%p Find me in app/views/comment/edit.html.haml
+= semantic_form_for [@commentable_object, @comment] do |f|
+  = f.inputs :content
+  = f.actions

@@ -1,7 +1,11 @@
 %li.comment
-  .user
-    = link_user comment.user
-  %time.comment
-    = comment.created_at
-  .content
+  %header 
+    .commentuser
+      = link_user comment.user
+    %time
+      = comment.created_at
+    .controls  
+      = create_polymorphic_comment_link(:edit, commentable_object, comment) if can_edit_comment?(comment)
+
+  .content  
     = comment.content

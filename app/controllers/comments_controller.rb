@@ -1,19 +1,14 @@
 class CommentsController < ApplicationController
 
   before_filter :require_commentable_permissions, :only => :create
+  before_filter :require_comment_edit_permissions, :only => [:edit, :update, :destroy]
 
   def index
   end
 
   def create
     # passendes kommentierbares item finden
-    if params[:news_id].present? 
-      commentable = News.find(params[:news_id])
-    elsif params[:article_id].present?
-      commentable = Article.find(params[:article_id])
-    else
-      raise "only news or articles are commentable"
-    end
+    commentable = get_commentable_object
 
     # kommentar erzeugen
     comment = Comment.new(:user => current_user, :content => params[:comment][:content])
@@ -27,7 +22,24 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    commentable = get_commentable_object
+    comment = Comment.find(params[:id])
+    redirect_to commentable, :error => "Kann den Kommentar nicht bearbeiten" if !can_edit_comment?(comment) and return
+
+    comment.content = params[:comment][:content]
+    if comment.save
+      redirect_to commentable, :notice => "Kommentar aktualisiert"
+    else
+      redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
+    end 
+  end
+
   def edit
+    @commentable_object = get_commentable_object
+    @comment = Comment.find(params[:id])
+
+    redirect_to commentable, :error => "Kann den Kommentar nicht bearbeiten" if !can_edit_comment?(@comment) and return
   end
 
   def destroy
@@ -47,5 +59,10 @@ class CommentsController < ApplicationController
     obj = get_commentable_object
 
     redirect_to obj, :warning => "Kommentarfunktion ist hier gesperrt." if !obj || !obj.commentable
+  end
+
+  # ueberprueft ob der kommentar bearbeitet werden darf
+  def require_comment_edit_permissions
+    can_edit_comment? Comment.find(params[:id])    
   end
 end

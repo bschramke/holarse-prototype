@@ -109,4 +109,7 @@ de:
   media:
       videos:
         title: "Videos von Holarse & Co."
+  comments:
+    comment:
+      edit: "bearbeiten"
 

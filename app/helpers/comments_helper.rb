@@ -12,4 +12,8 @@ module CommentsHelper
     end  
   end
 
+  def create_polymorphic_comment_link(action, commentable_object, comment)
+    link_to t(".#{action}"), send("#{action}_#{commentable_object.class.to_s.underscore}_comment_path", commentable_object, comment)
+  end
+
 end
