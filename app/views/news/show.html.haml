@@ -51,6 +51,5 @@
     = t('.comments')
   .comments
     %ul
-      = render :partial => "newscomments/comment", :collection => @news.comments
-    %p
-      = render :partial => "newscomments/new", :locals => { :news => @news, :comment => Comment.new }
+      = render :partial => "comments/comment", :collection => @news.comments
+      = show_commentbox(@news)

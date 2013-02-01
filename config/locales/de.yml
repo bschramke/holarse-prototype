@@ -58,6 +58,7 @@ de:
       links: "Relevante Links"
       author: "geschrieben von %{name}"
       created_at: "am %{date}"
+      notcommentable: "Kommentarfunktion gesperrt"
     navcontext:
       edit: "Diese News bearbeiten"
     edit:
