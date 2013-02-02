@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if comment.save
       commentable.comments << comment
       if commentable.save
-        redirect_to commentable, :notice => "Kommentar gespeichert"
+        redirect_to url_for(commentable) + "#comment-#{comment.id}", :notice => "Kommentar gespeichert" // FIXME
       else
         redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
       end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
     comment.content = params[:comment][:content]
     if comment.save
-      redirect_to commentable, :notice => "Kommentar aktualisiert"
+      redirect_to url_for(commentable) + "#comment-#{comment.id}", :notice => "Kommentar aktualisiert" // FIXME
     else
       redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
     end 
