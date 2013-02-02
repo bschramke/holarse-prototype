@@ -1,6 +1,6 @@
 %li.comment
   %header 
-    %a{:id => "comment-#{comment.id}"}
+    %a{:id => create_anchor_name(comment)}
     .commentuser
       = link_user comment.user
     %time

@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if comment.save
       commentable.comments << comment
       if commentable.save
-        redirect_to url_for(commentable) + "#comment-#{comment.id}", :notice => "Kommentar gespeichert" // FIXME
+        redirect_to anchor_url_for(commentable, comment), :notice => "Kommentar gespeichert"
       else
         redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
       end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
     comment.content = params[:comment][:content]
     if comment.save
-      redirect_to url_for(commentable) + "#comment-#{comment.id}", :notice => "Kommentar aktualisiert" // FIXME
+      redirect_to anchor_url_for(commentable, comment), :notice => "Kommentar aktualisiert"
     else
       redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
     end 
@@ -47,6 +47,11 @@ class CommentsController < ApplicationController
 
   private
 
+  # erzeugt eine url und haengt einen anchor-link hierfuer dran
+  def anchor_url_for(commentable, comment)
+    "#{url_for(commentable)}##{create_anchor_name(comment)}"
+  end
+
   # laedt das entsprechende objekt anhand der unterschiedlichen uebergaben
   def get_commentable_object
     return News.find(params[:news_id]) if params[:news_id].present?
@@ -57,7 +62,6 @@ class CommentsController < ApplicationController
   # ueberprueft, ob das commentable-objekt kommentiert werden darf
   def require_commentable_permissions
     obj = get_commentable_object
-
     redirect_to obj, :warning => "Kommentarfunktion ist hier gesperrt." if !obj || !obj.commentable
   end
 

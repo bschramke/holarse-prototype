@@ -1,9 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
  
-  helper_method :current_user, :is_logged_in?, :has_role, :can_edit_comment?
+  helper_method :current_user, :is_logged_in?, :has_role, :can_edit_comment?, :create_anchor_name
 
   private
+
+  #
+  # erzeugt einen anchor-link-namen
+  #
+  def create_anchor_name(linkable)
+    "#{linkable.class.to_s.underscore}-#{linkable.id}" if linkable.present? && linkable.respond_to?('id')
+  end
 
   #
   # Ermittelt den aktuellen eingeloggten Benutzer
