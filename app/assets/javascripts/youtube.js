@@ -40,8 +40,4 @@ $(document).ready(function() {
   // Ausgabe
   $("#youtube-tmpl").tmpl(sorted_vids).appendTo("#yt-videos");
 
-  // Text ausrichten
-  var marginleft = $('.video_img').eq(0).outerWidth();
-  $('.video_desc').css("margin-left", marginleft);
-
 });
