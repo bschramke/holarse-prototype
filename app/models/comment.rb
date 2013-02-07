@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 	# referenzen
 	belongs_to :user
 	has_and_belongs_to_many :news
-  belongs_to :article
+  has_and_belongs_to_many :articles
 
 	# validierungen
   validates_presence_of :user

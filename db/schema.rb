@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207191049) do
+ActiveRecord::Schema.define(:version => 20130207194234) do
 
   create_table "article_histories", :force => true do |t|
     t.string   "title"
@@ -40,8 +40,32 @@ ActiveRecord::Schema.define(:version => 20130207191049) do
     t.datetime "updated_at",                         :null => false
   end
 
+  create_table "articles_attachments", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "attachment_id"
+  end
+
+  create_table "articles_comments", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "comment_id"
+  end
+
+  create_table "articles_links", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "link_id"
+  end
+
+  create_table "articles_screenshots", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "screenshot_id"
+  end
+
+  create_table "articles_videos", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "video_id"
+  end
+
   create_table "attachments", :force => true do |t|
-    t.integer  "article_id"
     t.string   "description"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
@@ -52,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20130207191049) do
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "article_id"
     t.integer  "user_id"
     t.string   "content"
     t.boolean  "enabled",    :default => true
@@ -69,9 +92,13 @@ ActiveRecord::Schema.define(:version => 20130207191049) do
     t.string   "url"
     t.string   "description"
     t.integer  "article_id"
-    t.integer  "news_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "links_news", :id => false, :force => true do |t|
+    t.integer "news_id"
+    t.integer "link_id"
   end
 
   create_table "news", :force => true do |t|
@@ -92,6 +119,16 @@ ActiveRecord::Schema.define(:version => 20130207191049) do
     t.boolean  "commentable",  :default => true
   end
 
+  create_table "news_screenshots", :id => false, :force => true do |t|
+    t.integer "news_id"
+    t.integer "screenshot_id"
+  end
+
+  create_table "news_videos", :id => false, :force => true do |t|
+    t.integer "news_id"
+    t.integer "video_id"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -105,8 +142,6 @@ ActiveRecord::Schema.define(:version => 20130207191049) do
 
   create_table "screenshots", :force => true do |t|
     t.string   "description"
-    t.integer  "article_id"
-    t.integer  "news_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
@@ -170,8 +205,6 @@ ActiveRecord::Schema.define(:version => 20130207191049) do
   create_table "videos", :force => true do |t|
     t.string   "url"
     t.string   "description"
-    t.integer  "article_id"
-    t.integer  "news_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

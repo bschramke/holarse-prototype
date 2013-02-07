@@ -1,10 +1,10 @@
 class News < ActiveRecord::Base
   
   belongs_to :user
-  has_many :screenshots
-  has_many :attachments  
-  has_many :videos
-  has_many :links
+  has_and_belongs_to_many :screenshots
+  has_and_belongs_to_many :attachments  
+  has_and_belongs_to_many :videos
+  has_and_belongs_to_many :links
   has_and_belongs_to_many :comments
 
   accepts_nested_attributes_for :screenshots, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
