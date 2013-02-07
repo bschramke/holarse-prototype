@@ -1,18 +1,20 @@
 / JQuery-Template
 %script{:id => "youtube-tmpl", :type => "text/x-jquery-tmpl"}
-  %li
+  .video
     .video_img
       %a{:href=> "${link}", :class => "fancybox-media"}
-        %img{:src => "${img_url}"}  
-    .video_name
-      %a{:href=> "${link}"}
-        ${name}
-    .video_details
-      .author ${author}
-      .updated ${updatedLocaleString}
-    .video_desc ${desc}
+        %img{:src => "${img_url}"}
+    .video_text
+      .video_header
+        .video_name
+          %a{:href=> "${link}"}
+            ${name}
+        .video_details
+          .author ${author}
+          .updated ${updatedLocaleString}
+      .video_newline
+      .video_desc ${desc}
 
 %h1
   = t('.title')
-%ul#yt-videos.videos
-
+%div#yt-videos.videos
