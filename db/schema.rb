@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201205446) do
+ActiveRecord::Schema.define(:version => 20130207191049) do
 
   create_table "article_histories", :force => true do |t|
     t.string   "title"
@@ -53,12 +53,16 @@ ActiveRecord::Schema.define(:version => 20130201205446) do
 
   create_table "comments", :force => true do |t|
     t.integer  "article_id"
-    t.integer  "news_id"
     t.integer  "user_id"
     t.string   "content"
     t.boolean  "enabled",    :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "comments_news", :id => false, :force => true do |t|
+    t.integer "news_id"
+    t.integer "comment_id"
   end
 
   create_table "links", :force => true do |t|

@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
 
 	# referenzen
 	belongs_to :user
-	belongs_to :news
+	has_and_belongs_to_many :news
   belongs_to :article
 
 	# validierungen

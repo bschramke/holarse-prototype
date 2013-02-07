@@ -5,7 +5,7 @@ class News < ActiveRecord::Base
   has_many :attachments  
   has_many :videos
   has_many :links
-  has_many :comments
+  has_and_belongs_to_many :comments
 
   accepts_nested_attributes_for :screenshots, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :videos, :reject_if => lambda { |a| a[:url].blank? }, :allow_destroy => true
