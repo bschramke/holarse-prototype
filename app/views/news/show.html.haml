@@ -9,6 +9,8 @@
       %time.date{:datetime => "#{@news.updated_at}"}
       = t('.created_at', :date => l(@news.updated_at))
     %h4
+      - @news.tags.each do |tag|
+        = link_to tag.name, searchtag_path(:q => tag.name)
 
   %p
     %pre
