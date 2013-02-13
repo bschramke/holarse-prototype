@@ -44,7 +44,7 @@ module Holarse
       #
       def article_links(text)
         text.gsub(/\[\[(.+?)\]\]/) { |match|
-          ActionController::Base.helpers.link_to("#{$1}", Rails.application.routes.url_helpers.article_path("#{$1}".to_url) )
+          ActionController::Base.helpers.link_to("#{$1}", Rails.application.routes.url_helpers.article_path("#{$1}".to_url), {:class => "wikilink"} )
         }
       end
 

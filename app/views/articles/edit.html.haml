@@ -1,0 +1,6 @@
+.edit_content
+  = semantic_form_for @article do |f|
+    = f.semantic_errors :title, :alternate_title, :content
+    = f.inputs :title, :alternate_title, :content
+    = f.actions
+

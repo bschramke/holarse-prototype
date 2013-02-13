@@ -1,0 +1,9 @@
+- if !@article.respond_to?("length") && !@article.new_record?
+  %nav.context
+    %ul
+      %li
+        = link_to t('.edit'), edit_article_path(@article)
+      %li
+        = t('.history')
+      %li
+        = t('.admin')
