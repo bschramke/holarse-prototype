@@ -27,7 +27,12 @@ de:
       news: "News"
     navsecondary:
       videos: "Videos"
-      twitter: "Twitter-Wall"
+      twitter: "Twitter"
+      forum: "Forum"
+      new: "Neue Inhalte anlegen"
+      newbtn_title: "Neue Inhalte anlegen"
+      newarticle: "Neuer Artikel"
+      newnews: "Neue News"
     navuser:
       login: "Anmelden"
       logout: "Abmelden"

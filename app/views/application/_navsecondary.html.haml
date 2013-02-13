@@ -13,7 +13,14 @@
   %li      
     = link_to t('.twitter'), twitter_path
   %li      
-    = link_to t('.community'), root_path
-  %li
-    = link_to t('.news'), news_index_path     
+    = link_to t('.forum'), root_path
+  
+.newbtn  
+  = link_to t('.new'), '#', :id => "new_button", :class => "button"
 
+#newbtn-content.invisible{:title => t('.newbtn_title')}
+  %ul
+    %li
+      = link_to t('.newarticle'), new_article_path
+    %li
+      = link_to t('.newnews'), new_news_path
