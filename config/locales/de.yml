@@ -70,6 +70,14 @@ de:
       edit: "Diese News bearbeiten"
     edit:
       title: "Bearbeiten von '%{title}'"
+  articles:
+    show:
+      author: "Autor: %{name}"
+      created_at: "Erstellt am: %{date}"
+    navcontext:
+      edit: "Bearbeiten"
+      history: "Historie"
+      admin: "Admin"
   users:
     index:
       title: "Aktive Benutzer"

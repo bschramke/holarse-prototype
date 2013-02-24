@@ -52,11 +52,3 @@
     = @user.minecraft_username
     = display_mc_whitelist_status(@user.minecraft_whitelisted)
     
-%h2
-  = t('.favourite_games')
-%ul
-  - @user.favourite_games.each do |game|
-    %li
-      = game
-      
-
