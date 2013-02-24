@@ -1,0 +1,7 @@
+%hgroup
+  %h1
+    = t('.title')
+
+%section
+  %ul
+    = render :partial "discount_events/discount_event", :collection => @discount_events

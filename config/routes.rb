@@ -1,5 +1,8 @@
 Holarse::Application.routes.draw do
 
+  # die angebotsaktionen
+  resources :discount_events
+
   # die suche
   get "search/(:q)" => "search#show", :as => :search
   get "search/tags/:q" => "search#tags", :as => :searchtag

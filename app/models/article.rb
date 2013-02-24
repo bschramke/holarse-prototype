@@ -11,6 +11,7 @@ class Article < ActiveRecord::Base
     has_and_belongs_to_many :videos
     has_and_belongs_to_many :links
     has_and_belongs_to_many :attachments
+    has_many :discount_events
 
     has_and_belongs_to_many :comments
 

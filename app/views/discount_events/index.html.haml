@@ -1,0 +1,17 @@
+%hgroup
+  %h1
+    = t('.title')
+
+%p
+  = link_to t('.new'), new_discount_event_path
+
+%section
+  %table
+    %thead
+      %tr
+        %th= t('.name')
+        %th= t('.startdate')
+        %th= t('.enddate')
+        %th= t('.website')
+    %tbody    
+      = render :partial => "discount_events/discount_event", :collection => @discount_events

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     has_many :articles
     has_many :article_histories
     has_many :news
+    has_many :discount_events
 
     # der benutzer-avatar
     has_attached_file :avatar, :default_url => '/assets/nobody.png'

@@ -1,0 +1,10 @@
+= semantic_form_for @discount_event do |f|
+  = f.inputs "basic" do
+    = f.input :name
+    = f.input :startdate, :as => :string
+    = f.input :enddate, :as => :string
+    = f.input :website, :as => :url
+  = f.inputs "advanced" do
+    = f.input :description, :required => false
+    = f.input :sourceurl, :as => :url
+  = f.actions
