@@ -83,6 +83,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jruby-openssl (0.8.2)
       bouncy-castle-java (>= 1.5.0146.1)
+    jruby-rack (1.1.13.1)
     json (1.7.7)
     json (1.7.7-java)
     libwebsocket (0.1.7.1)
@@ -161,6 +162,10 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    trinidad (1.4.4)
+      jruby-rack (>= 1.1.10)
+      trinidad_jars (>= 1.1.0)
+    trinidad_jars (1.2.1)
     tzinfo (0.3.35)
     websocket (1.0.6)
     xpath (1.0.0)
@@ -191,3 +196,4 @@ DEPENDENCIES
   rails (= 3.2.12)
   rspec-rails
   stringex
+  trinidad

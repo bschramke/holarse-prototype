@@ -5,6 +5,10 @@ gem 'rails', '3.2.12'
 gem 'json'
 gem 'stringex'
 
+group :production do
+  gem 'trinidad'
+end
+
 # Database backend
 #
 platforms :jruby do
