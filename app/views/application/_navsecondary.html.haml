@@ -15,7 +15,8 @@
   %li      
     = link_to t('.forum'), root_path
   %li
-    = link_to t('.discount_events'), discount_events_path
+    = link_to discount_events_path do
+      = content_tag :div, t('.discount_events'), :id => "discount_count", :"data-discount-count" => "0", :"data-discount-text" => t('.discount_events')
   
 .newbtn  
   = link_to t('.new'), '#', :id => "new_button", :class => "button"

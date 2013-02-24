@@ -1,5 +1,9 @@
 Holarse::Application.routes.draw do
 
+  get "counting/messages"
+
+  get "counting/discounts"
+
   # die angebotsaktionen
   resources :discount_events
 
