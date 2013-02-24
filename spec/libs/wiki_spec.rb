@@ -6,6 +6,7 @@ describe 'wiki' do
   before(:each) do
     @parser = Holarse::Wiki::Parser.new
     @parsetypes = :plain
+    @all_parsertypes = [:user_links, :article_links, :external_links]
   end
 
   it "should print out preview" do
@@ -53,5 +54,53 @@ describe 'wiki' do
 
     result = @parser.format_to_html(txt, :article_links, :external_links)
     expect(result).to eq(expected)
+  end
+
+  it "should parse user urls correctly" do
+    txt = "Dieser Benutzer heisst [[user:comrad]] und ist ein User."
+    expected = "Dieser Benutzer heisst <a href=\"/users/comrad\">comrad</a> und ist ein User."
+
+    result = @parser.format_to_html(txt, :user_links)
+    expect(result).to eq(expected)
+  end
+
+  it "should parse tag urls correctly" do
+    txt = "Der Tag heisst [[tags:abc]] oder auch [[tags:abc+def]] und so."
+    expected = "Der Tag heisst <a href=\"/search/tags/abc\">abc</a> oder auch <a href=\"/search/tags/abc+def\">abc+def</a> und so."
+
+    result = @parser.format_to_html(txt, :tag_links)
+    expect(result).to eq(expected)
+  end
+
+  it "should be able to parse combinations correctly" do
+    txt = "Bitte fragt auf [http://www.google.de Google] diesen User: [[user:lwoods]] zum Artikel [[testartikel]]."
+    expected = "Bitte fragt auf <a href=\"http://www.google.de\">Google</a> diesen User: <a href=\"/users/lwoods\">lwoods</a> zum Artikel <a href=\"/articles/testartikel\">testartikel</a>."
+
+    result = @parser.format_to_html(txt, :user_links, :article_links, :external_links)
+    expect(result).to eq(expected)
+  end
+
+  it "should only parse user-links" do
+    txt = "Bitte fragt auf [http://www.google.de Google] diesen User: [[user:lwoods]] zum Artikel [[testartikel]]."
+    expected = "Bitte fragt auf [http://www.google.de Google] diesen User: <a href=\"/users/lwoods\">lwoods</a> zum Artikel [[testartikel]]."
+
+    result = @parser.format_to_html(txt, @all_parsertypes)
+    expect(result).to eq(result)
+  end
+
+  it "should only parse article-links" do
+    txt = "Bitte fragt auf [http://www.google.de Google] diesen User: [[user:lwoods]] zum Artikel [[testartikel]]."
+    expected = "Bitte fragt auf [http://www.google.de Google] diesen User: [[user:lwoods]] zum Artikel <a href=\"/articles/testartikel\">testartikel</a>."
+
+    result = @parser.format_to_html(txt, @all_parsertypes)
+    expect(result).to eq(result)
+  end
+
+  it "should only parse external links" do
+    txt = "Bitte fragt auf [http://www.google.de Google] diesen User: [[user:lwoods]] zum Artikel [[testartikel]]."
+    expected = "Bitte fragt auf <a href=\"http://www.google.de\">Google</a> diesen User: [[user:lwoods]] zum Artikel [[testartikel]]."
+
+    result = @parser.format_to_html(txt, @all_parsertypes)
+    expect(result).to eq(result)
   end
 end

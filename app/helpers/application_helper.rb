@@ -13,7 +13,7 @@ module ApplicationHelper
   # parst einen text fuer die detail-darstellung
   #
   def wiki_detail(text)
-    Holarse::Wiki::Parser.new.format_to_html(text, :article_links, :external_links, :code).html_safe
+    Holarse::Wiki::Parser.new.format_to_html(text, :user_links, :article_links, :external_links, :code).html_safe
   end
 
   #
