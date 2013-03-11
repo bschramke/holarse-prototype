@@ -23,6 +23,7 @@ gem 'paperclip', "~> 3.0"
 # View
 # 
 gem 'haml-rails'
+gem 'sass-rails'
 
 # Development-Gems
 group :development do
