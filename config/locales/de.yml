@@ -20,6 +20,9 @@ de:
                         blank: "Der Benutzer der News ist nicht gesetzt"
   application:
     header:
+      login: "anmelden"
+      register: "registrieren"
+      new: "neue inhalte"
     navprimary:
       games: "Spiele"
       hardware: "Hardware"

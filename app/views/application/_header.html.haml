@@ -1,6 +1,6 @@
 %aside.logo
   = link_to root_path do
-    = image_tag "holarse_logo.png", :class => "logo"
+    = image_tag "holarse_logo_2.png", :class => "logo"
 
 %aside.search
   = form_tag search_path, :method => :get do |f|
@@ -9,13 +9,15 @@
 %nav.user 
   %ul
     - if current_user.present?
-      %li
+      %li.profile
         = link_user current_user
-      %li
+      %li.logout
         = link_to(t('.logout'), logout_path)
     - else
-      %li
+      %li.login
         = link_to(t('.login'), "#", :id => "loginform-link")
-      %li 
+      %li.register 
         = link_to t('.register'), new_user_path
         = render "sessions/loginform"
+    %li.new
+      = link_to t('.new'), "#"

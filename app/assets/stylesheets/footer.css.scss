@@ -1,0 +1,16 @@
+footer.page {
+  width: 100%;
+  font-size: 0.5em;
+  text-align: center;
+  border-top: 1px dotted #aaa;
+  margin-top: 5%;
+
+  ul {
+    list-style-type: none;
+    display: inline-block;
+
+    li {
+      display: inline;
+    }
+  }
+}
