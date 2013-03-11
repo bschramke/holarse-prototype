@@ -3,6 +3,9 @@ $(document).ready(function() {
   
   container.isotope({
     itemSelector: '.item',
+    masonry: {
+      columnWidth: container.width() / 20
+    },
     getSortData: {
       updatedAt: function ($elem) {
         return $elem.find ('.createdat').text();
@@ -15,6 +18,14 @@ $(document).ready(function() {
     var selector = $(this).attr("data-filter");
     container.isotope({ filter: selector });
     return false;
+  });
+
+  // update columnWidth on window resize
+  $(window).smartresize(function(){
+    $container.isotope({
+          // update columnWidth to a percentage of container width
+              masonry: { columnWidth: container.width() / 20 }
+                });
   });
 
 });

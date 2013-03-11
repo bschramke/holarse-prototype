@@ -10,7 +10,7 @@ module WelcomeHelper
       html += content_tag :p, object.comments.length, :class => "comments" if object.respond_to?(:comments)
 
       html += content_tag :p, object.created_at, :class => "createdat"
-      html += content_tag :p, object.teaser, :class => "teaser" if object.respond_to?(:teaser)
+      html += content_tag :p, shorten(wiki_preview(object.content), 150), :class => "teaser" if object.respond_to?(:content)
     end
   end
 

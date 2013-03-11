@@ -21,7 +21,11 @@
 }
 
 .item {
-  padding: 25px;
+  width: 150px;
+  font-size: 0.5em;
+  p.title {
+    font-weight: bold;
+  }
 }
 
 .item.news {

@@ -18,9 +18,5 @@ class News < ActiveRecord::Base
   validates_presence_of :content
   validates_presence_of :user  
   validates :content, :length => { :minimum => 10 }
-  
-  def teaser
-    content[0..20] + ".."
-  end
 
 end
