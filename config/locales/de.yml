@@ -18,6 +18,11 @@ de:
                 attributes:
                     user:
                         blank: "Der Benutzer der News ist nicht gesetzt"
+  welcome:
+    index:
+      all: "Alles"
+      article: "Artikel"
+      news: "Nachrichten"
   application:
     header:
       login: "anmelden"
@@ -42,7 +47,7 @@ de:
       logout: "Abmelden"
       register: "Registrieren"
     footer:
-      copyright: "&copy 2000 - %{date}"
+      copyright: "&copy; 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
       version: "App-Version %{version}"
   session:

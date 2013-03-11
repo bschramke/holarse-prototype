@@ -15,5 +15,9 @@ class Article < ActiveRecord::Base
 
     has_and_belongs_to_many :comments
 
+    def teaser
+      content[0..20] + "..."
+    end
+
 end
 

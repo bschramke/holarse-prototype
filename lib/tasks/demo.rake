@@ -47,6 +47,14 @@ namespace :holarse do
     desc "adds demo articles"
     task :articles => :environment do
       puts "adding demo articles"
+      users = User.all
+      10.times do
+        u = FactoryGirl.build(:article)
+        u.user = users[rand(users.length)]
+        u.save!
+
+        puts "Created news #{u.title} from #{u.user.username} with #{u.comments.length} comments"
+      end
     end
 
     desc "adds demo data"
