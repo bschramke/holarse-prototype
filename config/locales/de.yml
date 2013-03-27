@@ -27,7 +27,7 @@ de:
     header:
       login: "anmelden"
       register: "registrieren"
-      new: "neue inhalte"
+      new: "neue inhalte schreiben"
     navprimary:
       games: "Spiele"
       hardware: "Hardware"
@@ -41,11 +41,12 @@ de:
       newbtn_title: "Neue Inhalte anlegen"
       newarticle: "Neuer Artikel"
       newnews: "Neue News"
-      discount_events: "Rabattaktionen"
     navuser:
       login: "Anmelden"
       logout: "Abmelden"
       register: "Registrieren"
+    navcontext:
+      discount_events: "Rabattaktionen"
     footer:
       copyright: "&copy; 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
@@ -135,4 +136,6 @@ de:
   comments:
     comment:
       edit: "bearbeiten"
-
+  discount_events:
+    navcontext:
+      new: "Neue Rabattaktion eintragen"
