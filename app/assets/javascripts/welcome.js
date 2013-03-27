@@ -28,4 +28,9 @@ $(document).ready(function() {
                 });
   });
 
+  $(".item").click(function(event) {
+    event.preventDefault();
+    window.location.href = $(this).attr("data-link");
+  });
+
 });
