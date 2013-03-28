@@ -21,9 +21,11 @@
         = flash[:error] if flash && flash[:error]
     %header.page
       = render "header"
+    %nav.page
+      = render "navigation"
     %section.page
       = yield
-    %aside.page
+    %nav.context
       = render "navcontext"
     %footer.page
       = render "footer"

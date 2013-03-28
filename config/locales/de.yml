@@ -28,19 +28,9 @@ de:
       login: "anmelden"
       register: "registrieren"
       new: "neue inhalte schreiben"
-    navprimary:
-      games: "Spiele"
-      hardware: "Hardware"
-      community: "Community"
-      news: "News"
-    navsecondary:
-      videos: "Videos"
+      youtube: "Videos"
       twitter: "Twitter"
-      forum: "Forum"
-      new: "Neue Inhalte anlegen"
-      newbtn_title: "Neue Inhalte anlegen"
-      newarticle: "Neuer Artikel"
-      newnews: "Neue News"
+      twitter: "Twitter"
     navuser:
       login: "Anmelden"
       logout: "Abmelden"
