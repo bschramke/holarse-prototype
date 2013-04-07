@@ -1,12 +1,3 @@
-%nav
-  %ul#containerfilter
-    %li
-      = link_to t('.all'), "#", {:"data-filter" => "*"}
-    - @types.each do |type|
-      %li
-        = link_to t('.' + type), "#", {:"data-filter" => "." + type}
-    
-
 #container
   - @elements.each do |element|
     = isotopify element

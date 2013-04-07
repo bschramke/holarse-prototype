@@ -23,6 +23,11 @@ de:
       all: "Alles"
       article: "Artikel"
       news: "Nachrichten"
+    navcontext:
+      discount_events: "Rabattaktionen"
+      all:  "Alles"
+      news: "Nur Neuigkeiten"
+      article: "Nur Artikel"
   application:
     header:
       login: "anmelden"
@@ -35,8 +40,6 @@ de:
       login: "Anmelden"
       logout: "Abmelden"
       register: "Registrieren"
-    navcontext:
-      discount_events: "Rabattaktionen"
     footer:
       copyright: "&copy; 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
