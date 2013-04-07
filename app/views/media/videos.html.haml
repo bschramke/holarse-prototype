@@ -10,7 +10,9 @@
           %a{:href=> "${link}"}
             ${name}
         .video_details
-          .author ${author}
+          .author 
+            %a{:href => "/redirect/youtube/${author}"}
+              ${author}
           .updated ${updatedLocaleString}
       .video_newline
       .video_desc ${desc}
