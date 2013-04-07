@@ -17,4 +17,24 @@ $(document).ready(function() {
       $("#discount_event_enddate").datepicker("option", "maxDate", selectedDate);
     }
   });
+
+  function update_discounts() {
+    if ($("#discount_count").length == 0) {
+      return;
+    }
+
+    // daten holen und hinterlegen
+    $.get("/counting/discounts", function(data) {
+      var discounttext = $("#discount_count").attr("data-discount-text");
+      $("#discount_count").html(discounttext + " (" + data + ")");
+    });
+
+    // das ganze nach 30000ms wiederholen
+    setTimeout(function() { update_discounts() }, 30000);
+  }
+
+  if ($("#discount_count").length != 0) {
+    update_discounts();
+  }
+
 });
