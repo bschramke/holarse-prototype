@@ -6,7 +6,7 @@ function load_yt_playlist(channelname, maxresults) {
     dataType: 'json',
     success: function(data) {
       $.each(data.feed.entry, function(i, item) {
-      	var updated = new Date(item.updated.$t);
+      	var published = new Date(item.published.$t);
         var video = {
           id: item.media$group.yt$videoid.$t,
           author: item.author[0].name.$t,
@@ -14,8 +14,8 @@ function load_yt_playlist(channelname, maxresults) {
           img_url: item.media$group.media$thumbnail[1].url,
           desc: item.media$group.media$description.$t,
           link: item.link[0].href,
-          updated: updated,
-          updatedLocaleString: updated.toLocaleString()
+          published: published.toUTCString(),
+          publishedLocaleString: published.toLocaleString()
         };
         videos.push(video);
       });
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     // sortieren nach Datum
     var sorted_vids = all_vids.sort(function(a,b) {
-      return b.updated - a.updated;
+      return b.published - a.published;
     });
 
 

@@ -13,7 +13,8 @@
           .author 
             %a{:href => "/redirect/youtube/${author}"}
               ${author}
-          .updated ${updatedLocaleString}
+          %time.published{:datetime => "${published}"}
+            ${publishedLocaleString}
       .video_newline
       .video_desc ${desc}
 
