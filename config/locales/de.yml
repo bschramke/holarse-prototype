@@ -2,6 +2,7 @@ de:
   layouts:
     application:
       title: "Holarse - Spielen unter Linux"
+      backtotop: "Nach oben"
   time:
     formats:
       default: "%d.%m.%Y %H:%m"
