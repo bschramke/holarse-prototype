@@ -131,5 +131,16 @@ de:
     comment:
       edit: "bearbeiten"
   discount_events:
+    new:
+      basic: "Allgemein"
+      advanced: "Erweiterte Informationen"
+      name: "Name"
+      startdate: "Beginn der Aktion"
+      enddate: "Ende der Aktion"
+      url: "Adresse"
+      description: "Beschreibung"
+      sourceurl: "Quelle"
+      submit: "Speichern"
+      toggle-advanced: "Zusätzliche Informationen"
     navcontext:
       new: "Neue Rabattaktion eintragen"

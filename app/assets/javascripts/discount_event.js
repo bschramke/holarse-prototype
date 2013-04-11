@@ -36,5 +36,15 @@ $(document).ready(function() {
   if ($("#discount_count").length != 0) {
     update_discounts();
   }
+  
+  //
+  // Toggle-Schalter, um die erweiterten Informationen erstmal auszublenden
+  //
+  $("#toggle-discount-event-form-advanced").click(function(event) {
+  	event.preventDefault();
+  	$("#discount-event-form-advanced").toggle();
+  	return false;
+  });
+  
 
 });
