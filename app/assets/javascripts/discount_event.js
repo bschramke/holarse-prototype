@@ -46,5 +46,10 @@ $(document).ready(function() {
   	return false;
   });
   
+  $(".discount_event td:nth-child(2), td:nth-child(3)").click(function(event) {
+  	event.preventDefault();
+  	event.stopPropagation();
+  	$("#discount-event-advanced-" + $(this).parent().attr("data-discount-event-id")).toggle('slow');
+  });
 
 });

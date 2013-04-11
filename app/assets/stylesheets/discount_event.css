@@ -5,3 +5,7 @@
 #discount-event-form-advanced {
 	display: none;
 }
+
+tr.discount_event:hover {
+	background-color: #aaa;
+}

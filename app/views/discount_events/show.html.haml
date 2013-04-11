@@ -3,5 +3,15 @@
     = t('.title')
 
 %section
-  %ul
-    = render :partial "discount_events/discount_event", :collection => @discount_events
+%p
+  = @discount_event.name
+%p
+  = @discount_event.startdate
+%p 
+  = @discount_event.enddate
+%p
+  = link_to @discount_event.website
+%p
+  = @discount_event.description
+%p
+  = link_to @discount_event.sourceurl

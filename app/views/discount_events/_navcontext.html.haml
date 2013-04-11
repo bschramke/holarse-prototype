@@ -1,3 +1,7 @@
 %ul
   %li
     = link_to t('.new'), new_discount_event_path
+  %li
+    = link_to t('.index'), discount_events_path
+  %li
+    = link_to t('.edit'), edit_discount_event_path(@discount_event) if @discount_event

@@ -19,6 +19,7 @@ class DiscountEventsController < ApplicationController
 
   def new
     @discount_event = DiscountEvent.new
+    render :edit
   end
 
   def edit
@@ -30,6 +31,10 @@ class DiscountEventsController < ApplicationController
   end
 
   def update
+    @discount_event = DiscountEvent.find(params[:id])
+    @discount_event.update_attributes(params[:discount_event])
+    @discount_event.save
+    redirect_to discount_events_path
   end
 
   def destroy

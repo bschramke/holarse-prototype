@@ -1,11 +1,11 @@
-%tr.discount_event
-  %td= discount_event.name
+%tr.discount_event{:id => "discount-event-#{discount_event.id}", :"data-discount-event-id" => "#{discount_event.id}"}
+  %td= link_to discount_event.name, discount_event
   %td= discount_event.startdate
   %td= discount_event.enddate
-  %td= discount_event.website
-%tr.hidden{:rowspan => 4}  
-  %td
+  %td= link_to discount_event.website
+%tr.hidden{:id => "discount-event-advanced-#{discount_event.id}"}
+  %td{:colspan => 4}
     %p
       = discount_event.description
     %p
-      = discount_event.sourceurl
+      = link_to discount_event.sourceurl
