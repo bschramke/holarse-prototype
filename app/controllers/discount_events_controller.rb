@@ -1,4 +1,7 @@
 class DiscountEventsController < ApplicationController
+  
+  before_filter :require_edit_permissions, :except => [:index, :show]  
+  
   def index
     @discount_events = DiscountEvent.order("startdate desc")
   end
@@ -31,4 +34,14 @@ class DiscountEventsController < ApplicationController
 
   def destroy
   end
+  
+  private
+
+  def require_edit_permissions
+    unless is_logged_in?
+      flash[:warning] = "Bitte anmelden, um Rabattaktionen erstellen oder bearbeiten zu k&ouml;nnen."
+      redirect_to :back
+    end
+  end
+    
 end
