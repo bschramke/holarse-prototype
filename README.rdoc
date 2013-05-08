@@ -1,37 +1,72 @@
-== Installationsanleitung ==
+= Holarse 2013
+Die neue Webseite von Holarse - Spielen unter Linux wird wieder in Eigenregie erstellt. Wir können dadurch auf eine Vielzahl von
+Generikas und Umwegen verzichten und uns direkt auf unser Kernthema stürzen.
 
-=== Software ===
+== Software
 * JRuby: 1.7.2 oder höher
 * Java: OpenJDK 7 / Oracle JDK 7
 
-=== Rails-Installation ===
-{{{
+== Installation
+
+=== Ruby On Rails
+<tt>
 $ gem install bundler
 $ gem install jruby-openssl
-}}}
+</tt>
+
 Im Holarse-Verzeichnis dann:
-{{{
+<tt>
 $ bundle install
-}}}
+</tt>
 
-=== Datenbank anlegen ===
-{{{
-$ mkdir /tmp/holarse
-$ rake db:migrate
-}}}
+=== Datenbank
+<tt>
+$ rake db:setup
+</tt>
+Die Datenbank wird dann unter $RAILS_ROOT/db/development.sqlite3 angelegt.
 
-Die Datenbank wird dann unter /tmp/holarse als development und testing angelegt.
-
-=== Testdatensätze einfügen ===
-Dieses Feature kann unter Umständen fehlerhaft sein. Siehe Issues dazu.
-{{{
+=== Testdatensätze
+Dieser Tasks erstellt 10 normale User und 1 Admin-User. Das Passwort entspricht jeweiles dem Benutzernamen.
+<tt>
 $ rake holarse:demo:users
-}}}
+$ rake holarse:demo:news
+</tt>
+oder für alle Testdatensätze
+<tt>
+$ rake holarse:demo:install
+</tt>
 
-=== Tests laufen lassen ===
-Derzeit funktionieren die Tests nicht.
+== Tests
+Tests laufen lassen
 
-=== Webserver starten ===
-{{{
+Zuerst die Testdatenbank erzeugen mit
+<tt>
+$ rake db:setup RAILS_ENV=test
+</tt>
+und dann die Tests aufrufen mit:
+<tt>
+$ rspec
+</tt>
+
+== Starten
+Webserver starten
+<tt>
 rails s
-}}}
+</tt>
+
+== Repository-Konfiguration
+Die Git-Konfiguration für beide Repos auf Github und Bitbucket in $REPO_HOME/.git/config
+<tt>
+[core]
+  repositoryformatversion = 0
+  filemode = true
+  bare = false
+  logallrefupdates = true
+[remote "origin"]
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  url = git@bitbucket.org:holarse/holarse.git
+  url = git@github.com:commel/holarse.git
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+</tt>
