@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("li .item").click(function(event) {
+  $("#welcome-items > li.item").click(function(event) {
     alert("hallo");
   });
 });
