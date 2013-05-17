@@ -19,7 +19,6 @@
 //= require "jquery.fancybox-media"
 //= require "jquery.fancybox-buttons"
 //= require "jquery.fancybox-thumbs"
-//= require "jquery.isotope.min"
 //= require "jquery.mousewheel-3.0.6.pack"
 //= require "jquery.noty"
 //= require "jquery.tweet"

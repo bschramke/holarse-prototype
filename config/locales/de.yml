@@ -32,15 +32,12 @@ de:
   application:
     header:
       login: "anmelden"
+      logout: "abmelden"
       register: "registrieren"
       new: "neue inhalte schreiben"
       youtube: "Videos"
       twitter: "Twitter"
       twitter: "Twitter"
-    navuser:
-      login: "Anmelden"
-      logout: "Abmelden"
-      register: "Registrieren"
     footer:
       copyright: "&copy; 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"

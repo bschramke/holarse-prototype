@@ -1,0 +1,14 @@
+%li.item{:"data-link" => "#{url_for(element)}"}
+  %header
+    %h1
+      = link_to element.title, element
+    %h2
+      = element.updated_at
+    %h3
+      = element.user.username
+    %h4
+      = element.comments.length
+    %h5
+      = element.class.name
+  %p
+    = element.content

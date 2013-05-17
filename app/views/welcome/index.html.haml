@@ -1,6 +1,3 @@
-#container
+%ul.items
   - @elements.each do |element|
-    = isotopify element
-
-:javascript
-  $("#container").isotope("reLayout", function() {});
+    = render :partial => 'element', :collection => @elements

@@ -2,11 +2,3 @@
   %li
     = link_to discount_events_path do
       = content_tag :div, t('.discount_events'), :id => "discount_count", :"data-discount-text" => t('.discount_events')
-
-%ul#containerfilter
-  %li
-    = link_to t('.all'), "#", {:"data-filter" => "*"}
-  - @types.each do |type|
-    %li
-      = link_to t('.' + type), "#", {:"data-filter" => "." + type}
-
