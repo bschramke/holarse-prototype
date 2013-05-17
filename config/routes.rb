@@ -32,9 +32,9 @@ Holarse::Application.routes.draw do
   resource :twitter, :only => :show
   
   # login und sessionverwaltung
-  match "login" => "sessions#new"
-  match "logout" => "sessions#destroy"
-  resource :session
+  resource :session, :only => [:new, :create, :destroy]
+  match 'session/login' => 'sessions#new', :as => :login
+  match 'session/logout' => 'sessions#destroy', :as => :logout
 
   # einzelseiten
   get "service/minecraft"

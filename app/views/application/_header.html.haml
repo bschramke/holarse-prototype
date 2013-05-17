@@ -15,9 +15,9 @@
         = link_to(t('.logout'), logout_path)
     - else
       %li.login
-        = link_to(t('.login'), "#", :id => "loginform-link")
+        = link_to(t('.login'), login_path)
       %li.register 
         = link_to t('.register'), new_user_path
-        = render "sessions/loginform"
     %li.new
       = link_to t('.new'), "#"
+
