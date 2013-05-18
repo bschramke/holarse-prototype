@@ -2,42 +2,15 @@
   %header
     %h1
       = t('.title', :title => @news.title)
+    %h2
+      %ul
+        %li= t('.created_at', :date => @news.created_at)
+        %li= t('.updated_at', :date => @news.updated_at)
   %p
-    = form_for @news do |f|
-      %p
-        = f.label :title, "Titel"
-        = f.text_field :title
-      %p
-        = f.label :subtitle, "Untertitel"
-        = f.text_field :subtitle
-        %hr/
-      %p
-        = f.label :content, "Inhalt"
-        %br/
-        = f.text_area :content, :class => "content"
-        %hr/
-      %p
-        %h3 Tags
-        = f.label :tag_list, "Tags durch Kommas getrennt"
-        = f.text_field :tag_list
-        %hr/
-      %p
-        %h3 Screenshots
-        = f.fields_for :screenshots do |builder|
-          - if !builder.object.new_record?
-            = render 'screenshot_show_fields', :f => builder
-          - else
-            = render 'screenshot_fields', :f => builder
-        = link_to_add_fields "Screenshot hinzufügen", f, :screenshots
-      %p
-        %h3 Videos
-        = f.fields_for(:videos) do |builder|
-          = render 'video_fields', :f => builder
-        = link_to_add_fields "Video hinzufügen", f, :videos
-      %p
-        %h3 Links
-        = f.fields_for :links do |builder|
-          = render 'link_fields', :f => builder
-        = link_to_add_fields "Add links", f, :links
-      %p
-        = f.submit "Speichern"
+    = semantic_form_for @news do |f|
+      = f.inputs 'Inhalt', :id => 'article-edit-content' do
+        = f.input :title
+        = f.input :subtitle
+        = f.input :content
+        = f.input :tag_list
+      = f.actions :submit, :cancel

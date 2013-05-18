@@ -70,6 +70,8 @@ de:
       edit: "Diese News bearbeiten"
     edit:
       title: "Bearbeiten von '%{title}'"
+      created_at: "Erstellt am %{date}"
+      updated_at: "Zuletzt aktualisiert am %{date}"
   articles:
     show:
       author: "Autor: %{name}"
