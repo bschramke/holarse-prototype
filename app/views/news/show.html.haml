@@ -13,12 +13,7 @@
         = link_to tag.name, searchtag_path(:q => tag.name)
 
   %p
-    %pre
-      %code{:data => {:language => "wiki"}}
-        = @news.content
-
-  %p
-    = wiki_detail @news.content
+    = render_markup(@news.content, :html)
 
   %h3
     Screenshots

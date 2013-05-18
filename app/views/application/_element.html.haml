@@ -11,4 +11,4 @@
     %h5
       = element.class.name
   %p
-    = element.content
+    = render_markup(element.content, :plain)

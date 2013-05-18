@@ -10,28 +10,11 @@ module ApplicationHelper
   end
 
   #
-  # parst einen text fuer die detail-darstellung
+  # rendert einen text
   #
-  def wiki_detail(text)
-    Holarse::Wiki::Parser.new.format_to_html(text, :user_links, :article_links, :external_links, :code).html_safe
-  end
-
-  #
-  # parst einen text fuer die vorschau-darstellung
-  #
-  def wiki_preview(text)
-    Holarse::Wiki::Parser.new.format_to_html(text, :preview)
-  end
-
-  #
-  # verkuerzt einen text auf die angegebene laenge
-  #
-  def shorten(text, size=600)
-    if text.length > size
-      text[0..size] + "..."
-    else
-      text
-    end
+  def render_markup(text, type = :html)
+    RedCloth.new(text).send("to_#{type.to_s}").html_safe
   end
 
 end
+

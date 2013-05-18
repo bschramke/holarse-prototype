@@ -24,6 +24,8 @@ gem 'paperclip', "~> 3.0"
 # 
 gem 'haml-rails'
 gem 'sass-rails'
+gem 'RedCloth'
+gem 'red_cloth_formatters_plain', :git => 'git://github.com/JosephHalter/redcloth-formatters-plain.git'
 
 # Development-Gems
 group :development do
