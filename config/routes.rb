@@ -1,5 +1,7 @@
 Holarse::Application.routes.draw do
 
+  post "markup_preview/preview", :as => :markuppreview
+
   get "counting/messages"
 
   get "counting/discounts"
@@ -20,6 +22,7 @@ Holarse::Application.routes.draw do
     resources :videos
     resources :attachments
   end
+
   resources :articles do
     resources :comments
     resources :links
