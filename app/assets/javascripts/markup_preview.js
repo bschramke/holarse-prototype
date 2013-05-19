@@ -16,4 +16,23 @@ $(document).ready(function() {
       });
     });
   }
+
+  if ($("#article-preview").length > 0) {
+    $("#article-preview").click(function(event) {
+      $.post("/markup_preview/preview", { content : $("#article_content").val() }).done(function(data) {
+        $("#article_preview_text").html(data);
+        $("#article_preview_text").dialog({ 
+          title: "Vorschau für Artikel '" + $("#article_title").val() + "'",
+          width: 800,
+          modal: true,
+          buttons: {
+            "Vorschau beenden": function() {
+              $(this).dialog( "close" );
+            }
+          }
+        });
+      });
+    });
+  }
+
 });

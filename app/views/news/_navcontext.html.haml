@@ -2,10 +2,10 @@
   %nav.context
     %ul
       %li
-        = link_to t('.edit'), edit_news_path(@news)
+        = link_to t('.edit'), edit_news_path(@news) unless current_page?(edit_news_path(@news))
       %li
         = t('.history')
       %li
         = t('.admin')
       %li
-        = link_to t('.preview'), '#', :id => 'news-preview'
+        = link_to t('.preview'), '#', :id => 'news-preview' if current_page?(edit_news_path(@news))

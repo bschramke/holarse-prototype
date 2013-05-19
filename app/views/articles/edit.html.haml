@@ -1,6 +1,20 @@
-.edit_content
-  = semantic_form_for @article do |f|
-    = f.semantic_errors :title, :alternate_title, :content
-    = f.inputs :title, :alternate_title, :content
-    = f.actions
+%article
+  %header
+    %h1
+      = t('.title', :title => @article.title)
+    %h2
+      %ul
+        %li= t('.created_at', :date => @article.created_at)
+        %li= t('.updated_at', :date => @article.updated_at)
+  %p
+    = semantic_form_for @article do |f|
+      = f.inputs 'Inhalt', :id => 'article-edit-content' do
+        = f.input :title, :label => t('.title')
+        = f.input :alternate_title, :label => t('.alternate_title')
+        = f.input :content, :label => t('.content')
+        = f.input :tag_list, :label => t('.tag_list')
+      = f.actions do
+        = f.action :submit, :label => t('.submit')
+        = f.action :cancel, :label => t('.cancel')
 
+  %p#article_preview_text

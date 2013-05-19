@@ -10,4 +10,4 @@
       = t('.created_at', :date => l(@article.updated_at))
 
   %p
-    = wiki_detail @article.content
+    = render_markup @article.content

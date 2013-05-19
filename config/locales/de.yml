@@ -68,6 +68,7 @@ de:
       login_required: "Nur registrierte Benutzer können kommentieren."
     navcontext:
       edit: "Diese News bearbeiten"
+      preview: "Vorschau anzeigen"
     edit:
       title: "Bearbeiten von '%{title}'"
       created_at: "Erstellt am %{date}"
@@ -80,6 +81,14 @@ de:
       edit: "Bearbeiten"
       history: "Historie"
       admin: "Admin"
+      preview: "Vorschau anzeigen"
+    edit:
+      title: "Titel"
+      alternate_title: "Alternative Titel"
+      content: "Inhalt"
+      tag_list: "Kommaseparierte Tags"
+      submit: "Speichern"
+      cancel: "Abbrechen"
   users:
     index:
       title: "Aktive Benutzer"
