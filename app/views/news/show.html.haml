@@ -12,8 +12,7 @@
       - @news.tags.each do |tag|
         = link_to tag.name, searchtag_path(:q => tag.name)
 
-  %p
-    = render_markup(@news.content, :html)
+  .autolinkable= render_markup @news.content
 
   %h3
     Screenshots

@@ -1,5 +1,7 @@
 Holarse::Application.routes.draw do
 
+  get "link_generator/index"
+
   post "markup_preview/preview", :as => :markuppreview
 
   get "counting/messages"
