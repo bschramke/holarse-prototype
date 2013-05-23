@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
 
-  before_filter :require_edit_permissions, :only => [:edit, :update, :destroy]
+  before_filter :require_edit_permissions, :except => [:show]
 
   def index
     @news = News.order('created_at DESC').limit(25)
@@ -63,7 +63,7 @@ class NewsController < ApplicationController
   def require_edit_permissions
     unless has_role('admin', 'reporter')
       flash[:warning] = "Es werden erweiterte Rechte ben&ouml;tigt, um diese News bearbeiten zu k&ouml;nnen."
-      redirect_to news_path
+      redirect_to :back
     end 
   end
 
