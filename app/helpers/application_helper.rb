@@ -9,12 +9,5 @@ module ApplicationHelper
     Holarse::Application.config.app_version
   end
 
-  #
-  # rendert einen text
-  #
-  def render_markup(text, type = :html)
-    RedCloth.new(text).send("to_#{type.to_s}").html_safe
-  end
-
 end
 

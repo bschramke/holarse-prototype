@@ -1,15 +1,6 @@
-GIT
-  remote: git://github.com/JosephHalter/redcloth-formatters-plain.git
-  revision: 685c21c78827d3bdc903ba9dfe83fb13d29e28d0
-  specs:
-    red_cloth_formatters_plain (0.2.0)
-      RedCloth (>= 4.2.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.2.9)
-    RedCloth (4.2.9-java)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
       mail (~> 2.5.3)
@@ -94,6 +85,7 @@ GEM
     jruby-rack (1.1.13.2)
     json (1.8.0)
     json (1.8.0-java)
+    kramdown (1.0.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -179,7 +171,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
   activerecord-jdbcsqlite3-adapter
   acts-as-taggable-on (~> 2.3.1)
   bcrypt-ruby (~> 3.0.0)
@@ -195,10 +186,10 @@ DEPENDENCIES
   jquery-rails
   jruby-openssl
   json
+  kramdown
   meta_request
   paperclip (~> 3.0)
   rails (= 3.2.13)
-  red_cloth_formatters_plain!
   rspec-rails
   sass-rails
   stringex

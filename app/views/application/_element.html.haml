@@ -11,4 +11,4 @@
     %h5
       = element.class.name
   %p
-    = render_markup(element.content, :plain)
+    = Holarse::Markup.render(element.content, :plain)

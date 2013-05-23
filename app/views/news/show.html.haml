@@ -12,7 +12,8 @@
       - @news.tags.each do |tag|
         = link_to tag.name, searchtag_path(:q => tag.name)
 
-  .autolinkable= render_markup @news.content
+  .autolinkable
+    = Holarse::Markup.render @news.content
 
   %h3
     Screenshots
