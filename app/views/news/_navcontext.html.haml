@@ -5,6 +5,7 @@
         = link_to t('.edit'), edit_news_path(@news) unless current_page?(edit_news_path(@news))
       %li
         = t('.history')
+        = @news.archived.count
       %li
         = t('.admin')
       %li

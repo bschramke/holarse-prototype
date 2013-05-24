@@ -5,6 +5,7 @@
         = link_to t('.edit'), edit_article_path(@article) unless current_page?(edit_article_path(@article))
       %li
         = t('.history')
+        = @article.archived.count
       %li
         = t('.admin')
       %li
