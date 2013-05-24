@@ -26,6 +26,7 @@ function load_yt_playlist(channelname, maxresults) {
 
 $(document).ready(function() {
 
+  console.debug("lade videos...");
   if ($("#youtube-tmpl").length != 0) {
     // Videos laden
     var all_vids = [].concat( 

@@ -42,6 +42,9 @@ de:
       copyright: "&copy; 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"
       version: "App-Version %{version}"
+    navigation:
+      twitter: "Twitter"
+      youtube: "Videos"
   session:
     login_ok: "Erfolgreich eingeloggt"
   search:
