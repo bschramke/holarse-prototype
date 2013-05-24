@@ -23,25 +23,3 @@ function load_yt_playlist(channelname, maxresults) {
   });
   return videos;
 }
-
-$(document).ready(function() {
-
-  console.debug("lade videos...");
-  if ($("#youtube-tmpl").length != 0) {
-    // Videos laden
-    var all_vids = [].concat( 
-                              load_yt_playlist("holarse", 15), 
-                              load_yt_playlist("gtuxtv", 15) 
-                            );
-
-    // sortieren nach Datum
-    var sorted_vids = all_vids.sort(function(a,b) {
-      return b.published - a.published;
-    });
-
-
-    // Ausgabe
-    $("#youtube-tmpl").tmpl(sorted_vids).appendTo("#yt-videos");
-  };   
-
-});
