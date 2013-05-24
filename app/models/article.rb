@@ -4,6 +4,11 @@ class Article < ActiveRecord::Base
     # validierungen
     validates_presence_of :title, :content, :user
 
+    # self-referenz zum tracken von histories
+    has_many :archived, :class_name => "Article", :foreign_key => "parent_id", :conditions => { :historical => true }
+    belongs_to :article, :class_name => "Article"
+
+
     # referenzen
     belongs_to :user
     has_and_belongs_to_many :screenshots
@@ -17,12 +22,16 @@ class Article < ActiveRecord::Base
     acts_as_taggable
 
     default_scope where(:historical => false)
-    default_scope where(:enabled => true)
 
     amoeba do
       enable
       exclude_field [:screenshots, :attachments, :videos, :links, :comments, :discount_events]
       set :historical => true
+      customize([
+        lambda do |orig_obj,copy_of_obj|
+          copy_of_obj.parent_id = orig_obj.id
+        end
+      ])
     end
 
 end
