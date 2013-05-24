@@ -6,7 +6,6 @@ class Article < ActiveRecord::Base
 
     # referenzen
     belongs_to :user
-    has_many :article_histories
     has_and_belongs_to_many :screenshots
     has_and_belongs_to_many :videos
     has_and_belongs_to_many :links
@@ -16,5 +15,15 @@ class Article < ActiveRecord::Base
     has_and_belongs_to_many :comments
 
     acts_as_taggable
+
+    default_scope where(:historical => false)
+    default_scope where(:enabled => true)
+
+    amoeba do
+      enable
+      exclude_field [:screenshots, :attachments, :videos, :links, :comments, :discount_events]
+      set :historical => true
+    end
+
 end
 

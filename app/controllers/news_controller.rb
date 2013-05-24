@@ -28,10 +28,8 @@ class NewsController < ApplicationController
 
   def update
     @news = News.find(params[:id])
-    @old_news = @news.clone
-
-    #@old_news.historical = true
-    @old_news.save
+    historified_news = @news.amoeba_dup
+    historified_news.save
 
     @news.user = current_user
 

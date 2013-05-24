@@ -18,6 +18,8 @@ platforms :jruby do
 	gem 'jruby-openssl'
 end
 
+gem 'amoeba'
+
 gem 'paperclip', "~> 3.0"
 
 # View

@@ -26,6 +26,10 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+
+    historified_article = @article.amoeba_dup
+    historified_article.save
+
     if @article.update_attributes(params[:article])
       redirect_to @article
     else
