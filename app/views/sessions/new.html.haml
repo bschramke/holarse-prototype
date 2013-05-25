@@ -2,14 +2,9 @@
   Login an Holarse
 %p
   Mit deinem Benutzerdaten kannst du dich hier einloggen
-= form_tag session_path, :method => :post do
-  .label
-    = label_tag :username, t('.username')
-  .field
-    = text_field_tag :username, ""
-  .label
-    = label_tag :password, t('.password')
-  .field
-    = password_field_tag :password, ""
-  .action
-    = submit_tag "Anmelden"
+= semantic_form_for 'session', :url => session_path do |f|
+  =  f.inputs :name => 'Login Details' do
+    = f.input :username, :label => t('.username')
+    = f.input :password, :as => :password, :label => t('.password')
+  = f.actions do
+    = f.action :submit

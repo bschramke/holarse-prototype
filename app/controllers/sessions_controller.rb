@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   
   def create
     # benutzer-account erstmal finden
-    user = User.find_by_username(params[:username])
+    user = User.find_by_username(params[:session][:username])
 
     begin
       UserValidator.new(user).is_valid?
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     # wenn der benutzer noch ein altes passwort hat,
     # dann die migration aufrufen
-    um = UserMigrator.new(user, params[:password])
+    um = UserMigrator.new(user, params[:session][:password])
     if um.has_legacy_password? && um.is_authenticated_with_legacy_password?
       flash[:notice] = "Der Account wurde migriert - und eingeloggt."
       redirect_to root_path and return
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
     # neue benutzer-authentifikation
     Rails.logger.debug("Trying to login")
-    if user.authenticate(params[:password])
+    if user.authenticate(params[:session][:password])
       # erfolgreichen login in der session speichern
       session[:user_id] = user.id
       
