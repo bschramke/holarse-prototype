@@ -25,6 +25,7 @@ Holarse::Application.routes.draw do
     resources :screenshots
     resources :videos
     resources :attachments
+    resources :history
   end
 
   resources :articles do
@@ -34,6 +35,7 @@ Holarse::Application.routes.draw do
     resources :videos
     resources :attachments
     resources :shops
+    resources :history
   end
 
   resource :twitter, :only => :show

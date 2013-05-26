@@ -4,8 +4,7 @@
       %li
         = link_to t('.edit'), edit_news_path(@news) unless current_page?(edit_news_path(@news))
       %li
-        = t('.history')
-        = @news.archived.count
+        = link_to t('.history', :count => @news.archived.count), news_history_index_path(@news)
       %li
         = t('.admin')
       %li

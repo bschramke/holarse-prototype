@@ -1,4 +1,6 @@
 = semantic_form_for [commentable_object, comment] do |f|
-  = f.inputs :content
-  = f.actions
+  = f.input :content, :as => :text, :label => t('.content')
+  = f.actions do 
+    = f.action :submit, :label => t('.submit')
+    = f.action :cancel, :label => t('.cancel')
 

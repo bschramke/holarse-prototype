@@ -68,10 +68,13 @@ de:
       author: "geschrieben von %{name}"
       created_at: "am %{date}"
       notcommentable: "Kommentarfunktion gesperrt"
+      uncommented: "Bislang keine Kommentare"
       login_required: "Nur registrierte Benutzer können kommentieren."
+      comments: "Bisherige Kommentare"
     navcontext:
       edit: "Diese News bearbeiten"
       preview: "Vorschau anzeigen"
+      history: "Revisionen (%{count})"
     edit:
       title: "Bearbeiten von '%{title}'"
       created_at: "Erstellt am %{date}"
@@ -82,7 +85,7 @@ de:
       created_at: "Erstellt am: %{date}"
     navcontext:
       edit: "Bearbeiten"
-      history: "Historie"
+      history: "Revisionen (%{count})"
       admin: "Admin"
       preview: "Vorschau anzeigen"
     edit:
@@ -132,15 +135,18 @@ de:
       ascending: "Aufsteigend"
       descending: "Absteigend"
   sessions:
-      loginform:
-        username: "Benutzername"
-        password: "Passwort"
+      username: "Benutzername"
+      password: "Passwort"
   media:
       videos:
         title: "Videos von Holarse & Co."
   comments:
+    new:
+      content: "Kommentar:"
+      submit: "Speichern"
+      cancel: "Lieber doch nicht"
     comment:
-      edit: "bearbeiten"
+      edit: "Bearbeiten"
   discount_events:
     index:
       name: "Name"
