@@ -4,7 +4,7 @@
   Mit deinem Benutzerdaten kannst du dich hier einloggen
 = semantic_form_for 'session', :url => session_path do |f|
   =  f.inputs :name => 'Login Details' do
-    = f.input :username, :label => t('.username')
-    = f.input :password, :as => :password, :label => t('.password')
+    = f.input :username
+    = f.input :password, :as => :password
   = f.actions do
     = f.action :submit

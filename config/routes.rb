@@ -14,7 +14,7 @@ Holarse::Application.routes.draw do
   resources :discount_events
 
   # die suche
-  get "search/(:q)" => "search#show", :as => :search
+  match "search/(:q)" => "search#show", :as => :search
   get "search/tags/:q" => "search#tags", :as => :searchtag
 
   # webseiten resourcen

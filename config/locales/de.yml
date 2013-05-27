@@ -19,6 +19,11 @@ de:
                 attributes:
                     user:
                         blank: "Der Benutzer der News ist nicht gesetzt"
+  formtastic:
+    labels:
+      sessions:
+        username: "Benutzername"
+        password: "Passwort"     
   welcome:
     index:
       all: "Alles"
@@ -34,10 +39,11 @@ de:
       login: "anmelden"
       logout: "abmelden"
       register: "registrieren"
-      new: "neue inhalte schreiben"
+      new: "neue Inhalte schreiben"
       youtube: "Videos"
       twitter: "Twitter"
       twitter: "Twitter"
+      search: "Holarse durchsuchen"
     footer:
       copyright: "&copy; 2000 - %{date}"
       icons: "Icons von GNOME G-Flat SVG"

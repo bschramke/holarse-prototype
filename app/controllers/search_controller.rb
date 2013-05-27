@@ -1,8 +1,11 @@
 class SearchController < ApplicationController
-  def show
-    @search_start = Time.now
 
-    @news = News.search(:tags, params[:q])
+  before_filter :set_start_time
+
+  def show
+    @searchword = params[:search][:q]
+    q = "%#{@searchword}%"
+    @elements = News.where("content like ? or title like ?", q, q)
   end
 
   def tags
@@ -10,6 +13,10 @@ class SearchController < ApplicationController
     @news = News.search(:tags, params[:q])
 
     render :show
+  end
+
+  def set_start_time
+    @search_start = Time.now
   end
 
 end

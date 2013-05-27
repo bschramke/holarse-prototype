@@ -1,6 +1,7 @@
 %h2
-  #{@news.count} Suchergebnisse zu '#{params[:q]}'
+  #{@elements.count} Suchergebnisse zu '#{@searchword}'
   
-%ul
-  = render @news
+%ul.items
+- @elements.each do |element|
+  = render :partial => 'element', :collection => @elements
 
