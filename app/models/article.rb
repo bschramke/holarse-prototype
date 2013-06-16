@@ -22,6 +22,7 @@ class Article < ActiveRecord::Base
     acts_as_taggable
 
     default_scope where(:historical => false)
+    default_scope where(:enabled => true)
 
     amoeba do
       enable

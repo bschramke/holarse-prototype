@@ -24,6 +24,7 @@ class News < ActiveRecord::Base
   validates :content, :length => { :minimum => 10 }
 
   default_scope where(:historical => false)
+  default_scope where(:enabled => true)
 
   amoeba do
     enable

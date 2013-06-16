@@ -1,7 +1,7 @@
 class HistoryController < ApplicationController
   def index
-    Rails.logger.debug("Lade Revisionen von #{params[:news_id]}")
-    @parent = params.has_key?(:news_id) ? News.find(params[:news_id]) : Article.find(params[:article_id])
+    @parent = get_object
+    Rails.logger.debug("Lade Revisionen von #{@parent.id}")
     @revisions = @parent.archived
   end
 
@@ -21,5 +21,11 @@ class HistoryController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def get_object
+    params.has_key?(:news_id) ? News.find(params[:news_id]) : Article.find(params[:article_id])
   end
 end

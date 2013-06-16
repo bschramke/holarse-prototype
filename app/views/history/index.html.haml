@@ -1,11 +1,7 @@
-%h1 History#index
-%p Find me in app/views/history/index.html.haml
-
 %ul
   - @revisions.each do |revision|
     %li
       = revision.created_at
       = revision.user.username
       = revision.changelog
-      = link_to t('.show'), news_history_path(@parent, revision) if params.has_key?(:news_id)
-      = link_to t('.show'), article_history_path(@parent, revision) if params.has_key?(:article_id)
+      = link_to t('.show'), url_for(:controller => :history, :action => :show, "#{@parent.class.name.underscore}_id".to_sym => @parent.id, :id => revision)
