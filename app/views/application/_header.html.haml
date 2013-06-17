@@ -4,7 +4,7 @@
 
 %aside.search
   = semantic_form_for 'search', :url => search_path do |f|
-    = f.input :q, :input_html => { :value => params[:q] || params[:search][:q] }, :label => false 
+    = f.input :q, :label => false 
 
 %nav.user 
   %ul
