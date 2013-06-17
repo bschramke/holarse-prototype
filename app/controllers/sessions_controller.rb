@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  
+
+  before_filter :save_return, :only => [:new, :destroy]  
+
   def index
   end
   
@@ -14,7 +16,7 @@ class SessionsController < ApplicationController
       UserValidator.new(user).is_valid?
     rescue => e
       flash[:error] = e.message
-      redirect_to root_path and return
+      return_back_or_default
     end
 
     # wenn der benutzer noch ein altes passwort hat,
@@ -22,7 +24,7 @@ class SessionsController < ApplicationController
     um = UserMigrator.new(user, params[:session][:password])
     if um.has_legacy_password? && um.is_authenticated_with_legacy_password?
       flash[:notice] = "Der Account wurde migriert - und eingeloggt."
-      redirect_to root_path and return
+      return_back_or_default
     end
 
     # neue benutzer-authentifikation
@@ -39,12 +41,12 @@ class SessionsController < ApplicationController
       Rails.logger.debug("Login ok")      
       # zurück zur hauptseite
       flash[:notice] = "Der Login war erfolgreich."
-      redirect_to root_path and return
+      return_back_or_default
     else
       user.increment_failed_logins()
       user.save!
       flash[:error] = "Login fehlgeschlagen"
-      redirect_to root_path and return
+      return_back_or_default
     end
   end
   
@@ -59,7 +61,13 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => 'Erfolgreich abgemeldet'  
+    return_back_or_default
+  end
+
+  private
+
+  def save_return
+    store_return_to
   end
   
 end

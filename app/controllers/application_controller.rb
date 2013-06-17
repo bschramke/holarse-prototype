@@ -4,6 +4,22 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :is_logged_in?, :has_role, :can_edit_comment?, :create_anchor_name
 
   private
+  
+  #
+  # speichert die zurückspringseite
+  #
+  def store_return_to
+    session[:return_to] = request.referer
+    Rails.logger.debug("session[:return_to] => #{session[:return_to]}")
+  end
+
+  #
+  # kehrt auf die vorherige seite zurück oder auf die standardseite (root)
+  #
+  def return_back_or_default
+    redirect_to(session[:return_to] || root_path)
+    session[:return_to]
+  end
 
   #
   # erzeugt einen anchor-link-namen
