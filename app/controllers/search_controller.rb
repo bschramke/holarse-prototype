@@ -4,15 +4,25 @@ class SearchController < ApplicationController
 
   def show
     @searchword = params[:search][:q]
-    q = "%#{@searchword}%"
-    @elements = News.where("content like ? or title like ?", q, q)
+    @elements = search_content
   end
 
   def tags
-    @search_start = Time.now
-    @news = News.search(:tags, params[:q])
-
+    @searchword = params[:q]
+    @elements = search_for_tags
+    
     render :show
+  end
+
+  private
+
+  def search_for_tags
+    [] + News.tagged_with(params[:q]) + Article.tagged_with(params[:q])
+  end
+
+  def search_content
+    q = "%#{params[:search][:q]}"
+    [] + News.where("content like ? or title like ? or subtitle like ?", q, q ,q) + Article.where("content like ? or title like ? or alternate_title like ?", q, q, q)
   end
 
   def set_start_time

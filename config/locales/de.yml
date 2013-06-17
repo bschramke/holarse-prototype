@@ -55,7 +55,8 @@ de:
     login_ok: "Erfolgreich eingeloggt"
   search:
     show:
-      search_time: "Die Suche dauerte %{time} ms."
+      title: "Suche nach '%{searchword}' mit %{resultqty} Ergebnissen"
+      search_duration: "Die Suche dauerte %{search_time} ms."
   twitters:
     show:
       title: "Linuxgaming Twitter-Wall"

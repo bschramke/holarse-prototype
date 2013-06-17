@@ -1,7 +1,9 @@
-%h2
-  #{@elements.count} Suchergebnisse zu '#{@searchword}'
-  
+%h1
+  = t('.title', :resultqty => @elements.count, :searchword => @searchword)
+
 %ul.items
 - @elements.each do |element|
   = render :partial => 'element', :collection => @elements
 
+%p
+  = t('.search_duration', :search_time => Time.now - @search_start)    
