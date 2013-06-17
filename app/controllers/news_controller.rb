@@ -57,8 +57,7 @@ class NewsController < ApplicationController
 
   def require_edit_permissions
     unless has_role('admin', 'reporter')
-      flash[:warning] = "Es werden erweiterte Rechte ben&ouml;tigt, um diese News bearbeiten zu k&ouml;nnen."
-      redirect_to :back
+      redirect_to login_path
     end 
   end
 

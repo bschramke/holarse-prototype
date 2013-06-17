@@ -48,8 +48,7 @@ class ArticlesController < ApplicationController
 
   def require_edit_permissions
     unless is_logged_in?
-      flash[:warning] = "Bitte anmelden, um Artikel erstellen oder bearbeiten zu k&ouml;nnen."
-      redirect_to :back
+      redirect_to login_path
     end
   end
 end
