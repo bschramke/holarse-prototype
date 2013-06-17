@@ -8,9 +8,6 @@ class NewsController < ApplicationController
 
   def new
     @news = News.new
-    @news.links.build
-    @news.screenshots.build
-    @news.tag_list = "News"
   end
 
   def create

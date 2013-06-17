@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-    attr_accessible :title, :alternate_title, :content, :unreleased, :releasedate, :user
+    attr_accessible :title, :alternate_title, :content, :unreleased, :releasedate, :user, :category_list, :genre_list
 
     # validierungen
     validates_presence_of :title, :content, :user
@@ -19,7 +19,7 @@ class Article < ActiveRecord::Base
 
     has_and_belongs_to_many :comments
 
-    acts_as_taggable
+    acts_as_taggable_on :categories, :genres
 
     default_scope where(:historical => false)
     default_scope where(:enabled => true)

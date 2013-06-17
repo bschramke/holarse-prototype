@@ -11,8 +11,8 @@
       = f.inputs 'Inhalt', :id => 'article-edit-content' do
         = f.input :title
         = f.input :subtitle
-        = f.input :content
-        = f.input :tag_list
+        = f.input :content, :label => t('.content')
+        = f.input :category_list, :label => t('.category_list')
       = f.actions :submit, :cancel
 
   %p#news_preview_text
