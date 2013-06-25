@@ -1,6 +1,15 @@
 %aside.logo
   = link_to root_path do
-    = image_tag "holarse_logo_2.png", :class => "logo"
+    .logo
+      = image_tag "tux_small.png", :class => "logo"
+%aside.title
+  HOL
+  %span.red.marked
+    A
+  RSE - Spielen 
+  unter 
+  %span.red
+    Linux
 
 %aside.search
   = semantic_form_for 'search', :url => search_path do |f|
@@ -18,6 +27,12 @@
         = link_to(t('.login'), login_path)
       %li.register 
         = link_to t('.register'), new_user_path
-    %li.new
-      = link_to t('.new'), newcontent_path
+%nav.page
+  %ul
+    %li
+      = link_to videos_path do
+        = image_tag "youtube.png"
+    %li
+      = link_to twitter_path do
+        = image_tag "twitter.png"
 

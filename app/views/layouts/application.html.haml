@@ -22,8 +22,6 @@
         = flash[:error] if flash && flash[:error]
     %header.page
       = render "header"
-    %nav.page
-      = render "navigation"
     %section.page
       %a{:name => "top"}
       = yield
