@@ -29,22 +29,14 @@
             HOLARSE - Spielen unter Linux
           .nav-collapse
             = menu_group do
-              %li
-                = link_to videos_path do
-                  %i.icon-youtube-sign.icon
-                    Youtube
-              %li
-                = link_to twitter_path do
-                  %i.icon-twitter-sign.icon
-                    Twitter
-              %li
-                =link_to discount_events_path do
-                  %i.icon-shopping-cart.icon
-                    %span#discount-count{:"data-discount-text" => "Rabattaktionen"} Rabattaktionen
+              = icon_menu_item videos_path, "play-sign" do "Youtube" end
+              = icon_menu_item twitter_path, "twitter-sign" do "Twitter" end
+              = icon_menu_item discount_events_path, "shopping-cart" do
+                %span#discount-count{:"data-discount-text" => "Rabattaktionen"} Rabattaktionen
             = menu_group :pull => :right do
               - if current_user
-                = menu_item "Profil", show_user_path(current_user)
-                = menu_item "Ausloggen", logout_path
+                = icon_menu_item user_path(current_user), "asterisk" do "Profil" end
+                = icon_menu_item logout_path, "power-off" do "Abmelden" end
               - else
                 = menu_item "Registrieren", register_path
                 = menu_item "Anmelden", login_path
