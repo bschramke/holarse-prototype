@@ -31,8 +31,9 @@
             = menu_group do
               = icon_menu_item videos_path, "play-sign" do "Youtube" end
               = icon_menu_item twitter_path, "twitter-sign" do "Twitter" end
-              = icon_menu_item discount_events_path, "shopping-cart" do
-                %span#discount-count{:"data-discount-text" => "Rabattaktionen"} Rabattaktionen
+              = icon_menu_item discount_events_path, "shopping-cart" do 
+                %span#discount-count
+                  Rabattaktionen
             = menu_group :pull => :right do
               - if current_user
                 = menu_item current_user.username, user_path(current_user)

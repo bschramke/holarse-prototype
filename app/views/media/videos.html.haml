@@ -22,23 +22,3 @@
   = t('.title')
 
 #yt-videos.videos
-
-:javascript
-  $(document).ready(function() {
-    function load_videos() {
-      return [].concat( 
-        load_yt_playlist("holarse", 15), 
-        load_yt_playlist("gtuxtv", 15)
-      );
-    }
-
-    function sort_videos(unsorted) {
-      return unsorted.sort(function(a,b) {
-        return new Date(b.published) - new Date(a.published);
-      });
-    }
-
-    // videos darstellen
-    $("#youtube-tmpl").tmpl( sort_videos(load_videos()) ).appendTo("#yt-videos");
-  };
-   

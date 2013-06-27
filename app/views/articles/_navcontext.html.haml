@@ -1,5 +1,5 @@
 - if !@article.respond_to?("length") && !@article.new_record?
- %li= button_to t('.edit'), edit_article_path(@article), :class => "btn btn-danger btn-large" unless current_page?(edit_article_path(@article))
- %li= button_to t('.history', :count => @article.archived.count), article_history_index_path(@article), :class => "btn btn-info"
+ %li= button_to t('.edit'), edit_article_path(@article), :class => "btn btn-danger btn-large", :method => :get unless current_page?(edit_article_path(@article))
+ %li= button_to t('.history', :count => @article.archived.count), article_history_index_path(@article), :class => "btn btn-info", :method => :get
  %li= t('.admin')
- %li= link_to t('.preview'), '#', :id => 'article-preview' if current_page?(edit_article_path(@article))
+ %li= button_to t('.preview'), '#', :id => 'article-preview', :class => "btn", :remote => true if current_page?(edit_article_path(@article))
