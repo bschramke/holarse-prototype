@@ -1,0 +1,13 @@
+.title {
+  display: inline;
+  font-weight: bold;
+
+  .marked {
+    text-transform: lowercase;
+    font-size: 1.45em;
+  }
+
+  .red {
+    color: #f00;
+  }
+}

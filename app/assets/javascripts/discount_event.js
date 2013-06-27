@@ -19,21 +19,21 @@ $(document).ready(function() {
   });
 
   function update_discounts() {
-    if ($("#discount_count").length == 0) {
+    if ($("#discount-count").length == 0) {
       return;
     }
 
     // daten holen und hinterlegen
     $.get("/counting/discounts", function(data) {
-      var discounttext = $("#discount_count").attr("data-discount-text");
-      $("#discount_count").html(discounttext + " (" + data + ")");
+      var discounttext = $("#discount-count").attr("data-discount-text");
+      $("#discount-count").html(discounttext + " (" + data + ")");
     });
 
     // das ganze nach 30000ms wiederholen
     setTimeout(function() { update_discounts() }, 30000);
   }
 
-  if ($("#discount_count").length != 0) {
+  if ($("#discount-count").length != 0) {
     update_discounts();
   }
   

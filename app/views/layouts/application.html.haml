@@ -1,33 +1,73 @@
-!!!
-%html
+!!! 5
+%html(lang="de")
   %head
-    %title=t('.title')
-    %meta{:charset => "utf-8"}
-    %meta{:name => "description", :content => ""}
-    %meta{:name => "keywords", :content => "linux, spiele, spielen unter linux"}
-    %meta{:name => "viewport", :content => "width=device-width"}
-    = javascript_include_tag "application"
-    = stylesheet_link_tag "application", :media => "all"
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "HOLARSE - Spielen unter Linux"
     = csrf_meta_tags
-    = favicon_link_tag "favicon.png"
-    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
+
   %body
-    .flash
-      / Benachrichtigungen
-      .notice
-        = flash[:notice] if flash && flash[:notice]
-      .warning
-        = flash[:warning] if flash && flash[:warning]
-      .error
-        = flash[:error] if flash && flash[:error]
-    %header.page
-      = render "header"
-    %section.page
-      %a{:name => "top"}
-      = yield
-      %a{:id => "backtotop"} 
-        = t('.backtotop')      
-    %nav.context
-      = render "navcontext"
-    %footer.page
-      = render "footer"
+    .navbar.navbar-fluid-top
+      .navbar-inner
+        .container-fluid
+          %a.btn.btn-navbar(data-toggle="collapse" data-target=".nav-collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to root_path, :class => "brand" do
+            = image_tag "tux_small.png", :width => "45px"
+            HOLARSE - Spielen unter Linux
+          .nav-collapse
+            = menu_group do
+              %li
+                = link_to videos_path do
+                  %i.icon-youtube-sign.icon
+                    Youtube
+              %li
+                = link_to twitter_path do
+                  %i.icon-twitter-sign.icon
+                    Twitter
+              %li
+                =link_to discount_events_path do
+                  %i.icon-shopping-cart.icon
+                    %span#discount-count{:"data-discount-text" => "Rabattaktionen"} Rabattaktionen
+            = menu_group :pull => :right do
+              - if current_user
+                = menu_item "Profil", show_user_path(current_user)
+                = menu_item "Ausloggen", logout_path
+              - else
+                = menu_item "Registrieren", register_path
+                = menu_item "Anmelden", login_path
+              = menu_divider
+              = semantic_form_for 'search', {:html => { :class => 'navbar-search' }, :url => search_path} do |f|
+                = f.input :q, :label => false, :as => :search
+ 
+
+    .container-fluid
+
+      .row-fluid
+        .span3
+          .well.sidebar-nav
+            %ul.nav.nav-list
+              = render :partial => "navcontext"
+        .span9
+          = bootstrap_flash
+          = yield
+    
+      %footer
+        %p &copy; Holarse 2000 - 2013
+        %p
+          %i.icon-bitbucket.icon
+            = link_to get_app_version, version_path(get_app_version)
+
+    = javascript_include_tag "application"

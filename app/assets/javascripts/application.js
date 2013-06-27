@@ -12,17 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require twitter/bootstrap
+//= require jquery.ui.all
 //= require jquery.tmpl.min
-//= require waypoints.min
 //= require "jquery.fancybox.pack"
 //= require "jquery.fancybox-media"
 //= require "jquery.fancybox-buttons"
 //= require "jquery.fancybox-thumbs"
 //= require "jquery.mousewheel-3.0.6.pack"
-//= require "jquery.noty"
 //= require "jquery.tweet"
-//= require "rainbow-custom.min"
 //= require_tree .
-//= require flexslider
-

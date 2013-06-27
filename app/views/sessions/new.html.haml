@@ -1,8 +1,4 @@
-%h1
-  Login an Holarse
-%p
-  Mit deinem Benutzerdaten kannst du dich hier einloggen
-= semantic_form_for 'session', :url => session_path do |f|
+= semantic_form_for 'session', {:html => {:class => "well"}, :url => session_path} do |f|
   =  f.inputs :name => 'Login Details' do
     = f.input :username
     = f.input :password, :as => :password

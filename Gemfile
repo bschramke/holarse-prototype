@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'jruby-openssl'
 
 gem 'json'
 gem 'stringex'
@@ -12,24 +11,32 @@ end
 
 # Database backend
 #
-platforms :jruby do
-	gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
-	gem 'jdbc-sqlite3'
-    	gem 'jdbc-mysql' # fuer datenmigration von mysql
-	gem 'jruby-openssl'
-end
+gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
+gem 'jdbc-sqlite3'
+gem 'jdbc-mysql' # fuer datenmigration von mysql
 
 gem 'amoeba'
 
 gem 'paperclip', "~> 3.0"
 
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'haml-rails'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'therubyrhino'
+
+  gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
+  gem 'formtastic-bootstrap'
+end
+
 # View
 # 
-gem 'haml-rails'
-gem 'sass-rails'
 gem 'kramdown'
-#gem 'RedCloth'
-#gem 'red_cloth_formatters_plain', :git => 'git://github.com/JosephHalter/redcloth-formatters-plain.git'
 #gem 'wikicloth'
 
 # Development-Gems
@@ -37,28 +44,20 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
 end
+
+gem 'jquery-rails', '~> 2.1'
+gem 'jquery-ui-rails'
+
 #
 # Testing-Gems
 # 
 gem "rspec-rails", :group => [:test, :development]
 gem "factory_girl_rails", :group => [:test, :development]
 gem "forgery", :group => [:test, :development]
-group :test do
-	gem 'capybara'
-end
-
-# JQuery
-gem 'jquery-rails'
-
-
-# Flexslider
-gem "flexslider", '~> 2.0.2'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # ActAsTaggable
 gem 'acts-as-taggable-on', '~> 2.3.1'
-
-
 gem 'formtastic'

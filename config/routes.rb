@@ -41,6 +41,7 @@ Holarse::Application.routes.draw do
   resource :twitter, :only => :show
   
   # login und sessionverwaltung
+  get 'users/new', :as => :register
   resource :session, :only => [:new, :create, :destroy]
   match 'session/login' => 'sessions#new', :as => :login
   match 'session/logout' => 'sessions#destroy', :as => :logout
