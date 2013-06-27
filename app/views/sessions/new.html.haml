@@ -1,6 +1,6 @@
-= semantic_form_for 'session', {:html => {:class => "well"}, :url => session_path} do |f|
+= semantic_form_for 'session', {:html => {:class => "form-inline"}, :url => session_path} do |f|
   =  f.inputs :name => 'Login Details' do
-    = f.input :username
-    = f.input :password, :as => :password
+    = f.input :username, :placeholder => "Benutzername"
+    = f.input :password, :as => :password, :placeholder => "Passwort"
   = f.actions do
-    = f.action :submit
+    = f.action :submit, :button_html => {:class => "btn btn-primary"}

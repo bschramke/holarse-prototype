@@ -45,11 +45,18 @@ $(document).ready(function() {
   	$("#discount-event-form-advanced").toggle();
   	return false;
   });
-  
-  $(".discount_event td:nth-child(2), td:nth-child(3)").click(function(event) {
-  	event.preventDefault();
-  	event.stopPropagation();
-  	$("#discount-event-advanced-" + $(this).parent().attr("data-discount-event-id")).toggle('slow');
-  });
+ 
+  $(".discount-event-show-details").click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var discount_event_id = $(this).attr("data-discount-event-id");
+    var elem = $("tr#discount-event-details-" + discount_event_id);
+    elem.toggle("slow");
+    if (elem.is(":visible")) {
+      $(this).removeClass("icon-circle-arrow-down").addClass("icon-circle-arrow-up");
+    } else {
+      $(this).removeClass("icon-circle-arrow-up").addClass("icon-circle-arrow-down");
+    }
+  }); 
 
 });

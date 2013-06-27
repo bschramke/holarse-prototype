@@ -35,14 +35,14 @@
                 %span#discount-count{:"data-discount-text" => "Rabattaktionen"} Rabattaktionen
             = menu_group :pull => :right do
               - if current_user
-                = icon_menu_item user_path(current_user), "asterisk" do "Profil" end
-                = icon_menu_item logout_path, "power-off" do "Abmelden" end
+                = menu_item current_user.username, user_path(current_user)
+                = icon_menu_item logout_path, "off" do "Abmelden" end
               - else
                 = menu_item "Registrieren", register_path
                 = menu_item "Anmelden", login_path
               = menu_divider
               = semantic_form_for 'search', {:html => { :class => 'navbar-search' }, :url => search_path} do |f|
-                = f.input :q, :label => false, :as => :search
+                = f.input :q, :label => false, :as => :search, :placeholder => "Holarse durchsuchen"
  
 
     .container-fluid

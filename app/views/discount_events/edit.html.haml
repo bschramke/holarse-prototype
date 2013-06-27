@@ -3,12 +3,12 @@
     = f.input :name, :as => :string, :label => t('.name')
     = f.input :startdate, :as => :string, :label => t('.startdate'), :input_html => { :size => 10 }
     = f.input :enddate, :as => :string, :label => t('.enddate'), :input_html => { :size => 10 }
-    = f.input :website, :as => :url, :label => t('.url')
+    = f.input :website, :as => :url, :label => t('.url'), :placeholder => "Wo gehts zur Aktion?"
   %a{:id => "toggle-discount-event-form-advanced"}
     = t('.toggle-advanced')
   = f.inputs :id => "discount-event-form-advanced" do
     = f.input :description, :required => false, :label => t('.description')
-    = f.input :sourceurl, :as => :url, :label => t('.sourceurl')
+    = f.input :sourceurl, :as => :url, :label => t('.sourceurl'), :placeholder => "Woher stammt die Info?"
   = f.actions do
     = f.action :submit, :label => t('.submit')
     = link_to t('.back'), discount_events_path
