@@ -156,6 +156,7 @@ de:
       edit: "Bearbeiten"
   discount_events:
     index:
+      title: "Rabattaktionen bei Linuxspielen"
       name: "Name"
       startdate: "Beginn der Aktion"
       enddate: "Ende der Aktion"

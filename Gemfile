@@ -53,7 +53,9 @@ gem 'jquery-ui-rails'
 # 
 gem "rspec-rails", :group => [:test, :development]
 gem "factory_girl_rails", :group => [:test, :development]
-gem "forgery", :group => [:test, :development]
+gem "fabrication", :group => [:test, :development]
+gem "capybara", :group => [:test]
+gem "faker", :group => [:test], :require => "faker"
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
