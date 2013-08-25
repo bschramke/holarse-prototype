@@ -1,9 +1,17 @@
-#SQLite3
 development:
-  adapter: jdbcsqlite3
-  database: db/development.sqlite3
+  adapter: jdbcpostgresql
+  encoding: unicode
+  host: localhost
+  database: holarse_development
+  username: postgres
+  pool: 8
 
-test:
-  adapter: jdbcsqlite3
-  database: db/test.sqlite3
+test:   
+  adapter: jdbcpostgresql
+  encoding: unicode
+  host: localhost
+  database: holarse_testing
+  username: postgres
+  pool: 8
+
 

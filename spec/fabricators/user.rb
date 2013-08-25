@@ -8,5 +8,5 @@ Fabricator(:user) do
 end
 
 Fabricator(:admin_user, from: :user) do
-  roles { Role.where(name: :admin).first }
+  roles { Role.where(name: :admin) }
 end

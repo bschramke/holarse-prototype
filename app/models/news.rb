@@ -26,6 +26,10 @@ class News < ActiveRecord::Base
   default_scope where(:historical => false)
   default_scope where(:enabled => true)
 
+  def self.searchable_language
+    'german'
+  end
+
   amoeba do
     enable
     exclude_field [:screenshots, :attachments, :videos, :links, :comments]

@@ -11,9 +11,10 @@ end
 
 # Database backend
 #
-gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
-gem 'jdbc-sqlite3'
+gem 'activerecord-jdbcpostgresql-adapter', :require => 'arjdbc/postgresql'
+gem 'jdbc-postgres'
 gem 'jdbc-mysql' # fuer datenmigration von mysql
+gem 'textacular' # fulltextsearch with postgres
 
 gem 'amoeba'
 
