@@ -1,5 +1,3 @@
 - @tags.each_key do |key|
-  %h1= key
-  %ul
-    - tag_cloud(@tags[key], %w(css1 css2 css3 css4)) do |tag, css_class|
-      %li= link_to tag.name, searchtag_path(tag.name)
+  - tag_cloud(@tags[key], %w(css1 css2 css3 css4)) do |tag, css_class|
+    %li= link_to tag.name, searchtag_path(tag.name)

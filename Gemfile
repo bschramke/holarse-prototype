@@ -11,10 +11,9 @@ end
 
 # Database backend
 #
-gem 'activerecord-jdbcpostgresql-adapter', :require => 'arjdbc/postgresql'
-gem 'jdbc-postgres'
+gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
+gem 'jdbc-sqlite3'
 gem 'jdbc-mysql' # fuer datenmigration von mysql
-gem 'textacular' # fulltextsearch with postgres
 
 gem 'amoeba'
 
@@ -31,8 +30,6 @@ group :assets do
   gem 'therubyrhino'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
-  gem 'formtastic-bootstrap'
 end
 
 # View
@@ -45,9 +42,6 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
 end
-
-gem 'jquery-rails', '~> 2.1'
-gem 'jquery-ui-rails'
 
 #
 # Testing-Gems
