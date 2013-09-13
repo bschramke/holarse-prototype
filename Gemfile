@@ -58,3 +58,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # ActAsTaggable
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'formtastic'
+gem 'formtastic-bootstrap'

@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require_tree .
+ *= require formtastic-bootstrap
  *= require_tree ../../../vendor/assets/stylesheets/
 */

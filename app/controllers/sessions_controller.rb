@@ -12,42 +12,19 @@ class SessionsController < ApplicationController
     # benutzer-account erstmal finden
     user = User.find_by_username(params[:session][:username])
 
-    begin
-      UserValidator.new(user).is_valid?
-    rescue => e
-      flash[:error] = e.message
-      return_back_or_default
-    end
+    return_back_or_default if !user.present? || !user.active || user.has_too_many_failed_logins()
 
-    # wenn der benutzer noch ein altes passwort hat,
-    # dann die migration aufrufen
-    um = UserMigrator.new(user, params[:session][:password])
-    if um.has_legacy_password? && um.is_authenticated_with_legacy_password?
-      flash[:notice] = "Der Account wurde migriert - und eingeloggt."
-      return_back_or_default
-    end
-
-    # neue benutzer-authentifikation
-    Rails.logger.debug("Trying to login")
-    if user.authenticate(params[:session][:password])
-      # erfolgreichen login in der session speichern
+    if user.do_authenticate(params[:session][:password])
       session[:user_id] = user.id
-      
-      # erfolgreiches login vermerken
-      user.successfull_login()
-      Rails.logger.debug("User: #{user.inspect}")
-      user.save!
-
-      Rails.logger.debug("Login ok")      
-      # zurück zur hauptseite
-      flash[:notice] = "Der Login war erfolgreich."
-      return_back_or_default
+      user.register_successfull_login()    
+      flash[:info] = "Login war erfolgreich"
     else
+      flash[:warning] = "Der Login ist leider fehlgeschlagen"
       user.increment_failed_logins()
-      user.save!
-      flash[:error] = "Login fehlgeschlagen"
-      return_back_or_default
     end
+    user.save!
+
+    return_back_or_default
   end
   
   def show
@@ -70,42 +47,4 @@ class SessionsController < ApplicationController
     store_return_to
   end
   
-end
-
-#
-# Validiert einen Benutzer
-#
-class UserValidator
-
-  def initialize(user)
-    @user = user
-  end
-  
-  def is_valid?
-    raise StandardError, "Benutzer konnte nicht gefunden werden" if !@user.present?
-    raise StandardError, "Benutzer ist nicht aktiv" if !@user.active
-    raise StandardError, "Zuviele fehlgeschlagene Login-Versuche" if @user.failed_logins > 3
-  end
-  
-end
-
-class UserMigrator
-  def initialize(user, password)
-    @user = user
-    @password = password
-  end
-
-  def has_legacy_password?
-    @user.old_password_hash
-  end
-
-  def is_authenticated_with_legacy_password?
-    @user.authenticate_legacy(@password)
-  end
-
-  def migrate
-    @user.password = @password
-    @user.old_password_hash = nil
-    @user.save!
-  end
 end

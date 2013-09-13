@@ -4,25 +4,15 @@
   %h2
 
 %article
-  = form_for @user do |f|
-    .label
-      = f.label :username, t('.username')
-    .field
-      = f.text_field :username
-
-    .label
-      = f.label :email, t('.email')
-    .field
-      = f.email_field :email
-
-    .label
-      = f.label :password, t('.password')
-    .field
-      = f.password_field :password
-  
-    .label  
-      = f.label :password_confirmation, t('.password_confirmation')
-    .field
-      = f.password_field :password_confirmation
-    
-    = submit_tag t('.submit')
+  = semantic_form_for @user do |f|
+    = f.inputs do
+      .input-group
+        = f.input :username, input_html: { class: "form-control" }
+      .input-group
+        = f.input :email, as: :email, input_html: { class: "form-control" }
+      .input-group
+        = f.input :password, input_html: { class: "form-control" }
+      .input-group
+        = f.input :password_confirmation, input_html: { class: "form-control" }
+    = f.actions do
+      = f.action :submit

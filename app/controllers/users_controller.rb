@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save && !is_spammer?(@user)
-      flash[:notice] = "Benutzer #{@user.username} wurde erstellt."
+      flash[:info] = "Benutzer #{@user.username} wurde erstellt."
       redirect_to root_path
     else
       render :action => "new"

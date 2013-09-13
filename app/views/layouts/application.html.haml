@@ -77,7 +77,7 @@
                 %li
                   %a{:href => "#"} One more separated link
             %li
-              = link_to "Videos", videos_path
+              = link_to "Youtube", videos_path
             %li
               = link_to "Twitter", twitter_path
             %li
@@ -104,6 +104,11 @@
           = render :partial => "navcontext"            
       .col-md-10
         .container
+
+          .flash
+            - flash.each do |name, msg|
+              = content_tag :div, msg, class: "alert alert-#{name}"
+
           = yield
 
 
