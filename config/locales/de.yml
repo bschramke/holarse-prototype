@@ -19,6 +19,7 @@ de:
                         confirmation: "Die Passwörter stimmen nicht überein"
                     email:
                         taken: "Diese Email-Adresse wird bereits verwendet."
+                        invalid: "Diese Email-Adresse ist ungültig."
             news:
                 attributes:
                     user:

@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 #    validates_uniqueness_of :minecraft_username
     validates_presence_of :password, :on => :create
 
+    validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
+
     def do_authenticate(password)
       if self.old_password_hash.present? && old_password_is_correct(password)
 	self.old_password_hash = nil

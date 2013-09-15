@@ -1,12 +1,16 @@
 = semantic_form_for @article do |f|
   = f.inputs 'Inhalt', :id => 'article-edit-content' do
-    = f.input :title, :label => t('.title')
-    = f.input :alternate_title, :label => t('.alternate_title')
-    = f.input :content, :as => :text, :label => t('.content'), :input_html => { :rows => 10 }
-    = f.input :category_list, :label => t('.category_list')
-    = f.input :genre_list, :label => t('.genre_list')
+    .input-group
+      = f.input :title, input_html: { class: "form-control" }
+    .input-group
+      = f.input :alternate_title, input_html: { class: "form-control" }
+    .input-group
+      = f.input :content, as: :text, input_html: { rows: 10, class: "form-control" }
+    .input-group
+      = f.input :category_list, input_html: { class: "form-control" }
+    .input-group
+      = f.input :genre_list, input_html: { class: "form-control" }
   = f.actions do
-    = f.action :submit, :label => t('.submit')
-    = f.action :cancel, :label => t('.cancel')
+    = f.action :submit
 
   %p#article_preview_text

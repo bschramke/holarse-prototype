@@ -3,3 +3,4 @@
  %li= button_to t('.history', :count => @article.archived.count), article_history_index_path(@article), :class => "btn btn-info", :method => :get
  %li= t('.admin')
  %li= button_to t('.preview'), '#', :id => 'article-preview', :class => "btn", :remote => true if current_page?(edit_article_path(@article))
+ %li= link_to "Markdown-Doku", "http://kramdown.rubyforge.org/quickref.html", target: "_blank"
