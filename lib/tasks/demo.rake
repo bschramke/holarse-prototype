@@ -11,15 +11,8 @@ namespace :holarse do
     desc "adds demo users"
     task :users => :environment do
       10.times do
-        u = FactoryGirl.create(:user)
-        puts "Created #{u.username}"
-      end
-
-      1.times do
-        u = FactoryGirl.create(:user)
-        u.roles << Role.find_by_name(:admin)
-        u.save!
-        puts "Created admin #{u.username}"
+	u = Fabricate(:user)
+	puts "Created #{u.username}"
       end
     end
 

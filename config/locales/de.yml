@@ -17,6 +17,8 @@ de:
                         taken: "Benutzername wird bereits vergeben"
                     password:
                         confirmation: "Die Passwörter stimmen nicht überein"
+                    email:
+                        taken: "Diese Email-Adresse wird bereits verwendet."
             news:
                 attributes:
                     user:

@@ -67,15 +67,11 @@
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Action
+                  %a{:href => "#"} Mumble
                 %li
-                  %a{:href => "#"} Another action
+                  %a{:href => "#"} Jabber
                 %li
-                  %a{:href => "#"} Something else here
-                %li
-                  %a{:href => "#"} Separated link
-                %li
-                  %a{:href => "#"} One more separated link
+                  %a{:href => "#"} Minecraft/Gameserver
             %li
               = link_to "Youtube", videos_path
             %li
@@ -84,10 +80,27 @@
               = link_to discount_events_path do
                 %span#discount-count
                   Rabattaktionen
+            %li
+              Links
+            %li
+              Impressum
           = semantic_form_for 'search', {:html => { :class => 'navbar-form navbar-right' }, :url => search_path} do |f|
             = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control" }, :placeholder => "Holarse durchsuchen"
           %ul.nav.navbar-nav.navbar-right
             - if current_user
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  Neue Inhalte
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"} Neue News
+                  %li
+                    %a{:href => "#"} Neuer Artikel
+                  %li
+                    %a{:href => "#"} Neuer Forumsbeitrag
+                  %li
+                    %a{:href => "#"} Neuer Spieleaufruf
               %li
                 = link_to current_user.username, user_path(current_user)
               %li

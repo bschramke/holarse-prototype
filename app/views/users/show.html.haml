@@ -1,54 +1,24 @@
-%h1
+.well
   = image_tag @user.avatar
   = @user.username
-
-%h2
-  = t('.signature')
-%ul
-  %li
+.panel.panel-default
+  .panel-heading
+    Signatur
+  .panel-body
     = @user.signature.present? ? @user.signature : t('.no_signature_available')    
 
-%h2
-  = t('.registration')
-%ul
-  %li= t('.created_at', :date => l(@user.created_at))
-
-%h2
-  = t('.technical')
-%ul
-  %li
-    = t('.distro') 
-    = @user.distro
-  %li
-    = t('.computer')
-    = @user.computer
-  %li
-    = t('.graphics')
-    = @user.graphics
-  
-%h2
-  = t('.personal')
-%ul  
-  %li
-    = t('.icq')
-    = @user.icq
-  %li
-    = t('.jabber')
-    = @user.jabber
-  %li
-    = t('.city')
-    = link_to_osm @user.city
-  %li
-    = t('.job')
-    = @user.job
-  %li
-    = t('.birthday')
-    = @user.birthday
-%h2
-  = t('.holarse_services')    
-%ul  
-  %li
-    = t('.minecraft')
-    = @user.minecraft_username
-    = display_mc_whitelist_status(@user.minecraft_whitelisted)
-    
+  .panel-heading
+    Registriert seit
+  .panel-body
+    = t('.created_at', :date => l(@user.created_at))
+  .panel-heading
+    Linux-Technisches
+  .panel-body
+  %ul.list-group
+    %li.list-group-item
+      Distribution: #{@user.distro}
+    %li.list-group-item
+      Computer: #{@user.computer}
+    %li.list-group-item
+      Grafik: #{@user.graphics}
+        
