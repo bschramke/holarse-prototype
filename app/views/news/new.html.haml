@@ -1,18 +1,12 @@
-%article
-  %header
-    %h1
-      = t('.title', :title => @news.title)
-    %h2
-      %ul
-        %li= t('.created_at', :date => @news.created_at)
-        %li= t('.updated_at', :date => @news.updated_at)
-  %p
-    = semantic_form_for @news do |f|
-      = f.inputs 'Inhalt', :id => 'article-edit-content' do
-        = f.input :title
-        = f.input :subtitle
-        = f.input :content, :label => t('.content')
-        = f.input :category_list, :label => t('.category_list')
-      = f.actions :submit, :cancel
-
-  %p#news_preview_text
+%group
+  %h1=t('.title')
+.edit_content
+  = semantic_form_for @news do |f|
+    = f.semantic_errors :title, :content
+    = f.inputs do
+      .input-group
+        = f.input :title, input_html: { class: "form-control" }
+      .input-group
+        = f.input :subtitle, required: false, input_html: { class: "form-control" }
+      .input-group
+        = f.input :content, as: :text, input_html: { class: "form-control" }
