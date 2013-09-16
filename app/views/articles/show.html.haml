@@ -1,13 +1,8 @@
-%article
-  %header
-    %h1
-      = @article.title
-    %h2
-      = @article.alternate_title
-    %h3
-      = raw t('.author', :name => link_user(@article.user))
-      %time.date{:datetime => "#{@article.updated_at}"}
-      = t('.created_at', :date => l(@article.updated_at))
+%h1
+  = @article.title
+%h2
+  = @article.alternate_title
 
-  .autolinkable
-    = Holarse::Markup.render @article.content
+%hr
+.autolinkable
+  = Holarse::Markup.render @article.content

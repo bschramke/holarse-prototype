@@ -1,14 +1,11 @@
 = semantic_form_for @discount_event do |f|
-  = f.inputs t('.basic') do
-    = f.input :name, :as => :string, :label => t('.name')
-    = f.input :startdate, :as => :string, :label => t('.startdate'), :input_html => { :size => 10 }
-    = f.input :enddate, :as => :string, :label => t('.enddate'), :input_html => { :size => 10 }
-    = f.input :website, :as => :url, :label => t('.url'), :placeholder => "Wo gehts zur Aktion?"
-  %a{:id => "toggle-discount-event-form-advanced"}
-    = t('.toggle-advanced')
-  = f.inputs :id => "discount-event-form-advanced" do
-    = f.input :description, :required => false, :label => t('.description')
-    = f.input :sourceurl, :as => :url, :label => t('.sourceurl'), :placeholder => "Woher stammt die Info?"
+  = f.semantic_errors :name, :startdate, :enddate, :website, :description, :sourceurl
+  = f.inputs do 
+    = f.input :name, input_html: { class: "form-control" }
+    = f.input :startdate, as: :string, input_html: { class: "form-control" }
+    = f.input :enddate, as: :string, input_html: { class: "form-control" }
+    = f.input :website, as: :url, required: true, input_html: { class: "form-control" }
+    = f.input :description, required: false, as: :text, input_html: { class: "form-control" }
+    = f.input :sourceurl, as: :url, required: false, input_html: { class: "form-control" }
   = f.actions do
-    = f.action :submit, :label => t('.submit')
-    = link_to t('.back'), discount_events_path
+    = f.action :submit
