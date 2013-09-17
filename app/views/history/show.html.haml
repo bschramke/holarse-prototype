@@ -1,5 +1,5 @@
 %p
-  Der Artikel in der Revision #{@revision.id}. Erstellt am #{@revision.created_at} durch #{link_user User.find(@revision.whodunnit)} via #{@revision.event}.
+  Der Artikel in der Revision #{@revision.index}. Erstellt am #{@revision.created_at} durch #{link_user User.find(@revision.whodunnit)} via #{@revision.event}.
 
 %h1
   = @revision.reify.title unless @revision.reify == nil
