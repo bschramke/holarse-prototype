@@ -7,8 +7,9 @@ class HistoryController < ApplicationController
     Rails.logger.debug("Lade Revisionen von #{@parent.id}")
     @revisions = @parent.versions
 
-    add_breadcrumb @parent.class, "#"
-    add_breadcrumb "Revisionen", "#"
+    add_breadcrumb @parent.class
+    add_breadcrumb @parent.id, url_for(@parent)
+    add_breadcrumb "Revisionen"
   end
 
   def show
