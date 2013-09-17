@@ -6,6 +6,9 @@
     %li
       %a{:href => "#preview"}
         Live-Vorschau
+    %li
+      %a{:href => "#markdowndoku"}
+        Markdown-Doku
   #input
     = semantic_form_for @article do |f|
       = f.inputs 'Inhalt', :id => 'article-edit-content' do
@@ -23,3 +26,5 @@
         = f.action :submit
   #preview
     %p#article_preview_text
+  #markdowndoku
+    Hier soll mal die Markdown-Doku hin. Bis dahin gibts nen Link auf die Doku: http://kramdown.rubyforge.org/quickref.html

@@ -18,11 +18,6 @@
     .list-group-item.active
       Men&uuml;
 
-    - if @article.present? && !@article.new_record?
-      - if current_page?(edit_article_path(@article)) 
-        = link_to "Vorschau", "#", class: "list-group-item", :remote => true, id: "article-preview"
-        = link_to "Markdown-Doku", "http://kramdown.rubyforge.org/quickref.html", target: "_blank", :class => "list-group-item" 
-
     - if @article.present? && !@article.new_record? && current_page?(article_path(@article))
       = link_to "Bearbeiten", edit_article_path(@article), :class => "list-group-item"
       = link_to article_history_index_path(@article), :class => "list-group-item" do
