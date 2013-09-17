@@ -102,7 +102,10 @@
                   %li
                     %a{:href => "#"} Neuer Spieleaufruf
               %li
-                = link_to current_user.username, user_path(current_user)
+                = link_to user_path(current_user) do
+                  = current_user.username
+                  = content_tag :span, :class => "badge" do
+                    0
               %li
                 = link_to "Abmelden", logout_path
             - else
@@ -121,6 +124,9 @@
           .flash
             - flash.each do |name, msg|
               = content_tag :div, msg.html_safe, class: "alert alert-#{name}"
+
+          %ol.breadcrumb
+            = render_breadcrumbs
 
           = yield
 

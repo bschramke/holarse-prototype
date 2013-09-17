@@ -1,7 +1,5 @@
 Holarse::Application.routes.draw do
 
-  get "newcontent/index", :as => :newcontent
-
   get "link_generator/index"
 
   post "markup_preview/preview", :as => :markuppreview

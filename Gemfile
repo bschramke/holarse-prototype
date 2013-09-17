@@ -15,8 +15,7 @@ gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
 gem 'jdbc-sqlite3'
 gem 'jdbc-mysql' # fuer datenmigration von mysql
 
-gem 'amoeba'
-
+gem 'paper_trail'
 gem 'paperclip', "~> 3.0"
 
 # Gems used only for assets and not required
@@ -59,3 +58,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
+gem "breadcrumbs_on_rails"

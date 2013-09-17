@@ -6,13 +6,10 @@
       %th
         Benutzer
       %th
-        Änderungsmeldung
-      %th
         Revision
   %tbody
     - @revisions.each do |revision|
       %tr
         %td=revision.created_at
-        %td=revision.user.username
-        %td=revision.changelog
+        %td=link_user User.find(revision.whodunnit)
         %td=revision_link @parent, revision

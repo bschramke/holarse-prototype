@@ -23,18 +23,6 @@ class News < ActiveRecord::Base
   validates_presence_of :user  
   validates :content, :length => { :minimum => 10 }
 
-  default_scope where(:historical => false)
   default_scope where(:enabled => true)
-
-  amoeba do
-    enable
-    exclude_field [:screenshots, :attachments, :videos, :links, :comments]
-    set :historical => true
-    customize([
-      lambda do |orig_obj,copy_of_obj|
-        copy_of_obj.parent_id = orig_obj.id
-      end
-    ])
-  end
 
 end

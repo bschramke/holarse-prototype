@@ -1,11 +1,24 @@
 class HistoryController < ApplicationController
+
+  add_breadcrumb "Home", :root_path
+  
   def index
     @parent = get_object
     Rails.logger.debug("Lade Revisionen von #{@parent.id}")
-    @revisions = @parent.archived
+    @revisions = @parent.versions
+
+    add_breadcrumb @parent.class, "#"
+    add_breadcrumb "Revisionen", "#"
   end
 
   def show
+    @parent = get_object
+    @revision = @parent.versions.find(params[:id])
+
+    add_breadcrumb @parent.class
+    add_breadcrumb @parent.title, url_for(@parent)
+    add_breadcrumb "Revisionen"
+    add_breadcrumb params[:id]
   end
 
   def new

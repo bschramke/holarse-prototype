@@ -1,13 +1,18 @@
 class ArticlesController < ApplicationController
 
-  before_filter :require_edit_permissions, :except => [:show]
+  before_filter :require_edit_permissions, :except => [:index, :show]
+
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Artikel", :articles_path
 
   def index
     @articles = Article.order('created_at DESC')
+    add_breadcrumb "Index", articles_path
   end
 
   def new
     @article = Article.new
+    render :edit
   end
 
   def create
@@ -27,9 +32,6 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
-    historified_article = @article.amoeba_dup
-    historified_article.save
-
     if @article.update_attributes(params[:article])
       redirect_to @article
     else
@@ -42,12 +44,14 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    add_breadcrumb @article.title, article_path(@article)
   end
 
   private
 
   def require_edit_permissions
-    unless is_logged_in?
+    if !is_logged_in?
+      flash[:info] = "Bitte anmelden zum Bearbeiten des Artikels."
       redirect_to login_path
     end
   end

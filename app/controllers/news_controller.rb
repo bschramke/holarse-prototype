@@ -25,9 +25,6 @@ class NewsController < ApplicationController
 
   def update
     @news = News.find(params[:id])
-    historified_news = @news.amoeba_dup
-    historified_news.save
-
     @news.user = current_user
 
     respond_to do |format|

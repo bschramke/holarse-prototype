@@ -1,14 +1,40 @@
-- if !@article.respond_to?("length") && !@article.new_record?
-  %li= button_to t('.edit'), edit_article_path(@article), :class => "btn btn-danger btn-large", :method => :get unless current_page?(edit_article_path(@article))
-  %li= button_to t('.history', :count => @article.archived.count), article_history_index_path(@article), :class => "btn btn-info", :method => :get
+.panel.panel-default
+  .panel-heading
+    %a.collapser{:"data-collapse" => "article-description"}
+      Beschreibung
+  .panel-body.article#article-description
+    %p
+      Hier können neue Artikel angelegt, bearbeitet und ergänzt werden. Ihr könnt euch die Revisionen der Artikeländerungen, die Veränderungen dazwischen
+      ansehen und die Autoren.
+    %p
+      Änderungen können von jedem registrierten Benutzer vorgenommen werden. Als Eingabesprache verwenden wir Markdown. Diese Sprache ist besonders einfach
+      zu benutzen und leicht zu erlernen. Hilfe zu den am meisten gebrauchten Markdown-Befehlen könnt ihr in diesem Menü ganz unten in der aufklappbaren Box
+      nachschlagen.
+    %p
+      Die Artikel werden alle untereinander automatisch verlinkt. Dazu werden einfach die Artikelnamen und deren Alternativartikelnamen verwendet. Wenn es also z.B
+      einen Artikel zu "Holzschuhe" gibt, und ihr dieses Wort in eurem Text verwendet, wird das Wort automatisch zu einem Link über den Artikel "Holzschuhe" umgewandelt.
 
-- if current_page?(edit_article_path(@article)) 
-  %li= button_to t('.preview'), '#', :id => 'article-preview', :class => "btn", :remote => true if current_page?(edit_article_path(@article))
-  %li= link_to "Markdown-Doku", "http://kramdown.rubyforge.org/quickref.html", target: "_blank"
+  %ul.list-group
+    .list-group-item.active
+      Men&uuml;
 
-%hr
+    - if @article.present? && !@article.new_record?
+      - if current_page?(edit_article_path(@article)) 
+        = link_to "Vorschau", '#', :id => 'article-preview', :class => "list-group-item" 
+        = link_to "Markdown-Doku", "http://kramdown.rubyforge.org/quickref.html", target: "_blank", :class => "list-group-item" 
 
-- if current_page?(article_path(@article))
-  %ul
-    %li= link_to @article.user.username, @article.user
-    %li= @article.updated_at
+    - if @article.present? && !@article.new_record? && current_page?(article_path(@article))
+      = link_to "Bearbeiten", edit_article_path(@article), :class => "list-group-item"
+      = link_to article_history_index_path(@article), :class => "list-group-item" do
+        Revisionen
+        = content_tag :span, :class => "badge" do
+          #{@article.versions.length}
+
+  - if @article.present? && !@article.new_record?
+    %ul.list-group
+      %li.list-group-item
+        Autor: 
+        = link_to @article.user.username, @article.user
+      %li.list-group-item
+        Zuletzt aktualisiert:
+        = @article.updated_at

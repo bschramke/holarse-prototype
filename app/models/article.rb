@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+
+    has_paper_trail :only => [:title, :alternate_title, :content, :unreleased, :releaseddate]
+
     attr_accessible :title, :alternate_title, :content, :unreleased, :releasedate, :user, :category_list, :genre_list
 
     # validierungen
@@ -21,19 +24,6 @@ class Article < ActiveRecord::Base
 
     acts_as_taggable_on :categories, :genres
 
-    default_scope where(:historical => false)
     default_scope where(:enabled => true)
-
-    amoeba do
-      enable
-      exclude_field [:screenshots, :attachments, :videos, :links, :comments, :discount_events]
-      set :historical => true
-      customize([
-        lambda do |orig_obj,copy_of_obj|
-          copy_of_obj.parent_id = orig_obj.id
-        end
-      ])
-    end
-
 end
 
