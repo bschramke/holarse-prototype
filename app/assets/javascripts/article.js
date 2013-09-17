@@ -1,5 +1,9 @@
 $(document).ready(function() {
-  $("a.collapser[data-collapse=article-description]").click(function(event) {
-    $("#article-description").collapse('toggle');
+  $("#liveedittabs").tabs({
+    beforeActivate: function(event, ui) {
+      $.post("/markup_preview/preview", { content: $("#article_content").val() }).done(function(data) {
+	$("#article_preview_text").html(data);
+      });
+    }
   });
 });
