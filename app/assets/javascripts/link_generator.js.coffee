@@ -9,7 +9,7 @@ jQuery ->
       
       for article in articles
         do ->
-          return if (article.title is content_title or article.title is content_alternative_title)
-          linked_text = linked_text.replace /article.title/gi, "<a href='/articles/#{article.id}'>#{article.title}</a>"
+          return if (article.title.toUpperCase() is content_title.toUpperCase() or article.title.toUpperCase() is content_alternative_title.toUpperCase())
+          linked_text = linked_text.replace new RegExp("(#{article.title})", "gi"), "<a href='/articles/#{article.id}'>$1</a>"
 
       autolinkable_tag.html(linked_text)
