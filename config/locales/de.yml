@@ -5,7 +5,7 @@ de:
       backtotop: "Nach oben"
   time:
     formats:
-      default: "%d.%m.%Y %H:%m"
+      default: "%d.%m.%Y %H:%m:%S"
   activerecord:
     errors:
         messages:

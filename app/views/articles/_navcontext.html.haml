@@ -28,8 +28,9 @@
   - if @article.present? && !@article.new_record?
     %ul.list-group
       %li.list-group-item
-        Autor: 
-        = link_to @article.user.username, @article.user
+        Autoren:
+        - article_authors(@article).each do |author|
+          = link_user author
       %li.list-group-item
         Zuletzt aktualisiert:
-        = @article.updated_at
+        = l @article.updated_at
