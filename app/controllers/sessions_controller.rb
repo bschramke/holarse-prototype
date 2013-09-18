@@ -12,7 +12,10 @@ class SessionsController < ApplicationController
     # benutzer-account erstmal finden
     user = User.find_by_username(params[:session][:username])
 
-    return_back_or_default if !user.present? || !user.active || user.has_too_many_failed_logins()
+    if !user.present? || !user.login_allowed()
+      flash[:warning] = "Der Login ist nicht m&ouml;glich."
+      return_back_or_default and return
+    end
 
     if user.do_authenticate(params[:session][:password])
       session[:user_id] = user.id

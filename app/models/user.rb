@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
       authenticate(password)
     end
 
+    def login_allowed
+      self.active && !self.has_too_many_failed_logins()
+    end
+
     def register_successfull_login
         self.failed_logins = 0
         self.lastlogin = Time.now
