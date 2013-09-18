@@ -29,8 +29,7 @@
     %ul.list-group
       %li.list-group-item
         Autoren:
-        - article_authors(@article).each do |author|
-          = link_user author
+        = create_author_list(@article)
       %li.list-group-item
         Zuletzt aktualisiert:
         = l @article.updated_at
