@@ -17,6 +17,7 @@ gem 'jdbc-mysql' # fuer datenmigration von mysql
 
 gem 'paper_trail'
 gem 'paperclip', "~> 3.0"
+gem 'draper', '~> 1.0' # model decoration
 
 # Gems used only for assets and not required
 # in production environments by default.

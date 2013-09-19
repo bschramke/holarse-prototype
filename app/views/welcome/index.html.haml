@@ -1,2 +1,12 @@
-%ul.items#welcome-items
-  = render :partial => 'element', :collection => @elements
+.container.marketing
+  - @elements.each do |element|
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        %h2.featurette-heading
+          = link_to element.title, element
+          %span.text-muted=element.intro
+        %p.lead
+          = element.teaser
+      .col-md-5
+        %img.featurette-image.img-responsive{:src => "data:image/png;base64,", :"data-src" => "holder.js/500x500/auto", :alt => "Generic image"}

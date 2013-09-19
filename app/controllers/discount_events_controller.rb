@@ -1,9 +1,13 @@
+# encoding: utf-8
 class DiscountEventsController < ApplicationController
   
   before_filter :require_edit_permissions, :except => [:index, :show]  
-  
+ 
+  add_breadcrumb "Rabattaktionen"
+
   def index
-    @discount_events = DiscountEvent.order("startdate desc")
+    @discount_events = DiscountEvent.all
+    #add_breadcrumb "Übersicht"
   end
 
   def create

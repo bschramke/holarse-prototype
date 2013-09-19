@@ -11,4 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery.tmpl.min
+//= require_tree ../../../vendor/assets/javascripts/
 //= require_tree .

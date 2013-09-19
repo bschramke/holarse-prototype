@@ -3,12 +3,12 @@
     = t('.title')
 
 %section
-  %table.table.table-hover
+  %table.table.table-hover.sortable
     %thead
       %tr
         %th= t('.name')
         %th= t('.startdate')
         %th= t('.enddate')
-        %th= t('.website')
+        %th{:"data-defaultsort" => "disabled"}= t('.website')
     %tbody    
       = render :partial => "discount_events/discount_event", :collection => @discount_events

@@ -1,9 +1,7 @@
 class WelcomeController < ApplicationController
 
-  add_breadcrumb "Home", :root_path
-
   def index
-    @elements = latest_news + latest_article_updates
+    @elements = all_elements
     @types = extract_uniq_types_of @elements
     @tags = {
       :genres => Article.tag_counts_on(:genres),
@@ -12,6 +10,14 @@ class WelcomeController < ApplicationController
   end
 
   private
+
+  def all_elements
+    latest_news.decorate + latest_article_updates.decorate + upcoming_discounts.decorate
+  end
+
+  def upcoming_discounts
+    DiscountEvent.order("updated_at desc")
+  end
 
   def latest_news
     News.order("updated_at desc")

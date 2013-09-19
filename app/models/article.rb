@@ -11,14 +11,12 @@ class Article < ActiveRecord::Base
     has_many :archived, :class_name => "Article", :foreign_key => "parent_id", :conditions => { :historical => true }
     belongs_to :article, :class_name => "Article"
 
-
     # referenzen
     belongs_to :user
     has_and_belongs_to_many :screenshots
     has_and_belongs_to_many :videos
     has_and_belongs_to_many :links
     has_and_belongs_to_many :attachments
-    has_many :discount_events
 
     has_and_belongs_to_many :comments
 

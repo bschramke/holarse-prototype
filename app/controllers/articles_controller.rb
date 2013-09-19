@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 
   before_filter :require_edit_permissions, :except => [:index, :show]
 
-  add_breadcrumb "Home", :root_path
   add_breadcrumb "Artikel", :articles_path
 
   def index
@@ -43,7 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = ArticleShowDecorator.decorate(Article.find(params[:id]))
     add_breadcrumb @article.title, article_path(@article)
   end
 
