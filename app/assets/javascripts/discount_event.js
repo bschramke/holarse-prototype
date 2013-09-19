@@ -40,4 +40,8 @@ $(document).ready(function() {
     }
   }); 
 
+  $.get("/counting/discounts", function(count) {
+    $("#discount-count").html("Rabattaktionen (" + count + ")");
+  });
+
 });
