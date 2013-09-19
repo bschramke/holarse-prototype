@@ -7,6 +7,7 @@
   %td=link_to "Zur Aktion", discount_event.website
 %tr.discount_event_detail.info{:id => "discount-event-details-#{discount_event.id}"}
   %td{:colspan => "4"}
-    = Holarse::Markup.render discount_event.description
+    .autolinkable{:"data-ignores" => ""}
+      = discount_event.description
     %p
       = link_to "Quelle", discount_event.sourceurl

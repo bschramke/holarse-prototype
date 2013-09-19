@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = ArticleShowDecorator.decorate(Article.find(params[:id]))
+    @article = Article.find(params[:id]).decorate
     add_breadcrumb @article.title, article_path(@article)
   end
 

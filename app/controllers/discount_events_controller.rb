@@ -6,7 +6,7 @@ class DiscountEventsController < ApplicationController
   add_breadcrumb "Rabattaktionen"
 
   def index
-    @discount_events = DiscountEvent.all
+    @discount_events = DiscountEventDecorator.decorate_collection DiscountEvent.all
     #add_breadcrumb "Übersicht"
   end
 

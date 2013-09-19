@@ -10,7 +10,11 @@ class DiscountEventDecorator < Draper::Decorator
   end
 
   def teaser
-    h.truncate(h.strip_tags(Holarse::Markup.render(model.description)), length: 200)
+    h.truncate(h.strip_tags(description), length: 200)
+  end
+
+  def description
+    Holarse::Markup.render(model.description).html_safe
   end
 
 end
