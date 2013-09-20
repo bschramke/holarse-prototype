@@ -1,6 +1,7 @@
 = semantic_form_for [commentable_object, comment] do |f|
-  = f.input :content, :as => :text, :label => t('.content')
+  .form-group
+    = f.input :content, :as => :text, input_html: { class: "form-control" }
   = f.actions do 
-    = f.action :submit, :label => t('.submit')
-    = f.action :cancel, :label => t('.cancel')
+    .form-group
+      = f.action :submit, as: :button, button_html: { class: "btn btn-default btn-primary" }
 

@@ -1,3 +1,2 @@
 %li= button_to t('.new'), new_discount_event_path, :class => "btn btn-success btn-large", :method => :get unless @discount_event
-%li= button_to "Zurück zur Übersicht", discount_events_path, :class => "btn", :method => :get unless current_page?(discount_events_path)
-%li= link_to t('.edit'), edit_discount_event_path(@discount_event.id) if @discount_event and !@discount_event.new_record?
+%li= button_to "Zurück zur Übersicht", discount_events_path, :class => "btn btn-default", :method => :get unless current_page?(discount_events_path)

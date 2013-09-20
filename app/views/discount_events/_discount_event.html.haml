@@ -4,10 +4,17 @@
       = link_to discount_event.name, discount_event
   %td=l discount_event.startdate if discount_event.startdate
   %td=l discount_event.enddate if discount_event.enddate
-  %td=link_to "Zur Aktion", discount_event.website
+  %td
+    =link_to discount_event.website, { class: "btn btn-default btn-small"} do
+      = content_tag :span, "", { class: "glyphicon glyphicon-link" }
 %tr.discount_event_detail.info{:id => "discount-event-details-#{discount_event.id}"}
   %td{:colspan => "4"}
     .autolinkable{:"data-ignores" => ""}
       = discount_event.description
     %p
-      = link_to "Quelle", discount_event.sourceurl
+      = link_to discount_event.sourceurl
+
+    %p.edit
+      = link_to "Bearbeiten", edit_discount_event_path(discount_event), { class: "btn btn-default"}
+
+

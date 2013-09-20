@@ -1,12 +1,11 @@
-%li.comment
-  %header 
-    %a{:id => create_anchor_name(comment)}
-    .commentuser
+%li.list-group-item
+  %a{:id => create_anchor_name(comment)}
+  %p.text-muted
+    %small
       = link_user comment.user
-    %time
       = comment.created_at
-    .controls  
       = create_polymorphic_comment_link(:edit, commentable_object, comment) if can_edit_comment?(comment)
-
-  .content  
-    = comment.content
+      = link_to "#", "#{url_for(commentable_object)}##{create_anchor_name(comment)}"
+  %p
+    %p.autolinkable{:"data-ignores" => ""}
+      = comment.content

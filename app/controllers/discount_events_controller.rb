@@ -3,11 +3,10 @@ class DiscountEventsController < ApplicationController
   
   before_filter :require_edit_permissions, :except => [:index, :show]  
  
-  add_breadcrumb "Rabattaktionen"
+  add_breadcrumb "Rabattaktionen", :discount_events_path
 
   def index
     @discount_events = DiscountEventDecorator.decorate_collection DiscountEvent.all
-    #add_breadcrumb "Übersicht"
   end
 
   def create
@@ -28,10 +27,13 @@ class DiscountEventsController < ApplicationController
 
   def edit
     @discount_event = DiscountEvent.find(params[:id])
+    add_breadcrumb "Rabattaktion #{@discount_event.name}", discount_event_path(@discount_event)
+    add_breadcrumb "Bearbeiten"
   end
 
   def show
-    @discount_event = DiscountEvent.find(params[:id])
+    @discount_event = DiscountEvent.find(params[:id]).decorate
+    add_breadcrumb "Rabattaktion #{@discount_event.name}"
   end
 
   def update

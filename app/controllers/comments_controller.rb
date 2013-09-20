@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
   before_filter :require_commentable_permissions, :only => :create
   before_filter :require_comment_edit_permissions, :only => [:edit, :update, :destroy]
 
+  helper_method :anchor_url_for
+
   def index
   end
 

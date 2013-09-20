@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("#discount_event_startdate").datepicker({
-    dateFormat: "yy-mm-dd",
+    dateFormat: "dd.mm.yy",
     changeMonth: true,
     numberOfMonths: 2,
     firstDay: 1,
@@ -9,7 +9,7 @@ $(document).ready(function() {
     }
   });
   $("#discount_event_enddate").datepicker({
-    dateFormat: "yy-mm-dd",
+    dateFormat: "dd.mm.yy",
     changeMonth: true,
     numberOfMonths: 2,
     firstDay: 1,
@@ -18,15 +18,6 @@ $(document).ready(function() {
     }
   });
   
-  //
-  // Toggle-Schalter, um die erweiterten Informationen erstmal auszublenden
-  //
-  $("#toggle-discount-event-form-advanced").click(function(event) {
-  	event.preventDefault();
-  	$("#discount-event-form-advanced").toggle();
-  	return false;
-  });
- 
   $(".discount-event-show-details").click(function(event) {
     event.preventDefault();
     event.stopPropagation();

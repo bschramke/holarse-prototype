@@ -1,6 +1,10 @@
 class DiscountEventDecorator < Draper::Decorator
   delegate_all
 
+  def comments
+    []
+  end
+
   def title
     model.name
   end

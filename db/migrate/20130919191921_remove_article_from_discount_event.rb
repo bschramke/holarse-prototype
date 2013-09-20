@@ -1,8 +1,5 @@
 class RemoveArticleFromDiscountEvent < ActiveRecord::Migration
-  def up
-    remove_column :article_id, :discount_event
-  end
-
-  def down
+  def change
+    remove_column :discount_events, :article_id
   end
 end

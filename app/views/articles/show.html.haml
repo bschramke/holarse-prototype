@@ -6,3 +6,7 @@
 %hr
 .autolinkable{:"data-ignores" => @article.titles}
   = @article.content
+
+%ul.list-group
+  = render partial: "comments/comment", collection: @article.comments.decorate, locals: {commentable_object: @article}
+  = show_commentbox @article

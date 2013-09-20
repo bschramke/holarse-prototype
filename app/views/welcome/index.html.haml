@@ -6,6 +6,13 @@
         %h2.featurette-heading
           = link_to element.title, element
           %span.text-muted=element.intro
+        %p.text-muted
+          %small
+            = element.updated_at
+            von 
+            = link_user element.user
+            %span.badge.pull-right
+              = element.comments.length
         %p.lead
           = element.teaser
       .col-md-5

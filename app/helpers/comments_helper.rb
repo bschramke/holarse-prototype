@@ -4,20 +4,22 @@ module CommentsHelper
     obj.commentable
   end
 
-  # gibt an ob der benutzer ueberhaupt
-  # kommentare schreiben darf
-  def can_comment?(user=current_user)
-    true
+  def can_edit_comment?(comment)
+    current_user == comment.user
   end
 
   def show_commentbox(commentable_obj)
-    return t('.login_required') if !is_logged_in?
+    if !is_logged_in? 
+      flash[:info] = "Bitte anmelden zum Kommentieren"
+      return
+    end
 
-    if can_comment? && is_commentable?(commentable_obj) 
-      render :partial => "comments/new", :locals => { :commentable_object => commentable_obj, :comment => Comment.new }
-    else
-      t('.notcommentable')
-    end  
+    if !is_commentable? commentable_obj
+      flash[:info] = "Nicht kommentierbar"
+      return
+    end
+
+    render :partial => "comments/new", :locals => { :commentable_object => commentable_obj, :comment => Comment.new }
   end
 
   def create_polymorphic_comment_link(action, commentable_object, comment)
