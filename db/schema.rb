@@ -11,34 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130920084608) do
+ActiveRecord::Schema.define(:version => 20130920173413) do
 
   create_table "articles", :force => true do |t|
-    t.string   "title",                              :null => false
+    t.string   "title",                               :null => false
     t.string   "alternate_title"
     t.text     "content"
-    t.boolean  "enabled",         :default => true
-    t.boolean  "isfrozen",        :default => false
-    t.boolean  "reviseme",        :default => false
-    t.boolean  "unreleased",      :default => false
-    t.boolean  "allowuploads",    :default => true
-    t.boolean  "hasftp",          :default => false
+    t.boolean  "enabled",          :default => true
+    t.boolean  "isfrozen",         :default => false
+    t.boolean  "reviseme",         :default => false
+    t.boolean  "unreleased",       :default => false
+    t.boolean  "allowuploads",     :default => true
+    t.boolean  "hasftp",           :default => false
     t.string   "releasedate"
     t.string   "changelog"
     t.integer  "user_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.boolean  "commentable",     :default => true
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "comments_allowed", :default => true
   end
 
   create_table "articles_attachments", :id => false, :force => true do |t|
     t.integer "article_id"
     t.integer "attachment_id"
-  end
-
-  create_table "articles_comments", :id => false, :force => true do |t|
-    t.integer "article_id"
-    t.integer "comment_id"
   end
 
   create_table "articles_links", :id => false, :force => true do |t|
@@ -69,14 +64,11 @@ ActiveRecord::Schema.define(:version => 20130920084608) do
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.string   "content"
-    t.boolean  "enabled",    :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-  end
-
-  create_table "comments_news", :id => false, :force => true do |t|
-    t.integer "news_id"
-    t.integer "comment_id"
+    t.boolean  "enabled",          :default => true
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "discount_events", :force => true do |t|
@@ -87,9 +79,10 @@ ActiveRecord::Schema.define(:version => 20130920084608) do
     t.datetime "enddate"
     t.string   "website"
     t.string   "sourceurl"
-    t.boolean  "enabled",     :default => true
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "enabled",          :default => true
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "comments_allowed", :default => true
   end
 
   create_table "links", :force => true do |t|
@@ -106,21 +99,21 @@ ActiveRecord::Schema.define(:version => 20130920084608) do
   end
 
   create_table "news", :force => true do |t|
-    t.string   "title",                           :null => false
+    t.string   "title",                               :null => false
     t.text     "content"
-    t.boolean  "enabled",      :default => true
-    t.boolean  "isfrozen",     :default => false
-    t.boolean  "reviseme",     :default => false
-    t.boolean  "unreleased",   :default => false
-    t.boolean  "allowuploads", :default => true
-    t.boolean  "hasftp",       :default => false
+    t.boolean  "enabled",          :default => true
+    t.boolean  "isfrozen",         :default => false
+    t.boolean  "reviseme",         :default => false
+    t.boolean  "unreleased",       :default => false
+    t.boolean  "allowuploads",     :default => true
+    t.boolean  "hasftp",           :default => false
     t.string   "releasedate"
     t.string   "changelog"
     t.integer  "user_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "subtitle"
-    t.boolean  "commentable",  :default => true
+    t.boolean  "comments_allowed", :default => true
   end
 
   create_table "news_screenshots", :id => false, :force => true do |t|

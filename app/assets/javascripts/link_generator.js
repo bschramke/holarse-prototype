@@ -4,7 +4,10 @@ $(document).ready(function() {
     var autolinkable_tag = $(this);
     var content = autolinkable_tag.html();
 
-    var ignorables = $.map(autolinkable_tag.data("ignores").split(","), String.toUpperCase);
+    var ignorables = [];
+    if (autolinkable_tag.data("ignores") !== undefined) {
+      ignorables = $.map(autolinkable_tag.data("ignores").split(","), String.toUpperCase);
+    }
 
     $.get("/link_generator/index.json", function(articles) {
       var linked_text = content;

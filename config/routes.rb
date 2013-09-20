@@ -9,7 +9,9 @@ Holarse::Application.routes.draw do
   get "counting/discounts"
 
   # die angebotsaktionen
-  resources :discount_events
+  resources :discount_events do
+    resources :comments
+  end
 
   # die suche
   match "search/(:q)" => "search#show", :as => :search

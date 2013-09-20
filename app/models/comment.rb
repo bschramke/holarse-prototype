@@ -3,10 +3,11 @@ class Comment < ActiveRecord::Base
 
 	# referenzen
 	belongs_to :user
-	has_and_belongs_to_many :news
-  has_and_belongs_to_many :articles
+	belongs_to :commentable, polymorphic: true
 
 	# validierungen
-  validates_presence_of :user
+	validates_presence_of :user
 	validates_presence_of :content
+
+	default_scope where(enabled: true)
 end

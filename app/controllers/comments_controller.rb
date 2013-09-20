@@ -1,74 +1,37 @@
 class CommentsController < ApplicationController
 
-  before_filter :require_commentable_permissions, :only => :create
-  before_filter :require_comment_edit_permissions, :only => [:edit, :update, :destroy]
-
-  helper_method :anchor_url_for
-
-  def index
-  end
+  before_filter :requires_login, only: :create
+  before_filter :requires_comments_allowed, only: [:edit, :update, :destroy]
 
   def create
-    # passendes kommentierbares item finden
-    commentable = get_commentable_object
+    commentable = get_commentable
+    new_comment = commentable.comments.create(params[:comment])
+    new_comment.user = current_user
 
-    # kommentar erzeugen
-    comment = Comment.new(:user => current_user, :content => params[:comment][:content])
-    if comment.save
-      commentable.comments << comment
-      if commentable.save
-        redirect_to anchor_url_for(commentable, comment), :notice => "Kommentar gespeichert"
-      else
-        redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
-      end
-    end
-  end
-
-  def update
-    commentable = get_commentable_object
-    comment = Comment.find(params[:id])
-    redirect_to commentable, :error => "Kann den Kommentar nicht bearbeiten" if !can_edit_comment?(comment) and return
-
-    comment.content = params[:comment][:content]
-    if comment.save
-      redirect_to anchor_url_for(commentable, comment), :notice => "Kommentar aktualisiert"
+    if new_comment.save
+      flash[:info] = "Dein Kommentar wurde gespeichert"
+      redirect_to commentable
     else
-      redirect_to commentable, :error => "Fehler beim Speichern des Kommentars"
-    end 
-  end
-
-  def edit
-    @commentable_object = get_commentable_object
-    @comment = Comment.find(params[:id])
-
-    redirect_to commentable, :error => "Kann den Kommentar nicht bearbeiten" if !can_edit_comment?(@comment) and return
-  end
-
-  def destroy
+      flash[:error] = "Es gab einen Fehler beim Speichern"
+      redirect_to commentable
+    end
   end
 
   private
 
-  # erzeugt eine url und haengt einen anchor-link hierfuer dran
-  def anchor_url_for(commentable, comment)
-    "#{url_for(commentable)}##{create_anchor_name(comment)}"
+  def requires_comments_allowed
+    redirect_to get_commentable if get_commentable.comments_allowed
   end
 
-  # laedt das entsprechende objekt anhand der unterschiedlichen uebergaben
-  def get_commentable_object
-    return News.find(params[:news_id]) if params[:news_id].present?
-    return Article.find(params[:article_id]) if params[:article_id].present?
-    raise "Only news or articles are commentable"
+  def requires_login
+    redirect_to get_commentable if !current_user
   end
 
-  # ueberprueft, ob das commentable-objekt kommentiert werden darf
-  def require_commentable_permissions
-    obj = get_commentable_object
-    redirect_to obj, :warning => "Kommentarfunktion ist hier gesperrt." if !obj || !obj.commentable
+  def get_commentable
+    Rails.logger.debug(params)
+    return Article.find(params[:article_id]) if params.has_key?(:article_id)
+    return News.find(params[:news_id]) if params.has_key?(:news_id)
+    return DiscountEvent.find(params[:discount_event_id]) if params.has_key?(:discount_event_id)
   end
 
-  # ueberprueft ob der kommentar bearbeitet werden darf
-  def require_comment_edit_permissions
-    can_edit_comment? Comment.find(params[:id])    
-  end
 end

@@ -1,17 +1,14 @@
-%hgroup
-  %h1
-    = t('.title')
-
-%section
-%p
-  = @discount_event.name
+%h1
+  = @discount_event.title
 %p
   = @discount_event.startdate
-%p 
+%p
   = @discount_event.enddate
-%p
-  = link_to @discount_event.website
-%p
+%hr
+= content_tag :div, class: "autolinkable" do
   = @discount_event.description
-%p
-  = link_to @discount_event.sourceurl
+
+%ul.list-group
+  = render @discount_event.comments.decorate
+
+= show_commentbox @discount_event
