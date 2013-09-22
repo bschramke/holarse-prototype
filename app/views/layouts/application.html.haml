@@ -7,6 +7,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", media: "all"
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css", media: "all"
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" 
@@ -69,10 +70,6 @@
               = link_to discount_events_path do
                 %span#discount-count
                   Rabattaktionen
-            %li
-              Links
-            %li
-              Impressum
           = semantic_form_for 'search', {:html => { :class => 'navbar-form navbar-right' }, :url => search_path} do |f|
             = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control" }, :placeholder => "Holarse durchsuchen"
           %ul.nav.navbar-nav.navbar-right
@@ -104,20 +101,32 @@
                 = link_to "Anmelden", login_path
         / /.navbar-collapse  
 
-      .col-md-2
-        %ul.nav
-          = render :partial => "navcontext"            
-      .col-md-10
-        .container
+      .row
+        .col-md-2
+          %ul.nav
+            = render :partial => "navcontext"            
+        .col-md-10
+          .container
 
-          .flash
-            - flash.each do |name, msg|
-              = content_tag :div, msg.html_safe, class: "alert alert-#{name}"
+            .flash
+              - flash.each do |name, msg|
+                = content_tag :div, msg.html_safe, class: "alert alert-#{name}"
 
-          %ol.breadcrumb
-            = render_breadcrumbs
+            %ol.breadcrumb
+              = render_breadcrumbs
 
-          = yield
+            = yield
+      .row
+        .col-md-12
+          %footer.text-muted
+            .col-md-4
+              &copy; 2000 - 2013
+            .col-md-4
+              Impressum
+            .col-md-4
+              = fa_icon :"icon-bitbucket-sign" do
+                = link_to get_app_version, version_path(get_app_version)
+
 
 
    
