@@ -8,6 +8,7 @@ class NewsController < ApplicationController
 
   def new
     @news = News.new
+    render :edit
   end
 
   def create
@@ -40,14 +41,11 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news = News.find params[:id]
+    @news = News.find(params[:id]).decorate
   end
 
   def edit
     @news = News.find params[:id]
-    @news.links.build
-    @news.screenshots.build
-    @news.videos.build
   end
   
   private

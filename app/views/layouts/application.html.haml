@@ -124,8 +124,15 @@
             .col-md-4
               Impressum
             .col-md-4
-              = fa_icon :"icon-bitbucket-sign" do
-                = link_to get_app_version, version_path(get_app_version)
+              .list-group
+                .list-group-item
+                  = fa_icon :"icon-bitbucket-sign" do
+                    = link_to get_app_version, version_path(get_app_version)
+                .list-group-item
+                  = fa_icon :"" do
+                    = link_to "Font Awesome by Dave Gandy - http://fontawesome.io", "http://fontawesome.io"
+                .list-group-item
+                  = link_to "Icons by Glyphicons", "http://glyphicons.com/"
 
 
 

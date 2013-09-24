@@ -1,6 +1,7 @@
 .col-md-7
   %h2.featurette-heading
-    = link_to discount_event.title, discount_event
+    = fa_icon :"icon-gift" do
+      = link_to discount_event.title, discount_event
     %span.text-muted=discount_event.intro
   %p.text-muted
     %small

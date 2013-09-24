@@ -1,24 +1,14 @@
 / JQuery-Template
 %script{:id => "youtube-tmpl", :type => "text/x-jquery-tmpl"}
-  .video
-    .video_img
-      %a{:href=> "${link}", :class => "fancybox-media"}
-        %img{:src => "${img_url}"}
-    .video_text
-      .video_header
-        .video_name
-          %a{:href=> "${link}"}
-            ${name}
-        .video_details
-          .author 
-            %a{:href => "/redirect/youtube/${author}"}
-              ${author}
-          %time.published{:datetime => "${published}"}
-            ${publishedLocaleString}
-      .video_newline
-      .video_desc ${desc}
+  %li.media
+    %a{:href => "${link}", :class => "pull-left fancybox.iframe"}
+      %img{:src => "${img_url}", :class => "media-object"}
+    .media-body
+      %h4{:class => "media-heading"}
+        [${author}] ${name}
+      ${desc}
 
 %h1
   = t('.title')
 
-#yt-videos.videos
+%ul.media-list#yt-videos

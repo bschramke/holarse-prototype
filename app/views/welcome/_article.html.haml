@@ -1,6 +1,7 @@
 .col-md-7
   %h2.featurette-heading
-    = link_to article.title, article
+    = fa_icon :"icon-edit" do
+      = link_to article.title, article
     %span.text-muted=article.intro
   %p.text-muted
     %small

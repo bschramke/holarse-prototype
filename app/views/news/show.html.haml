@@ -1,52 +1,13 @@
-%article
-  %header
-    %h1
-      = @news.title
-    %h2
-      = @news.subtitle
-    %h3
-      = raw t('.author', :name => link_user(@news.user))
-      %time.date{:datetime => "#{@news.updated_at}"}
-      = t('.created_at', :date => l(@news.updated_at))
-    %h4
-      - @news.category_list.each do |tag|
-        = tag
+%h1
+  = @news.title
+%h2
+  = @news.subtitle
 
-  .autolinkable
-    = Holarse::Markup.render @news.content
+%hr
+.autolinkable{:"data-ignores" => @news.titles}
+  = @news.content
 
-  %h3
-    Screenshots
-  .screenshots
-    %ul
-      -@news.screenshots.each do |screenshot|
-        %li
-          = link_to image_tag(screenshot.image.url(:small)),
-                            screenshot.image.url,
-                            { :title => screenshot.description,
-                              :rel => 'screenshots',
-                              :class => 'fancybox-media' }
-  %h3
-    = t('.videos')
-  .videos
-    %ul
-      - @news.videos.each do |video|
-        %li
-          = video[:description]
-          %br/
-          != embed_youtube video
+%ul.list-group
+  = render @news.comments.decorate
 
-  %h3
-    = t('.links')
-  .links
-    %ul
-      - @news.links.each do |link|
-        %li
-          = link_to link.description, link.url
-    
-  %h3
-    = t('.comments')
-  .comments
-    %ul
-      = render :partial => "comments/comment", :collection => @news.comments, :locals => {:commentable => @news}
-      = show_commentbox(@news)
+= show_commentbox @news
