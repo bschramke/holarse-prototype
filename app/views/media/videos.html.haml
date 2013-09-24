@@ -1,12 +1,11 @@
-/ JQuery-Template
-%script{:id => "youtube-tmpl", :type => "text/x-jquery-tmpl"}
+%script{:id => "youtube-tmpl", :type => "text/html"}
   %li.media
-    %a{:href => "${link}", :class => "pull-left fancybox.iframe"}
-      %img{:src => "${img_url}", :class => "media-object"}
+    %a{:href => "{{link}}", :class => "pull-left fancybox.iframe"}
+      %img{:src => "{{img_url}}", :class => "media-object"}
     .media-body
       %h4{:class => "media-heading"}
-        [${author}] ${name}
-      ${desc}
+        [{{author}}] {{name}}
+      {{desc}}
 
 %h1
   = t('.title')

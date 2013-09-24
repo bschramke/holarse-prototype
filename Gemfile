@@ -60,3 +60,6 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem "breadcrumbs_on_rails"
+
+# moustache for templating
+gem 'mustache-js-rails'

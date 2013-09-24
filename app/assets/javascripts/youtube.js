@@ -28,9 +28,10 @@ $(document).ready(function() {
     var all_vids = [].concat( load_yt_playlist("holarse", 15), load_yt_playlist("gtuxtv", 15) );
 
     // sortieren nach datum
-    var sorted_vids = all_vids.sort(function(a,b) { return a.updated > b.updated; });
+    var sorted_vids = all_vids.sort(function(a,b) { return a.updated < b.updated; });
 
     // ausgabe
-    $("#youtube-tmpl").tmpl(sorted_vids).appendTo("#yt-videos");
+    $.Mustache.addFromDom('youtube-tmpl');
+    $("#yt-videos").mustache("youtube-tmpl", sorted_vids);
   }
 });
