@@ -6,9 +6,16 @@
   %table.table.table-hover.sortable
     %thead
       %tr
-        %th= t('.name')
-        %th= t('.startdate')
-        %th= t('.enddate')
-        %th{:"data-defaultsort" => "disabled"}= t('.website')
+        %th
+          Aktionsname
+        %th
+          Anfangsdatum
+        %th
+          Enddatum
+        %th{:"data-defaultsort" => "disabled"}
+          Aktionswebsite
+        %th
+          \# Komm.
+        %th
     %tbody    
       = render :partial => "discount_events/discount_event", :collection => @discount_events

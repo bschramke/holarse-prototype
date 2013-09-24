@@ -7,14 +7,23 @@
   %td
     =link_to discount_event.website, { class: "btn btn-default btn-small"} do
       = content_tag :span, "", { class: "glyphicon glyphicon-link" }
+  %td
+    %span.badge=discount_event.comments.count if discount_event.comments.count > 0
+  %td
+    = link_to "Bearbeiten", edit_discount_event_path(discount_event), { class: "btn btn-default hidden hover" }
 %tr.discount_event_detail.info{:id => "discount-event-details-#{discount_event.id}"}
-  %td{:colspan => "4"}
+  %td{:colspan => "5"}
     .autolinkable{:"data-ignores" => ""}
       = discount_event.description
     %p
       = link_to discount_event.sourceurl
+    %p.pull-right
+      = link_to "Event bearbeiten", discount_event_path(discount_event)
+    %p
+      Kommentare:
+      %ul.list-group
+        = render discount_event.comments.decorate
 
-    %p.edit
-      = link_to "Bearbeiten", edit_discount_event_path(discount_event), { class: "btn btn-default"}
+      = show_commentbox discount_event
 
 

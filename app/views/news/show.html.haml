@@ -4,9 +4,17 @@
   = @news.subtitle
 
 %hr
-.autolinkable{:"data-ignores" => @news.titles}
+.autolinkable.newsbox{:"data-ignores" => @news.titles}
   = @news.content
 
+%hr
+%p.lead
+  Artikel-Links:
+.list-group
+  %ul#newslinks
+
+%p.lead
+  Kommentare:
 %ul.list-group
   = render @news.comments.decorate
 
