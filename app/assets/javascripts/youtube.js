@@ -33,5 +33,6 @@ $(document).ready(function() {
     // ausgabe
     $.Mustache.addFromDom('youtube-tmpl');
     $("#yt-videos").mustache("youtube-tmpl", sorted_vids);
+    $(".autolinkable").each(function(index) { autolink_fn($(this)); });
   }
 });

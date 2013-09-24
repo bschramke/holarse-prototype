@@ -4,8 +4,14 @@
       %img{:src => "{{img_url}}", :class => "media-object"}
     .media-body
       %h4{:class => "media-heading"}
-        [{{author}}] {{name}}
-      {{desc}}
+        %i{:class => "icon-youtube"}
+          {{name}}
+      .text-muted
+        {{updated}} von 
+        %a{:href => "/redirect/youtube/{{author}}"}
+          {{author}}
+      .autolinkable{:"data-ignores" => ""}
+        {{desc}}
 
 %h1
   = t('.title')
