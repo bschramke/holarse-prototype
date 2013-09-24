@@ -8,3 +8,7 @@
 Role.delete_all
 Role.create([{name: 'admin'},{name: 'reporter'}, {name: 'moderator'}])
 puts "#{Role.count} Rollen angelegt"
+
+NewsCategory.delete_all
+NewsCategory.create([{code: 'announcement', description: 'Ankündigung'}, {code: 'release', description: 'Veröffentlichung'}, {code: 'patch', description: "Patch"}])
+puts "#{NewsCategory.count} News-Kategorien angelegt"

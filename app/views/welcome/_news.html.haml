@@ -8,6 +8,7 @@
       = news.updated_at
       von
       = link_user news.user
+      = "(#{news.category})" if news.category
       %span.badge.pull-right
         = news.comments.length
   %p.lead

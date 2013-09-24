@@ -6,6 +6,7 @@ class News < ActiveRecord::Base
   has_and_belongs_to_many :videos
   has_and_belongs_to_many :links
   has_many :comments, as: :commentable
+  belongs_to :news_category
 
   # self-referenz zum tracken von histories
   has_many :archived, :class_name => "News", :foreign_key => "parent_id", :conditions => { :historical => true }

@@ -1,6 +1,10 @@
 class NewsDecorator < Draper::Decorator
   delegate_all
 
+  def category
+    model.news_category ? model.news_category.description : ""
+  end
+
   def title
     model.title
   end

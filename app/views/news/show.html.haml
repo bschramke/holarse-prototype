@@ -1,9 +1,14 @@
-%h1
-  = @news.title
-%h2
-  = @news.subtitle
+.page-header
+  = content_tag :h1 do
+    = @news.title
+    = content_tag :small do
+      = @news.subtitle
+  .text-muted
+    .text-left
+      = @news.category
+    .text-right
+      = link_user @news.user
 
-%hr
 .autolinkable.newsbox{:"data-ignores" => @news.titles}
   = @news.content
 

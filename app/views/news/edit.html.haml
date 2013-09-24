@@ -17,6 +17,8 @@
         .form-group
           = f.input :subtitle, input_html: { class: "form-control" }
         .form-group
+          = f.input :news_category, label_method: :description, input_html: { class: "form-control" }
+        .form-group
           = f.input :content, as: :text, input_html: { rows: 20, cols: 120, class: "form-control" }
       = f.actions do
         .form-group
