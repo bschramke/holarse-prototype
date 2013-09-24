@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
     if !user.present? || !user.login_allowed()
       flash[:warning] = "Der Login ist nicht m&ouml;glich."
-      return_back_or_default and return
+      redirect_to :root and return
     end
 
     if user.do_authenticate(params[:session][:password])

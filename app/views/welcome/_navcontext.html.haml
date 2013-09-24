@@ -1,6 +1,15 @@
-- @tags.each_key do |key|
-  - tag_cloud(@tags[key], %w(css1 css2 css3 css4)) do |tag, css_class|
-    %li= link_to tag.name, searchtag_path(tag.name)
+.panel.panel-default
+  - @tags.each_key do |key|
+    .panel-heading
+      = key
+    %ul.list-group
+      - tag_cloud(@tags[key], %w(css1 css2 css3 css4)) do |tag, css_class|
+        %li.list-group-item
+          = link_to tag.name, searchtag_path(tag.name)
 
-%button.btn.btn-default.btn-primary{:onclick => "TogetherJS(this); return false;"}
-  Powerrangers unite!
+.panel.panel-default
+  .panel-heading
+    Zusammen auf Holarse arbeiten und schauen
+  .panel-body
+    %button.btn.btn-default.btn-primary{:onclick => "TogetherJS(this); return false;"}
+      Powerrangers unite!

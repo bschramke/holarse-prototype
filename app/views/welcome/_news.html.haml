@@ -1,0 +1,15 @@
+.col-md-7
+  %h2.featurette-heading
+    = link_to news.title, news
+    %span.text-muted=news.intro
+  %p.text-muted
+    %small
+      = news.updated_at
+      von
+      = link_user news.user
+      %span.badge.pull-right
+        = news.comments.length
+  %p.lead
+    = news.teaser
+.col-md-5
+  %img.featurette-image.img-responsive{:src => "data:image/png;base64,", :"data-src" => "holder.js/500x500/auto", :alt => "Generic image"}

@@ -1,0 +1,15 @@
+.col-md-7
+  %h2.featurette-heading
+    = link_to discount_event.title, discount_event
+    %span.text-muted=discount_event.intro
+  %p.text-muted
+    %small
+      = discount_event.updated_at
+      von
+      = link_user discount_event.user
+      %span.badge.pull-right
+        = discount_event.comments.length
+  %p.lead
+    = discount_event.teaser
+.col-md-5
+  %img.featurette-image.img-responsive{:src => "data:image/png;base64,", :"data-src" => "holder.js/500x500/auto", :alt => "Generic image"}
