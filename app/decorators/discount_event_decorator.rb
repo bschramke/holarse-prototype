@@ -6,7 +6,7 @@ class DiscountEventDecorator < Draper::Decorator
   end
 
   def intro
-    "Ab #{model.startdate}"
+    model.startdate.present? ? "Ab #{l model.startdate, format: :date}" : ""
   end
 
   def teaser

@@ -1,2 +1,4 @@
 .list-group
   = link_to "Bearbeiten", edit_news_path(@news), class: "list-group-item" if @news && !@news.new_record?
+
+= togetherjs_button

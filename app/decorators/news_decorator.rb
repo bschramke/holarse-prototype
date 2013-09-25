@@ -25,4 +25,8 @@ class NewsDecorator < Draper::Decorator
     Holarse::Markup.render(model.content).html_safe
   end
 
+  def has_comments?
+    model.comments.length > 0
+  end
+
 end
