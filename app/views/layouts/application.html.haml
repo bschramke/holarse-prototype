@@ -91,7 +91,7 @@
                 = link_to user_path(current_user) do
                   = current_user.username
                   = content_tag :span, :class => "badge" do
-                    0
+                    = current_user.decorate.unread_messages.count
               %li
                 = link_to "Abmelden", logout_path
             - else
@@ -116,24 +116,3 @@
               = render_breadcrumbs
 
             = yield
-      .row
-        .col-md-12
-          %footer.text-muted
-            .col-md-4
-              &copy; 2000 - 2013
-            .col-md-4
-              Impressum
-            .col-md-4
-              .list-group
-                .list-group-item
-                  = fa_icon :"icon-bitbucket-sign" do
-                    = link_to get_app_version, version_path(get_app_version)
-                .list-group-item
-                  = fa_icon :"" do
-                    = link_to "Font Awesome by Dave Gandy - http://fontawesome.io", "http://fontawesome.io"
-                .list-group-item
-                  = link_to "Icons by Glyphicons", "http://glyphicons.com/"
-
-
-
-   

@@ -1,13 +1,26 @@
-%h1
-  = t('.title')
+.page-header
+  %h1
+    Alle Holarsianer
 
-.sort
-  %ul#sort-by
-    = render "sorting"
-
-#users
-  - @users.each do |user|
-    .user
-      = link_to user do
-        = image_tag user.avatar
-      = user.username
+%table.table
+  %thead
+    %tr
+      %th
+        \#
+      %th
+        Benutzername
+      %th
+        Auf Holarse seit
+      %th
+        Letzte Aktivität
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          = user.id
+        %td
+          = link_user user
+        %td
+          = user.created_at
+        %td
+          = user.lastactivity

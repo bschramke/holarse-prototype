@@ -1,24 +1,63 @@
-.well
-  = image_tag @user.avatar
-  = @user.username
-.panel.panel-default
-  .panel-heading
-    Signatur
-  .panel-body
-    = @user.signature.present? ? @user.signature : t('.no_signature_available')    
+.media
+  %img.pull-left.media-object.img-responsive{:src => "data:image/png;base64,", :"data-src" => "holder.js/300x200/auto", :alt => "Avatar"}
+  .media-body
+    .page-header
+      %h1
+        =@user.username
+        %small= @user.signature
+%p
+  %p.lead
+    Fun Facts &uuml;ber #{@user.username}
+  %dl.dl-horizontal
+    %dt
+      Angemeldet seit
+    %dd
+      = @user.created_at
+    %dt
+      Letzter Login
+    %dd
+      = @user.lastlogin
+    %dt
+      Letzte Aktivität
+    %dd
+      = @user.lastactivity
+    %dt
+      Kommentare
+    %dd
+      = @user.comments
+  
 
-  .panel-heading
-    Registriert seit
-  .panel-body
-    = t('.created_at', :date => l(@user.created_at))
-  .panel-heading
-    Linux-Technisches
-  .panel-body
-  %ul.list-group
-    %li.list-group-item
-      Distribution: #{@user.distro}
-    %li.list-group-item
-      Computer: #{@user.computer}
-    %li.list-group-item
-      Grafik: #{@user.graphics}
-        
+%p
+  %p.lead
+    Wo findet man mich?
+  %dl.dl-horizontal
+    %dt
+      Jabber
+    %dd
+      = @user.jabber
+    %dt
+      Diaspora
+    %dd
+      = @user.diaspora
+    %dt
+      Twitter
+    %dd
+      = @user.twitter
+
+%p
+  %p.lead
+    Meine Technik
+  %dl.dl-horizontal
+    %dt
+      Computer
+    %dd 
+      = @user.computer
+    %dt
+      Distribution
+    %dd
+      = @user.distro
+    %dt
+      Grafikchip
+    %dd
+      = @user.graphics
+

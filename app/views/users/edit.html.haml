@@ -1,2 +1,31 @@
-%h1 Users#edit
-%p Find me in app/views/users/edit.html.haml
+= semantic_form_for @user do |f|
+  = f.inputs "Kommunikation" do
+    .form-group
+      = f.input :jabber, input_html: { class: "form-control" }
+    .form-group
+      = f.input :icq, input_html: { class: "form-control" }
+    .form-group
+      = f.input :twitter, input_html: { class: "form-control" }    
+    .form-group
+      = f.input :diaspora, input_html: { class: "form-control" }  
+    .form-group
+      = f.input :email, input_html: { class: "form-control" }
+    .form-group
+      = f.input :homepage, input_html: { class: "form-control" }
+  = f.inputs do
+    .form-group
+      = f.input :signature, input_html: { class: "form-control" }
+  = f.inputs "Persönliches" do
+    .form-group
+      = f.input :city, input_html: { class: "form-control" }
+    .form-group
+      = f.input :job, input_html: { class: "form-control" } 
+  = f.inputs "Linux" do
+    .form-group
+      = f.input :distro, input_html: { class: "form-control" }
+    .form-group
+      = f.input :computer, input_html: { class: "form-control" }
+    .form-group
+      = f.input :graphics, input_html: { class: "form-control" }
+  = f.actions do 
+    = f.action :submit

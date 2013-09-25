@@ -3,11 +3,13 @@ class UsersController < ApplicationController
   before_filter :require_view_permissions, :only => [:index, :show]
   before_filter :require_edit_permissions, :only => [:edit, :update, :destroy]
 
+  add_breadcrumb "Benutzer", :users_path
+
   #
   # zeigt alle benutzer
   #
   def index
-    @users = User.all.asc(:username)
+    @users = User.order("created_at asc").decorate
   end
 
   #
@@ -35,7 +37,12 @@ class UsersController < ApplicationController
   # aktualisiert ein benutzerprofil
   #
   def update
-      
+    user = User.find(params[:id])
+    if user.update_attributes(params[:user])
+      redirect_to user
+    else
+      redirect_to :back
+    end
   end
 
   #
@@ -52,7 +59,8 @@ class UsersController < ApplicationController
   # zeige ein benutzerprofil an
   #
   def show
-    @user = User.find params[:id]
+    @user = User.find(params[:id]).decorate
+    add_breadcrumb @user.username
   end
 
   #
@@ -92,7 +100,7 @@ class UsersController < ApplicationController
   # prueft, ob die aufzurufende seite, das eigene profil ist
   #
   def accesses_own_profile
-    params[:username] == current_user.username
+    User.find(params[:id]) == current_user
   end
 
   def is_spammer?(user)

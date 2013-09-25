@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    attr_accessible :username, :email, :signature, :jabber, :icq, :twitter, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar
+    attr_accessible :username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar
 
     has_secure_password
 
@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     has_many :article_histories
     has_many :news
     has_many :discount_events
+    has_many :comments
 
     # der benutzer-avatar
     has_attached_file :avatar, :default_url => '/assets/nobody.png'
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
 
     def register_successfull_login
         self.failed_logins = 0
-        self.lastlogin = Time.now
+        self.lastlogin = DateTime.now
     end
     
     def increment_failed_logins
