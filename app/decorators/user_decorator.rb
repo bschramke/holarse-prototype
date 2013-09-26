@@ -10,7 +10,13 @@ class UserDecorator < Draper::Decorator
   end
 
   def comments
-    Comment.where(user_id: self).count
+    Rails.cache.fetch "user-#{self.id}-comments", expires_in: 10.minutes do
+      Comment.where(user_id: self).count
+    end
+  end
+
+  def steam_path
+    self.steam ? "http://steamcommunity.com/id/#{self.steam}" : ""
   end
 
 end

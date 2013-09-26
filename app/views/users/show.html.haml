@@ -38,11 +38,15 @@
     %dt
       Diaspora
     %dd
-      = @user.diaspora
+      = link_to @user.diaspora, @user.diaspora if @user.diaspora
+    %dt
+      Steam
+    %dd
+      = link_to @user.steam, @user.steam_path if @user.steam
     %dt
       Twitter
     %dd
-      = @user.twitter
+      = link_to @user.twitter, @user.twitter if @user.twitter
 
 %p
   %p.lead

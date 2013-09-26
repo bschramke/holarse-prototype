@@ -22,7 +22,9 @@ class NewsDecorator < Draper::Decorator
   end
 
   def content
-    Holarse::Markup.render(model.content).html_safe
+#    Rails.cache.fetch "news-content-#{self.id}", expires_in: 1.minute do
+      Holarse::Markup.render(model.content).html_safe
+#    end
   end
 
   def has_comments?

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class ArticleDecorator < Draper::Decorator
   delegate_all
 
@@ -22,7 +23,9 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def content
-    Holarse::Markup.render(model.content).html_safe
+#    Rails.cache.fetch "article-content-#{self.id}", expires_in: 1.minute do
+      Holarse::Markup.render(model.content).html_safe
+#    end
   end
 
 end

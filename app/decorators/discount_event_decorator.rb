@@ -14,7 +14,9 @@ class DiscountEventDecorator < Draper::Decorator
   end
 
   def description
-    Holarse::Markup.render(model.description).html_safe
+#    Rails.cache.fetch "discount-event-content-#{self.id}", expires_in: 1.minute do
+      Holarse::Markup.render(model.description).html_safe
+#    end
   end
 
 end

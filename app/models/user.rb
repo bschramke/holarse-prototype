@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    attr_accessible :username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar
+    attr_accessible :username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :steam, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar
 
     has_secure_password
 

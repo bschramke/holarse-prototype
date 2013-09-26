@@ -2,7 +2,7 @@
   %h1
     Alle Holarsianer
 
-%table.table
+%table.table.table-hover.sortable
   %thead
     %tr
       %th
@@ -12,7 +12,11 @@
       %th
         Auf Holarse seit
       %th
+        Zuletzt aktualisiert
+      %th
         Letzte Aktivität
+      %th
+        Kommentare #
   %tbody
     - @users.each do |user|
       %tr
@@ -23,4 +27,8 @@
         %td
           = user.created_at
         %td
+          = user.updated_at
+        %td
           = user.lastactivity
+        %td
+          = user.comments

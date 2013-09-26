@@ -4,7 +4,11 @@ class LinkGeneratorController < ApplicationController
 
   def index
     articles = Article.select("title, alternate_title, id").order(:title)
-    render :text => create_title_list(articles).to_json
+
+    titles_list = Rails.cache.fetch "articles-list", expires_in: 5.minutes do
+      create_title_list(articles).to_json
+    end
+    render :text => titles_list
   end
 
   private

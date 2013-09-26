@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def update_user_activity
     if current_user
-      current_user.lastactivity = DateTime.now
+      current_user.update_column :lastactivity, DateTime.now
       current_user.save
     end
   end
@@ -42,7 +42,13 @@ class ApplicationController < ActionController::Base
   # Ermittelt den aktuellen eingeloggten Benutzer
   #
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= get_cached_user(session[:user_id]) if session[:user_id]
+  end
+
+  def get_cached_user(id)
+    Rails.cache.fetch "user-#{id}", expires_in: 1.minute do
+      User.find(id)
+    end
   end
 
   def is_logged_in?

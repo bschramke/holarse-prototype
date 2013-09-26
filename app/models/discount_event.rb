@@ -6,4 +6,6 @@ class DiscountEvent < ActiveRecord::Base
 
   validates_presence_of :name
 
+  default_scope where(enabled: true)
+
 end
