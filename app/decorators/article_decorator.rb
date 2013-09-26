@@ -19,7 +19,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def teaser
-    h.truncate(h.strip_tags(content), length: 200)
+    h.truncate(h.strip_tags(content), length: 500)
   end
 
   def content

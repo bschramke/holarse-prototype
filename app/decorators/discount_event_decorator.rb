@@ -10,7 +10,7 @@ class DiscountEventDecorator < Draper::Decorator
   end
 
   def teaser
-    h.truncate(h.strip_tags(description), length: 200)
+    h.truncate(h.strip_tags(description), length: 500)
   end
 
   def description

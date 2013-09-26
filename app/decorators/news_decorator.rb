@@ -18,7 +18,7 @@ class NewsDecorator < Draper::Decorator
   end
 
   def teaser
-    model.content[0..200]
+    h.truncate(h.strip_tags(content), length: 500)
   end
 
   def content
