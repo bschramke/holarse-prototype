@@ -5,4 +5,10 @@ class MarkupPreviewController < ApplicationController
   def preview
     render :text => Holarse::Markup.render(params[:content])
   end
+
+  protected
+
+  def update_user_activity
+    # soll nicht als aktivitaet zaehlen
+  end
 end

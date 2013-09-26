@@ -19,6 +19,8 @@
         .form-group
           = f.input :content, as: :text, input_html: { rows: 20, cols: 120, class: "form-control" }
         .form-group
+          = f.input :project_activity_state, label_method: :name, input_html: { class: "form-control" }
+        .form-group
           = f.input :category_list, input_html: { class: "form-control" }
         .form-group
           = f.input :genre_list, input_html: { class: "form-control" }

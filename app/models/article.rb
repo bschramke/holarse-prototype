@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
 
     has_paper_trail :only => [:title, :alternate_title, :content, :unreleased, :releaseddate]
 
-    attr_accessible :title, :alternate_title, :content, :unreleased, :releasedate, :user, :category_list, :genre_list, :comment
+    attr_accessible :title, :alternate_title, :content, :unreleased, :releasedate, :category_list, :genre_list, :comment, :project_activity_state_id
 
     # validierungen
     validates_presence_of :title, :content, :user
@@ -19,6 +19,7 @@ class Article < ActiveRecord::Base
     has_and_belongs_to_many :attachments
 
     has_many :comments, as: :commentable
+    belongs_to :project_activity_state
 
     acts_as_taggable_on :categories, :genres
 

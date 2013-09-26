@@ -8,4 +8,9 @@ module ArticlesHelper
     article_authors(article).map { |author| link_user author }.join(", ").html_safe
   end
 
+  def project_activity_indicator(state)
+    res = { "active" => "success", "pending" => "info", "inactive" => "warning", "dead" => "danger" }.fetch(state.code)
+    content_tag :span, state.name, class: "label label-#{res} pull-right"
+  end
+
 end

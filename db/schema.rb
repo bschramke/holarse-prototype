@@ -11,24 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926093439) do
+ActiveRecord::Schema.define(:version => 20130926183638) do
 
   create_table "articles", :force => true do |t|
-    t.string   "title",                               :null => false
+    t.string   "title",                                        :null => false
     t.string   "alternate_title"
     t.text     "content"
-    t.boolean  "enabled",          :default => true
-    t.boolean  "isfrozen",         :default => false
-    t.boolean  "reviseme",         :default => false
-    t.boolean  "unreleased",       :default => false
-    t.boolean  "allowuploads",     :default => true
-    t.boolean  "hasftp",           :default => false
+    t.boolean  "enabled",                   :default => true
+    t.boolean  "isfrozen",                  :default => false
+    t.boolean  "reviseme",                  :default => false
+    t.boolean  "unreleased",                :default => false
+    t.boolean  "allowuploads",              :default => true
+    t.boolean  "hasftp",                    :default => false
     t.string   "releasedate"
     t.string   "changelog"
     t.integer  "user_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.boolean  "comments_allowed", :default => true
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.boolean  "comments_allowed",          :default => true
+    t.integer  "project_activity_state_id"
   end
 
   create_table "articles_attachments", :id => false, :force => true do |t|
@@ -130,6 +131,11 @@ ActiveRecord::Schema.define(:version => 20130926093439) do
   create_table "news_videos", :id => false, :force => true do |t|
     t.integer "news_id"
     t.integer "video_id"
+  end
+
+  create_table "project_activity_states", :force => true do |t|
+    t.string "name"
+    t.string "code"
   end
 
   create_table "roles", :force => true do |t|
