@@ -3,21 +3,30 @@
     = @news.title
     = content_tag :small do
       = @news.subtitle
+      %span.label.label-default
+        = @news.category
   .text-muted
-    .text-left
-      = @news.category
-    .text-right
-      = link_user @news.user
+    .pull-right
+      %p
+        von #{link_user @news.user}
+    .pull-left
+      %p
+        %em
+          = @news.tags.join ", "
+    .clearfix
 
 .autolinkable.newsbox{:"data-ignores" => @news.titles}
   = @news.content
 
-%hr
-%p.lead
-  Artikel-Links:
-.list-group
-  %ul#newslinks
+.panel.panel-default#commentcontainer
+  .panel-heading
+    %h3.panel-title
+      Artikel-Links
+  .panel-body
+    .list-group
+      %ul#newslinks
 
+%hr
 %p.lead
   Kommentare:
 %ul.list-group

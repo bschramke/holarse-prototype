@@ -2,6 +2,10 @@
 class ArticleDecorator < Draper::Decorator
   delegate_all
 
+  def tags
+    model.genre_list + model.category_list
+  end
+
   def title
     model.title
   end

@@ -1,6 +1,6 @@
 class News < ActiveRecord::Base
 
-  attr_accessible :title, :subtitle, :news_category_id, :content
+  attr_accessible :title, :subtitle, :news_category_id, :category_list, :content
 
   belongs_to :user
   has_and_belongs_to_many :screenshots

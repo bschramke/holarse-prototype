@@ -5,6 +5,10 @@ class NewsDecorator < Draper::Decorator
     model.news_category ? model.news_category.description : ""
   end
 
+  def tags
+    model.category_list
+  end
+
   def type
     "News"
   end

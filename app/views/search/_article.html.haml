@@ -2,7 +2,13 @@
   = content_tag :h4, class: "list-group-item-heading" do
     = article.title
     = project_activity_indicator(article.project_activity_state) if article.project_activity_state.present?
+    %small.text-muted
+      %em
+        = article.tags.join ", "
     .pull-right
       = article.type
   = content_tag :p, class: "list-group-item-text" do
     = article.teaser
+    %small.text-muted.pull-right
+      %p
+        zuletzt aktualisiert von #{article.user.username} am #{article.updated_at}
