@@ -28,7 +28,7 @@ class SearchController < ApplicationController
   end
 
   def search_content(searchword)
-    q = "%#{searchword}"
+    q = "%#{searchword}%"
     News.where("content like ? or title like ? or subtitle like ?", q, q ,q).decorate + Article.where("content like ? or title like ? or alternate_title like ?", q, q, q).decorate
   end
 

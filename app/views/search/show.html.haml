@@ -1,9 +1,15 @@
-%h1
-  = t('.title', :resultqty => @elements.count, :searchword => @searchword)
+.page-header
+  %h1
+    Ergebnisse für 
+    #{@searchword}
+    %small
+      Es wurden 
+      = @elements.count
+      Ergebnisse gefunden
 
-%ul.items
-- @elements.each do |element|
-  = render :partial => 'element', :collection => @elements
+.list-group
+  - @elements.each do |element|
+    = render partial: element.model.class.name.underscore, object: element
 
-%p
+.text-muted.pull-right
   = t('.search_duration', :search_time => Time.now - @search_start)    

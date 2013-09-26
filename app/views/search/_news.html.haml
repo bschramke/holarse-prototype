@@ -1,0 +1,7 @@
+= link_to news, class: "list-group-item" do
+  = content_tag :h4, class: "list-group-item-heading" do
+    = news.title
+    .pull-right
+      = news.type
+  = content_tag :p, class: "list-group-item-text" do
+    = news.teaser

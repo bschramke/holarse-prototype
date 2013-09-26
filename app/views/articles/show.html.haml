@@ -3,7 +3,7 @@
     = @article.title
     %small
       = @article.alternate_title
-    = project_activity_indicator(@article.project_activity_state) if @article.project_activity_state
+    = project_activity_indicator(@article.project_activity_state, "pull-right") if @article.project_activity_state
 
 .autolinkable{:"data-ignores" => @article.titles}
   = @article.content

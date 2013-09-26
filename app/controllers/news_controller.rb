@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
   before_filter :require_edit_permissions, :except => [:index, :show]
 
-  add_breadcrumb "News", :news_path
+  add_breadcrumb "News"
 
   def index
     @news = News.order('created_at DESC').limit(25)

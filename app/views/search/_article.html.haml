@@ -1,0 +1,8 @@
+= link_to article, class: "list-group-item" do
+  = content_tag :h4, class: "list-group-item-heading" do
+    = article.title
+    = project_activity_indicator(article.project_activity_state) if article.project_activity_state.present?
+    .pull-right
+      = article.type
+  = content_tag :p, class: "list-group-item-text" do
+    = article.teaser

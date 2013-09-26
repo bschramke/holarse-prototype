@@ -6,6 +6,10 @@ class ArticleDecorator < Draper::Decorator
     model.title
   end
 
+  def type
+    "Artikel"
+  end
+
   def alternate_title
     model.alternate_title
   end
