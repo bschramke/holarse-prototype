@@ -2,10 +2,9 @@
   - @tags.each_key do |key|
     .panel-heading
       = key
-    %ul.list-group
+    .list-group
       - tag_cloud(@tags[key], %w(css1 css2 css3 css4)) do |tag, css_class|
-        %li.list-group-item
-          = link_to tag.name, searchtag_path(tag.name)
+        = link_to tag.name, searchtag_path(tag.name), class: "list-group-item"
 
 .panel.panel-default
   .panel-heading
