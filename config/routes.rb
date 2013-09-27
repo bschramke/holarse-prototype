@@ -1,12 +1,15 @@
 Holarse::Application.routes.draw do
 
-  get "link_generator/index"
+  # api
+  get "holarse/api/autolinkable" # erzeugt die internen links auf artikel
+  get "holarse/api/discount_count" # zaehlt die rabattaktionen
+  post "holarse/api/markup_preview" # ermoeglicht die vorschau von markdown-seiten
 
-  post "markup_preview/preview", :as => :markuppreview
-
-  get "counting/messages"
-
-  get "counting/discounts"
+  # holarse-services-seiten
+  get "holarse/service/index", as: :holarse_service
+  get "holarse/service/mumble", as: :holarse_service_mumble
+  get "holarse/service/jabber", as: :holarse_service_jabber
+  get "holarse/service/gameserver", as: :holarse_service_gameserver
 
   # die angebotsaktionen
   resources :discount_events do
@@ -14,8 +17,8 @@ Holarse::Application.routes.draw do
   end
 
   # die suche
-  match "search/(:q)" => "search#show", :as => :search
-  get "search/tags/:q" => "search#tags", :as => :searchtag
+  match "search/(:q)" => "search#show", as: :search
+  get "search/tags/:q" => "search#tags", as: :searchtag
 
   # webseiten resourcen
   resources :users
@@ -38,7 +41,7 @@ Holarse::Application.routes.draw do
     resources :history
   end
 
-  resource :twitter, :only => :show
+  resource :twitter, only: :show
   
   # login und sessionverwaltung
   get 'users/new', :as => :register
@@ -47,7 +50,6 @@ Holarse::Application.routes.draw do
   match 'session/logout' => 'sessions#destroy', :as => :logout
 
   # einzelseiten
-  get "service/minecraft"
   get "welcome/index"
     
   # shortcuts

@@ -11,7 +11,7 @@
         Markdown-Doku
   #input
     = semantic_form_for @news do |f|
-      = f.inputs 'Inhalt', :id => 'news-edit-content' do
+      = f.inputs 'Inhalt' do
         .form-group
           = f.input :title, input_html: { class: "form-control" }
         .form-group
@@ -21,11 +21,11 @@
         .form-group
           = f.input :category_list, input_html: { class: "form-control" }
         .form-group
-          = f.input :content, as: :text, input_html: { rows: 20, cols: 120, class: "form-control" }
+          = f.input :content, as: :text, input_html: { rows: 20, cols: 120, class: "form-control", id: "markup-edit-content" }
       = f.actions do
         .form-group
           = f.action :submit, as: :button, button_html: { class: "btn btn-default" }
   #preview
-    %p#article_preview_text
+    %p#markuppreviewtext
   #markdowndoku
-    Hier soll mal die Markdown-Doku hin. Bis dahin gibts nen Link auf die Doku: http://kramdown.rubyforge.org/quickref.html
+    = render partial: "markdown_doku"

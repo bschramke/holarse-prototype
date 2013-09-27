@@ -31,7 +31,7 @@ $(document).ready(function() {
     }
   }); 
 
-  $.get("/counting/discounts", function(count) {
+  $.get("/holarse/api/discount_count.json", function(count) {
     $("#discount-count").html("Rabattaktionen (" + count + ")");
   });
 
