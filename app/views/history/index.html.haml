@@ -13,6 +13,6 @@
     - @revisions.each do |revision|
       %tr
         %td=l revision.created_at
-        %td=link_user User.find(revision.whodunnit)
+        %td=link_history_user revision
         %td=revision.event
         %td=revision_link @parent, revision

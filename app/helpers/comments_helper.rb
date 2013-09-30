@@ -20,6 +20,10 @@ module CommentsHelper
     render :partial => "comments/new", :locals => { :commentable => commentable }
   end
 
+  def link_comment(text, comment)
+    link_to text, url_for(comment.commentable) + "#comment-#{comment.id}"
+  end
+
   def create_polymorphic_comment_link(action, commentable_object, comment)
     link_to t(".#{action}"), send("#{action}_#{commentable_object.class.to_s.underscore}_comment_path", commentable_object, comment)
   end

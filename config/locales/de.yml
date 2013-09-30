@@ -3,6 +3,10 @@ de:
     application:
       title: "Holarse - Spielen unter Linux"
       backtotop: "Nach oben"
+  datetime:
+    distance_in_words:
+      x_days: "vor %{count} Tagen"
+      about_x_hours: "vor %{count} Stunden"
   time:
     formats:
       default: "%d.%m.%Y %H:%M:%S"
@@ -30,6 +34,10 @@ de:
       sessions:
         username: "Benutzername"
         password: "Passwort"     
+  versions:
+    state_verb:
+      create: "angelegt"
+      update: "aktualisiert"
   welcome:
     index:
       all: "Alles"

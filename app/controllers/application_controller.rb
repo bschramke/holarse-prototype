@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
  
   add_breadcrumb "Home", :root_path
-  helper_method :current_user, :is_logged_in?, :has_role, :can_edit_comment?, :create_anchor_name, :breadcrumbs
+  helper_method :current_user, :is_logged_in?, :has_role, :can_edit_comment?, :create_anchor_name, :breadcrumbs, :get_genres
 
   before_filter :update_user_activity
 
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
       current_user.update_column :lastactivity, DateTime.now
       current_user.save
     end
+  end
+
+  def get_genres
+    Article.tag_counts_on(:genres).sort { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   #

@@ -1,7 +1,9 @@
 %li.list-group-item
+  %a{:name => "comment-#{comment.id}"}
   %p.text-muted
     %small
       = link_user comment.user
       = comment.created_at
+      = link_comment "#", comment
   .autolinkable{:"data-ignores" => ""}
     = comment.content

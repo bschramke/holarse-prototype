@@ -9,6 +9,10 @@ module UsersHelper
     current_user && user ? link_to(user.username, user) : user.username unless !user
   end
 
+  def link_history_user(revision)
+    link_user User.find(revision.whodunnit)
+  end
+
   #
   # Links to the given city
   #

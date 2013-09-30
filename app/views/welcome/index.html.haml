@@ -1,5 +1,12 @@
-.container.marketing
-  - @elements.each do |element|
-    %hr.featurette-divider
-    .row.featurette
-      = render partial: element.model.class.name.underscore, object: element
+.container
+  %ul.list-group#activitylist
+    - @activities.each do |activity|
+      %li= activity.notice
+  = link_to "alle zeigen", "#", id: "toggle-activities", remote: true
+    
+
+  .marketing
+    - @elements.each do |element|
+      %hr.featurette-divider
+      .row.featurette
+        = render partial: element.model.class.name.underscore, object: element

@@ -39,16 +39,9 @@
                 Spiele
                 %b.caret
               %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} Action
-                %li
-                  %a{:href => "#"} Another action
-                %li
-                  %a{:href => "#"} Something else here
-                %li
-                  %a{:href => "#"} Separated link
-                %li
-                  %a{:href => "#"} One more separated link
+                - get_genres.each do |genre|
+                  %li
+                    = link_to genre.name, searchtag_path(genre.name)
             %li
               %a{:href => "#"} Tools            
             %li.dropdown
