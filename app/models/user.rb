@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
       self.failed_logins > 3
     end
 
+    def self.last_actives
+      User.where("lastactivity > ?", 5.minutes.ago)
+    end
+
     private
 
     def old_password_is_correct(old_password)
