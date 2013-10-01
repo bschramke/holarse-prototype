@@ -8,7 +8,7 @@
   .text-muted
     .pull-right
       %p
-        von #{link_user @news.user}
+        von #{link_user @news.user} am #{@news.updated_at}
     .pull-left
       %p
         %em
@@ -16,7 +16,7 @@
     .clearfix
 
 .autolinkable.newsbox{:"data-ignores" => @news.titles}
-  = @news.content
+  = @news.content.html_safe
 
 .panel.panel-default#link-container
   .panel-heading

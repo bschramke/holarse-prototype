@@ -25,7 +25,39 @@
       Kommentare
     %dd
       = @user.comments
-  
+
+%p
+  %p.lead
+    &Uuml;ber mich
+    %dl.dl-horizontal
+      %dt
+        Stadt
+      %dd
+        = link_to_osm(@user.city)
+      %dt
+        Geburtstag
+      %dd
+        = @user.birthday
+%p
+  %p.lead
+    Holarse-Daten
+    %dl.dl-horizontal
+      %dt
+        Rollen
+      %dd
+        = @user.roles
+
+  %p.lead
+    Minecraft
+    %dl.dl-horizontal
+      %dt
+        Benutzername
+      %dd
+        = @user.minecraft_username
+      %dt
+        freigeschaltet?
+      %dd
+        = @user.minecraft_whitelisted?
 
 %p
   %p.lead

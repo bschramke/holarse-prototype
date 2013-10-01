@@ -10,7 +10,27 @@
         = @article.tags.join ", "
 
 .autolinkable{:"data-ignores" => @article.titles}
-  = @article.content
+  = @article.content.html_safe
+
+%p.lead
+  Screenshots
+
+  .row
+    - 10.times do
+      .col-sm-2.col-md-4
+        = link_to "#", class: "thumbnail" do
+          %img{:"data-src" => "holder.js/100%x180", :alt => "Artikelbild"}
+        .caption
+          - require 'faker'
+          = Faker::Lorem.sentences(3).join " "
+
+%p.lead
+  Videos
+
+  .row
+    - 5.times do
+      .col-sm-2.col-md-4
+        Youtube-Video
 
 %ul.list-group
   = render @article.comments.decorate

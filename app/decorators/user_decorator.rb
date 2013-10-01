@@ -8,6 +8,10 @@ class UserDecorator < Draper::Decorator
   def unread_messages
     []
   end
+  
+  def roles
+    model.roles.join[", "]
+  end
 
   def comments
     Rails.cache.fetch "user-#{self.id}-comments", expires_in: 10.minutes do
@@ -17,6 +21,10 @@ class UserDecorator < Draper::Decorator
 
   def steam_path
     self.steam ? "http://steamcommunity.com/id/#{self.steam}" : ""
+  end
+
+  def minecraft_whitelisted?
+    model.minecraft_whitelisted.present? && model.minecraft_whitelisted ? "ja" : "nein"
   end
 
 end

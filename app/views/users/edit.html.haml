@@ -22,6 +22,8 @@
       = f.input :city, input_html: { class: "form-control" }
     .form-group
       = f.input :job, input_html: { class: "form-control" } 
+    .form-group
+      = f.input :birthday, input_html: { class: "form-control" }
   = f.inputs "Linux" do
     .form-group
       = f.input :distro, input_html: { class: "form-control" }
@@ -29,5 +31,8 @@
       = f.input :computer, input_html: { class: "form-control" }
     .form-group
       = f.input :graphics, input_html: { class: "form-control" }
+  = f.inputs "Minecraft" do
+    .form-group
+      = f.input :minecraft_username, input_html: { class: "form-control" }
   = f.actions do 
     = f.action :submit

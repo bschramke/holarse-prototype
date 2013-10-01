@@ -1,8 +1,9 @@
 .container
   %ul.list-group#activitylist
     - @activities.each do |activity|
-      %li.list-group-item= activity.notice
-  = link_to "alle zeigen", "#", id: "toggle-activities", remote: true
+      %li.list-group-item=activity.notice.html_safe
+  = fa_icon :"icon-sort-by-attributes" do
+    = link_to "alle zeigen", "#", id: "toggle-activities", remote: true
     
 
   .marketing
