@@ -17,12 +17,13 @@ class User < ActiveRecord::Base
     # validierungen
     validates_presence_of :username, :email
     validates_uniqueness_of :username, :email
-#    validates_uniqueness_of :minecraft_username
+    validates_uniqueness_of :minecraft_username
     validates_presence_of :password, :on => :create
 
     validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
     def do_authenticate(password)
+      return false if password.empty?
       if self.old_password_hash.present? && old_password_is_correct(password)
 	self.old_password_hash = nil
 	self.password = password
@@ -50,6 +51,10 @@ class User < ActiveRecord::Base
 
     def self.last_actives
       User.where("lastactivity > ?", 5.minutes.ago)
+    end
+
+    def self.minecrafters
+      User.where(:minecraft_whitelisted)
     end
 
     private

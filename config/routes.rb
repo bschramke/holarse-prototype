@@ -4,6 +4,7 @@ Holarse::Application.routes.draw do
   get "holarse/api/autolinkable" # erzeugt die internen links auf artikel
   get "holarse/api/discount_count" # zaehlt die rabattaktionen
   post "holarse/api/markup_preview" # ermoeglicht die vorschau von markdown-seiten
+  get "holarse/api/minecrafters" # die whitegelisteten minecraft-user
 
   # holarse-services-seiten
   get "holarse/service/index", as: :holarse_service

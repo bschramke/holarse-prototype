@@ -5,10 +5,9 @@ $(document).ready(function() {
   var foundLinks = $(".newsbox").find("a:not([role=internal])");
   foundLinks.each(function(index, value) {
     $("#newslinks").append( $.Mustache.render('news-links-template', value ));
-    newslinksfound = true;
   });
 
-  if (foundLinks.length == 0) {
+  if (foundLinks.length === 0) {
     $("#link-container").hide();
   }
 

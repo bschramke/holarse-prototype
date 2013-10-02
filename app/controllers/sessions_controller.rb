@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  before_filter :save_return, :only => [:new, :destroy]  
-
   def index
   end
   
@@ -27,7 +25,7 @@ class SessionsController < ApplicationController
     end
     user.save!
 
-    return_back_or_default
+    redirect_to :root
   end
   
   def show
@@ -41,13 +39,7 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    return_back_or_default
+    redirect_to :root
   end
 
-  private
-
-  def save_return
-    store_return_to
-  end
-  
 end

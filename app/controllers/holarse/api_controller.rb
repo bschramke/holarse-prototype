@@ -13,16 +13,18 @@ class Holarse::ApiController < ApplicationController
   end
 
   def markup_preview
-    Rails.logger.debug("Incoming: #{params[:content]}")
-    outcome = Holarse::Markup.render(params[:content])
-    Rails.logger.debug("Outcoming: #{outcome}")
-    render :text => Holarse::Markup.render(outcome)
+    render :text => Holarse::Markup.render( params[:content] )
+  end
+
+  def minecrafters
+    render :text => User.minecrafters.to_json(only: :minecraft_username)    
   end
 
   protected
 
   def update_user_activity
-    # soll nicht als aktivitaet zaehlen
+    # soll nicht als aktivitaet zaehlen, daher wird
+    # die methode hier ueberschrieben
   end
 
 end
