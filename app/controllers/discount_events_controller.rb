@@ -16,7 +16,7 @@ class DiscountEventsController < ApplicationController
     if @discount_event.save
       redirect_to discount_events_path
     else
-      redirect_to :back
+      redirect_to discount_events_path(@discount_event)
     end
   end
 
@@ -40,7 +40,7 @@ class DiscountEventsController < ApplicationController
     @discount_event = DiscountEvent.find(params[:id])
     @discount_event.update_attributes(params[:discount_event])
     @discount_event.save
-    redirect_to discount_events_path
+    redirect_to discount_events_path(@discount_event)
   end
 
   def destroy
@@ -51,7 +51,7 @@ class DiscountEventsController < ApplicationController
   def require_edit_permissions
     unless is_logged_in?
       flash[:warning] = "Bitte anmelden, um Rabattaktionen erstellen oder bearbeiten zu k&ouml;nnen."
-      redirect_to :back
+      redirect_to discount_events_path
     end
   end
     

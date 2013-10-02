@@ -32,6 +32,8 @@ de:
                     email:
                         taken: "Diese Email-Adresse wird bereits verwendet."
                         invalid: "Diese Email-Adresse ist ungültig."
+                    minecraft_username:
+                        taken: "Dieser MC-Benutzer ist breits hinterlegt."
             news:
                 attributes:
                     user:

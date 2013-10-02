@@ -17,7 +17,7 @@ describe "the discount event", type: :feature do
 
   it "should only be addable by users that are logged in" do
     visit new_discount_event_path
-    page.should have_content "Bitte einloggen"
+    page.should have_content "Bitte anmelden, um Rabattaktionen erstellen oder bearbeiten zu können"
   end
 
 end
