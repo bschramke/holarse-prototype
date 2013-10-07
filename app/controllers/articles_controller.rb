@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.project_activity_state = ProjectActivityState.find_by_code(:active)
     render :edit
   end
 
