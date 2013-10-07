@@ -9,7 +9,9 @@ class Holarse::ApiController < ApplicationController
   end
 
   def discount_count
-    render :text => DiscountEvent.all.count
+    render :text => { 
+      count: DiscountEvent.all.count
+    }.to_json
   end
 
   def markup_preview

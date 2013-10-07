@@ -31,8 +31,9 @@ $(document).ready(function() {
     }
   }); 
 
-  $.get("/holarse/api/discount_count.json", function(count) {
-    $("#discount-count").html("Rabattaktionen (" + count + ")");
+  $.get("/holarse/api/discount_count.json", function(data) {
+    $.Mustache.addFromDom("discount-events-count-tmpl");
+    $("#discount-events-count").mustache("discount-events-count-tmpl", data);
   });
 
 });
