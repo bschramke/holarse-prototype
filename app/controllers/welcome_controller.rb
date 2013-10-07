@@ -1,8 +1,9 @@
 class WelcomeController < ApplicationController
 
   def index
-    @elements = all_elements
-    @activities = all_activities.sort { |a,b| b.updated_at <=> a.updated_at }
+    sorting = lambda { |a,b| b.updated_at <=> a.updated_at }
+    @elements = decorate(all_elements).sort &sorting
+    @activities = decorate(all_activities).sort &sorting
     @tags = {
       :genres => Article.tag_counts_on(:genres),
       :categories => Article.tag_counts_on(:categories)
@@ -11,12 +12,16 @@ class WelcomeController < ApplicationController
 
   private
 
+  def decorate(list)
+    list.map(&:decorate)
+  end
+
   def all_activities
-    all_elements + latest_comments.decorate
+    all_elements + latest_comments
   end
 
   def all_elements
-    latest_news.decorate + latest_article_updates.decorate + upcoming_discounts.decorate
+    latest_news + latest_article_updates + upcoming_discounts
   end
 
   def latest_comments
