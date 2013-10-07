@@ -11,6 +11,10 @@ class BaseNodeDecorator < Draper::Decorator
     h.truncate( h.strip_tags(content), length: 500 )
   end
 
+  def teaser_image
+    h.content_tag :img, nil, class: "featurette-image img-responsive", "src" => "data:image/png;base64,", "data-src" => "holder.js/500x281/auto", "alt" => "Generic image"
+  end
+
   def title
     model.title
   end

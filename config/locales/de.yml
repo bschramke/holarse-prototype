@@ -57,6 +57,18 @@ de:
       all:  "Alles"
       news: "Nur Neuigkeiten"
       article: "Nur Artikel"
+    article:
+      comments:
+        one: "1 Kommentar"
+        other: "%{count} Kommentare"
+    news:
+      comments:
+        one: "1 Kommentar"
+        other: "%{count} Kommentare"
+    discount_event:
+      comments:
+        one: "1 Kommentar"
+        other: "%{count} Kommentare"
   application:
     header:
       login: "anmelden"

@@ -18,8 +18,8 @@
   .row
     - 10.times do
       .col-sm-2.col-md-4
-        = link_to "#", class: "thumbnail" do
-          %img{:"data-src" => "holder.js/100%x180", :alt => "Artikelbild"}
+        = link_to "#", class: "thumbnail fancybox", rel: "article-#{@article.id}" do
+          %img{:"data-src" => "holder.js/100%x180", :alt => "Artikelbild", :title => "Beispielbild"}
         .caption
           - require 'faker'
           = Faker::Lorem.sentences(3).join " "
@@ -32,6 +32,10 @@
       .col-sm-2.col-md-4
         Youtube-Video
 
+%hr
+%a{:name => "comments"}
+%p.lead
+  Kommentare:
 %ul.list-group
   = render @article.comments.decorate
 

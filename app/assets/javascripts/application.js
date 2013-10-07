@@ -12,5 +12,10 @@
 //
 //= require mustache
 //= require jquery.mustache
-//= require_tree ../../../vendor/assets/javascripts/
+//= require ../../../vendor/assets/javascripts/holder.min
+//= require ../../../vendor/assets/javascripts/bootstrap-sortable
+//= require ../../../vendor/assets/javascripts/jquery.fancybox.pack
+//= require ../../../vendor/assets/javascripts/jquery.fancybox-media
+//= require ../../../vendor/assets/javascripts/jquery.fancybox-buttons
+//= require ../../../vendor/assets/javascripts/jquery.fancybox-thumbs
 //= require_tree .

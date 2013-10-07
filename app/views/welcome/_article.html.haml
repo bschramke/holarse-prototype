@@ -8,9 +8,9 @@
       = article.updated_at
       von
       = link_user article.user
-      %span.badge.pull-right
-        = article.comments.length
+      = link_to article_path(article, anchor: "comments") do
+        = t('.comments', count: article.comments.length)
   %p
     = article.teaser.html_safe
 .col-md-5
-  %img.featurette-image.img-responsive{:src => "data:image/png;base64,", :"data-src" => "holder.js/500x281/auto", :alt => "Generic image"}
+  = article.teaser_image.html_safe

@@ -9,9 +9,9 @@
       von
       = link_user news.user
       = "(#{news.category})" if news.category
-      %span.badge.pull-right
-        = news.comments.length
+      = link_to news_path(news, anchor: "comments") do
+        = t('.comments', count: news.comments.length)
   %p
     = news.teaser
 .col-md-5
-  %img.featurette-image.img-responsive{:src => "data:image/png;base64,", :"data-src" => "holder.js/500x281/auto", :alt => "Generic image"}
+  = news.teaser_image.html_safe
