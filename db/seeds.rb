@@ -11,7 +11,7 @@ Role.create([{name: 'admin'},{name: 'reporter'}, {name: 'moderator'}])
 puts "#{Role.count} Rollen angelegt"
 
 NewsCategory.delete_all
-NewsCategory.create([{code: 'announcement', description: 'Ankündigung'}, {code: 'release', description: 'Veröffentlichung'}, {code: 'patch', description: "Patch"}, {code: 'video', description: 'Videonews'}, {code: 'audio', description: 'Podcast'}])
+NewsCategory.create([{code: 'announcement', description: 'Ankündigung'}, {code: 'release', description: 'Veröffentlichung'}, {code: 'patch', description: "Patch"}, {code: 'video', description: 'Videonews'}, {code: 'audio', description: 'Podcast'}, {code: 'hardware', description: 'Hardware'])
 puts "#{NewsCategory.count} News-Kategorien angelegt"
 
 ProjectActivityState.delete_all
