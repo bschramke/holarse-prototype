@@ -14,6 +14,9 @@ de:
       x_minutes: 
         one: "vor %{count} Minute"
         other: "vor %{count} Minuten"
+      less_than_x_minutes:
+        one: "eben gerade"
+        other: "vor weniger als %{count} Minuten"
   time:
     formats:
       default: "%d.%m.%Y %H:%M:%S"

@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    add_breadcrumb @article.title, article_path(@article)
   end
 
   def update

@@ -5,7 +5,7 @@
     %span.text-muted=news.secondary_title
   %p.text-muted
     %small
-      = news.updated_at
+      = l news.updated_at
       von
       = link_user news.user
       = "(#{news.category})" if news.category

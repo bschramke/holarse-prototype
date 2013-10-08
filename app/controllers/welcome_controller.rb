@@ -2,8 +2,10 @@ class WelcomeController < ApplicationController
 
   def index
     sorting = lambda { |a,b| b.updated_at <=> a.updated_at }
-    @elements = decorate(all_elements).sort &sorting
+
+    @elements = decorate(welcome_elements).sort &sorting
     @activities = decorate(all_activities).sort &sorting
+
     @tags = {
       :genres => Article.tag_counts_on(:genres),
       :categories => Article.tag_counts_on(:categories)
@@ -17,23 +19,27 @@ class WelcomeController < ApplicationController
   end
 
   def all_activities
-    all_elements + latest_comments
+    latest_comments + latest_version_activities
   end
 
-  def all_elements
-    latest_news + latest_article_updates + upcoming_discounts
+  def welcome_elements
+    latest_news + upcoming_discounts
+  end
+
+  def latest_version_activities
+    Version.order("created_at desc").limit(100)
   end
 
   def latest_comments
-    Comment.order("updated_at desc")
+    Comment.order("updated_at desc").limit(100)
   end
 
   def upcoming_discounts
-    DiscountEvent.order("updated_at desc")
+    DiscountEvent.order("updated_at desc").limit(20)
   end
 
   def latest_news
-    News.order("updated_at desc")
+    News.order("updated_at desc").limit(20)
   end
 
   def latest_article_updates

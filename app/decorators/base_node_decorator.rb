@@ -3,16 +3,16 @@
 class BaseNodeDecorator < Draper::Decorator
   delegate_all
 
-  def notice
-    "#{h.link_user last_activity_user} hat #{h.time_ago_in_words last_activity_timestamp} #{type} #{h.link_to title, model} #{last_activity_action}"
-  end
-
   def teaser
     h.truncate( h.strip_tags(content), length: 500 )
   end
 
   def teaser_image
     h.content_tag :img, nil, class: "featurette-image img-responsive", "src" => "data:image/png;base64,", "data-src" => "holder.js/500x281/auto", "alt" => "Generic image"
+  end
+
+  def authors_list
+    authors.map { |author| h.link_user author }.join(", ")
   end
 
   def title
@@ -27,22 +27,10 @@ class BaseNodeDecorator < Draper::Decorator
     Holarse::Markup.render model.content
   end
 
-  def last_activity_action
-    latest_version ? h.t("versions.state_verb.#{latest_version.event}") : "angelegt"
-  end
-
-  def last_activity_timestamp
-    latest_version ? latest_version.created_at : model.updated_at
-  end
-
-  def last_activity_user
-    latest_version ? User.find(latest_version.whodunnit) : model.user
-  end
-
   protected
 
-  def latest_version
-    model.versions.last
+  def authors
+     model.versions.map { |version| version.whodunnit }.uniq.map { |userid| User.find userid}.sort { |x,y| x.username <=> y.username }
   end
 
 end

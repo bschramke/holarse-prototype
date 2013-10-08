@@ -3,7 +3,7 @@
   %p.text-muted
     %small
       = link_user comment.user
-      = comment.updated_at
+      = l comment.updated_at
       = link_comment "#", comment
   .autolinkable{:"data-ignores" => ""}
     = comment.content.html_safe

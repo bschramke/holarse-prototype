@@ -25,13 +25,14 @@
         = content_tag :span, :class => "badge" do
           #{@article.versions.length}
 
-  - if @article.present? && !@article.new_record?
-    %ul.list-group
-      %li.list-group-item
-        Autoren:
-        = create_author_list(@article)
-      %li.list-group-item
-        Zuletzt aktualisiert:
-        = l @article.updated_at
+      %ul.list-group
+        %li.list-group-item
+          Autoren:
+          = @article.authors_list.html_safe
+        %li.list-group-item
+          Zuletzt aktualisiert:
+          = l @article.last_activity_timestamp
+          von
+          = link_user @article.last_activity_user
   
 = togetherjs_button

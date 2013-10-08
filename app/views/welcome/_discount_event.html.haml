@@ -5,7 +5,7 @@
     %span.text-muted=discount_event.secondary_title
   %p.text-muted
     %small
-      = discount_event.updated_at
+      = l discount_event.updated_at
       von
       = link_user discount_event.user
       = link_to discount_event_path(discount_event, anchor: "comments") do
