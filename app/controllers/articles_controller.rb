@@ -32,6 +32,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.user = current_user
 
     if @article.update_attributes(params[:article])
       redirect_to @article

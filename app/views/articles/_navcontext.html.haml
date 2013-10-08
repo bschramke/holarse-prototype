@@ -31,8 +31,8 @@
           = @article.authors_list.html_safe
         %li.list-group-item
           Zuletzt aktualisiert:
-          = l @article.last_activity_timestamp
+          = l @article.updated_at
           von
-          = link_user @article.last_activity_user
-  
+          = link_user @article.user
+
 = togetherjs_button

@@ -39,6 +39,7 @@ class DiscountEventsController < ApplicationController
   def update
     @discount_event = DiscountEvent.find(params[:id])
     @discount_event.update_attributes(params[:discount_event])
+    @discount_event.user = current_user
     @discount_event.save
     redirect_to discount_events_path(@discount_event)
   end
