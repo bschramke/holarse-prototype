@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
   
   def new
+    add_breadcrumb "Anmelden"
   end
   
   def create

@@ -43,9 +43,34 @@ de:
                         blank: "Der Benutzer der News ist nicht gesetzt"
   formtastic:
     labels:
-      sessions:
+      article:
+        title: "Artikelname"
+        alternate_title: "Alternativer Titel"
+        content: "Inhaltstext"
+        project_activity_state: "Zustand in dem sich das Projekt/Spiel/Community usw befindet"
+        category_list: "Kategorie-Tags"
+        genre_list: "Genres, falls es sich um ein Spiel handelt"
+      discount_event:
+        name: "Name oder Titel der Aktion"
+        startdate: "Anfangsdatum"
+        enddate: "Enddatum"
+        website: "Webseite"
+        description: "Beschreibung der Aktion / Besonderheiten"
+        sourceurl: "Quelle"
+      news:
+        title: "News-Titel"
+        subtitle: "Untertitel, Nebenbemerkung"
+        news_category: "Kategorie"
+        category_list: "Kategorie-Tags"
+        content: "Inhaltstext"
+      session:
         username: "Benutzername"
         password: "Passwort"     
+    actions:
+        create: "Erstellen"
+        update: "Aktualisieren"
+        reset: "Zurückstellen"
+        cancel: "Abbrechen"
   versions:
     state_verb:
       create: "angelegt"
