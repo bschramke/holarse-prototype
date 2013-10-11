@@ -22,10 +22,24 @@ header {
     font-size: 16px;
     min-height: 63px;
     padding: 10px;
+    font-weight: bold;
+
+    color: #7b8690;
+
+    a {
+     color: #7b8690;
+
+      &:hover {
+	text-decoration: none;
+	color: #b12121;
+      } 
+    }
+
+    .dropdown-toggle &:hover {
+      background-color: #7b8690;
+    }
 
     .breadcrumbs {
-      color: #7b8690;
-      float: left;
       margin-top: 10px;
 
       a {
@@ -108,4 +122,14 @@ footer {
 
 .session {
   margin-top: 10px;
+}
+
+.dropdown-toggle { 
+  .open {
+    background-color: #242b32;
+  }
+}
+
+.navbar-nav li .dropdown-menu {
+  background-color: #242b32;
 }
