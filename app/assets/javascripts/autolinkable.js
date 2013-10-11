@@ -7,7 +7,7 @@ holarse.autolink_fn = function(elem) {
     ignorables = $.map(autolinkable_tag.data("ignores").split(","), String.toUpperCase);
   }
 
-  $.get("/holarse/api/autolinkable.json", function(articles) {
+  $.get(holarse.current_host + "/holarse/api/autolinkable.json", function(articles) {
     var linked_text = content;
     for (var i=0; i < articles.length; i++) {
       if ($.inArray(articles[i].title.toUpperCase(), ignorables) >= 0) { continue; }

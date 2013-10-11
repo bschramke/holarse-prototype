@@ -31,7 +31,7 @@ $(document).ready(function() {
     }
   }); 
 
-  $.get("/holarse/api/discount_count.json", function(data) {
+  $.get(holarse.current_host + "/holarse/api/discount_count.json").done(function(data) {
     $.Mustache.addFromDom("discount-events-count-tmpl");
     $("#discount-events-count").mustache("discount-events-count-tmpl", data);
   });

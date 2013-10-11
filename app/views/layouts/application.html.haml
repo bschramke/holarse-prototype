@@ -6,20 +6,10 @@
     %title= build_site_title
     = csrf_meta_tags
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", media: "all"
-    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css", media: "all"
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
-    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" 
-    = javascript_include_tag "//code.jquery.com/ui/1.10.3/jquery-ui.min.js"
-    = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
-    = javascript_include_tag "//togetherjs.com/togetherjs-min.js"
-    = javascript_include_tag "application"
   %body
-
-    :javascript
-      var holarse = holarse || {}; // Namespace deklarieren
-
     %header
       .main
         .container
@@ -50,3 +40,10 @@
     .copyright
       .container
         = render partial: "copyright"
+
+  :javascript
+    var holarse = holarse || {}; // Namespace deklarieren
+    holarse.current_host = location.protocol + '//' + location.host;
+
+  = javascript_include_tag "application"
+  = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
