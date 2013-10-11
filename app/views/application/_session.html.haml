@@ -1,0 +1,14 @@
+%ul.list-inline.session
+  - if current_user
+    %li
+      = link_to user_path(current_user) do
+        = current_user.username
+        = content_tag :span, :class => "badge" do
+          = current_user.decorate.unread_messages.count
+    %li
+      = link_to "Abmelden", logout_path
+  - else
+    %li
+      = link_to "Anmelden", login_path
+    %li
+      = link_to "Registrieren", register_path

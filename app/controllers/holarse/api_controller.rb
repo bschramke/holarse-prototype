@@ -22,6 +22,30 @@ class Holarse::ApiController < ApplicationController
     render :text => User.minecrafters.to_json(only: :minecraft_username)    
   end
 
+  def site_statistics
+    stats = {
+      "stats" => [
+	{ "name" => "Artikel", 
+	  "icon" => "icon-gamepad",
+	  "count" => Article.count.to_json 
+	},
+	{ "name" => "Kommentare", 
+	  "icon" => "icon-comments",
+	  "count" => Comment.count.to_json 
+	},
+	{ "name" => "News", 
+	  "icon" => "icon-bell",
+	  "count" => News.count.to_json 
+	},
+	{ "name" => "Benutzer", 
+	  "icon" => "icon-group",
+	  "count" => User.count.to_json 
+	}
+    ]}
+
+    render :text => stats.to_json
+  end
+
   protected
 
   def update_user_activity

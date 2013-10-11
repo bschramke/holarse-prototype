@@ -1,0 +1,111 @@
+body {
+  background-color: #feffff;
+}
+
+header {
+
+  .main {
+    background-color: #242b32;
+    color: #f8f8f9;
+    padding-top: 55px;
+    padding-bottom: 55px;
+  
+    #logo {
+      float: left;
+      display: block;
+    }
+  }
+
+  .sub {
+    background-color: #37424c;
+    color: #7b8990;
+    font-size: 16px;
+    min-height: 63px;
+    padding: 10px;
+
+    .breadcrumbs {
+      color: #7b8690;
+      float: left;
+      margin-top: 10px;
+
+      a {
+	&:hover, &:focus {
+	  text-decoration: none;
+	}
+      }
+
+    }
+
+    .search {
+      float: right;
+      display: inline-block;
+      background-color: #242b32;
+      min-width: 210px;
+      margin-top: 3px;
+    }
+
+    .searchfield {
+      width: 250px;
+      background-color: #242b32;
+      color: #7b8690;
+      border: none;
+    }
+  }
+}
+
+ul.holarsenav li {
+  line-height: 14px;
+  font-size: 24px;
+  margin-left: 25px;
+
+  a {
+    color: #f8f8f9;
+    padding: 11px 16px;
+
+    &:focus {
+      background-color: #fefefe;
+    }
+
+    &:hover {
+      background-color: #37424c;
+    }
+  }
+}
+
+.content {
+  padding-top: 20px;
+  padding-left: 10px;
+  background-color: #feffff;
+  color: #404b55;
+}
+
+footer {
+  background-color: #242b32;
+  color: #b3b5b7;
+  font-size: 14px;
+
+  a {
+    color: #7b8690;
+  }
+}
+
+.copyright {
+  background-color: #37424c;
+  color: #7b8690;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  font-size: 16px;
+
+  a {
+    color: #7b8690;
+  }
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.session {
+  margin-top: 10px;
+}

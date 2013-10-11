@@ -50,6 +50,9 @@ de:
         project_activity_state: "Zustand in dem sich das Projekt/Spiel/Community usw befindet"
         category_list: "Kategorie-Tags"
         genre_list: "Genres, falls es sich um ein Spiel handelt"
+    placeholders:
+      search:
+        q: "Holarse durchsuchen"
       discount_event:
         name: "Name oder Titel der Aktion"
         startdate: "Anfangsdatum"

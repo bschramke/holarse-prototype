@@ -17,96 +17,33 @@
     = javascript_include_tag "application"
 
   %body
-    .wrap
-      %nav.navbar.navbar-inverse{:role => "navigation"}
-        / Brand and toggle get grouped for better mobile display
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar          
-          = link_to root_path, :class => "navbar-brand" do
-            Holarse - Spielen unter Linux
-        / Collect the nav links, forms, and other content for toggling
-        .collapse.navbar-collapse.navbar-ex1-collapse
-          %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} News
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Spiele
-                %b.caret
-              %ul.dropdown-menu
-                - get_genres.each do |genre|
-                  %li
-                    = link_to genre.name, searchtag_path(genre.name)
-            %li
-              %a{:href => "#"} Tools            
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Holarse-Dienste
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  = link_to "Allgemein", holarse_service_path
-                %li.divider
-                %li
-                  = link_to "Mumble", holarse_service_mumble_path
-                %li
-                  = link_to "Jabber", holarse_service_jabber_path
-                %li
-                  = link_to "Gameserver", holarse_service_gameserver_path
-            %li
-              = link_to "Youtube", videos_path
-            %li#discount-events-count
-              %script{:id => "discount-events-count-tmpl", :type => "text/html"}
-                = link_to discount_events_path do
-                  Rabattaktionen ({{count}})
-          = semantic_form_for 'search', {:html => { :class => 'navbar-form navbar-right' }, :url => search_path} do |f|
-            = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control" }, :placeholder => "Holarse durchsuchen"
-          %ul.nav.navbar-nav.navbar-right
-            - if current_user
-              %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                  Neue Inhalte
-                  %b.caret
-                %ul.dropdown-menu
-                  %li
-                    = link_to 'Neue News', new_news_path
-                  %li
-                    = link_to 'Neuer Artikel', new_article_path
-                  %li
-                    %a{:href => "#"} Neuer Forumsbeitrag
-                  %li
-                    %a{:href => "#"} Neuer Spieleaufruf
-              %li
-                = link_to user_path(current_user) do
-                  = current_user.username
-                  = content_tag :span, :class => "badge" do
-                    = current_user.decorate.unread_messages.count
-              %li
-                = link_to "Abmelden", logout_path
-            - else
-              %li
-                = link_to "Registrieren", register_path
-              %li
-                = link_to "Anmelden", login_path
-        / /.navbar-collapse  
-
+    %header
+      .main
+        .container
+          = render partial: "logo"
+          = render partial: "navbar"
+      .sub
+        .row
+          .col-md-7
+            = render partial: "breadcrumbs"
+          .col-md-1
+            = render partial: "submenu"
+          .col-md-2
+            = render partial: "searchbox"
+          .col-md-2
+            = render partial: "session"
+    .content
       .row
         .col-md-2
+          = render :partial => "navcontext"            
+        .col-md-10 
           .container
-            = render :partial => "navcontext"            
-        .col-md-10
-          .container
-
-            .flash
-              - flash.each do |name, msg|
-                = content_tag :div, msg.html_safe, class: "alert alert-#{name}"
-
-            %ol.breadcrumb
-              = render_breadcrumbs
-
+            = render :partial => "flash", object: flash
             = yield
+    
+    %footer
+      .container
+        = render partial: "footer"
+    .copyright
+      .container
+        = render partial: "copyright"

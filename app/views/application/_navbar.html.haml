@@ -1,0 +1,10 @@
+.pull-right
+  %ul.nav.nav-pills.nav-justified.holarsenav
+    %li
+      = link_to "Youtube", videos_path
+    %li#discount-events-count
+      %script{:id => "discount-events-count-tmpl", :type => "text/html"}
+        = link_to discount_events_path do
+          Rabattaktionen
+          %span.badge
+            {{count}}

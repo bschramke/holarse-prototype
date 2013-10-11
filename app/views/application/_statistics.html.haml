@@ -1,0 +1,19 @@
+%script{:id => "statistic-tmpl", :type => "text/html"}
+  %dl.dl-horizontal
+    {{#stats}}
+    %dt
+      %i{:class => "{{icon}}"}
+      {{name}}
+    %dd
+      {{count}}
+    %dd
+    {{/stats}}
+
+%h3
+  %i.icon-dashboard
+  Statistik
+
+%span
+  Eine &Uuml;bersicht &uuml;ber die Aktivit&auml;t auf Holarse.
+
+#site-statistics
