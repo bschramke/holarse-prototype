@@ -7,12 +7,25 @@ header {
   .main {
     background-color: #242b32;
     color: #f8f8f9;
-    padding-top: 55px;
-    padding-bottom: 55px;
+    padding-top: 25px;
+    padding-bottom: 25px;
   
     #logo {
       float: left;
       display: block;
+    }
+
+    .nav {
+      li a {
+	font-size: 1.5em;
+        color: #7b8690;
+	text-shadow: none;
+	font-weight: bold;
+
+	&:hover {
+	  color: #b12121;
+	}
+      }
     }
   }
 
@@ -33,10 +46,6 @@ header {
 	text-decoration: none;
 	color: #b12121;
       } 
-    }
-
-    .dropdown-toggle &:hover {
-      background-color: #7b8690;
     }
 
     .breadcrumbs {
@@ -67,24 +76,6 @@ header {
   }
 }
 
-ul.holarsenav li {
-  line-height: 14px;
-  font-size: 24px;
-  margin-left: 25px;
-
-  a {
-    color: #f8f8f9;
-    padding: 11px 16px;
-
-    &:focus {
-      background-color: #fefefe;
-    }
-
-    &:hover {
-      background-color: #37424c;
-    }
-  }
-}
 
 .content {
   padding-top: 20px;

@@ -1,4 +1,4 @@
-var autolink_fn = function(elem) {
+holarse.autolink_fn = function(elem) {
   var autolinkable_tag = elem;
   var content = autolinkable_tag.html();
 
@@ -21,7 +21,7 @@ var autolink_fn = function(elem) {
 $(document).ready(function() {
   
   $(".autolinkable").each(function(index) {
-    autolink_fn($(this));
+    holarse.autolink_fn($(this));
   });
 
 });

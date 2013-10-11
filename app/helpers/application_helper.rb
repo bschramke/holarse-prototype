@@ -8,6 +8,10 @@ module ApplicationHelper
   def get_app_version
     Holarse::Application.config.app_version
   end
+
+  def build_site_title
+    "HOLARSE - Spielen unter Linux"
+  end
   
 end
 

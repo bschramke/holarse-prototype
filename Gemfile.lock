@@ -61,11 +61,6 @@ GEM
       request_store (~> 1.0.3)
     erubis (2.7.0)
     fabrication (2.7.2)
-    factory_girl (4.2.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
-      railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
     formtastic (2.2.1)
@@ -189,7 +184,6 @@ DEPENDENCIES
   capybara
   draper (~> 1.0)
   fabrication
-  factory_girl_rails
   faker
   formtastic
   formtastic-bootstrap

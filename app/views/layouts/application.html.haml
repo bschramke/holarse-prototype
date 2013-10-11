@@ -3,7 +3,7 @@
   %head
     %meta(charset="utf-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "HOLARSE - Spielen unter Linux"
+    %title= build_site_title
     = csrf_meta_tags
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", media: "all"
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css", media: "all"
@@ -15,8 +15,11 @@
     = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
     = javascript_include_tag "//togetherjs.com/togetherjs-min.js"
     = javascript_include_tag "application"
-
   %body
+
+    :javascript
+      var holarse = holarse || {}; // Namespace deklarieren
+
     %header
       .main
         .container
@@ -27,7 +30,7 @@
           .col-md-6
             = render partial: "breadcrumbs"
           .col-md-2
-            = render partial: "submenu"
+            = render partial: "submenu" if current_user
           .col-md-2
             = render partial: "searchbox"
           .col-md-2
