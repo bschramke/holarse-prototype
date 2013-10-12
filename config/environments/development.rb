@@ -29,6 +29,8 @@ Holarse::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.serve_static_assets = true
+
   # Fix for running imagemagick using jruby
   Cocaine::CommandLine.runner = Cocaine::CommandLine::BackticksRunner.new
 

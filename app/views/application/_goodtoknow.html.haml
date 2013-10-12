@@ -1,0 +1,15 @@
+%h3
+  %i.icon-start
+  Über Holarse
+
+%p
+  Aktuelle Software-Version: #{link_to get_app_version[0...7], version_path(get_app_version)}
+%p
+  = link_to "http://ipv6-test.com/validate.php?url=referer" do
+    = image_tag "button-ipv6-80x15.png"
+%p
+  = link_to "https://www.manitu.de" do
+    = image_tag "manitu_publicon.gif"
+%p
+  = link_to "http://www.jugendschutzprogramm.de/download" do
+    = image_tag "jusprog-age-de-icon-18.png"
