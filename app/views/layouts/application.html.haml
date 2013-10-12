@@ -46,4 +46,5 @@
     holarse.current_host = location.protocol + '//' + location.host;
 
   = javascript_include_tag "application"
+  = javascript_include_tag "//togetherjs.com/togetherjs-min.js" if user_wants_to_collaborate?
   = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"

@@ -1,6 +1,6 @@
 class Holarse::ApiController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, only: [:markup_preview]
+  skip_before_filter :verify_authenticity_token, only: [:markup_preview, :site_statistics]
 
   respond_to :json
 
