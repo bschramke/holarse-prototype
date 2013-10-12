@@ -46,6 +46,14 @@
         Rollen
       %dd
         = @user.roles
+      %dt
+        Erlaubt Zusammenarbeit 
+      %dd
+        = @user.collaborate
+        %small
+          (
+          = link_to "TogetherJS", "https://togetherjs.com/"
+          )
 
   %p.lead
     Minecraft
