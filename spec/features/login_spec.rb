@@ -8,8 +8,8 @@ describe "the signin process", :type => :feature do
 
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: user.username
-      fill_in "Password", with: user.password
+      fill_in "Benutzername", with: user.username
+      fill_in "Passwort", with: user.password
     end
 
     click_button "Submit Session"
@@ -21,8 +21,8 @@ describe "the signin process", :type => :feature do
 
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: user.username
-      fill_in "Password", with: "falsches passwort"
+      fill_in "Benutzername", with: user.username
+      fill_in "Passwort", with: "falsches passwort"
     end
 
     click_button "Submit Session"
@@ -32,8 +32,8 @@ describe "the signin process", :type => :feature do
   it "rejects me with a not-existing user" do
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: "nicht existenter benutzer"
-      fill_in "Password", with: "falsches passwort"
+      fill_in "Benutzername", with: "nicht existenter benutzer"
+      fill_in "Passwort", with: "falsches passwort"
     end
 
     click_button "Submit Session"
@@ -45,8 +45,8 @@ describe "the signin process", :type => :feature do
 
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: user.username
-      fill_in "Password", with: user.password
+      fill_in "Benutzername", with: user.username
+      fill_in "Passwort", with: user.password
     end
 
     click_button "Submit Session"
@@ -58,8 +58,8 @@ describe "the signin process", :type => :feature do
 
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: user.username
-      fill_in "Password", with: user.password
+      fill_in "Benutzername", with: user.username
+      fill_in "Passwort", with: user.password
     end
 
     click_button "Submit Session"
@@ -70,8 +70,8 @@ describe "the signin process", :type => :feature do
   it "rejects me when i entered nothing" do
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: ""
-      fill_in "Password", with: ""
+      fill_in "Benutzername", with: ""
+      fill_in "Passwort", with: ""
     end
 
     click_button "Submit Session"
@@ -82,8 +82,8 @@ describe "the signin process", :type => :feature do
     user = Fabricate(:user)
     visit login_path
     within("#new_session") do
-      fill_in "Username", with: user.username
-      fill_in "Password", with: ""
+      fill_in "Benutzername", with: user.username
+      fill_in "Passwort", with: ""
     end
 
     click_button "Submit Session"

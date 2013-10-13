@@ -56,7 +56,7 @@ Holarse::Application.routes.draw do
   match "videos" => "media#videos"
 
   # redirects
-  match "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), :as => :holarse_twitter
+  match "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), :as => :twitter
 
   match "/redirect/youtube/:channel" => redirect("https://www.youtube.com/user/%{channel}"), :as => :youtube_channel
 
