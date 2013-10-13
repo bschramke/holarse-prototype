@@ -2,6 +2,10 @@
 class ArticleDecorator < BaseNodeDecorator
   delegate_all
 
+  def icon
+    "icon-gamepad"
+  end
+
   def tags
     model.genre_list + model.category_list
   end

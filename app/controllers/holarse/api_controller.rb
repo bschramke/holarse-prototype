@@ -46,7 +46,15 @@ class Holarse::ApiController < ApplicationController
     render :text => stats.to_json
   end
 
+  def taglist
+    render :text => taglist_by_context(params[:context], params[:term])
+  end
+
   protected
+
+  def taglist_by_context(context, searchword="")
+    ActsAsTaggableOn::Tagging.joins("inner join tags on tags.id = tag_id").where(context: context).where("tags.name like ?", "%#{searchword}%").select("tags.name").map(&:name).uniq
+  end
 
   def update_user_activity
     # soll nicht als aktivitaet zaehlen, daher wird

@@ -21,15 +21,21 @@ class SearchController < ApplicationController
     render :show
   end
 
+  def suggest
+    respond_to do |format|
+      format.json { render :json => search_content(params[:term], 25).map { |s| { "title" => s.title, "secondary_title" => s.secondary_title, "icon" => s.icon, "url" => url_for(s) } }.to_json }
+    end
+  end
+
   private
 
   def search_for_tags(searchword)
     News.tagged_with(searchword).decorate + Article.tagged_with(searchword).decorate
   end
 
-  def search_content(searchword)
+  def search_content(searchword, limit=200)
     q = "%#{searchword}%"
-    News.where("content like ? or title like ? or subtitle like ?", q, q ,q).decorate + Article.where("content like ? or title like ? or alternate_title like ?", q, q, q).decorate
+    News.where("content like ? or title like ? or subtitle like ?", q, q ,q).limit(limit).decorate + Article.where("content like ? or title like ? or alternate_title like ?", q, q, q).limit(limit).decorate
   end
 
   def set_start_time

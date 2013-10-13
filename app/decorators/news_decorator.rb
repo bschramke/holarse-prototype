@@ -1,6 +1,10 @@
 class NewsDecorator < BaseNodeDecorator
   delegate_all
 
+  def icon
+    "icon-bell"
+  end
+
   def category
     model.news_category ? model.news_category.description : ""
   end

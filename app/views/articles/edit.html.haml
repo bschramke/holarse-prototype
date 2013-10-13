@@ -21,9 +21,9 @@
         .form-group
           = f.input :project_activity_state, label_method: :name, input_html: { class: "form-control" }
         .form-group
-          = f.input :category_list, input_html: { class: "form-control" }
+          = f.input :category_list, input_html: { class: "form-control tagsinput", :"data-context" => "categories" }
         .form-group
-          = f.input :genre_list, input_html: { class: "form-control" }
+          = f.input :genre_list, input_html: { class: "form-control tagsinput", :"data-context" => "genres" }
       = f.actions do
         .form-group
           = f.action :submit, as: :button, button_html: { class: "btn btn-default" }

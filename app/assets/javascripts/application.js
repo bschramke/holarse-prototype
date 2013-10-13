@@ -21,4 +21,5 @@
 //= require ../../../vendor/assets/javascripts/jquery.fancybox-media
 //= require ../../../vendor/assets/javascripts/jquery.fancybox-buttons
 //= require ../../../vendor/assets/javascripts/jquery.fancybox-thumbs
+//= require ../../../vendor/assets/javascripts/jquery.tagsinput.min
 //= require_tree .

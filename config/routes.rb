@@ -6,6 +6,7 @@ Holarse::Application.routes.draw do
   post "holarse/api/markup_preview" # ermoeglicht die vorschau von markdown-seiten
   get "holarse/api/minecrafters" # die whitegelisteten minecraft-user
   get "holarse/api/site_statistics" # die holarse-statistik
+  get "holarse/api/taglist" # die tagliste je kategorie
 
   # holarse-services-seiten
   get "holarse/service/index", as: :holarse_service
@@ -19,6 +20,7 @@ Holarse::Application.routes.draw do
   end
 
   # die suche
+  match "search/suggest" => "search#suggest"
   match "search/(:q)" => "search#show", as: :search
   get "search/tags/:q" => "search#tags", as: :searchtag
 
