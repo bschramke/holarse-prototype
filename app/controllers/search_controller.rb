@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SearchController < ApplicationController
 
   before_filter :set_start_time
@@ -21,9 +22,21 @@ class SearchController < ApplicationController
     render :show
   end
 
+  #
+  # schlägt artikel und news für die autovervollständigung vor
+  #
   def suggest
     respond_to do |format|
-      format.json { render :json => search_content(params[:term], 25).map { |s| { "title" => s.title, "secondary_title" => s.secondary_title, "icon" => s.icon, "url" => url_for(s) } }.to_json }
+      format.json { 
+	render :json => search_content(params[:term], 25)
+	.map { |s| {  "title" => s.title, 
+		      "secondary_title" => s.secondary_title, 
+		      "icon" => s.icon,
+		      "accuracy" => 0, 
+		      "url" => url_for(s) 
+	  } 
+	}.to_json
+      }
     end
   end
 
