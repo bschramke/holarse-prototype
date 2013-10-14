@@ -24,5 +24,9 @@ class Article < ActiveRecord::Base
     acts_as_taggable_on :categories, :genres
 
     default_scope where(enabled: true)
+
+    def self.search(q, limit=200)
+      where("content like ? or title like ? or alternate_title like ?", q, q, q).limit(limit)
+    end
 end
 

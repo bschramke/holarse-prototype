@@ -26,4 +26,8 @@ class News < ActiveRecord::Base
 
   default_scope where(enabled: true)
 
+  def self.search(q, limit=200)
+    where("content like ? or title like ? or subtitle like ?", q, q, q).limit(limit)
+  end
+
 end
