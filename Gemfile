@@ -60,3 +60,4 @@ gem "jquery-ui-rails"
 
 # moustache for templating
 gem 'mustache-js-rails'
+gem 'momentjs-rails'

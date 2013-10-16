@@ -7,7 +7,9 @@
         %i{:class => "icon-youtube"}
           {{name}}
       .text-muted
-        {{updated}} von 
+        %time.timeago{:datetime => "{{published_ts}}"}
+          {{published}}
+        von
         %a{:href => "/redirect/youtube/{{author}}"}
           {{author}}
       .autolinkable{:"data-ignores" => ""}
