@@ -2,8 +2,10 @@
   %td
     %i.icon-circle-arrow-down.icon.discount-event-show-details{:"data-discount-event-id" => discount_event.id}
       = link_to discount_event.name, discount_event
-  %td=l discount_event.startdate if discount_event.startdate
-  %td=l discount_event.enddate if discount_event.enddate
+  %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
+    =l discount_event.startdate if discount_event.startdate
+  %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
+    =l discount_event.enddate if discount_event.enddate
   %td
     =link_to discount_event.website, { class: "btn btn-default btn-small"} do
       = content_tag :span, "", { class: "glyphicon glyphicon-link" }
