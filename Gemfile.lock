@@ -76,7 +76,7 @@ GEM
       railties (>= 3.1, < 4.1)
     hike (1.2.3)
     i18n (0.6.5)
-    jdbc-mysql (5.1.24)
+    jdbc-mysql (5.1.25)
     jdbc-sqlite3 (3.7.2.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -196,7 +196,7 @@ DEPENDENCIES
   formtastic
   formtastic-bootstrap
   haml-rails
-  jdbc-mysql
+  jdbc-mysql (~> 5.1.25)
   jdbc-sqlite3
   jquery-rails (~> 3.0.4)
   jquery-ui-rails

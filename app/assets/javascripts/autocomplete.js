@@ -10,7 +10,7 @@ $(document).ready(function() {
 
   // Such-Vervollständigung
   $("#search_q").autocomplete({
-    "autoFocus": "true",
+    "autoFocus": "false",
     "minLength": 2,
     "source": "/search/suggest.json",
     "select": function(event, ui) {
