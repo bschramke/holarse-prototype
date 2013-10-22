@@ -14,14 +14,13 @@
 
 %p.lead
   Screenshots
-
   .row
-    - 10.times do
+    - require 'faker'
+    - 10.times do |t|
       .col-sm-2.col-md-4
-        = link_to "#", class: "thumbnail fancybox", rel: "article-#{@article.id}" do
-          %img{:"data-src" => "holder.js/100%x180", :alt => "Artikelbild", :title => "Beispielbild"}
+        = link_to "http://lorempixel.com/1024/768/technics/#{t+1}", class: "fancybox fancybox.image", title: "#{Faker::Lorem.words(3).join " "}", rel: "gallery" do
+          %img{:"src" => "http://lorempixel.com/300/180/technics/#{t+1}"}
         .caption
-          - require 'faker'
           = Faker::Lorem.sentences(3).join " "
 
 %p.lead

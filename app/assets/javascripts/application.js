@@ -17,7 +17,6 @@
 //= require jquery.mustache
 //= require moment
 //= require moment/de.js
-//= require ../../../vendor/assets/javascripts/holder.min
 //= require ../../../vendor/assets/javascripts/bootstrap-sortable
 //= require ../../../vendor/assets/javascripts/jquery.fancybox.pack
 //= require ../../../vendor/assets/javascripts/jquery.fancybox-media
