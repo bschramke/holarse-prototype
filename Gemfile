@@ -11,7 +11,7 @@ end
 
 # Database backend
 #
-gem 'activerecord-jdbcsqlite3-adapter', :require => 'arjdbc/sqlite3'
+gem 'activerecord-jdbcsqlite3-adapter', "~> 1.3.2", :require => 'arjdbc/sqlite3'
 gem 'jdbc-sqlite3'
 gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
 

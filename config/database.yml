@@ -2,7 +2,9 @@
 development:
   adapter:  jdbcsqlite3
   database: db/development.sqlite3
+  encoding: utf8
 
 test:
   adapter:  jdbcsqlite3
   database: db/test.sqlite3
+  encoding: utf8

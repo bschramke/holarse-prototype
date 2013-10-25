@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ArticlesController < ApplicationController
 
   before_filter :require_edit_permissions, :except => [:index, :show]
@@ -10,8 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
-    @article.project_activity_state = ProjectActivityState.find_by_code(:active)
+    @article = Article.new(project_activity_state: ProjectActivityState.find_by_code(:active))
     render :edit
   end
 

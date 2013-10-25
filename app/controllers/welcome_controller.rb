@@ -6,10 +6,10 @@ class WelcomeController < ApplicationController
     @elements = decorate(welcome_elements).sort &sorting
     @activities = decorate(all_activities).sort &sorting
 
-    @tags = {
-      :genres => Article.tag_counts_on(:genres),
-      :categories => Article.tag_counts_on(:categories)
-    }
+    #@tags = {
+    #  :genres => Article.tag_counts_on(:genres),
+    #  :categories => Article.tag_counts_on(:categories)
+    #}
   end
 
   private
