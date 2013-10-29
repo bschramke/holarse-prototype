@@ -25,15 +25,21 @@ holarse.load_yt_playlist = function(channelname, maxresults) {
 
 holarse.update_yt_videos = function(playlists) {
   // videos laden
-  var all_vids = [].concat( holarse.load_yt_playlist("holarse", 15), holarse.load_yt_playlist("gtuxtv", 15) );
+  var all_vids = [].concat( holarse.load_yt_playlist("holarse", 15), holarse.load_yt_playlist("gtuxtv", 15), holarse.load_yt_playlist("GZLucki", 15) );
 
   // sortieren nach datum
   var sorted_vids = all_vids.sort(function(a,b) { return a.published_ts < b.published_ts; });
+
+  // channels extrahieren
+  var channels = all_vids.map(function(data) { return data.author; }).filter(function(itm,i,a) { return i===a.indexOf(itm); }).map(function(data) { return { author: data }; });
 
   // ausgabe
   $.Mustache.addFromDom('youtube-tmpl');
   $("#yt-videos").mustache("youtube-tmpl", sorted_vids);
   $(".autolinkable").each(function(index) { holarse.autolink_fn($(this)); });
+
+  $.Mustache.addFromDom("youtube-channel-tmpl");
+  $("#yt-channels").mustache("youtube-channel-tmpl", channels);
 };
 
 $(document).ready(function() {

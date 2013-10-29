@@ -1,3 +1,5 @@
-.list-group
-  = link_to "Holarse-Channel", youtube_channel_path(channel: "holarse"), class: "list-group-item"
-  = link_to "GTux-TV-Channel", youtube_channel_path(channel: "gtuxtv"), class: "list-group-item"
+%script{:id => "youtube-channel-tmpl", :type => "text/html"}
+  %a{:href => "/redirect/youtube/{{author}}", :class => "list-group-item"}
+    {{author}}
+
+.list-group#yt-channels
