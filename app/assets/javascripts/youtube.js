@@ -10,6 +10,7 @@ holarse.load_yt_playlist = function(channelname, maxresults) {
 		    id: item.media$group.yt$videoid.$t,
 		    author: item.author[0].name.$t,
 		    name: item.title.$t,
+		    channel: item.media$group.media$credit[0].$t,
 		    img_url: item.media$group.media$thumbnail[1].url,
 		    desc: item.media$group.media$description.$t,
 		    link: item.link[0].href,
@@ -31,7 +32,7 @@ holarse.update_yt_videos = function(playlists) {
   var sorted_vids = all_vids.sort(function(a,b) { return a.published_ts < b.published_ts; });
 
   // channels extrahieren
-  var channels = all_vids.map(function(data) { return data.author; }).filter(function(itm,i,a) { return i===a.indexOf(itm); }).map(function(data) { return { author: data }; });
+  var channels = all_vids.map(function(data) { return data.channel; }).filter(function(itm,i,a) { return i===a.indexOf(itm); }).map(function(data) { return { channel: data }; });
 
   // ausgabe
   $.Mustache.addFromDom('youtube-tmpl');
