@@ -5,14 +5,17 @@ de:
       backtotop: "Nach oben"
   datetime:
     distance_in_words:
+      about_x_months:
+        one: "vor einem Monat"
+        other: "vor %{count} Monaten"
       x_days: 
-        one: "vor %{count} Tag"
+        one: "vor einem Tag"
         other: "vor %{count} Tagen"
       about_x_hours: 
-        one: "vor %{count} Stunde"
+        one: "vor einer Stunde"
         other: "vor %{count} Stunden"
       x_minutes: 
-        one: "vor %{count} Minute"
+        one: "vor einer Minute"
         other: "vor %{count} Minuten"
       less_than_x_minutes:
         one: "eben gerade"

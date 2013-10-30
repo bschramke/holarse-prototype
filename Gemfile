@@ -7,6 +7,7 @@ gem 'stringex'
 
 group :production do
   gem 'puma'
+  gem 'dalli' # memcache
 end
 
 # Database backend
@@ -24,6 +25,7 @@ gem 'draper', '~> 1.0' # model decoration
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'haml-rails'
+  gem 'font-awesome-sass'
 end
 
 # View

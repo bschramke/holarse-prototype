@@ -2,7 +2,7 @@
   %ul.list-group#activitylist
     - @activities.each do |activity|
       %li.list-group-item=activity.notice.html_safe
-  %i.icon-sort-by-attributes
+  %i.fa.fa-plus
   = link_to "alle zeigen", "#", id: "toggle-activities", remote: true
     
 

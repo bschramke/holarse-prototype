@@ -128,3 +128,13 @@ footer {
 .tagsinput {
   border: none;
 }
+
+#backtotop {
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

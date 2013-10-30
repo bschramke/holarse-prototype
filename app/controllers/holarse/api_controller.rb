@@ -26,19 +26,19 @@ class Holarse::ApiController < ApplicationController
     stats = {
       "stats" => [
 	{ "name" => "Artikel", 
-	  "icon" => "icon-gamepad",
+	  "icon" => "fa fa-gamepad",
 	  "count" => Article.count.to_json 
 	},
 	{ "name" => "Kommentare", 
-	  "icon" => "icon-comments",
+	  "icon" => "fa fa-comments",
 	  "count" => Comment.count.to_json 
 	},
 	{ "name" => "News", 
-	  "icon" => "icon-bell",
+	  "icon" => "fa fa-bell",
 	  "count" => News.count.to_json 
 	},
 	{ "name" => "Benutzer", 
-	  "icon" => "icon-group",
+	  "icon" => "fa fa-group",
 	  "count" => User.count.to_json 
 	}
     ]}

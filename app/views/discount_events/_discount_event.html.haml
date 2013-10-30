@@ -1,6 +1,6 @@
 %tr.discount_event{:id => "discount-event-#{discount_event.id}", :"data-discount-event-id" => "#{discount_event.id}"}
   %td
-    %i.icon-circle-arrow-down.icon.discount-event-show-details{:"data-discount-event-id" => discount_event.id}
+    %i.fa.fa-arrow-down.icon.discount-event-show-details{:"data-discount-event-id" => discount_event.id}
       = link_to discount_event.name, discount_event
   %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
     =l discount_event.startdate if discount_event.startdate

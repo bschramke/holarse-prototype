@@ -6,7 +6,6 @@
     %title= build_site_title
     = csrf_meta_tags
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", media: "all"
-    = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body
@@ -40,6 +39,8 @@
     .copyright
       .container
         = render partial: "copyright"
+    #backtotop
+      %i.fa.fa-arrow-up.fa-4x
 
   :javascript
     var holarse = holarse || {}; // Namespace deklarieren
