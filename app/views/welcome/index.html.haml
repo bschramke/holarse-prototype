@@ -1,20 +1,12 @@
-.container
-  %ul.list-group#activitylist
-    - @activities.each do |activity|
-      %li.list-group-item=activity.notice.html_safe
-  %i#activity-list-icon.fa
-  = link_to "alle zeigen", "#", id: "toggle-activities", remote: true
+%ul.list-group#activitylist
+  - @activities.each do |activity|
+    %li.list-group-item=activity.notice.html_safe
+%i#activity-list-icon.fa
+= link_to "alle zeigen", "#", id: "toggle-activities", remote: true
     
 
-  .marketing
-    - @elements.each do |element|
-      %hr.featurette-divider
-      .row.featurette
-        = render partial: element.model.class.name.underscore, object: element
-
-  %p.lead
-    Aktuell online:
-    %ul.list-group
-      - current_logged_in_users.each do |logged_in_user|
-        %li.list-group-item
-          = link_user logged_in_user
+.marketing
+  - @elements.each do |element|
+    %hr.featurette-divider
+    .row.featurette
+      = render partial: element.model.class.name.underscore, object: element

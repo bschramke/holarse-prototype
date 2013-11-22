@@ -1,38 +1,10 @@
-.panel.panel-default
-  .panel-heading
-    %a.collapser{:"data-collapse" => "article-description"}
-      Beschreibung
-  .panel-body.article#article-description
-    %p
-      Hier können neue Artikel angelegt, bearbeitet und ergänzt werden. Ihr könnt euch die Revisionen der Artikeländerungen, die Veränderungen dazwischen
-      ansehen und die Autoren.
-    %p
-      Änderungen können von jedem registrierten Benutzer vorgenommen werden. Als Eingabesprache verwenden wir Markdown. Diese Sprache ist besonders einfach
-      zu benutzen und leicht zu erlernen. Hilfe zu den am meisten gebrauchten Markdown-Befehlen könnt ihr in diesem Menü ganz unten in der aufklappbaren Box
-      nachschlagen.
-    %p
-      Die Artikel werden alle untereinander automatisch verlinkt. Dazu werden einfach die Artikelnamen und deren Alternativartikelnamen verwendet. Wenn es also z.B
-      einen Artikel zu "Holzschuhe" gibt, und ihr dieses Wort in eurem Text verwendet, wird das Wort automatisch zu einem Link über den Artikel "Holzschuhe" umgewandelt.
-
-  %ul.list-group
-    .list-group-item.active
-      Men&uuml;
-
-    - if @article.present? && !@article.new_record? && current_page?(article_path(@article))
-      = link_to "Bearbeiten", edit_article_path(@article), :class => "list-group-item"
-      = link_to article_history_index_path(@article), :class => "list-group-item" do
-        Revisionen
-        = content_tag :span, :class => "badge" do
-          #{@article.versions.length}
-
-      %ul.list-group
-        %li.list-group-item
-          Autoren:
-          = @article.authors_list.html_safe
-        %li.list-group-item
-          Zuletzt aktualisiert:
-          = l @article.updated_at
-          von
-          = link_user @article.user
-
-= togetherjs_button
+%li
+  = link_to "Neuer Artikel", new_article_path
+- if @article.present? && !@article.new_record? && current_page?(article_path(@article))
+  %li
+    = link_to "Bearbeiten", edit_article_path(@article)
+  %li
+    = link_to article_history_index_path(@article) do
+      Revisionen
+      = content_tag :span, :class => "badge" do
+        #{@article.versions.length}

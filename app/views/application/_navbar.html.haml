@@ -1,34 +1,71 @@
-.collapse.navbar-collapse.navbar-ex1-collapse
-  %ul.nav.navbar-nav.pull-right
-    %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        Spiele
-        %b.caret
-      %ul.dropdown-menu
-        - get_genres.each do |genre|
+%nav.navbar.navbar-default.navbar-fixed-bottom{:role => "navigation"}
+  .navbar-header
+    %button.navbar-toggle{:type => "button", :"data-toggle" => "collapse", :"data-target" => "#navbar-collapse-1"}
+      %span.sr-only
+        Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to "HOLARSE - Spielen unter Linux", root_path, class: "navbar-brand"
+
+  .collapse.navbar-collapse#navbar-collapse-1
+    %ul.nav.navbar-nav
+      %li
+        = semantic_form_for 'search', html: { class: "navbar-form", role: "search"}, :url => search_path do |f|
+          = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control searchfield" }
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Spiele
+          %b.caret
+        %ul.dropdown-menu
+          - get_genres.each do |genre|
+            %li
+              = link_to genre.name, searchtag_path(genre.name)
+      %li
+        = link_to "Youtube", videos_path
+      %li#discount-events-count
+        %script{:id => "discount-events-count-tmpl", :type => "text/html"}
+          = link_to discount_events_path do
+            Rabattaktionen
+            %span.badge
+              {{count}}
+      %li
+        = link_to "Twitter", twitter_path
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Dienste
+          %b.caret
+        %ul.dropdown-menu
           %li
-            = link_to genre.name, searchtag_path(genre.name)
-    %li
-      = link_to "Youtube", videos_path
-    %li#discount-events-count
-      %script{:id => "discount-events-count-tmpl", :type => "text/html"}
-        = link_to discount_events_path do
-          Rabattaktionen
-          %span.badge
-            {{count}}
-    %li
-      = link_to "Twitter", twitter_path
-    %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        Dienste
-        %b.caret
-      %ul.dropdown-menu
+            = link_to "Allgemein", holarse_service_path
+          %li.divider
+          %li
+            = link_to "Mumble", holarse_service_mumble_path
+          %li
+            = link_to "Jabber", holarse_service_jabber_path
+          %li
+            = link_to "Gameserver", holarse_service_gameserver_path
+    %ul.nav.navbar-nav.navbar-right              
+      - if current_user
+        %li.dropdown
+          %a.dropdown-toggle{:"data-toggle" => "dropdown", :href => "#"}
         %li
-          = link_to "Allgemein", holarse_service_path
-        %li.divider
+          = link_to user_path(current_user) do
+            = current_user.username
+            = content_tag :span, :class => "badge" do
+              = current_user.decorate.unread_messages.count
         %li
-          = link_to "Mumble", holarse_service_mumble_path
+          = link_to "Abmelden", logout_path
+      - else
         %li
-          = link_to "Jabber", holarse_service_jabber_path
+          = link_to "Anmelden", login_path
         %li
-          = link_to "Gameserver", holarse_service_gameserver_path
+          = link_to "Registrieren", register_path
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a.dropdown-toggle{:"data-toggle" => "dropdown", :href => "#"}
+          Menü
+          %b.caret
+        %ul.dropdown-menu
+          = render partial: "navcontext"
+

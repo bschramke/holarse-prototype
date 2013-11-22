@@ -8,7 +8,7 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def teaser_image
-    h.content_tag :img, nil, class: "featurette-image img-responsive", "src" => "http://lorempixel.com/500/281/technics/#{Random.rand(10)+1}", "alt" => "Generic image"
+    h.content_tag :img, nil, class: "img-responsive", "src" => "http://lorempixel.com/500/281/technics/#{Random.rand(10)+1}", "alt" => "Generic image"
   end
 
   def authors_list

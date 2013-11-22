@@ -5,40 +5,18 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title= build_site_title
     = csrf_meta_tags
-    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", media: "all"
+    = stylesheet_link_tag "//bootswatch.com/flatly/bootstrap.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body
     %header
-      .main
-        .container
-          = render partial: "logo"
-          = render partial: "navbar"
-      .sub
-        .row
-          .col-md-6
-            = render partial: "breadcrumbs"
-          .col-md-2
-            = render partial: "submenu" if current_user
-          .col-md-2
-            = render partial: "searchbox"
-          .col-md-2
-            = render partial: "session"
-    .content
-      .row
-        .col-md-2
-          = render :partial => "navcontext"            
-        .col-md-10 
-          .container
-            = render :partial => "flash", object: flash
-            = yield.force_encoding("UTF-8")
+      = render partial: "logo"
+      = render partial: "navbar"
+      = render partial: "breadcrumbs"
+    %article
+      = render :partial => "flash", object: flash
+      = yield.force_encoding("UTF-8")
     
-    %footer
-      .container
-        = render partial: "footer"
-    .copyright
-      .container
-        = render partial: "copyright"
     #backtotop
       %i.fa.fa-arrow-up.fa-4x
 

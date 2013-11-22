@@ -20,6 +20,9 @@ de:
       less_than_x_minutes:
         one: "eben gerade"
         other: "vor weniger als %{count} Minuten"
+      x_months:
+        one: "vor einem Monat"
+        other: "vor %{count} Monaten"
   time:
     formats:
       default: "%d.%m.%Y %H:%M:%S"
