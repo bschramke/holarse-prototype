@@ -5,7 +5,20 @@ class Holarse::ApiController < ApplicationController
   respond_to :json
 
   def autolinkable
-    render :text => Holarse::Api::Autolinkable.new.create_title_list(Article.select("title, alternate_title, id")).to_json    
+    articles = Article.select("title, alternate_title, id")
+    a = articles.map { |a| { :id => a.id, :title => a.title } }
+    b = articles.map { |a| { :id => a.id, :title => a.alternate_title } }
+		.reject { |a| a[:title].nil? || a[:title].empty? } # leere title rauswerfen
+		.collect { |g| # multiple alternativartikel in einzelobjekte aufsplitten
+		    c = []
+	            g[:title].split(",").each do |n|
+			c << { :id => g[:id], :title => n.strip }
+		    end
+		    c
+	         }.flatten
+
+    result = (a + b).sort { |a,b| a[:id] <=> b[:id] }
+    render :text => result.to_json
   end
 
   def discount_count

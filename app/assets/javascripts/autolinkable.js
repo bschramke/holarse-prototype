@@ -10,9 +10,10 @@ holarse.autolink_fn = function(elem) {
   $.get(holarse.current_host + "/holarse/api/autolinkable.json", function(articles) {
     var linked_text = content;
     for (var i=0; i < articles.length; i++) {
+      console.log("Verarbeite " + articles[i].title);
       if ($.inArray(articles[i].title.toUpperCase(), ignorables) >= 0) { continue; }
-      var regexp = new RegExp("( " + articles[i].title + "\S*)", "gi");
-      linked_text = linked_text.replace(regexp, "<a href='/articles/" + articles[i].id + "' role='internal'>$1</a>");
+      var regexp = new RegExp(" (" + articles[i].title + ")", "gi");
+      linked_text = linked_text.replace(regexp, " <a href='/articles/" + articles[i].id + "' role='internal'>$1</a>");
     }
     autolinkable_tag.html(linked_text);
   });
