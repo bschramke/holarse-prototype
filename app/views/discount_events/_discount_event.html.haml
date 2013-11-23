@@ -1,20 +1,21 @@
-%tr.discount_event{:id => "discount-event-#{discount_event.id}", :"data-discount-event-id" => "#{discount_event.id}"}
+%tr
   %td
-    %i.fa.fa-arrow-down.icon.discount-event-show-details{:"data-discount-event-id" => discount_event.id}
-      = link_to discount_event.name, discount_event
+    = discount_event.name
   %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
     =l discount_event.startdate if discount_event.startdate
   %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
     =l discount_event.enddate if discount_event.enddate
   %td
-    =link_to discount_event.website, { class: "btn btn-default btn-small"} do
-      = content_tag :span, "", { class: "glyphicon glyphicon-link" }
+    = fa_icon "external-link"
+    = link_to discount_event.website
   %td
     %span.badge=discount_event.comments.count if discount_event.comments.count > 0
   %td
-    = link_to "Bearbeiten", edit_discount_event_path(discount_event), { class: "btn btn-default hidden hover" }
-%tr.discount_event_detail.info{:id => "discount-event-details-#{discount_event.id}"}
-  %td{:colspan => "5"}
+    = link_to "#", class: "discount-event-details-toggle", :"data-discount-id" => "#{discount_event.id}" do
+      %i.fa.fa-arrow-down
+
+%tr.discount_event_detail{:id => "discount-event-details-#{discount_event.id}"}
+  %td{:colspan => "6"}
     .autolinkable{:"data-ignores" => ""}
       = discount_event.description
     %p

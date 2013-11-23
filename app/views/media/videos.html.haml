@@ -4,8 +4,7 @@
       %img{:src => "{{img_url}}", :class => "media-object"}
     .media-body
       %h4{:class => "media-heading"}
-        %i{:class => "fa fa-youtube"}
-          {{name}}
+        = fa_icon "youtube", text: "{{name}}"
       .text-muted
         %time.timeago{:datetime => "{{published_ts}}"}
           {{published}}

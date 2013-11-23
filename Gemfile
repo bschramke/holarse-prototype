@@ -25,8 +25,9 @@ gem 'draper', '~> 1.0' # model decoration
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'haml-rails'
-  gem 'font-awesome-sass'
 end
+
+gem 'font-awesome-rails'
 
 # View
 # 
