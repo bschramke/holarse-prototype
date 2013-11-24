@@ -2,10 +2,19 @@
   %h1
     = @discount_event.title
     %small
-      Vom #{l @discount_event.startdate} bis #{l @discount_event.enddate}
+      Von
+      = l(@discount_event.startdate) if @discount_event.startdate.present?
+      bis
+      = l(@discount_event.enddate) if @discount_event.enddate.present? 
 
-= content_tag :div, class: "autolinkable" do
-  = @discount_event.description
+%p
+  = content_tag :div, class: "autolinkable" do
+    = @discount_event.description
+
+%p.lead
+  Links
+= fa_icon "external-link"
+= link_to @discount_event.website
 
 %a{:name => "comments"}
 %p.lead
