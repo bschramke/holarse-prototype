@@ -3,19 +3,19 @@
     = t('.title')
 
 %section
-  %table.table.table-hover.sortable
-    %thead
-      %tr
-        %th
-          Aktionsname
-        %th
-          Anfangsdatum
-        %th
-          Enddatum
-        %th{:"data-defaultsort" => "disabled"}
-          Aktionswebsite
-        %th
-          \# Komm.
-        %th
-    %tbody    
-      = render :partial => "discount_events/discount_event", :collection => @discount_events
+  .table-responsive
+    %table.table.table-hover.sortable
+      %thead
+        %tr
+          %th
+            Aktionsname
+          %th
+            Anfangsdatum
+          %th
+            Enddatum
+          %th{:"data-defaultsort" => "disabled"}
+            Aktionswebsite
+          %th
+            \# Komm.
+      %tbody    
+        = render :partial => "discount_events/discount_event", :collection => @discount_events

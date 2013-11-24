@@ -10,7 +10,8 @@ module UsersHelper
   end
 
   def link_history_user(revision)
-    link_user User.find(revision.whodunnit)
+    user_id = revision.originator || revision.whodunnit
+    link_user User.find(user_id)
   end
 
   #

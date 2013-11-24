@@ -69,6 +69,8 @@ de:
         news_category: "Kategorie"
         category_list: "Kategorie-Tags"
         content: "Inhaltstext"
+      comment:
+        content: "Einen neuen Kommentar eingeben"
       session:
         username: "Benutzername"
         password: "Passwort"     

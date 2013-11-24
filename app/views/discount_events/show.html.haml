@@ -1,14 +1,12 @@
-%h1
-  = @discount_event.title
-%p
-  = @discount_event.startdate
-%p
-  = @discount_event.enddate
-%hr
+.page-header
+  %h1
+    = @discount_event.title
+    %small
+      Vom #{l @discount_event.startdate} bis #{l @discount_event.enddate}
+
 = content_tag :div, class: "autolinkable" do
   = @discount_event.description
 
-%hr
 %a{:name => "comments"}
 %p.lead
   Kommentare:

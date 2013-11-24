@@ -1,3 +1,4 @@
-.list-group
-  = link_to "Neue Rabattaktion", new_discount_event_path, class: "list-group-item" unless @discount_event
-  = link_to "Zurück", discount_events_path, class: "list-group-item"
+%li
+  = link_to "Neue Rabattaktion", new_discount_event_path unless @discount_event
+%li
+  = link_to "Bearbeiten", edit_discount_event_path(@discount_event) if @discount_event

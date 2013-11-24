@@ -1,18 +1,18 @@
-%table.table.table-hover
+%table.table.table-hover.sortable
   %thead
     %tr
       %th
-        Erstellt am
-      %th
-        Benutzer
-      %th
-        Aktion
-      %th
         Revision
+      %th
+        erstellt am
+      %th
+        durch Aktion
+      %th
+        von
   %tbody
     - @revisions.each do |revision|
       %tr
-        %td=l revision.created_at
-        %td=link_history_user revision
-        %td=revision.event
         %td=revision_link @parent, revision
+        %td=l revision.created_at
+        %td=revision.event
+        %td=link_user User.find(revision.whodunnit)

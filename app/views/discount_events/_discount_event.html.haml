@@ -1,6 +1,6 @@
 %tr
   %td
-    = discount_event.name
+    = link_to discount_event.name, discount_event
   %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
     =l discount_event.startdate if discount_event.startdate
   %td{:"data-dateformat" => "DD.MM.YYYY HH:mm:ss"}
@@ -10,23 +10,3 @@
     = link_to discount_event.website
   %td
     %span.badge=discount_event.comments.count if discount_event.comments.count > 0
-  %td
-    = link_to "#", class: "discount-event-details-toggle", :"data-discount-id" => "#{discount_event.id}" do
-      %i.fa.fa-arrow-down
-
-%tr.discount_event_detail{:id => "discount-event-details-#{discount_event.id}"}
-  %td{:colspan => "6"}
-    .autolinkable{:"data-ignores" => ""}
-      = discount_event.description
-    %p
-      = link_to discount_event.sourceurl
-    %p.pull-right
-      = link_to "Event bearbeiten", discount_event_path(discount_event)
-    %p
-      Kommentare:
-      %ul.list-group
-        = render discount_event.comments.decorate
-
-      = show_commentbox discount_event
-
-
