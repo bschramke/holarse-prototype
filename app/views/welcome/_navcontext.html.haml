@@ -1,6 +1,12 @@
 %li
-  = link_to "Neue News", new_news_path
+  = link_to new_news_path do
+    = fa_icon "bell"
+    Neue News
 %li 
-  = link_to "Neuer Artikel", new_article_path
+  = link_to new_article_path do
+    = fa_icon "gamepad"
+    Neuer Artikel
 %li
-  = link_to "Neuere (Rabatt)-Aktion", new_discount_event_path
+  = link_to new_discount_event_path do
+    = fa_icon "gift"
+    Neue (Rabatt)-Aktion
