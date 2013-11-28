@@ -27,7 +27,7 @@ class WelcomeController < ApplicationController
   end
 
   def latest_version_activities
-    Version.order("created_at desc").limit(100)
+    PaperTrail::Version.order("created_at desc").limit(100)
   end
 
   def latest_comments

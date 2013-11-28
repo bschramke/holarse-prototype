@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class VersionDecorator < Draper::Decorator
+  decorates PaperTrail::Version.class
   delegate_all
 
   # die aenderung in einer zeile
