@@ -211,4 +211,5 @@ DEPENDENCIES
   rails-observers
   rspec-rails
   sass-rails (~> 4.0.1)
+  sqlite3
   stringex

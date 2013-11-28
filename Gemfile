@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
 gem 'rails', '4.0.1'
 
@@ -18,10 +19,15 @@ group :production do
 end
 
 # Database backend
-#
-gem 'activerecord-jdbcsqlite3-adapter', "~> 1.3.3", :require => 'arjdbc/sqlite3'
-gem 'jdbc-sqlite3'
-#gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
+platforms :jruby do
+  gem 'activerecord-jdbcsqlite3-adapter', "~> 1.3.3", :require => 'arjdbc/sqlite3'
+  gem 'jdbc-sqlite3'
+  #gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
+end
+
+platforms :ruby do
+  gem "sqlite3"
+end
 
 gem 'paper_trail', '>= 3.0.0.rc2'
 gem 'paperclip', "~> 3.0"
