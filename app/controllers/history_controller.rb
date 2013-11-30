@@ -12,7 +12,7 @@ class HistoryController < ApplicationController
   def show
     @parent = get_object
     @revision = Revision.find(params[:id]).decorate
-    @original = @revision.original
+    @original = @revision.original.decorate
     
     if !@revision
       flash[:info] = "Diese Revision konnte nicht gefunden werden."

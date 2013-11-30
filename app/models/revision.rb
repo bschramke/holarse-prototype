@@ -6,6 +6,6 @@ class Revision < ActiveRecord::Base
   belongs_to :user
 
   def original
-    self.historical_type.constantize.new(self.changedset)
+    self.historical_type.constantize.new(ActiveSupport::JSON.decode(self.changedset))
   end
 end
