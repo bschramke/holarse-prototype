@@ -1,6 +1,6 @@
 class News < ActiveRecord::Base
 
-  has_paper_trail :only => [:title, :subtitle, :content]
+  before_save :save_revision, on: [:create, :update, :delete]
 
   attr_accessible :title, :subtitle, :news_category_id, :category_list, :content
 
@@ -13,8 +13,7 @@ class News < ActiveRecord::Base
   belongs_to :news_category
 
   # self-referenz zum tracken von histories
-  has_many :archived, :class_name => "News", :foreign_key => "parent_id", :conditions => { :historical => true }
-  belongs_to :news, :class_name => "News"
+  has_many :revisions, as: :historical
 
   acts_as_taggable_on :categories
 
@@ -28,6 +27,12 @@ class News < ActiveRecord::Base
 
   def self.search(q, limit=200)
     where("content like ? or title like ? or subtitle like ?", q, q, q).limit(limit)
+  end
+
+  protected
+
+  def save_revision
+    self.revisions << Revision.new(changedset: self.to_json, user: self.user)
   end
 
 end

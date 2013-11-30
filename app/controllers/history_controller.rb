@@ -2,7 +2,7 @@ class HistoryController < ApplicationController
 
   def index
     @parent = get_object
-    @revisions = @parent.versions.reverse
+    @revisions = @parent.revisions.reverse
 
     add_breadcrumb @parent.class
     add_breadcrumb @parent.id, url_for(@parent)
@@ -11,9 +11,10 @@ class HistoryController < ApplicationController
 
   def show
     @parent = get_object
-    @rev = @parent.versions[params[:id].to_i].decorate
+    @revision = Revision.find(params[:id]).decorate
+    @original = @revision.original
     
-    if !@rev
+    if !@revision
       flash[:info] = "Diese Revision konnte nicht gefunden werden."
       redirect_to root_path and return
     end
@@ -21,7 +22,7 @@ class HistoryController < ApplicationController
     add_breadcrumb @parent.class
     add_breadcrumb @parent.title, url_for(@parent)
     add_breadcrumb "Revisionen"
-    add_breadcrumb @rev.index
+    add_breadcrumb @revision.id
   end
 
   def new

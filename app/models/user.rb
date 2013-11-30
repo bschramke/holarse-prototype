@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     # references
     has_and_belongs_to_many :roles
     has_many :articles
-    has_many :article_histories
+    has_many :revisions
     has_many :news
     has_many :discount_events
     has_many :comments

@@ -6,13 +6,10 @@
       %th
         erstellt am
       %th
-        durch Aktion
-      %th
         von
   %tbody
     - @revisions.each do |revision|
       %tr
         %td=revision_link @parent, revision
         %td=l revision.created_at
-        %td=revision.event
-        %td=link_user User.find(revision.whodunnit)
+        %td=link_user revision.user

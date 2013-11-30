@@ -29,9 +29,10 @@ platforms :ruby do
   gem "sqlite3"
 end
 
-gem 'paper_trail', '>= 3.0.0.rc2'
+# dateianhaenge
 gem 'paperclip', "~> 3.0"
-gem 'draper', '~> 1.3.0' # model decoration
+# model decoration
+gem 'draper', '~> 1.3.0'
 
 gem 'sass-rails',   '~> 4.0.1'
 gem 'haml-rails'
