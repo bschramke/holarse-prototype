@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     commentable = get_commentable
-    new_comment = commentable.comments.create(params[:comment])
+    new_comment = commentable.comments.create(comment_params)
     new_comment.user = current_user
 
     if new_comment.save
@@ -32,6 +32,12 @@ class CommentsController < ApplicationController
     return Article.find(params[:article_id]) if params.has_key?(:article_id)
     return News.find(params[:news_id]) if params.has_key?(:news_id)
     return DiscountEvent.find(params[:discount_event_id]) if params.has_key?(:discount_event_id)
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content, :article_id, :news_id, :discount_event_id)
   end
 
 end

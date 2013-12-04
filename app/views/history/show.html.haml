@@ -1,14 +1,14 @@
 .page-header
   %h1
-    Anzeige von '#{@rev.title}'
+    Anzeige von '#{@original.title}'
     %small
-      Revision #{@rev.revision_index}, erstellt am #{l @rev.event_date} von #{link_user @rev.blame_user} durch #{@rev.event}.
+      Revision #{@revision.id}, erstellt am #{l @revision.created_at} von #{link_user @revision.user}.
 
 .page_title
   %h1
-    = @rev.title
+    = @original.title
     %small
-      = @rev.secondary_title
+      = @original.secondary_title
 
 .p
-  = @rev.content.html_safe
+  = @original.content.html_safe

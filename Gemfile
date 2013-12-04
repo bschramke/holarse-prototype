@@ -1,31 +1,40 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
-gem 'rails', '3.2.15'
+gem 'rails', '4.0.1'
 
 gem 'json'
 gem 'stringex'
 
+# rails 4 easy migration
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'activerecord-deprecated_finders'
+
 group :production do
   gem 'puma'
-  gem 'dalli' # memcache
+#  gem 'dalli' # memcache
 end
 
 # Database backend
-#
-gem 'activerecord-jdbcsqlite3-adapter', "~> 1.3.2", :require => 'arjdbc/sqlite3'
-gem 'jdbc-sqlite3'
-gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
-
-gem 'paper_trail'
-gem 'paperclip', "~> 3.0"
-gem 'draper', '~> 1.0' # model decoration
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'haml-rails'
+platforms :jruby do
+  gem 'activerecord-jdbcsqlite3-adapter', "~> 1.3.3", :require => 'arjdbc/sqlite3'
+  gem 'jdbc-sqlite3'
+  #gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
 end
+
+platforms :ruby do
+  gem "sqlite3"
+end
+
+# dateianhaenge
+gem 'paperclip', "~> 3.0"
+# model decoration
+gem 'draper', '~> 1.3.0'
+
+gem 'sass-rails',   '~> 4.0.1'
+gem 'haml-rails'
 
 gem 'font-awesome-rails'
 
@@ -33,12 +42,6 @@ gem 'font-awesome-rails'
 # 
 gem 'kramdown'
 #gem 'wikicloth'
-
-# Development-Gems
-group :development do
-  gem 'better_errors'
-  gem 'meta_request'
-end
 
 #
 # Testing-Gems
@@ -49,10 +52,10 @@ gem "capybara", :group => [:test]
 gem "faker", :group => [:test], :require => "faker"
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # ActAsTaggable
-gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'acts-as-taggable-on', '~> 2.4.1'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem "breadcrumbs_on_rails"

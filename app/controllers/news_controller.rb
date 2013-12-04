@@ -14,7 +14,7 @@ class NewsController < ApplicationController
   end
 
   def create
-    @news = News.new(params[:news])
+    @news = News.new(news_params)
     @news.user = current_user
 
     respond_to do |format|
@@ -31,7 +31,7 @@ class NewsController < ApplicationController
     @news.user = current_user
 
     respond_to do |format|
-    if @news.update_attributes(params[:news])
+    if @news.update_attributes(news_params)
       format.html  { redirect_to(@news, :notice => 'News wurde aktualisiert.') }
     else
       format.html  { render :action => "edit" }
@@ -59,5 +59,9 @@ class NewsController < ApplicationController
       redirect_to root_path
     end 
   end
+
+  def news_params
+    params.require(:news).permit(:title, :subtitle, :news_category_id, :category_list, :content)
+  end 
 
 end

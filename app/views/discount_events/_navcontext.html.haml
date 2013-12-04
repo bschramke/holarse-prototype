@@ -1,4 +1,4 @@
 %li
   = link_to "Neue Rabattaktion", new_discount_event_path unless @discount_event
 %li
-  = link_to "Bearbeiten", edit_discount_event_path(@discount_event) if @discount_event
+  = link_to "Bearbeiten", edit_discount_event_path(@discount_event) if @discount_event and not @discount_event.new_record?

@@ -1,32 +1,33 @@
 class Article < ActiveRecord::Base
+  before_save :save_revision, on: [:create, :update, :delete]
 
-    has_paper_trail :only => [:title, :alternate_title, :content, :unreleased, :releaseddate]
+  # validierungen
+  validates_presence_of :title, :content, :user
 
-    attr_accessible :title, :alternate_title, :content, :unreleased, :releasedate, :category_list, :genre_list, :comment, :project_activity_state_id
+  # referenzen
+  belongs_to :user
+  has_and_belongs_to_many :screenshots
+  has_and_belongs_to_many :videos
+  has_and_belongs_to_many :links
+  has_and_belongs_to_many :attachments
+  has_many :revisions, as: :historical
 
-    # validierungen
-    validates_presence_of :title, :content, :user
+  has_many :comments, as: :commentable
+  belongs_to :project_activity_state
 
-    # self-referenz zum tracken von histories
-    has_many :archived, :class_name => "Article", :foreign_key => "parent_id", :conditions => { :historical => true }
-    belongs_to :article, :class_name => "Article"
+  acts_as_taggable_on :categories, :genres
 
-    # referenzen
-    belongs_to :user
-    has_and_belongs_to_many :screenshots
-    has_and_belongs_to_many :videos
-    has_and_belongs_to_many :links
-    has_and_belongs_to_many :attachments
+  default_scope where(enabled: true)
 
-    has_many :comments, as: :commentable
-    belongs_to :project_activity_state
+  def self.search(q, limit=200)
+    # TODO in einen scope umwandeln
+    where("content like ? or title like ? or alternate_title like ?", q, q, q).limit(limit)
+  end
 
-    acts_as_taggable_on :categories, :genres
+  protected
 
-    default_scope where(enabled: true)
-
-    def self.search(q, limit=200)
-      where("content like ? or title like ? or alternate_title like ?", q, q, q).limit(limit)
-    end
+  def save_revision
+    self.revisions << Revision.new(changedset: self.to_json, user: self.user, event: self.new_record? ? "create" : "update")
+  end
 end
 

@@ -1,12 +1,10 @@
 class User < ActiveRecord::Base
-    attr_accessible :username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :steam, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar, :collaborate
-
     has_secure_password
 
     # references
     has_and_belongs_to_many :roles
     has_many :articles
-    has_many :article_histories
+    has_many :revisions
     has_many :news
     has_many :discount_events
     has_many :comments

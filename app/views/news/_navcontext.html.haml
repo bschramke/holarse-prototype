@@ -13,7 +13,7 @@
       = link_to news_history_index_path(@news), :class => "list-group-item" do
         Revisionen
         = content_tag :span, :class => "badge" do
-          #{@news.versions.length}
+          #{@news.revisions.length}
 
       %ul.list-group
         %li.list-group-item

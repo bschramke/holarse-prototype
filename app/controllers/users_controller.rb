@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   # versucht einen neuregistrierten benutzer zu speichern
   #
   def create
-    @user = User.new(params[:user])
+    @user = User.new(register_params)
     
     if @user.save && !is_spammer?(@user)
       flash[:info] = "Benutzer #{@user.username} wurde erstellt."
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   #
   def update
     user = User.find(params[:id])
-    if user.update_attributes(params[:user])
+    if user.update_attributes(user_params)
       redirect_to user
     else
       redirect_to :back
@@ -110,6 +110,16 @@ class UsersController < ApplicationController
     a.username = user.username
 
     Holarse::Spam::SpammerCheck.new.is_spammer?(a)
+  end
+
+  private
+
+  def register_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :steam, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar, :collaborate)
   end
 
 end
