@@ -10,7 +10,7 @@ class DiscountEventsController < ApplicationController
   end
 
   def create
-    @discount_event = DiscountEvent.new(params[:discount_event])
+    @discount_event = DiscountEvent.new(discount_event_params)
     @discount_event.user = current_user
 
     if @discount_event.save
@@ -55,5 +55,10 @@ class DiscountEventsController < ApplicationController
       redirect_to discount_events_path
     end
   end
+
+  def discount_event_params
+    params.require(:discount_event).permit(:name, :description, :startdate, :enddate, :website, :sourceurl)
+  end 
+
     
 end

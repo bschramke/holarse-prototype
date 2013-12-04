@@ -8,6 +8,8 @@
     .text-left
       %em
         = @article.tags.join ", "
+    .text-left
+      = @article.authors_list.html_safe
 
 .autolinkable{:"data-ignores" => @article.titles}
   = @article.content.html_safe

@@ -4,6 +4,8 @@
       %th
         Revision
       %th
+        durch
+      %th
         erstellt am
       %th
         von
@@ -11,5 +13,6 @@
     - @revisions.each do |revision|
       %tr
         %td=revision_link @parent, revision
+        %td=revision.event
         %td=l revision.created_at
         %td=link_user revision.user

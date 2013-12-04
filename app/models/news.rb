@@ -2,8 +2,6 @@ class News < ActiveRecord::Base
 
   before_save :save_revision, on: [:create, :update, :delete]
 
-  attr_accessible :title, :subtitle, :news_category_id, :category_list, :content
-
   belongs_to :user
   has_and_belongs_to_many :screenshots
   has_and_belongs_to_many :attachments  
@@ -26,6 +24,7 @@ class News < ActiveRecord::Base
   default_scope where(enabled: true)
 
   def self.search(q, limit=200)
+    # TODO in einen scope umwandeln
     where("content like ? or title like ? or subtitle like ?", q, q, q).limit(limit)
   end
 

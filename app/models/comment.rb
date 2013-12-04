@@ -1,13 +1,11 @@
 class Comment < ActiveRecord::Base
-	attr_accessible :user, :content
+  # referenzen
+  belongs_to :user
+  belongs_to :commentable, polymorphic: true
 
-	# referenzen
-	belongs_to :user
-	belongs_to :commentable, polymorphic: true
+  # validierungen
+  validates_presence_of :user
+  validates_presence_of :content
 
-	# validierungen
-	validates_presence_of :user
-	validates_presence_of :content
-
-	default_scope where(enabled: true)
+  default_scope where(enabled: true)
 end

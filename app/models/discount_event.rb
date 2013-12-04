@@ -5,8 +5,6 @@ class DiscountEvent < ActiveRecord::Base
   alias_attribute :content, :description
   alias_attribute :title, :name
 
-  attr_accessible :name, :description, :startdate, :enddate, :website, :sourceurl
-
   has_many :comments, as: :commentable
   has_many :revisions, as: :historical
   belongs_to :user
@@ -20,5 +18,4 @@ class DiscountEvent < ActiveRecord::Base
   def save_revision
     self.revisions << Revision.new(changedset: self.to_json, user: self.user)
   end
-
 end

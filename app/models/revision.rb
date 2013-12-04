@@ -1,6 +1,4 @@
 class Revision < ActiveRecord::Base
-  attr_accessible :changedset, :user, :event
-
   validates_presence_of :changedset, :user
 
   belongs_to :user

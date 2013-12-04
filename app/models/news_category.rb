@@ -1,5 +1,5 @@
 class NewsCategory < ActiveRecord::Base
-  attr_accessible :name, :description
+  # TODO in ein storage statt ein model umwandeln
 
   # references
   has_many :news
@@ -7,5 +7,4 @@ class NewsCategory < ActiveRecord::Base
   # validations
   validates_presence_of :name
   validates_uniqueness_of :name
-
 end

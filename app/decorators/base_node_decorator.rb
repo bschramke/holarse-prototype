@@ -30,7 +30,7 @@ class BaseNodeDecorator < Draper::Decorator
   protected
 
   def authors
-     model.versions.map { |version| version.whodunnit }.uniq.map { |userid| User.find userid}.sort { |x,y| x.username <=> y.username }
+    model.revisions.pluck(:user_id).uniq.map { |id| User.find id}.sort { |x,y| x.username <=> y.username }
   end
 
 end
