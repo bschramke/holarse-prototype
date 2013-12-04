@@ -29,7 +29,7 @@ class Article < ActiveRecord::Base
     protected
 
     def save_revision
-      self.revisions << Revision.new(changedset: self.to_json, user: self.user)
+      self.revisions << Revision.new(changedset: self.to_json, user: self.user, event: self.new_record? ? "create" : "update")
     end
 end
 

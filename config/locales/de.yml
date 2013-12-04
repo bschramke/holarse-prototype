@@ -100,7 +100,7 @@ de:
         reset: "Zurückstellen"
         cancel: "Abbrechen"
   versions:
-    state_verb:
+    events:
       create: "angelegt"
       update: "aktualisiert"
   welcome:
