@@ -7,11 +7,9 @@ holarse.createPreview = function(content, target) {
 };
 
 $(document).ready(function() {
-  $("#liveedittabs").tabs({
-    beforeActivate: function(event, ui) {
-      if (ui.newTab.text().trim() === "Live-Vorschau") {
-	holarse.createPreview("#markup-edit-content", "#markuppreviewtext");
-      }
-    }
+  holarse.createPreview("#markup-edit-content", "#markuppreviewtext");
+ 
+  $("#markup-edit-content").keypress(function() {
+    holarse.createPreview("#markup-edit-content", "#markuppreviewtext");
   });
 });
