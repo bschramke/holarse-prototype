@@ -5,7 +5,7 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title= build_site_title
     = csrf_meta_tags
-    = stylesheet_link_tag "//bootswatch.com/flatly/bootstrap.min.css", media: "all"
+    = stylesheet_link_tag "//bootswatch.com/cosmo/bootstrap.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body
@@ -26,4 +26,4 @@
 
   = javascript_include_tag "application"
   = javascript_include_tag "//togetherjs.com/togetherjs-min.js" if user_wants_to_collaborate? current_user
-  = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+  = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"

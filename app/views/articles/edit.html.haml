@@ -4,6 +4,9 @@
       %a{:href => "#input"}
         Bearbeiten
     %li
+      %a{:href => "#editor"}
+        Editor
+    %li
       %a{:href => "#preview"}
         Live-Vorschau
     %li
@@ -27,6 +30,8 @@
       = f.actions do
         .form-group
           = f.action :submit, as: :button, button_html: { class: "btn btn-default" }
+  #editor
+    #aceeditor
   #preview
     %p#markuppreviewtext
   #markdowndoku
