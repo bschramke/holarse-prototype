@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     end
     user.save!
 
-    redirect_to :root
+    redirect_to_previous
   end
   
   def show
