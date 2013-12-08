@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.string   "releasedate"
     t.string   "changelog"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.boolean  "comments_allowed",          default: true
     t.integer  "project_activity_state_id"
   end
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
 
   create_table "attachments", force: true do |t|
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "attachfile_file_name"
     t.string   "attachfile_content_type"
     t.integer  "attachfile_file_size"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.boolean  "enabled",          default: true
     t.integer  "commentable_id"
     t.string   "commentable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "discount_events", force: true do |t|
@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.string   "website"
     t.string   "sourceurl"
     t.boolean  "enabled",          default: true
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.boolean  "comments_allowed", default: true
   end
 
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.string   "url"
     t.string   "description"
     t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "links_news", id: false, force: true do |t|
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.string   "releasedate"
     t.string   "changelog"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "subtitle"
     t.boolean  "comments_allowed", default: true
     t.integer  "news_category_id"
@@ -150,8 +150,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
 
   create_table "roles", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles_users", id: false, force: true do |t|
@@ -161,8 +161,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
 
   create_table "screenshots", force: true do |t|
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -171,8 +171,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
 
   create_table "shops", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: true do |t|
@@ -213,8 +213,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.string   "minecraft_username"
     t.datetime "lastlogin"
     t.integer  "failed_logins",         default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -228,8 +228,8 @@ ActiveRecord::Schema.define(version: 20131202203404) do
   create_table "videos", force: true do |t|
     t.string   "url"
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
