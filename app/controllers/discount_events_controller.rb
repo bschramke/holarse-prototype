@@ -52,7 +52,8 @@ class DiscountEventsController < ApplicationController
   def require_edit_permissions
     unless is_logged_in?
       flash[:warning] = "Bitte anmelden, um Rabattaktionen erstellen oder bearbeiten zu k&ouml;nnen."
-      redirect_to discount_events_path
+      persist_position self.controller_name, self.action_name, params[:id]
+      redirect_to login_path
     end
   end
 

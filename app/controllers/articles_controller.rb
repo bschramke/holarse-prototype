@@ -54,6 +54,7 @@ class ArticlesController < ApplicationController
   def require_edit_permissions
     if !is_logged_in?
       flash[:info] = "Bitte anmelden zum Bearbeiten des Artikels."
+      persist_position self.controller_name, self.action_name, params[:id]
       redirect_to login_path
     end
   end

@@ -7,9 +7,11 @@ holarse.createPreview = function(content, target) {
 };
 
 $(document).ready(function() {
-  holarse.createPreview("#markup-edit-content", "#markuppreviewtext");
- 
-  $("#markup-edit-content").keypress(function() {
+  if ($("#markup-edit-content").length > 0) {
     holarse.createPreview("#markup-edit-content", "#markuppreviewtext");
-  });
+ 
+    $("#markup-edit-content").keyup(function() {
+      holarse.createPreview("#markup-edit-content", "#markuppreviewtext");
+    });
+  }
 });

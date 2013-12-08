@@ -6,6 +6,25 @@ class ApplicationController < ActionController::Base
 
   before_filter :update_user_activity
 
+  def persist_position(controller, action, id)
+    session[:former_controller] = controller
+    session[:former_action] = action
+    session[:former_id] = id
+    Rails.logger.debug("persisted former position in session")
+  end 
+
+  def redirect_to_previous
+    f_controller = session[:former_controller]
+    f_action = session[:former_action]
+    f_id = session[:former_id]
+
+    session[:former_controller] = nil
+    session[:former_action] = nil
+    session[:former_id] = nil
+
+    redirect_to :controller => f_controller, :action => f_action, :id => f_id
+  end
+
   private
 
   def update_user_activity

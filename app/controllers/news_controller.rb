@@ -56,7 +56,8 @@ class NewsController < ApplicationController
   def require_edit_permissions
     unless has_role('admin', 'reporter')
       flash[:info] = "Sie m&uuml;ssen Reporter sein, um an den News arbeiten zu k&ouml;nnen."
-      redirect_to root_path
+      persist_position self.controller_name, self.action_name, params[:id]
+      redirect_to login_path
     end 
   end
 
