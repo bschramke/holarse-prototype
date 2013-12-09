@@ -11,7 +11,7 @@ class DiscountEvent < ActiveRecord::Base
 
   validates_presence_of :name
 
-  default_scope where(enabled: true)
+  default_scope { where(enabled: true) }
 
   protected
 

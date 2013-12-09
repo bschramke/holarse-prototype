@@ -7,5 +7,5 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :content
 
-  default_scope where(enabled: true)
+  default_scope { where(enabled: true) }
 end

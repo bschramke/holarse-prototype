@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe "the discount event", type: :feature do
+describe "discount page", type: :feature do
 
   it "shows an overview" do
     de1 = Fabricate(:discount_event)
@@ -13,11 +13,6 @@ describe "the discount event", type: :feature do
     page.should have_content de1.name
     page.should have_content de2.name
     page.should have_content de3.name
-  end
-
-  it "should only be addable by users that are logged in" do
-    visit new_discount_event_path
-    page.should have_content "Bitte anmelden, um Rabattaktionen erstellen oder bearbeiten zu können"
   end
 
 end

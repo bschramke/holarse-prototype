@@ -17,7 +17,7 @@ class Article < ActiveRecord::Base
 
   acts_as_taggable_on :categories, :genres
 
-  default_scope where(enabled: true)
+  default_scope { where(enabled: true) }
 
   def self.search(q, limit=200)
     # TODO in einen scope umwandeln

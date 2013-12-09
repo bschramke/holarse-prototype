@@ -7,10 +7,10 @@ gem 'json'
 gem 'stringex'
 
 # rails 4 easy migration
-gem 'rails-observers'
-gem 'actionpack-page_caching'
-gem 'actionpack-action_caching'
-gem 'activerecord-deprecated_finders'
+#gem 'rails-observers'
+#gem 'actionpack-page_caching'
+#gem 'actionpack-action_caching'
+#gem 'activerecord-deprecated_finders'
 
 group :production do
   gem 'puma'

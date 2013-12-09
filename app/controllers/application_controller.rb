@@ -14,18 +14,35 @@ class ApplicationController < ActionController::Base
   end 
 
   def redirect_to_previous
-    f_controller = session[:former_controller]
-    f_action = session[:former_action]
-    f_id = session[:former_id]
+    redirect_to root_path and return if not has_former_page?
+    prev_page_data = get_previous_page_data
+    
+    clear_previous_page
 
-    session[:former_controller] = nil
-    session[:former_action] = nil
-    session[:former_id] = nil
-
-    redirect_to :controller => f_controller, :action => f_action, :id => f_id
+    redirect_to prev_page_data
   end
 
   private
+
+  def get_previous_page_data
+    {
+      :controller => session[:former_controller],
+      :action => session[:former_action],
+      :id => session[:former_id]
+    }
+  end
+
+  def previous_page_keys
+    [:former_controller, :former_action, :former_id]
+  end
+
+  def has_former_page?
+    previous_page_keys.all? {|s| session.key? s}
+  end
+
+  def clear_previous_page
+    previous_page_keys.each {|s| session.delete s }
+  end
 
   def update_user_activity
     if current_user

@@ -21,7 +21,7 @@ class News < ActiveRecord::Base
   validates_presence_of :user  
   validates :content, :length => { :minimum => 10 }
 
-  default_scope where(enabled: true)
+  default_scope { where(enabled: true) }
 
   def self.search(q, limit=200)
     # TODO in einen scope umwandeln
