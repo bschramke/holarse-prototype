@@ -1,2 +1,6 @@
-%ol.breadcrumb
-  = render_breadcrumbs :tag => :li, :separator => ""
+/ breadcrumbs
+.breadcrumbs.margin-bottom-20
+  .container
+    %h1.pull-left
+      = build_site_title
+    = render_breadcrumbs :tag => :li, :separator => ""
