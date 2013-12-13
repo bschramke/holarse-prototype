@@ -2,7 +2,7 @@
 Die neue Webseite von Holarse - Spielen unter Linux wird wieder in Eigenregie erstellt. Wir können dadurch auf eine Vielzahl von Generikas und Umwegen verzichten und uns direkt auf unser Kernthema stürzen.
 
 ## Build-Status
-https://travis-ci.org/commel/holarse.png
+![Status](https://travis-ci.org/commel/holarse.png)
 
 ## Software
 * JRuby: 1.7.2 oder höher
