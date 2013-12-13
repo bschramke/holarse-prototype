@@ -2,15 +2,15 @@
 .header
   .navbar.navbar-default{:role => "navigation"}
     .container
-      %button.navbar-toggle{:type => "button", :"data-toggle" => "collapse", :"data-target" => ".navbar-responsive-collapse"}
-      %span.sr-only
-        Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    = link_to root_path, class: "navbar-brand" do
-      = image_tag "holarse_logo_black.png", id: "logo-header"
-
+      .navbar-header
+        %button.navbar-toggle{:type => "button", :"data-toggle" => "collapse", :"data-target" => ".navbar-responsive-collapse"}
+          %span.sr-only
+            Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to root_path, class: "navbar-brand" do
+          = image_tag "horiz_logo.png", id: "logo-header"
       .collapse.navbar-collapse.navbar-responsive-collapse
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
@@ -23,14 +23,14 @@
                   = link_to genre.name, searchtag_path(genre.name)
           %li
             = link_to "Youtube", videos_path
+          %li
+            = link_to "Twitter", twitter_path
           %li#discount-events-count
             %script{:id => "discount-events-count-tmpl", :type => "text/html"}
               = link_to discount_events_path do
                 Rabattaktionen
                 %span.badge
                   {{count}}
-          %li
-            = link_to "Twitter", twitter_path
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :"data-hover" => "dropdown", :"data-delay" => "0", :"data-close-others" => "false", :href => "#"}
               Dienste
@@ -47,7 +47,7 @@
                 = link_to "Gameserver", holarse_service_gameserver_path
           %li.hidden-sm
             %a.search
-              %i.icon-search.search-btn
+              = fa_icon "search", class: "search-btn"
         .search-open
           = semantic_form_for 'search', html: { class: "navbar-form", role: "search"}, :url => search_path do |f|
             = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control searchfield" }

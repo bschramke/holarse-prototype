@@ -3,4 +3,5 @@
   .container
     %h1.pull-left
       = build_site_title
-    = render_breadcrumbs :tag => :li, :separator => ""
+    %ul.pull-right.breadcrumb
+      = render_breadcrumbs :tag => :li, :separator => ""
