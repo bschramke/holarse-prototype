@@ -25,5 +25,6 @@
  *= require unify/themes/headers/header1-red
  *= require unify/pages/blog
  *= require unify/pages/page_magazine
+ *= require unify/pages/page_log_reg_v1
  *= require_tree.
 */

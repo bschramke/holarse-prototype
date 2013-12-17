@@ -35,10 +35,13 @@ de:
             user:
                 attributes:
                     username:
+                        blank: "Der Benutzername ist nicht gefüllt"
                         taken: "Benutzername wird bereits vergeben"
                     password:
+                        blank: "Das Passwort ist nicht ausgefüllt"
                         confirmation: "Die Passwörter stimmen nicht überein"
                     email:
+                        blank: "Die Email-Adresse ist nicht ausgefüllt"
                         taken: "Diese Email-Adresse wird bereits verwendet."
                         invalid: "Diese Email-Adresse ist ungültig."
                     minecraft_username:
