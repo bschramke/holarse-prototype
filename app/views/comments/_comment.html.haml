@@ -1,9 +1,12 @@
-%li.list-group-item
-  %a{:name => "comment-#{comment.id}"}
-  %p.text-muted
-    %small
+.media
+  %a.pull-left{:href => "#", :name => "comment-#{comment.id}"}
+    = image_tag comment.user.avatar, class: "media-object"
+  .media-body
+    %h4.media-heading
       = link_user comment.user
-      = l comment.updated_at
-      = link_comment "#", comment
-  .autolinkable{:"data-ignores" => ""}
-    = comment.content.html_safe
+      %span.pull-right.text-muted
+        = l comment.updated_at
+    .autolinkable{:"data-ignores" => ""}
+      = comment.content.html_safe
+
+%hr

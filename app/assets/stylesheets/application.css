@@ -13,13 +13,11 @@
  *= require custom-theme/jquery-ui
  *= require bootstrap.min
  *= require bootstrap-sortable
- *= require fancybox/jquery.fancybox
- *= require fancybox/jquery.fancybox-thumbs
- *= require fancybox/jquery.fancybox-buttons
  *= require jquery.tagsinput
  *= require unify/style
  *= require unify/header/header1
  *= require unify/responsive
+ *= require unify/plugins/fancybox/jquery.fancybox
  *= require font-awesome
  *= require unify/themes/red
  *= require unify/themes/headers/header1-red

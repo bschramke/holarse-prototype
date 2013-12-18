@@ -22,12 +22,9 @@
 //= require hover-dropdown.min
 //= require back-to-top
 //= require bootstrap-sortable
-//= require fancybox/jquery.fancybox.pack
-//= require fancybox/jquery.fancybox-media
-//= require fancybox/jquery.fancybox-buttons
-//= require fancybox/jquery.fancybox-thumbs
 //= require jquery.tagsinput.min
 //= require unify/app.js
 //= require unify/index.js
 //= require unify/portfolio.js
+//= require unify/jquery.fancybox.pack
 //= require_tree .

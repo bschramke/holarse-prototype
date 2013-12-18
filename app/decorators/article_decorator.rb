@@ -18,4 +18,8 @@ class ArticleDecorator < BaseNodeDecorator
     model.alternate_title
   end
 
+  def project_state
+    h.project_activity_indicator(model.project_activity_state) if model.project_activity_state
+  end
+
 end

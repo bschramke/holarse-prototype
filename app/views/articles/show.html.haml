@@ -1,43 +1,42 @@
-.page-header
-  = content_tag :h1 do
-    = @article.title
-    = content_tag :small do
+.container.blog-page.blog-item
+  .blog.margin-bottom-40
+    %h2
+      = @article.title
+    %h3
       = @article.alternate_title
-      = project_activity_indicator(@article.project_activity_state, "pull-right") if @article.project_activity_state
-  .text-muted
-    .text-left
-      %em
-        = @article.tags.join ", "
-    .text-left
-      = @article.authors_list.html_safe
+    .blog-post-tags
+      %ul.list-unstyled.list-inline.blog-info
+        %li
+          = fa_icon "calendar"
+          = @article.updated_at
+        %li
+          = fa_icon "pencil"
+          = @article.authors_list.html_safe
+        %li
+          = fa_icon "tags"
+          = @article.tags.join ", "
+        %li
+          = fa_icon "tachometer"
+          = @article.project_state
+    .autolinkable{:"data-ignores" => @article.titles}
+      = @article.content.html_safe
 
-.autolinkable{:"data-ignores" => @article.titles}
-  = @article.content.html_safe
-
-%p.lead
-  Screenshots
-  .row
+.container
+  .gallery-page
     - require 'faker'
-    - 10.times do |t|
-      .col-sm-2.col-md-4
-        = link_to "http://lorempixel.com/1024/768/technics/#{t+1}", class: "fancybox fancybox.image", title: "#{Faker::Lorem.words(3).join " "}", rel: "gallery" do
-          %img{:"src" => "http://lorempixel.com/300/180/technics/#{t+1}"}
-        .caption
-          = Faker::Lorem.sentences(3).join " "
+    - (1..10).each_slice(4).to_a.each do |row|
+      .row.margin-bottom-20
+        - row.each do |item|
+          .col-md-3.col-sm-6
+            = link_to "http://lorempixel.com/1024/768/technics/#{item}", class: "thumbnail fancybox-button zoomer", :"data-rel" => "fancybox-button", title: "#{Faker::Lorem.words(3).join " "}" do
+              %span.overlay-zoom
+                %img.img-responsive{:"src" => "http://lorempixel.com/300/180/technics/#{item}"}
+                .zoom-icon
 
-%p.lead
-  Videos
-
-  .row
-    - 5.times do
-      .col-sm-2.col-md-4
-        Youtube-Video
-
-%hr
-%a{:name => "comments"}
-%p.lead
-  Kommentare:
-%ul.list-group
+.media
+  %a{:name => "comments"}
+  %h3
+    Kommentare
   = render @article.comments.decorate
 
 = show_commentbox @article
