@@ -64,7 +64,7 @@ Holarse::Application.routes.draw do
 
   get '/redirect/osm/:city' => redirect("http://nominatim.openstreetmap.org/search.php?q=%{city}"), :as => :osm
 
-  get '/version/:commitid' => redirect("https://bitbucket.org/holarse/holarse/changeset/%{commitid}"), :as => :version
+  get '/version/:commitid' => redirect("https://github.com/commel/holarse/commit/%{commitid}"), :as => :version
   
   # root
   root :to => "welcome#index"
