@@ -1,0 +1,13 @@
+/ top
+.top
+  .container
+    %ul.loginbar.pull-right
+      - if current_user
+        %li=link_to current_user.username, user_path(current_user)
+      - else
+        %li=link_to "Registrieren", register_path
+      %li.devider
+      - if current_user
+        %li=link_to "Abmelden", logout_path
+      - else
+        %li=link_to "Login", login_path

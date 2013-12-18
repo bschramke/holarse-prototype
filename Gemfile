@@ -6,12 +6,6 @@ gem 'rails', '4.0.2'
 gem 'json'
 gem 'stringex'
 
-# rails 4 easy migration
-#gem 'rails-observers'
-#gem 'actionpack-page_caching'
-#gem 'actionpack-action_caching'
-#gem 'activerecord-deprecated_finders'
-
 group :production do
   gem 'puma'
 #  gem 'dalli' # memcache
@@ -36,12 +30,11 @@ gem 'draper', '~> 1.3.0'
 gem 'sass-rails',   '~> 4.0.1'
 gem 'haml-rails'
 
-gem 'font-awesome-rails'
-
 # View
 # 
 gem 'kramdown'
 #gem 'wikicloth'
+gem 'font-awesome-rails'
 
 #
 # Testing-Gems
