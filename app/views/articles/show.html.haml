@@ -5,7 +5,7 @@
     %h3
       = @article.alternate_title
     .blog-post-tags
-      %ul.list-unstyled.list-inline.blog-info
+      %ul.list-unstyled.list-inline.blog-info.blog-tags
         %li
           = fa_icon "calendar"
           = @article.updated_at
@@ -14,7 +14,8 @@
           = @article.authors_list.html_safe
         %li
           = fa_icon "tags"
-          = @article.tags.join ", "
+          - @article.tags.each do |tag|
+            = link_to tag, searchtag_path(tag)
         %li
           = fa_icon "tachometer"
           = @article.project_state
@@ -22,21 +23,23 @@
       = @article.content.html_safe
 
 .container
+  %h3
+    Screenshots
   .gallery-page
     - require 'faker'
     - (1..10).each_slice(4).to_a.each do |row|
       .row.margin-bottom-20
         - row.each do |item|
           .col-md-3.col-sm-6
-            = link_to "http://lorempixel.com/1024/768/technics/#{item}", class: "thumbnail fancybox-button zoomer", :"data-rel" => "fancybox-button", title: "#{Faker::Lorem.words(3).join " "}" do
+            = link_to "http://lorempixel.com/1024/768/technics/#{item}", class: "thumbnail fancybox fancybox.image zoomer", :rel => "gallery", title: "#{Faker::Lorem.words(3).join " "}" do
               %span.overlay-zoom
                 %img.img-responsive{:"src" => "http://lorempixel.com/300/180/technics/#{item}"}
                 .zoom-icon
+.container
+  .media
+    %a{:name => "comments"}
+    %h3
+      Kommentare
+    = render @article.comments.decorate
 
-.media
-  %a{:name => "comments"}
-  %h3
-    Kommentare
-  = render @article.comments.decorate
-
-= show_commentbox @article
+  = show_commentbox @article

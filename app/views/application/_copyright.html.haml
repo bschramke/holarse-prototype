@@ -1,9 +1,17 @@
-%ul.list-inline
-  %li
-    &copy; 2000 - 2013 Bernd Ritter, 
-    %i.fa.fa-legal
-    = link_to "Impressum", "#"
-  %li
-    Alle hier verwendeten Marken- oder Firmennamen unterliegen ausschließlich den Rechten der jeweiligen Inhaber.
-  %li
-    Die erstellten Artikel sind zumeist von unterschiedlichen Autoren. 
+.row
+  .col-md-6
+    %p.copyright-space
+      &copy; 2000 - 2013 Bernd Ritter, und viele andere
+      = link_to "Impressum", "#"
+  .col-md-6
+    %ul.list-unstyled.list-inline
+      %li
+        = link_to "http://ipv6-test.com/validate.php?url=www.holarse-linuxgaming.de" do
+          = image_tag "button-ipv6-80x15.png"
+      %li
+        = link_to "https://www.manitu.de" do
+          = image_tag "manitu_publicon.gif"
+      %li
+        = link_to "http://www.jugendschutzprogramm.de/download" do
+          = image_tag "jusprog-age-de-icon-18.png"
+

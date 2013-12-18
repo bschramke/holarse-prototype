@@ -23,8 +23,9 @@
 //= require back-to-top
 //= require bootstrap-sortable
 //= require jquery.tagsinput.min
-//= require unify/app.js
+//= require unify/jquery.fancybox.pack
+//= require unify/jquery.fancybox-media
 //= require unify/index.js
 //= require unify/portfolio.js
-//= require unify/jquery.fancybox.pack
+//= require unify/app.js
 //= require_tree .

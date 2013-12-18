@@ -8,7 +8,7 @@ module MediaHelper
   def embed_youtube(url)
     link_to youtube_poster(url),
                       "http://youtube.com/embed/#{get_youtube_id(url)}",
-                      { :class => 'fancybox-media' }
+                      { :class => 'fancybox-button img-responsive' }
   end
 
   def youtube_poster(url)
