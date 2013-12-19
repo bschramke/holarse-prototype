@@ -1,16 +1,19 @@
-.col-md-7
-  %h2.featurette-heading
-    = fa_icon "gift"
-    = link_to discount_event.title, discount_event
-    %span.text-muted=discount_event.secondary_title
-  %p.text-muted
-    %small
-      = l discount_event.updated_at
-      von
-      = link_user discount_event.user
-      = link_to discount_event_path(discount_event, anchor: "comments") do
-        = t('.comments', count: discount_event.comments.length)
-  %p
-    = discount_event.teaser
-.col-md-5
-  = discount_event.teaser_image
+%h1
+  = discount_event.title
+.row
+  .col-md-6
+    %p
+      = discount_event.teaser
+    = link_to discount_event, class: "btn-u btn-u-large btn-u-green one-page-btn" do
+      = fa_icon "gift"
+      = discount_event.title
+  .col-md-6
+    = discount_event.teaser_image
+.row
+  .col-md-12
+    = fa_icon "comments"
+    = link_to discount_event_path(discount_event, anchor: "comments") do
+      = t('.comments', count: discount_event.comments.length)
+    = fa_icon "clock-o"
+    = time_field discount_event.updated_at
+

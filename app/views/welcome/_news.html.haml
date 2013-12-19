@@ -1,17 +1,20 @@
-.col-md-7
-  %h2.featurette-heading
-    = fa_icon "info"
-    = link_to news.title, news
-    %span.text-muted=news.secondary_title
-  %p.text-muted
-    %small
-      = l news.updated_at
-      von
-      = link_user news.user
-      = "(#{news.category})" if news.category
-      = link_to news_path(news, anchor: "comments") do
-        = t('.comments', count: news.comments.length)
-  %p
-    = news.teaser
-.col-md-5
-  = news.teaser_image.html_safe
+%h1
+  = news.title
+.row
+  .col-md-6
+    %p
+      = news.teaser
+    = link_to news, class: "btn-u btn-u-large btn-u-green one-page-btn" do
+      = fa_icon "bolt"
+      = news.title
+  .col-md-6
+    = news.teaser_image.html_safe
+.row
+  .col-md-12
+    = fa_icon "comments"
+    = link_to news_path(news, anchor: "comments") do
+      = t('.comments', count: news.comments.length)
+    = fa_icon "clock-o"
+    = time_field news.updated_at
+    = fa_icon "pencil"
+    = news.authors_list.html_safe
