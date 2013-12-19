@@ -14,7 +14,7 @@
     = render partial: "breadcrumbs"
 
     / content
-    .container
+    .container.content
       = render :partial => "flash", object: flash
       = yield.force_encoding("UTF-8")
 

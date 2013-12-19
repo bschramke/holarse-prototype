@@ -1,7 +1,12 @@
 / breadcrumbs
 .breadcrumbs.margin-bottom-20
   .container
-    %h1.pull-left
-      = build_site_title
-    %ul.pull-right.breadcrumb
+    %ul.pull-left.breadcrumb
       = render_breadcrumbs :tag => :li, :separator => ""
+    %ul.pull-right.nav.nav-tabs
+      %li.dropdown
+        %a.dropdown-toggle{:"data-toggle" => "dropdown", :href => "#"}
+          Kontext-Menü
+          = fa_icon "angle-down"
+        %ul.dropdown-menu
+          = render partial: "navcontext"

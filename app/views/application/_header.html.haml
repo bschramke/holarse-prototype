@@ -45,10 +45,6 @@
                 = link_to "Jabber", holarse_service_jabber_path
               %li
                 = link_to "Gameserver", holarse_service_gameserver_path
-          %li.hidden-sm
-            %a.search
-              = fa_icon "search", class: "search-btn"
-        .search-open
-          = semantic_form_for 'search', html: { class: "navbar-form", role: "search"}, :url => search_path do |f|
-            = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control searchfield" }
-            = f.action :submit, as: :button, input_html: { class: "btn-u" }
+          %li
+            = semantic_form_for 'search', html: { class: "navbar-form", role: "search"}, :url => search_path do |f|
+              = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control searchfield" }
