@@ -1,27 +1,10 @@
-.panel.panel-default
-  .panel-heading
-    Beschreibung
-  .panel-body
-    %p
-      Diese News kann bearbeitet werden, wenn man angemeldet ist.
-  %ul.list-group
-    .list-group-item.active
-      Men&uuml;
-
-    - if @news.present? && !@news.new_record? && current_page?(news_path(@news))
-      = link_to "Bearbeiten", edit_news_path(@news), :class => "list-group-item"
-      = link_to news_history_index_path(@news), :class => "list-group-item" do
-        Revisionen
-        = content_tag :span, :class => "badge" do
-          #{@news.revisions.length}
-
-      %ul.list-group
-        %li.list-group-item
-          Autoren:
-          = @news.authors_list.html_safe
-        %li.list-group-item
-          Zuletzt aktualisiert:
-          = l @news.updated_at
-          von 
-          = link_user @news.user
-= togetherjs_button
+%li
+  = link_to "Neue News", new_news_path
+- if @news.present? && !@news.new_record? && current_page?(news_path(@news))
+  %li
+    = link_to "Bearbeiten", edit_news_path(@news)
+  %li
+    = link_to news_history_index_path(@news) do
+      Revisionen
+      = content_tag :span, :class => "badge" do
+        #{@news.revisions.length}

@@ -3,12 +3,12 @@
     %h2
       = @article.title
     %h3
-      = @article.alternate_title
+      = @article.secondary_title
     .blog-post-tags
       %ul.list-unstyled.list-inline.blog-info.blog-tags
         %li
           = fa_icon "calendar"
-          = @article.updated_at
+          = time_field @article.updated_at
         %li
           = fa_icon "pencil"
           = @article.authors_list.html_safe

@@ -1,5 +1,11 @@
 module MediaHelper
 
+  def time_field(date, format=:default)
+    content_tag :time, :datetime => date do
+      l(date, format: format)
+    end
+  end
+
   def link_to_youtube(video)
     vid_id = video.url.match(/v=([^&]*)/)[1]
     link_to image_tag("http://img.youtube.com/vi/#{vid_id}/maxresdefault.jpg"), video.url, { :class => 'fancybox-media' }

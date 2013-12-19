@@ -1,33 +1,41 @@
-.page-header
-  = content_tag :h1 do
-    = @news.title
-    = content_tag :small do
-      = @news.subtitle
-      %span.label.label-default
-        = @news.category
-  .text-muted
-    .pull-left
-      %p
-        %em
-          = @news.tags.join ", "
-    .clearfix
+.container.blog-page.blog-item
+  .blog.margin-bottom-40
+    %h2
+      = @news.title
+    %h3
+      = @news.secondary_title
+    .blog-post-tags
+      %ul.list-unstyled.list-inline.blog-info.blog-tags
+        %li
+          = fa_icon "calendar"
+          = time_field @news.updated_at
+        %li
+          = fa_icon "pencil"
+          = @news.authors_list.html_safe
+        %li
+          = fa_icon "archive"
+          = @news.category 
+        %li
+          = fa_icon "tags"
+          - @news.tags.each do |tag|
+            = link_to tag, searchtag_path(tag)
+    .autolinkable{:"data-ignores" => @news.titles}
+      = @news.content.html_safe
 
-.autolinkable.newsbox{:"data-ignores" => @news.titles}
-  = @news.content.html_safe
+.container
+  .panel.panel-default#link-container
+    .panel-heading
+      %h3.panel-title
+        Links
+    .panel-body
+      .list-group
+        %ul#newslinks
 
-.panel.panel-default#link-container
-  .panel-heading
-    %h3.panel-title
-      Links
-  .panel-body
-    .list-group
-      %ul#newslinks
+.container
+  .media
+    %a{:name => "comments"}
+    %h3
+      Kommentare
+    = render @news.comments.decorate
 
-%hr
-%a{:name => "comments"}
-%p.lead
-  Kommentare:
-%ul.list-group
-  = render @news.comments.decorate
-
-= show_commentbox @news
+  = show_commentbox @news
