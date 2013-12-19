@@ -14,14 +14,15 @@
     = render partial: "breadcrumbs"
 
     / content
-    .container.content
-      = render :partial => "flash", object: flash
-      = yield.force_encoding("UTF-8")
+    = render :partial => "flash", object: flash
+    = yield.force_encoding("UTF-8")
 
-    / footer
-    .footer
-      .container
-        = yield(:footer)
+
+    - if content_for?(:footer)
+      / footer
+      .footer
+        .container
+          = yield(:footer)
 
     / copyright
     .copyright

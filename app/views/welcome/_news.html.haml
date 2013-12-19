@@ -9,7 +9,7 @@
       = news.title
   .col-md-6
     = news.teaser_image.html_safe
-.row
+.row.margin-bottom-20
   .col-md-12
     = fa_icon "comments"
     = link_to news_path(news, anchor: "comments") do
