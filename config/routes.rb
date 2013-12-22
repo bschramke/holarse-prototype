@@ -46,10 +46,10 @@ Holarse::Application.routes.draw do
   end
 
   # login und sessionverwaltung
-  get 'users/new', :as => :register
-  resource :session, :only => [:new, :create, :destroy]
-  get 'session/login' => 'sessions#new', :as => :login
-  get 'session/logout' => 'sessions#destroy', :as => :logout
+  get 'users/new', as: :register
+  resource :session, only: [:new, :create, :destroy]
+  get 'session/login' => 'sessions#new', as: :login
+  get 'session/logout' => 'sessions#destroy', as: :logout
 
   # einzelseiten
   get "welcome/index"
@@ -58,14 +58,15 @@ Holarse::Application.routes.draw do
   get "videos" => "media#videos"
 
   # redirects
-  get "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), :as => :twitter
+  get "/redirect/twitter" => redirect("https://twitter.com/#!/holarse"), as: :twitter
 
-  get "/redirect/youtube/:channel" => redirect("https://www.youtube.com/user/%{channel}"), :as => :youtube_channel
+  get "/redirect/youtube/:channel" => redirect("https://www.youtube.com/user/%{channel}"), as: :youtube_channel
 
-  get '/redirect/osm/:city' => redirect("http://nominatim.openstreetmap.org/search.php?q=%{city}"), :as => :osm
+  get '/redirect/osm/:city' => redirect("http://nominatim.openstreetmap.org/search.php?q=%{city}"), as: :osm
 
-  get '/version/:commitid' => redirect("https://github.com/commel/holarse/commit/%{commitid}"), :as => :version
-  
+  get '/version/:commitid' => redirect("https://github.com/commel/holarse/commit/%{commitid}"), as: :version
+  get '/github'	=> redirect("https://github.com/commel/holarse"), as: :github 
+  get '/yt/holarse' => redirect("https://www.youtube.com/user/holarse"), as: :youtube
   # root
   root :to => "welcome#index"
   

@@ -14,6 +14,7 @@
  *= require bootstrap.min
  *= require bootstrap-sortable
  *= require jquery.tagsinput
+ *= require jquery.bxslider
  *= require unify/style
  *= require unify/header/header1
  *= require unify/responsive

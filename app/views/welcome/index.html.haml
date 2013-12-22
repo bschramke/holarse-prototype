@@ -1,3 +1,4 @@
+/ einführung
 .purchase
   .container
     .row
@@ -9,17 +10,27 @@
       .col-md-3
         = link_to "Zeige mir eine Einführung", root_path, class: "btn-buy hover-effect"
 
+/ aktivitäten
+.container.content
+  .row.margin-bottom-40
+    .col-lg-12
+      .headline
+        %h2
+          Aktivitäten auf Holarse
+      %ul.bxslider.recent-work
+        - @activities.each do |activity|
+          %li
+            %em.overflow-hidden
+              = activity.teaser_image
+            %span
+              %strong
+                = activity.changetime.html_safe
+              %i
+                = activity.notice.html_safe
+
+/ news
 .one-page
   - @elements.each do |element|
     .one-page-inner{:class => "#{cycle('one-default', 'one-red', 'one-grey', 'one-blue')}"}
       .container
         = render partial: element.model.class.name.underscore, object: element
-
-= content_for :footer do
-  %h4
-    Aktivitäten
-  %ul.list-group#activitylist
-    - @activities.each do |activity|
-      %li.list-group-item=activity.notice.html_safe
-  %i#activity-list-icon.fa
-    = link_to "alle zeigen", "#", id: "toggle-activities", remote: true

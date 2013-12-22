@@ -22,9 +22,7 @@
                 %li
                   = link_to genre.name, searchtag_path(genre.name)
           %li
-            = link_to "Youtube", videos_path
-          %li
-            = link_to "Twitter", twitter_path
+            = link_to "Videos", videos_path
           %li#discount-events-count
             %script{:id => "discount-events-count-tmpl", :type => "text/html"}
               = link_to discount_events_path do
