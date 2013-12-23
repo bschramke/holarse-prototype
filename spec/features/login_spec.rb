@@ -12,7 +12,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: user.password
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Login war erfolgreich"
   end
 
@@ -25,7 +25,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: "falsches passwort"
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Der Login ist leider fehlgeschlagen"
   end
 
@@ -36,7 +36,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: "falsches passwort"
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Der Login ist nicht möglich"
   end 
 
@@ -49,7 +49,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: user.password
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Der Login ist nicht möglich"
   end
 
@@ -62,7 +62,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: user.password
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Der Login ist nicht möglich"
   end
 
@@ -74,7 +74,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: ""
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Der Login ist nicht möglich"
   end 
 
@@ -86,7 +86,7 @@ describe "the signin process", :type => :feature do
       fill_in "Passwort", with: ""
     end
 
-    click_button "Submit Session"
+    click_button "Anmelden"
     page.should have_content "Der Login ist leider fehlgeschlagen"
   end 
 
