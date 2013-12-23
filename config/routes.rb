@@ -1,5 +1,8 @@
 Holarse::Application.routes.draw do
 
+  get "imprint/index", as: :imprint
+  get "introduction/index", as: :introduction
+
   # api
   get "holarse/api/autolinkable" # erzeugt die internen links auf artikel
   get "holarse/api/discount_count" # zaehlt die rabattaktionen
