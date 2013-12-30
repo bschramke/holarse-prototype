@@ -1,7 +1,7 @@
 Holarse::Application.routes.draw do
 
-  get "imprint/index", as: :imprint
-  get "introduction/index", as: :introduction
+  get "impressum" => "static_pages#imprint", as: :imprint
+  get "intro" => "static_pages#intro", as: :introduction
 
   # api
   get "holarse/api/autolinkable" # erzeugt die internen links auf artikel
