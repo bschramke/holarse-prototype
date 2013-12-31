@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202203404) do
+ActiveRecord::Schema.define(version: 20131230220421) do
 
   create_table "articles", force: true do |t|
     t.string   "title",                                     null: false
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(version: 20131202203404) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "comments_allowed", default: true
+  end
+
+  create_table "drafts", force: true do |t|
+    t.integer  "draftable_id"
+    t.string   "draftable_type"
+    t.text     "draftedtext"
+    t.integer  "user_id"
+    t.boolean  "allow_collaboration", default: false
+    t.integer  "merge_revision"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "links", force: true do |t|
