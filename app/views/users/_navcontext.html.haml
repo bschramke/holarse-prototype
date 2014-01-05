@@ -1,8 +1,14 @@
-.list-group
+%li
   - if @user.present? && !@user.new_record? && !current_page?(edit_user_path(@user))
-    = link_to "Bearbeiten", edit_user_path(@user), class: "list-group-item"
-    = link_to "#", class: "list-group-item" do
+    = link_to edit_user_path(@user) do
+      = fa_icon "user"
+      Profil bearbeiten
+    = link_to "#" do
+      = fa_icon "envelope-o"
       Nachrichten
-      = content_tag :span, class: "badge" do
-        = @user.unread_messages.count 
-    = link_to "Meine Beiträge", "#", class: "list-group-item"
+    = link_to "#" do
+      = fa_icon "folder-open"
+      Meine Beiträge
+    = link_to drafts_path do
+      = fa_icon "file-text"
+      Meine Entwürfe

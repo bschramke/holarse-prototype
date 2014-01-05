@@ -27,6 +27,8 @@ Holarse::Application.routes.draw do
   match "search/(:q)" => "search#show", as: :search, via: [:get, :post]
   get "search/tags/:q" => "search#tags", as: :searchtag
 
+  resources :drafts
+
   # webseiten resourcen
   resources :users
   resources :news do
@@ -36,6 +38,7 @@ Holarse::Application.routes.draw do
     resources :videos
     resources :attachments
     resources :history
+    resources :drafts
   end
 
   resources :articles do
@@ -46,6 +49,7 @@ Holarse::Application.routes.draw do
     resources :attachments
     resources :shops
     resources :history
+    resources :drafts
   end
 
   # login und sessionverwaltung

@@ -1,0 +1,30 @@
+.col-md-12
+  .panel.panel-red.margin-bottom-40
+    .panel-heading
+      %h3.panel-title
+        = fa_icon ""
+        Deine Entwürfe
+    .panel-body
+      %p
+        Hier findest du alle deine als Entwürfe abgespeicherten Änderungen an Artikeln, News, Rabattaktionen, Kommentaren, sprich allem, was du editieren kannst, wieder.
+      %p
+        Beachte bitte, dass wenn einer der Artikel/News/usw in der Zwischenzeit aktualisiert worden ist, du deinen Entwurf dann nicht mehr zurückspielen kannst. Man wüsste dann einfach nicht mehr was aktuell ist und was nicht.
+      %p
+        Solche Einträge sind mit der roten Markierung als 'veraltet' markiert. Grüne Eintrage mit 'einspielbar' sind okay und können so mit deinem Entwurf aktualisiert werden.
+    %table.table.table-hover.sortable
+      %thead
+        %tr
+          %th
+            \#
+          %th
+            Dokument
+          %th
+            Typ
+          %th
+            Erstellt am
+          %th
+            Aktualisiert am
+          %th
+            Gültigkeit
+      %tbody
+        = render partial: "draft", collection: @drafts

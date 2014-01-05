@@ -1,0 +1,13 @@
+%tr
+  %td
+    = draft.id
+  %td
+    = link_to draft.source.decorate.title, draft.source
+  %td
+    = draft.type
+  %td
+    = time_field draft.created_at
+  %td
+    = time_field draft.updated_at
+  %td
+    = draft.merge_state
