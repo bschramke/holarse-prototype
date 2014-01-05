@@ -1,8 +1,8 @@
 module MediaHelper
 
-  def time_field(date, format=:default)
+  def time_field(date=nil, format=:default)
     content_tag :time, :datetime => date do
-      l(date, format: format)
+      l(date, format: format) unless date.nil?
     end
   end
 

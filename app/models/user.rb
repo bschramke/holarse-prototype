@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    has_secure_password
+    has_secure_password(validations: false)
 
     # references
     has_and_belongs_to_many :roles
@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
     validates_presence_of :username, :email
     validates_uniqueness_of :username, :email
     validates_uniqueness_of :minecraft_username, allow_blank: true
-    validates_presence_of :password, :on => :create
+    validates_presence_of :password, :on => :create, :if => Proc.new { |a| a.old_password_hash.nil? }
     validates_presence_of :minecraft_username, :if => Proc.new { |a| a.minecraft_whitelisted }
 
-    validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
+    #validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
     def do_authenticate(password)
       return false if password.empty?

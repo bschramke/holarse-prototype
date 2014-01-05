@@ -1,107 +1,108 @@
-.media
-  %img.pull-left.media-object.img-responsive{:src => "http://lorempixel.com/320/200/people", :alt => "Avatar"}
-  .media-body
-    .page-header
-      %h1
-        =@user.username
-        %small= @user.signature
-%p
-  %p.lead
-    Fun Facts &uuml;ber #{@user.username}
-  %dl.dl-horizontal
-    %dt
-      Angemeldet seit
-    %dd
-      = @user.created_at
-    %dt
-      Letzter Login
-    %dd
-      = @user.lastlogin
-    %dt
-      Letzte Aktivität
-    %dd
-      = @user.lastactivity
-    %dt
-      Kommentare
-    %dd
-      = @user.comments
-
-%p
-  %p.lead
-    &Uuml;ber mich
+.container
+  .media
+    %img.pull-left.media-object.img-responsive{:src => "http://lorempixel.com/320/200/people", :alt => "Avatar"}
+    .media-body
+      .page-header
+        %h1
+          =@user.username
+          %small= @user.signature
+  %p
+    %p.lead
+      Fun Facts &uuml;ber #{@user.username}
     %dl.dl-horizontal
       %dt
-        Stadt
+        Angemeldet seit
       %dd
-        = link_to_osm(@user.city)
+        = time_field @user.created_at
       %dt
-        Geburtstag
+        Letzter Login
       %dd
-        = @user.birthday
-%p
-  %p.lead
-    Holarse-Daten
+        = time_field @user.lastlogin
+      %dt
+        Letzte Aktivität
+      %dd
+        = time_field @user.lastactivity
+      %dt
+        Kommentare
+      %dd
+        = @user.comments
+
+  %p
+    %p.lead
+      &Uuml;ber mich
+      %dl.dl-horizontal
+        %dt
+          Stadt
+        %dd
+          = link_to_osm(@user.city)
+        %dt
+          Geburtstag
+        %dd
+          = @user.birthday
+  %p
+    %p.lead
+      Holarse-Daten
+      %dl.dl-horizontal
+        %dt
+          Rollen
+        %dd
+          = @user.roles
+        %dt
+          Erlaubt Zusammenarbeit 
+        %dd
+          = @user.collaborate
+          %small
+            (
+            = link_to "TogetherJS", "https://togetherjs.com/"
+            )
+
+    %p.lead
+      Minecraft
+      %dl.dl-horizontal
+        %dt
+          Benutzername
+        %dd
+          = @user.minecraft_username
+        %dt
+          freigeschaltet?
+        %dd
+          = @user.minecraft_whitelisted?
+
+  %p
+    %p.lead
+      Wo findet man mich?
     %dl.dl-horizontal
       %dt
-        Rollen
+        Jabber
       %dd
-        = @user.roles
+        = @user.jabber
       %dt
-        Erlaubt Zusammenarbeit 
+        Diaspora
       %dd
-        = @user.collaborate
-        %small
-          (
-          = link_to "TogetherJS", "https://togetherjs.com/"
-          )
+        = link_to @user.diaspora, @user.diaspora if @user.diaspora
+      %dt
+        Steam
+      %dd
+        = link_to @user.steam, @user.steam_path if @user.steam
+      %dt
+        Twitter
+      %dd
+        = link_to @user.twitter, @user.twitter if @user.twitter
 
-  %p.lead
-    Minecraft
+  %p
+    %p.lead
+      Meine Technik
     %dl.dl-horizontal
       %dt
-        Benutzername
-      %dd
-        = @user.minecraft_username
+        Computer
+      %dd 
+        = @user.computer
       %dt
-        freigeschaltet?
+        Distribution
       %dd
-        = @user.minecraft_whitelisted?
-
-%p
-  %p.lead
-    Wo findet man mich?
-  %dl.dl-horizontal
-    %dt
-      Jabber
-    %dd
-      = @user.jabber
-    %dt
-      Diaspora
-    %dd
-      = link_to @user.diaspora, @user.diaspora if @user.diaspora
-    %dt
-      Steam
-    %dd
-      = link_to @user.steam, @user.steam_path if @user.steam
-    %dt
-      Twitter
-    %dd
-      = link_to @user.twitter, @user.twitter if @user.twitter
-
-%p
-  %p.lead
-    Meine Technik
-  %dl.dl-horizontal
-    %dt
-      Computer
-    %dd 
-      = @user.computer
-    %dt
-      Distribution
-    %dd
-      = @user.distro
-    %dt
-      Grafikchip
-    %dd
-      = @user.graphics
+        = @user.distro
+      %dt
+        Grafikchip
+      %dd
+        = @user.graphics
 

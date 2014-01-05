@@ -34,11 +34,29 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.user = current_user
 
-    if @article.update_attributes(article_params)
-      redirect_to @article
+    # änderungen am model hinterlegen
+    @article.assign_attributes(article_params)
+
+    if params.key? "save-as-draft"
+      # als entwurf speichern
+      d = Draft.new(draftable: @article, user: current_user, draftedtext: @article.to_json)
+      if d.save!
+	flash[:success] = "Deine aktuellen Änderungen wurden als Entwurf gespeichert."
+	redirect_to @article
+      else
+	flash[:error] = "Deine Änderungen konnten leider nicht als Entwurf gespeichert werden."
+	redirect_to :back
+      end
     else
-      redirect_to :back
-    end  
+      # änderungen tatsächlich speichern
+      if @article.save
+	flash[:success] = "Änderungen gespeichert"
+	redirect_to @article
+      else
+	flash[:error] = "Änderungen konnten leider nicht gespeichert werden."
+	redirect_to :back
+      end
+    end
   end
 
   def destroy

@@ -1,34 +1,35 @@
-.page-header
-  %h1
-    Alle Holarsianer
-
-%table.table.table-hover.sortable
-  %thead
-    %tr
-      %th
-        \#
-      %th
-        Benutzername
-      %th
-        Auf Holarse seit
-      %th
-        Zuletzt aktualisiert
-      %th
-        Letzte Aktivität
-      %th
-        Kommentare #
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td
-          = user.id
-        %td
-          = link_user user
-        %td
-          = user.created_at
-        %td
-          = user.updated_at
-        %td
-          = user.lastactivity
-        %td
-          = user.comments
+.col-md-12
+  .panel.panel-red.margin-bottom-40
+    .panel-heading
+      %h3.panel-title
+        = fa_icon "users"
+        Alle Holarsianer
+    .panel-body
+      %p
+        Hier findet ihr alle registrierten Benutzer auf Holarse
+    %table.table.table-hover.sortable
+      %thead
+        %tr
+          %th
+            Benutzername
+          %th
+            Auf Holarse seit
+          %th
+            Zuletzt aktualisiert
+          %th
+            Letzte Aktivität
+          %th
+            Kommentare #
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td
+              = link_user user
+            %td
+              = time_field user.created_at
+            %td
+              = time_field user.updated_at
+            %td
+              = time_field user.lastactivity
+            %td
+              = user.comments

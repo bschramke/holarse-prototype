@@ -15,7 +15,7 @@ end
 platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter', "~> 1.3.3", :require => 'arjdbc/sqlite3'
   gem 'jdbc-sqlite3'
-  #gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
+  gem 'jdbc-mysql', "~> 5.1.25" # fuer datenmigration von mysql
 end
 
 platforms :ruby do
