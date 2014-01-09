@@ -17,7 +17,6 @@
     = render :partial => "flash", object: flash
     = yield.force_encoding("UTF-8")
 
-
     - if content_for?(:footer)
       / footer
       .footer
@@ -25,7 +24,7 @@
           = yield(:footer)
 
     / copyright
-    .copyright
+    .copyright.hidden-xs.hidden-sm
       .container
         = render :partial => "copyright"
     
