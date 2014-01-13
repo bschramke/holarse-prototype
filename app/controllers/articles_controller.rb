@@ -1,5 +1,5 @@
 # encoding: utf-8
-class ArticlesController < ApplicationController
+class ArticlesController < DraftableController
 
   before_filter :require_edit_permissions, :except => [:index, :show]
 
@@ -18,11 +18,14 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
-    if @article.save
-      redirect_to @article
+
+    if save_or_draft(@article)
+      flash[:success] = "Deine Änderungen wurden angelegt"
+      redirect_to @article and return
     else
-      redirect_to :back
-    end  
+      flash[:error] = "Es gab ein Problem beim Speichern"
+      redirect_to :back and return
+    end
   end
 
   def edit
@@ -37,25 +40,12 @@ class ArticlesController < ApplicationController
     # änderungen am model hinterlegen
     @article.assign_attributes(article_params)
 
-    if params.key? "save-as-draft"
-      # als entwurf speichern
-      d = Draft.new(draftable: @article, user: current_user, draftedtext: @article.to_json)
-      if d.save!
-	flash[:success] = "Deine aktuellen Änderungen wurden als Entwurf gespeichert."
-	redirect_to @article
-      else
-	flash[:error] = "Deine Änderungen konnten leider nicht als Entwurf gespeichert werden."
-	redirect_to :back
-      end
+    if save_or_draft(@article)
+      flash[:success] = "Deine Änderungen wurden gespeichert"
+      redirect_to @article and return
     else
-      # änderungen tatsächlich speichern
-      if @article.save
-	flash[:success] = "Änderungen gespeichert"
-	redirect_to @article
-      else
-	flash[:error] = "Änderungen konnten leider nicht gespeichert werden."
-	redirect_to :back
-      end
+      flash[:error] = "Es gab ein Problem beim Speichern"
+      redirect_to :back and return
     end
   end
 
@@ -68,6 +58,14 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  def as_draft?
+    params.key? "save-as-draft"
+  end
+
+  def create_draft(article)
+    
+  end
 
   def require_edit_permissions
     if !is_logged_in?
