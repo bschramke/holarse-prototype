@@ -1,20 +1,23 @@
-.page-header
-  %h1
-    = @discount_event.title
-    %small
-      Von
-      = l(@discount_event.startdate) if @discount_event.startdate.present?
-      bis
-      = l(@discount_event.enddate) if @discount_event.enddate.present? 
-
-%p
-  = content_tag :div, class: "autolinkable" do
-    = @discount_event.description
-
-%p.lead
-  Links
-= fa_icon "external-link"
-= link_to @discount_event.website
+.row.portfolio-item.margin-bottom-50
+  .col-md-7
+    %h2
+      = @discount_event.title
+    %p
+      = content_tag :div, class: "autolinkable" do
+        = @discount_event.description
+  .col-md-5
+    %ul.list-unstyled
+      %li
+        = fa_icon "external-link"
+        = link_to @discount_event.website
+      %li
+        = fa_icon "sign-in"
+        = l(@discount_event.startdate) if @discount_event.startdate.present?
+      %li
+        = fa_icon "sign-out"
+        = l(@discount_event.enddate) if @discount_event.enddate.present? 
+    %p
+      = button_to "Zur Aktionswebseite", @discount_event.website, class: "btn-u btn-u-large"
 
 %a{:name => "comments"}
 %p.lead

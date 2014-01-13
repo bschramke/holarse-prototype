@@ -1,16 +1,4 @@
-.container
-  .row
-    .col-md-10.hidden-xs.hidden-sm
-      / breadcrumbs
-      .breadcrumbs.margin-bottom-20
-        .container
-          %ul.breadcrumb
-            = render_breadcrumbs :tag => :li, :separator => ""
-    .col-md-2.col-xs-12
-      %ul.nav.nav-tabs
-        %li.dropdown
-          %a.dropdown-toggle{:"data-toggle" => "dropdown", :href => "#"}
-            Kontext-Menü
-            = fa_icon "angle-down"
-          %ul.dropdown-menu
-            = render partial: "navcontext"
+/ breadcrumbs
+.breadcrumbs
+  %ul.breadcrumb
+    = render_breadcrumbs :tag => :li, :separator => ""
