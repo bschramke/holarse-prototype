@@ -1,10 +1,15 @@
 %li
-  = link_to "Neuer Artikel", new_article_path
+  = link_to new_article_path do
+    = fa_icon "file-o"
+    Neuer Artikel
 - if @article.present? && !@article.new_record? && current_page?(article_path(@article))
   %li
-    = link_to "Bearbeiten", edit_article_path(@article)
+    = link_to edit_article_path(@article) do
+      = fa_icon "edit"
+      Bearbeiten
   %li
     = link_to article_history_index_path(@article) do
+      = fa_icon "book"
       Revisionen
       = content_tag :span, :class => "badge" do
         #{@article.revisions.length}

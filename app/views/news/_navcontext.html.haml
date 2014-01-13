@@ -1,10 +1,15 @@
 %li
-  = link_to "Neue News", new_news_path
+  = link_to new_news_path do
+    = fa_icon "file-o"
+    Neue News
 - if @news.present? && !@news.new_record? && current_page?(news_path(@news))
   %li
-    = link_to "Bearbeiten", edit_news_path(@news)
+    = link_to edit_news_path(@news) do
+      = fa_icon "edit"
+      Bearbeiten
   %li
     = link_to news_history_index_path(@news) do
+      = fa_icon "book"
       Revisionen
       = content_tag :span, :class => "badge" do
         #{@news.revisions.length}

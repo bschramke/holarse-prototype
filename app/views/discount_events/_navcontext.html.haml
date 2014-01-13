@@ -1,13 +1,9 @@
 %li
   = link_to new_discount_event_path do
-    = fa_icon "file-o fw"
+    = fa_icon "file-o"
     Neue Rabattaktion
-- if @discount_event and not @discount_event.new_record?
+- if @discount_event and not @discount_event.new_record? && current_page?(discount_event_path(@discount_event))
   %li
     = link_to edit_discount_event_path(@discount_event) do
-      = fa_icon "gear fw"
+      = fa_icon "edit"
       Bearbeiten
-- else
-  %li.disabled
-    = fa_icon "gear fw"
-    Bearbeiten
