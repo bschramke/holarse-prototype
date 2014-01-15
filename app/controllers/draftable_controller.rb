@@ -3,16 +3,19 @@ class DraftableController < ApplicationController
 
   protected
 
-  def save_as_draft?
-    params.key? "save-as-draft"
-  end
-
   def save_or_draft(model)
-    Draft.new(draftable: model, user: current_user, draftedtext: model.to_json)
+    save_as_draft? ? create_draft(model).save! : model.save!
   end
 
-  def persist(model)
-    save_as_draft? ? create_draft(model).save : model.save
+  private
+
+  def create_draft(model)
+    Draft.new(draftable_id: model.id, draftable_type: model.class.to_s, user: current_user, draftedtext: model.to_json)
+  end
+
+  def save_as_draft?
+    logger.debug(params)
+    params.key? "save-as-draft"
   end
 
 end

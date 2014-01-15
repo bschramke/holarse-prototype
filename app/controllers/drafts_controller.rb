@@ -16,6 +16,7 @@ class DraftsController < ApplicationController
   end
 
   def show
+    @draft = Draft.find(params[:id])
   end
 
   def destroy

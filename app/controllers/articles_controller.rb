@@ -23,7 +23,7 @@ class ArticlesController < DraftableController
       flash[:success] = "Deine Änderungen wurden angelegt"
       redirect_to @article and return
     else
-      flash[:error] = "Es gab ein Problem beim Speichern"
+      flash[:fatal] = "Es gab ein Problem beim Speichern"
       redirect_to :back and return
     end
   end
@@ -61,10 +61,6 @@ class ArticlesController < DraftableController
 
   def as_draft?
     params.key? "save-as-draft"
-  end
-
-  def create_draft(article)
-    
   end
 
   def require_edit_permissions

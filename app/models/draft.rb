@@ -6,4 +6,8 @@ class Draft < ActiveRecord::Base
 
   scope :for_user, ->(user) { where(user: user) }
 
+  def reify
+    draftable_type.constantize.new(ActiveSupport::JSON.decode(draftedtext))
+  end
+
 end

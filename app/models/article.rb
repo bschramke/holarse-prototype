@@ -13,7 +13,6 @@ class Article < ActiveRecord::Base
   has_many :revisions, as: :historical
 
   has_many :comments, as: :commentable
-  has_many :drafts, as: :draftable
 
   belongs_to :project_activity_state
 

@@ -5,7 +5,7 @@ class DraftDecorator < Draper::Decorator
   # gibt den Dokumententyp aus
   #
   def type
-    model.draftable.class
+    model.draftable_type
   end
 
   def source
@@ -13,21 +13,17 @@ class DraftDecorator < Draper::Decorator
   end
 
   def merge_state
-    if is_mergable?
-      h.content_tag :span, class: "label label-success" do
-	"Einspielbar"
-      end
-    else
-      h.content_tag :span, class: "label label-danger" do
-	"Veraltet"
-      end
-    end
+    return h.content_tag :span, "neu", class: "label label-success" if not model.draftable_id.present?
+
+    return h.content_tag :span, "einspielbar", class: "label label-info" if is_mergable?
+
+    h.content_tag :span, "veraltet", class: "label label-danger"
   end
 
   private
 
   def is_mergable?
-    model.draftable.updated_at <= model.updated_at
+    !model.draftable.present? || model.draftable.updated_at <= model.updated_at
   end
 
 end
