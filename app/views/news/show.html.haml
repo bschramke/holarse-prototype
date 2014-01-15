@@ -19,6 +19,17 @@
           = fa_icon "tags"
           - @news.tags.each do |tag|
             = link_to tag, searchtag_path(tag)
+    - @news.news_updates.each_with_index do |news_update, index|
+      %blockquote
+        %small
+          Update
+          = index + 1
+          am
+          = time_field news_update.created_at
+          von
+          = link_user news_update.user
+        %p
+          = news_update.content.html_safe
     .autolinkable{:"data-ignores" => @news.titles}
       = @news.content.html_safe
 

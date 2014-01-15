@@ -12,6 +12,7 @@ class News < ActiveRecord::Base
 
   # self-referenz zum tracken von histories
   has_many :revisions, as: :historical
+  has_many :news_updates
 
   acts_as_taggable_on :categories
 

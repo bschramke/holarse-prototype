@@ -38,7 +38,7 @@ Holarse::Application.routes.draw do
     resources :videos
     resources :attachments
     resources :history
-    resources :drafts
+    resources :news_updates
   end
 
   resources :articles do
@@ -49,7 +49,6 @@ Holarse::Application.routes.draw do
     resources :attachments
     resources :shops
     resources :history
-    resources :drafts
   end
 
   # login und sessionverwaltung

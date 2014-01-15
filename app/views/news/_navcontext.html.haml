@@ -1,8 +1,12 @@
 %li
   = link_to new_news_path do
-    = fa_icon "file-o"
+    = fa_icon "file-text"
     Neue News
 - if @news.present? && !@news.new_record? && current_page?(news_path(@news))
+  %li
+    = link_to new_news_news_update_path(@news) do
+      = fa_icon "file-text-o"
+      Neues Update
   %li
     = link_to edit_news_path(@news) do
       = fa_icon "edit"

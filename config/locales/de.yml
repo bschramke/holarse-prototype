@@ -50,6 +50,10 @@ de:
                 attributes:
                     user:
                         blank: "Der Benutzer der News ist nicht gesetzt"
+            article:
+                attributes:
+                    title:
+                      taken: "Dieser Titel ist bereits verwendet worden. Bitte einen anderen wählen"
   formtastic:
     labels:
       article:

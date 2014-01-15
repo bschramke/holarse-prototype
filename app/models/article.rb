@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
 
   # validierungen
   validates_presence_of :title, :content, :user
+  validates_uniqueness_of :title
 
   # referenzen
   belongs_to :user

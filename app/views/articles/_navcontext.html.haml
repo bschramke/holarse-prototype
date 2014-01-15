@@ -1,6 +1,6 @@
 %li
   = link_to new_article_path do
-    = fa_icon "file-o"
+    = fa_icon "file-text"
     Neuer Artikel
 - if @article.present? && !@article.new_record? && current_page?(article_path(@article))
   %li
