@@ -1,0 +1,33 @@
+.col-md-12
+  .panel.panel-red.margin-bottom-40
+    .panel-heading
+      %h3.panel-title
+        = fa_icon ""
+        News-Updates für 
+        = link_to @news.title, @news
+    .panel-body
+      %p
+        Hier können die News-Updates zu einer News verfasst werden.
+    %table.table.table-hover.sortable
+      %thead
+        %tr
+          %th
+            ID
+          %th
+            Erstelldatum
+          %th
+            Inhalt
+          %th
+            Bearbeiten
+      %thead
+        - @news_updates.each do |news_update|
+          %tr
+            %td
+              = link_to news_update.id, news_news_update_path(@news, news_update)
+            %td
+              = l(news_update.created_at)
+            %td
+              = news_update.content
+            %td
+              = link_to edit_news_news_update_path(@news, news_update) do
+                = fa_icon "edit"

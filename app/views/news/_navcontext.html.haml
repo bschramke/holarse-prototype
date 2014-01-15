@@ -8,6 +8,10 @@
       = fa_icon "file-text-o"
       Neues Update
   %li
+    = link_to news_news_updates_path(@news) do
+      = fa_icon "bullhorn"
+      Updates bearbeiten
+  %li
     = link_to edit_news_path(@news) do
       = fa_icon "edit"
       Bearbeiten

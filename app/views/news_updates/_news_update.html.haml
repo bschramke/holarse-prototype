@@ -1,0 +1,8 @@
+.tag-box.tag-box-v2
+  %h2
+    Update vom
+    = time_field news_update.created_at
+    von
+    = link_user news_update.user
+  %p.autolinkable{:"data-ignores" => @news.titles}
+    = news_update.content

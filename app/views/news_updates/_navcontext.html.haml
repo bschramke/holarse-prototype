@@ -1,0 +1,9 @@
+%li
+  = link_to new_news_news_update_path(@news) do
+    = fa_icon "bullhorn"
+    Neues Update
+- if @news_update.present? && !@news_update.new_record?
+  %li
+    = link_to edit_news_news_update_path(@news, @news_update) do
+      = fa_icon "edit"
+      Bearbeiten
