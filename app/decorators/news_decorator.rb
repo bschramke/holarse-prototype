@@ -1,6 +1,10 @@
 class NewsDecorator < BaseNodeDecorator
   delegate_all
 
+  def title_with_updates
+    title + (model.news_updates.length > 0 ? " (Update Nr. #{model.news_updates.length})" : "" )
+  end
+
   def icon
     "icon-bell"
   end
