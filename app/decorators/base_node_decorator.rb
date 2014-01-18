@@ -12,7 +12,7 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def authors_list
-    authors.map { |author| h.link_user author }.join(", ")
+    authors.uniq.sort { |x,y| x.username.downcase <=> y.username.downcase }.map { |author| h.link_user author }.join(", ")
   end
 
   def title
@@ -30,7 +30,7 @@ class BaseNodeDecorator < Draper::Decorator
   protected
 
   def authors
-    model.revisions.pluck(:user_id).uniq.map { |id| User.find id}.sort { |x,y| x.username <=> y.username }
+    model.revisions.pluck(:user_id).uniq.map { |uid| User.find(uid) }
   end
 
 end

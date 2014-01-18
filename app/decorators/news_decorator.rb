@@ -1,6 +1,10 @@
 class NewsDecorator < BaseNodeDecorator
   delegate_all
 
+  def authors
+    NewsUpdate.where(news: model).pluck(:user_id).uniq.map { |uid| User.find(uid) } + super
+  end
+
   def title_with_updates
     title + (model.news_updates.length > 0 ? " (Update Nr. #{model.news_updates.length})" : "" )
   end
