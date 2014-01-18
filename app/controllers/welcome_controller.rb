@@ -19,11 +19,15 @@ class WelcomeController < ApplicationController
   end
 
   def all_activities
-    latest_comments + latest_version_activities
+    latest_comments + latest_version_activities + latest_news_updates
   end
 
   def welcome_elements
     latest_news + upcoming_discounts
+  end
+
+  def latest_news_updates
+    NewsUpdate.all.limit(100)
   end
 
   def latest_version_activities
