@@ -19,6 +19,12 @@
         %li
           = fa_icon "tachometer"
           = @article.project_state
+        - if @article.reviseme
+          %li.pull-right
+            Bitte 
+            = link_to "überarbeite", edit_article_path(@article)
+            mich!
+            = fa_icon "ambulance 3x"
     .autolinkable{:"data-ignores" => @article.titles}
       = @article.content.html_safe
 
