@@ -63,6 +63,12 @@ de:
         project_activity_state: "Zustand in dem sich das Projekt/Spiel/Community usw befindet"
         category_list: "Kategorie-Tags"
         genre_list: "Genres, falls es sich um ein Spiel handelt"
+        hasftp: "FTP verfügbar?"
+        reviseme: "Artikel bitte überarbeiten"
+        isfrozen: "Artikelstand eingefrieren"
+        comments_allowed: "Artikelkommentare erlaubt"
+        unreleased: "Veröffentlichung ausstehend"
+        releasedate: "Geplante Veröffentlichung"
       discount_event:
         name: "Name oder Titel der Aktion"
         startdate: "Anfangsdatum"

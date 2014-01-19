@@ -49,7 +49,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # ActAsTaggable
 gem 'acts-as-taggable-on', '~> 2.4.1'
-gem 'formtastic'
+gem 'formtastic', '~> 2.3.0rc'
 gem 'formtastic-bootstrap'
 gem "breadcrumbs_on_rails"
 

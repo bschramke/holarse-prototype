@@ -16,7 +16,7 @@ class ArticlesController < DraftableController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(has_role(:admin) ? article_admin_params : article_params)
     @article.user = current_user
 
     if save_or_draft(@article)
@@ -38,7 +38,7 @@ class ArticlesController < DraftableController
     @article.user = current_user
 
     # änderungen am model hinterlegen
-    @article.assign_attributes(article_params)
+    @article.assign_attributes(has_role(:admin) ? article_admin_params : article_params)
 
     if save_or_draft(@article)
       flash[:success] = "Deine Änderungen wurden gespeichert"
@@ -72,7 +72,11 @@ class ArticlesController < DraftableController
   end
 
   def article_params
-    params.require(:article).permit(:title, :alternate_title, :content, :unreleased, :releasedate, :category_list, :genre_list, :comment, :project_activity_state_id)
+    params.require(:article).permit(:title, :alternate_title, :content, :unreleased, :releasedate, :category_list, :genre_list, :comment, :project_activity_state_id, :reviseme)
+  end
+
+  def article_admin_params
+     params.require(:article).permit(:title, :alternate_title, :content, :unreleased, :releasedate, :category_list, :genre_list, :comment, :project_activity_state_id, :reviseme, :hasftp, :isfrozen, :comments_allowed)
   end
 
 
