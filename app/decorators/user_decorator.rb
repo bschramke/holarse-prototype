@@ -1,6 +1,10 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  def avatar
+    h.image_tag "http://lorempixel.com/320/200/people", class: "img-responsive media-object pull-right"
+  end
+
   def signature
     model.signature.present? ? model.signature : ""
   end
