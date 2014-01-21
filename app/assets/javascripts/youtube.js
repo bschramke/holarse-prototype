@@ -45,7 +45,7 @@ holarse.update_yt_videos = function(playlists) {
   $(".autolinkable").each(function(index) { holarse.autolink_fn($(this)); });
 
   $.Mustache.addFromDom("youtube-channel-tmpl");
-  $("#yt-channels").mustache("youtube-channel-tmpl", channels);
+  $("#navcontext").mustache("youtube-channel-tmpl", channels);
 };
 
 $(document).ready(function() {
