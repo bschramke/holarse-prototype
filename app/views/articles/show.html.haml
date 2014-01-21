@@ -20,11 +20,17 @@
           = fa_icon "tachometer"
           = @article.project_state
         - if @article.reviseme
-          %li.pull-right
-            Bitte 
-            = link_to "überarbeite", edit_article_path(@article)
-            mich!
-            = fa_icon "ambulance 3x"
+          %li
+            = fa_icon "ambulance"
+            Bitte überarbeite mich!
+        - if @article.isfrozen
+          %li
+            = fa_icon "lock"
+            Artikel eingeforen
+        - if not @article.comments_allowed
+          %li
+            = fa_icon "warning"
+            Kommentare deaktiviert
     .autolinkable{:"data-ignores" => @article.titles}
       = @article.content.html_safe
 
