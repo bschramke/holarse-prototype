@@ -1,10 +1,14 @@
-# SQLite
+# MySQL
 development:
-  adapter:  jdbcsqlite3
-  database: db/development.sqlite3
+  adapter:  mysql
+  username: root
+  password: root
+  url: "jdbc:mysql://localhost:3306/holarse_development"
   encoding: utf8
 
 test:
-  adapter:  jdbcsqlite3
-  database: db/test.sqlite3
+  adapter:  mysql
+  username: root
+  password: root
+  url: "jdbc:mysql://localhost:3306/holarse_test"
   encoding: utf8
