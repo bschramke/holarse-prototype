@@ -54,14 +54,14 @@ class ArticlesController < DraftableController
   end
 
   def show
-    @article = Article.find(params[:id]).decorate
+    @article = Article.friendly.find(params[:id]).decorate
     add_breadcrumb @article.title, article_path(@article)
   end
 
   private
 
   def article_frozen?
-    article = Article.find(params[:id])
+    article = Article.friendly.find(params[:id])
     if article.isfrozen and not has_role(:admin)
       flash[:warning] = "Dieser Artikel wurde von den Administratoren eingeforen und kann nicht bearbeitet werden."
       redirect_to :back and return

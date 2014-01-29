@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   # zeige ein benutzerprofil an
   #
   def show
-    @user = User.find(params[:id]).decorate
+    @user = User.friendly.find(params[:id]).decorate
     add_breadcrumb @user.username
   end
 

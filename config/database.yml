@@ -1,14 +1,14 @@
 # MySQL
 development:
   adapter:  mysql
-  username: root
-  password: root
-  url: "jdbc:mysql://localhost:3306/holarse_development"
+  username: holarse2014
+  password: holarse2014
+  url: "jdbc:mysql://localhost:3306/holarse2014_development"
   encoding: utf8
 
 test:
   adapter:  mysql
-  username: root
-  password: root
-  url: "jdbc:mysql://localhost:3306/holarse_test"
+  username: holarse2014
+  password: holarse2014
+  url: "jdbc:mysql://localhost:3306/holarse2014_test"
   encoding: utf8

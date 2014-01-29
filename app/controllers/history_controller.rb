@@ -43,6 +43,6 @@ class HistoryController < ApplicationController
   private
 
   def get_object
-    params.has_key?(:news_id) ? News.find(params[:news_id]) : Article.find(params[:article_id])
+    params.has_key?(:news_id) ? News.friendly.find(params[:news_id]) : Article.friendly.find(params[:article_id])
   end
 end

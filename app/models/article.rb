@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   before_save :save_revision, on: [:create, :update, :delete]
 
   # validierungen
