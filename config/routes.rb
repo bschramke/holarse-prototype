@@ -51,6 +51,8 @@ Holarse::Application.routes.draw do
     resources :history
   end
 
+  get "wiki/:name", to: redirect("/articles/%{name}")
+
   # login und sessionverwaltung
   get 'users/new', as: :register
   resource :session, only: [:new, :create, :destroy]

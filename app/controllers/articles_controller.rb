@@ -4,6 +4,8 @@ class ArticlesController < DraftableController
   before_filter :require_edit_permissions, :except => [:index, :show]
   before_filter :article_frozen?, only: [:edit, :update]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   add_breadcrumb "Artikel", :articles_path
 
   def index
@@ -59,6 +61,11 @@ class ArticlesController < DraftableController
   end
 
   private
+
+  def record_not_found
+    flash[:warning] = "Der Artikel mit dem Namen #{params[:id]} wurde nicht gefunden. Daher wird eine Suche ausgeführt.\nDu kannst den Artikel aber auch #{view_context.link_to('selbst anlegen', new_article_path, class: "alert-link")}."
+    redirect_to search_path(params[:id])
+  end
 
   def article_frozen?
     article = Article.friendly.find(params[:id])
