@@ -21,3 +21,7 @@
       Revisionen
       = content_tag :span, :class => "badge" do
         #{@news.revisions.length}
+%li
+  = link_to markdownhelp_path, target: "_blank" do
+    = fa_icon "info-circle"
+    Markdown-Doku

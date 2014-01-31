@@ -9,23 +9,25 @@ $(document).ready(function() {
   });
 
   // Such-Vervollständigung
-  $("#search_q").autocomplete({
-    "autoFocus": "false",
-    "minLength": 2,
-    "source": "/search/suggest.json",
-    "position": {
-	"my": "left bottom",
-	"at": "left top",
-	"collision": "flip"
-    },
-    "select": function(event, ui) {
-      $("#search_q").val(ui.item.title);
-      window.location = ui.item.url;
-      return false;
-    }}).data("uiAutocomplete")._renderItem = function(ul, item) {
-      return $("<li></li>")
-	.data("item.autocomplete", item)
-        .append("<a><i class=\"" + item.icon + "\" /> <b>" + item.title + "</b><br /><i>" + item.secondary_title + "</i></a>")
-        .appendTo(ul);
-      };
+  if ($("#search_q").length > 0) {
+    $("#search_q").autocomplete({
+      "autoFocus": "false",
+      "minLength": 2,
+      "source": "/search/suggest.json",
+      "position": {
+	  "my": "left bottom",
+	  "at": "left top",
+	  "collision": "flip"
+      },
+      "select": function(event, ui) {
+	$("#search_q").val(ui.item.title);
+	window.location = ui.item.url;
+	return false;
+      }}).data("uiAutocomplete")._renderItem = function(ul, item) {
+	return $("<li></li>")
+	  .data("item.autocomplete", item)
+	  .append("<a><i class=\"" + item.icon + "\" /> <b>" + item.title + "</b><br /><i>" + item.secondary_title + "</i></a>")
+	  .appendTo(ul);
+	};
+  }
 });

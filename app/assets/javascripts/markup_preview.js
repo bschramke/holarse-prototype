@@ -1,8 +1,11 @@
-holarse.createPreview = function(content, target) {
-  $.post(holarse.current_host + "/holarse/api/markup_preview.json", { content: $(content).val() }, function(data) {
+holarse.createPreview = function(content, target, autolink) {
+  $.post(holarse.current_host + "/holarse/api/markup_preview.json", { content: $(content).val() || $(content).html() }, function(data) {
     var elem = $(target);
     elem.html(data);
-    holarse.autolink_fn(elem);
+
+    if (autolink === undefined || autolink) {
+      holarse.autolink_fn(elem);
+    }
   }, "html");
 };
 

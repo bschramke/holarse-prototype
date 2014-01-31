@@ -1,0 +1,125 @@
+.page-header
+  %h1
+    Markdown-Dokumentation
+    %small
+      Kurz&uuml;bersicht &uuml;ber die Befehle
+
+  %p
+    = button_to "Zurück", :back, class: "btn-u btn-primary"
+
+#md-help-render
+
+#md-help-source.hidden
+  :preserve
+    Grundsätzlich sei gesagt, dass die Steuerelemente oft nur wirken, wenn vor dem Element eine Leerzeile gesetzt wurde. Des Weiteren werden Blöcke immer mit mindestens gleicher Anzahl an Zeichen beendet, wie angefangen.
+
+    ### Überschriften
+    Eine Überschrift fängt mit mindestens einem [Doppelkreuz][1] (`#`) an. Tiefere Ebenen werden mit mehreren [Doppelkreuzen][1] realisiert. Wir starten in unseren Artikeln mit der 3. Ebene - diese Überschrift fängt bei Holarse also so an: `### Überschriften`
+
+    ### Listen
+    Listen können entweder aus Zahlen mit abschließendem Punkt, oder aus den Zeichen `-`, `*` oder `+` bestehen. Der Code ist in der [Code-Sammlung](#listen-code).
+
+    #### Aufzählungsliste
+    1. Aufzählungs-
+    3. Liste
+        3. Mit
+        2. Unterliste
+    4. Ganz
+    2. Einfach
+
+    #### Listenpunkte
+    - Dies ist
+        + Unterliste
+        * ohne Inhalt
+    * eine einfache
+    + Liste
+
+    #### Definitionsliste
+    Des Weiteren gibt es eine Definitionsliste. Sie wird benutzt, indem der zu definierenden Zeile die nachfolgende Definition mit einem Doppelpunkt `:` anfängt.
+
+    Holarse
+    : Holarse ist eine Internetseite über Linuxspiele
+
+    Linuxspiele
+    : Linuxspiele sind toll
+
+    ### Code
+
+    #### Code im Text
+    Unter Linux kommt es öfters vor, dass spezielle Pakete gebraucht werden oder bestimmte Befehle ausgeführt werden müssen. In einer Zeile erreicht man einen Code-Eintrag, indem man das Gewünschte mit dem [Gravis][2] (`` ` ``) einschließt.
+
+    #### Code-Blöcke
+    Es kann jedoch auch mal vorkommen, dass mehrer Befehle gebraucht werden. Hierfür eignen sich Code-Blöcke. Diese werden entweder in jeder zeile mit vier Leerzeichen (1 Tab) begonnen oder mindestens 3 [Tilden][3] (`~`) der gesamte Block umschlossen. Bei letzterem kann auch einfach eine Sprache definiert werden, indem man den Sprachennamen hinter die Anfangstilden setzt.
+    Dies ist ein Beispiel für `eingefügten Code`.
+    Sowie ein Code-Block in Ruby:
+
+    ~ bash
+    $ terminal
+      echo
+    end
+    ~
+
+    Der Code ist in der [Code-Sammlung](#code-code)
+
+    ### Links
+    Links erstellt man in runden Klammern `()`. Davor muss der angezeigte Text in eckigen Klammern `[]` gesetzt werden: `[Holarse](http://www.holarse-linuxgaming.de/)` ergibt [Holarse][4]. Interne Links werden automatisch verlinkt. Links zu einer [Überschrift](#berschriften) werden so gesetzt: `[Überschrift](#berschriften)` die Sprungmarke in den runden Klammern wird klein geschrieben. Umlaute fallen weg.
+
+    ### Bilder
+    Bilder sind equivalent zu [Links](#links), nur mit einem vorangestelltem Ausrufezeichen (`!`): `![Logo](http://www.holarse-linuxgaming.de/sites/default/files/cti_flex_logo.png)` ergibt ![Logo](http://www.holarse-linuxgaming.de/sites/default/files/cti_flex_logo.png).
+    Bilder sollen nicht für Screenshots genutzt werden. Vielmehr sollen sie zur Verdeutlichung herangezogen werden, z.B. für verschiedene Gegnerklassen oder ähnliches.
+
+    ### Linien
+    Horizontale Linien können als Trennzeichen benutzt werden, zum Beispiel um einzelne Serientitel abzugrenzen. Sie werden mit 3 oder mehr `-`, `_` oder `*` erzeugt. Als Beispiel erzeugt `--- ---      - - - -` folgende Linie:
+
+    --- ---      - - - -
+
+    ### Weiterführende Informationen
+
+    - [Kramdown Schnelleinführung][5]
+    - [Daring Fireball Markdown: Syntax][6]
+    - Musterartikel
+
+    -----
+
+    ### Code-Sammlung
+
+    #### Listen-Code
+    ~
+    1. Aufzählungs-
+    3. Liste
+        3. Mit
+        2. Unterliste
+    4. Ganz
+    2. Einfach
+
+    - Dies ist
+        + Unterliste
+        * ohne Inhalt
+    * eine einfache
+    + Liste
+
+    Holarse
+    : Holarse ist eine Internetseite über Linuxspiele
+
+    Linuxspiele
+    : Linuxspiele sind toll
+    ~
+
+    #### Code-Code
+    ~~
+    Dies ist ein Beispiel für `eingefügten Code`.
+    Sowie ein Code-Block in Ruby:
+
+    ~ ruby
+    def what?
+      42
+    end
+    ~
+    ~~
+
+    [1]: https://de.wikipedia.org/wiki/Doppelkreuz_%28Schriftzeichen%29
+    [2]: https://de.wikipedia.org/wiki/Gravis_%28Typografie%29
+    [3]: https://de.wikipedia.org/wiki/Tilde
+    [4]: http://www.holarse-linuxgaming.de/
+    [5]: http://kramdown.rubyforge.org/quickref.html
+    [6]: http://daringfireball.net/projects/markdown/syntax

@@ -28,9 +28,11 @@ $(document).ready(function() {
   //
   // Live-Anzeige der Anzahl der Rabattaktionen
   //
-  $.get(holarse.current_host + "/holarse/api/discount_count.json").done(function(data) {
-    $.Mustache.addFromDom("discount-events-count-tmpl");
-    $("#discount-events-count").mustache("discount-events-count-tmpl", data);
-  });
+  if ($("#discount-events-count-tmpl").length > 0) {
+    $.get(holarse.current_host + "/holarse/api/discount_count.json").done(function(data) {
+      $.Mustache.addFromDom("discount-events-count-tmpl");
+      $("#discount-events-count").mustache("discount-events-count-tmpl", data);
+    }); 
+  }
 
 });

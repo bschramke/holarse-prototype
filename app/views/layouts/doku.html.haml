@@ -1,0 +1,33 @@
+!!! 5
+%html(lang="de")
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %base(href="/")
+    %title= build_site_title
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", media: "all"
+    = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
+  %body
+    / content
+    .container
+      .row
+        .col-md-12
+          = render partial: "breadcrumbs"
+        .col-md-12
+          = render :partial => "flash", object: flash
+      .row
+        .col-md-12.content
+          = yield.force_encoding("UTF-8")
+
+    :javascript
+      var holarse = holarse || {}; // Namespace deklarieren
+      holarse.current_host = location.protocol + '//' + location.host;
+
+    = javascript_include_tag "application"
+    :javascript
+      jQuery(document).ready(function() {
+        App.init();
+        App.initBxSlider();
+      });
+    = javascript_include_tag "//togetherjs.com/togetherjs-min.js" if user_wants_to_collaborate? current_user
