@@ -32,12 +32,12 @@ class ArticlesController < DraftableController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     add_breadcrumb @article.title, article_path(@article)
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.user = current_user
 
     # änderungen am model hinterlegen

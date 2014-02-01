@@ -28,7 +28,7 @@ class NewsController < DraftableController
   end
 
   def update
-    @news = News.find(params[:id])
+    @news = News.friendly.find(params[:id])
     @news.user = current_user
 
     @news.assign_attributes(news_params)
@@ -46,12 +46,12 @@ class NewsController < DraftableController
   end
 
   def show
-    @news = News.find(params[:id]).decorate
+    @news = News.friendly.find(params[:id]).decorate
     add_breadcrumb @news.title, news_path(@news)
   end
 
   def edit
-    @news = News.find params[:id]
+    @news = News.friendly.find(params[:id])
   end
   
   private

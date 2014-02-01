@@ -29,8 +29,8 @@ class CommentsController < ApplicationController
 
   def get_commentable
     Rails.logger.debug(params)
-    return Article.find(params[:article_id]) if params.has_key?(:article_id)
-    return News.find(params[:news_id]) if params.has_key?(:news_id)
+    return Article.friendly.find(params[:article_id]) if params.has_key?(:article_id)
+    return News.friendly.find(params[:news_id]) if params.has_key?(:news_id)
     return DiscountEvent.find(params[:discount_event_id]) if params.has_key?(:discount_event_id)
   end
 

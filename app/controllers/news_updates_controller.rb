@@ -72,7 +72,7 @@ class NewsUpdatesController < ApplicationController
   end
 
   def load_news
-    News.find(params[:news_id]).decorate
+    News.friendly.find(params[:news_id]).decorate
   end
 
 end

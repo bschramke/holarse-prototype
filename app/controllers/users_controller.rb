@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   # aktualisiert ein benutzerprofil
   #
   def update
-    user = User.find(params[:id])
+    user = User.friendly.find(params[:id])
     if user.update_attributes(user_params)
       redirect_to user
     else
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   # deaktiviert ein benutzerprofil
   #
   def destroy
-    @user = User.find params[:id]
+    @user = User.friendly.find params[:id]
     @user.set(:active, false)
     
     redirect_to root, :notice => "Benutzer deaktiviert"
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   # ermögliche das bearbeiten eines benutzerprofils
   #
   def edit
-    @user = User.find params[:id]
+    @user = User.friendly.find(params[:id])
   end
 
   private
@@ -100,7 +100,7 @@ class UsersController < ApplicationController
   # prueft, ob die aufzurufende seite, das eigene profil ist
   #
   def accesses_own_profile
-    User.find(params[:id]) == current_user
+    User.friendly.find(params[:id]) == current_user
   end
 
   def is_spammer?(user)

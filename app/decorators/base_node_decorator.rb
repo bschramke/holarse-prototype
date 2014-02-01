@@ -30,7 +30,7 @@ class BaseNodeDecorator < Draper::Decorator
   protected
 
   def authors
-    model.revisions.pluck(:user_id).uniq.map { |uid| User.find(uid) }
+    model.revisions.pluck(:user_id).uniq.map { |uid| User.friendly.find(uid) }
   end
 
 end

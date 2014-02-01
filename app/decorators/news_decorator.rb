@@ -2,7 +2,7 @@ class NewsDecorator < BaseNodeDecorator
   delegate_all
 
   def authors
-    NewsUpdate.where(news: model).pluck(:user_id).uniq.map { |uid| User.find(uid) } + super
+    NewsUpdate.where(news: model).pluck(:user_id).uniq.map { |uid| User.friendly.find(uid) } + super
   end
 
   def title_with_updates
