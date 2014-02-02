@@ -4,8 +4,8 @@
   .media-body
     %h4.media-heading
       = link_user comment.user
-      %span.pull-right.text-muted
-        = l comment.updated_at
+      %span.text-muted
+        = comment.changetime
     .autolinkable{:"data-ignores" => ""}
       = comment.content.html_safe
 

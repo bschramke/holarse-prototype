@@ -9,6 +9,9 @@
         %li
           = fa_icon "clock-o"
           = time_field @article.updated_at
+          (
+          = @article.last_changed
+          )
         %li
           = fa_icon "pencil"
           = @article.authors_list.html_safe

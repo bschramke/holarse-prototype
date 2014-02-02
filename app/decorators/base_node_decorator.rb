@@ -27,6 +27,10 @@ class BaseNodeDecorator < Draper::Decorator
     Holarse::Markup.render model.content
   end
 
+  def last_changed
+    h.time_ago_in_words model.updated_at
+  end
+
   protected
 
   def authors
