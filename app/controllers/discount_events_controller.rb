@@ -6,7 +6,7 @@ class DiscountEventsController < ApplicationController
   add_breadcrumb "Rabattaktionen", :discount_events_path
 
   def index
-    @discount_events = DiscountEventDecorator.decorate_collection DiscountEvent.all
+    @discount_events = DiscountEvent.all.decorate
   end
 
   def create

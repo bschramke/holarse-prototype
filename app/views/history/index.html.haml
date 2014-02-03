@@ -4,15 +4,15 @@
       %th
         Revision
       %th
-        durch
+        Aktion 
       %th
-        erstellt am
+        Datum
       %th
         von
   %tbody
     - @revisions.each do |revision|
       %tr
         %td=revision_link @parent, revision
-        %td=revision.event
-        %td=l revision.created_at
-        %td=link_user revision.user
+        %td=revision.event_text
+        %td=revision.changetime
+        %td=revision.author

@@ -16,6 +16,6 @@ module ApplicationHelper
   def build_site_title
     "HOLARSE - Spielen unter Linux"
   end
-  
+
 end
 

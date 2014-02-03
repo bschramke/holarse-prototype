@@ -2,7 +2,7 @@ module MediaHelper
 
   def time_field(date=nil, format=:default)
     content_tag :time, :datetime => date do
-      l(date, format: format) unless date.nil?
+      time_ago_in_words date unless date.nil?
     end
   end
 

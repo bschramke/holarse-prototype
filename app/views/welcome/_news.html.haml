@@ -15,6 +15,6 @@
     = link_to news_path(news, anchor: "comments") do
       = t('.comments', count: news.comments.length)
     = fa_icon "clock-o"
-    = time_field news.updated_at
+    = news.changetime
     = fa_icon "pencil"
-    = news.authors_list.html_safe
+    = news.authors_list

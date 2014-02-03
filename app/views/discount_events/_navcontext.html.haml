@@ -2,7 +2,7 @@
   = link_to new_discount_event_path do
     = fa_icon "file-o"
     Neue Rabattaktion
-- if @discount_event and not @discount_event.new_record? && current_page?(discount_event_path(@discount_event))
+- if @discount_event.present? and not @discount_event.new_record?
   %li
     = link_to edit_discount_event_path(@discount_event) do
       = fa_icon "edit"

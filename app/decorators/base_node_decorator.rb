@@ -2,6 +2,12 @@
 # abstrakter decorator als basis für die grundobjekte Article, News, DiscountEvent, Comment
 class BaseNodeDecorator < Draper::Decorator
   delegate_all
+  decorates_association :user
+  decorates_association :comments
+
+  def author
+    user.link
+  end
 
   def teaser
     h.truncate( h.strip_tags(content), length: 500 )
@@ -12,7 +18,10 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def authors_list
-    authors.uniq.sort { |x,y| x.username.downcase <=> y.username.downcase }.map { |author| h.link_user author }.join(", ")
+    UserDecorator.decorate_collection( authors.uniq.sort(&by_username) )
+		 .map(&link_users)
+		 .join(",")
+		 .html_safe
   end
 
   def title
@@ -24,17 +33,25 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def content
-    Holarse::Markup.render model.content
+    Holarse::Markup.render(model.content).html_safe
   end
 
-  def last_changed
+  def changetime
     h.time_ago_in_words model.updated_at
   end
 
   protected
 
+  def link_users
+    lambda {|u| u.link}
+  end
+
   def authors
     model.revisions.pluck(:user_id).uniq.map { |uid| User.friendly.find(uid) }
+  end
+
+  def by_username
+    lambda { |x,y| x.username.downcase <=> y.username.downcase }
   end
 
 end

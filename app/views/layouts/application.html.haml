@@ -17,8 +17,9 @@
       .row
         .col-md-12
           = render partial: "contextmenu"
-        .col-md-12.hidden-xs.hidden-sm
-          = render partial: "breadcrumbs"
+        - if not current_page?(root_path)
+          .col-md-12.hidden-xs.hidden-sm
+            = render partial: "breadcrumbs"
         .col-md-12
           = render :partial => "flash", object: flash
       .row

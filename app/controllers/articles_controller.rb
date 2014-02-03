@@ -9,7 +9,7 @@ class ArticlesController < DraftableController
   add_breadcrumb "Artikel", :articles_path
 
   def index
-    @articles = Article.order('created_at DESC')
+    @articles = ArticleDecorator.order('created_at DESC')
     add_breadcrumb "Index", articles_path
   end
 

@@ -2,10 +2,10 @@ class HistoryController < ApplicationController
 
   def index
     @parent = get_object
-    @revisions = @parent.revisions.reverse
+    @revisions = @parent.revisions.decorate.reverse
 
     add_breadcrumb @parent.class
-    add_breadcrumb @parent.id, url_for(@parent)
+    add_breadcrumb @parent.title, url_for(@parent)
     add_breadcrumb "Revisionen"
   end
 
@@ -23,21 +23,6 @@ class HistoryController < ApplicationController
     add_breadcrumb @parent.title, url_for(@parent)
     add_breadcrumb "Revisionen"
     add_breadcrumb @revision.id
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

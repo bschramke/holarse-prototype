@@ -1,12 +1,13 @@
 .media
   %a.pull-left{:name => "comment-#{comment.id}"}
-    = image_tag comment.user.avatar, class: "media-object"
+    = comment.user.avatar
   .media-body
     %h4.media-heading
-      = link_user comment.user
-      %span.text-muted
+      = comment.author
+      %small
+        schrieb
         = comment.changetime
     .autolinkable{:"data-ignores" => ""}
-      = comment.content.html_safe
+      = comment.content
 
 %hr

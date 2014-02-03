@@ -1,8 +1,16 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  def avatar
+    h.image_tag model.avatar.url
+  end
+
   def signature
     model.signature.present? ? model.signature : ""
+  end
+
+  def link
+    h.link_user model
   end
 
   def unread_messages

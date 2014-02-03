@@ -2,7 +2,7 @@
   %h1
     Anzeige von '#{@original.title}'
     %small
-      Revision #{@revision.id}, erstellt am #{l @revision.created_at} von #{link_user @revision.user}.
+      Revision #{@revision.id}, erstellt #{@revision.changetime} von #{@revision.author}.
 
 .page_title
   %h1
@@ -11,4 +11,4 @@
       = @original.secondary_title
 
 .p
-  = @original.content.html_safe
+  = @original.content
