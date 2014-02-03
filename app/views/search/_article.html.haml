@@ -1,14 +1,14 @@
-= link_to article, class: "list-group-item" do
-  = content_tag :h4, class: "list-group-item-heading" do
-    = article.title
-    = project_activity_indicator(article.project_activity_state) if article.project_activity_state.present?
-    %small.text-muted
-      %em
-        = article.tags.join ", "
-    .pull-right
-      = article.type
-  = content_tag :p, class: "list-group-item-text" do
-    = article.teaser
-    %small.text-muted.pull-right
-      %p
-        zuletzt aktualisiert von #{article.user.username} am #{article.updated_at}
+.search-blocks.search-blocks-colored.search-blocks-blue
+  .row
+    .col-md-4.search-img
+      = article.teaser_image
+      %ul.list-unstyled.list-inline
+        - article.tags.each do |tag|
+          %li
+            = fa_icon "tag"
+            = link_to tag, searchtag_path(tag)
+    .col-md-8
+      %h2
+        = link_to article.title, article
+      %p=article.teaser
+      = button_to "Zum Artikel", article, class: "btn-u btn-u-red"

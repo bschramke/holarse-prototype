@@ -1,15 +1,11 @@
 .page-header
   %h1
-    Ergebnisse für 
-    #{@searchword}
+    Suchergebnisse
     %small
-      Es wurden 
-      = @elements.count
-      Ergebnisse gefunden
+      = t('.title', {searchword: @searchword, count: @elements.count})
 
-.list-group
-  - @elements.each do |element|
-    = render partial: element.model.class.name.underscore, object: element
+- @elements.each do |element|
+  = render partial: element.model.class.name.underscore, object: element
 
 .text-muted.pull-right
   = t('.search_duration', :search_time => Time.now - @search_start)    

@@ -8,7 +8,7 @@
       %ul.list-unstyled.list-inline.blog-info.blog-tags
         %li
           = fa_icon "clock-o"
-          = time_field @article.updated_at
+          = @article.changetime
         %li
           = fa_icon "pencil"
           = @article.authors_list.html_safe

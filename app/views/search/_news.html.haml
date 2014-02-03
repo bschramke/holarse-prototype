@@ -1,15 +1,14 @@
-= link_to news, class: "list-group-item" do
-  = content_tag :h4, class: "list-group-item-heading" do
-    = news.title
-    %small.text-muted
-      = news.subtitle
-      = news.news_category.description if news.news_category
-      %em
-        = news.tags.join ", "
-    .pull-right
-      = news.type
-  = content_tag :p, class: "list-group-item-text" do
-    = news.teaser
-    %small.text-muted.pull-right
-      %p
-        zuletzt aktualisiert von #{news.user.username} am #{news.updated_at}
+.search-blocks.search-blocks-colored.search-blocks-red
+  .row
+    .col-md-4.search-img
+      = news.teaser_image
+      %ul.list-unstyled.list-inline
+        - news.tags.each do |tag|
+          %li
+            = fa_icon "tag"
+            = link_to tag, searchtag_path(tag)
+    .col-md-8
+      %h2
+        = link_to news.title, news
+      %p=news.teaser
+      = button_to "Zur News", news, class: "btn-u btn-u-red"

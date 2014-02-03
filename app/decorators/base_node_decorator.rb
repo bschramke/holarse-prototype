@@ -33,7 +33,7 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def content
-    Holarse::Markup.render(model.content).html_safe
+    Holarse::Markup.render(model.content)
   end
 
   def changetime

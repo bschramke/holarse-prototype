@@ -172,7 +172,9 @@ de:
     login_ok: "Erfolgreich eingeloggt"
   search:
     show:
-      title: "Suche nach '%{searchword}' mit %{resultqty} Ergebnissen"
+      title:
+        one: "Suche nach '%{searchword}' mit nur einem Ergebnis"
+        other: "Suche nach '%{searchword}' mit %{count} Ergebnissen"
       search_duration: "Die Suche dauerte %{search_time} ms."
   twitters:
     show:
