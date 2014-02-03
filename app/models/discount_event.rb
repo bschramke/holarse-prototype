@@ -13,10 +13,7 @@ class DiscountEvent < ActiveRecord::Base
 
   default_scope { where(enabled: true) }
 
-  def self.search(q, limit=200)
-    # TODO in einen scope umwandeln
-    where("description like ? or name like ?", q, q).limit(limit)
-  end
+  scope :search, ->(q, limit=200) { where("description like ? or name like ?", q, q).limit(limit) }
 
   protected
 
