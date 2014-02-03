@@ -17,6 +17,10 @@ class CommentDecorator < BaseNodeDecorator
     ""
   end
 
+  def content
+    super.html_safe
+  end
+
   protected
 
   def parent

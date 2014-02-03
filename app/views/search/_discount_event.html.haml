@@ -1,0 +1,18 @@
+.search-blocks.search-blocks-colored.search-blocks-blue
+  .row
+    .col-md-4.search-img
+      = discount_event.teaser_image
+      %ul.list-unstyled
+        %li
+          = fa_icon "sign-in"
+          Start:
+          = l(discount_event.startdate) if discount_event.startdate.present?
+        %li
+          = fa_icon "sign-out"
+          Ende:
+          = l(discount_event.enddate) if discount_event.enddate.present?
+    .col-md-8
+      %h2
+        = link_to discount_event.title, discount_event 
+      %p=discount_event.teaser
+      = button_to "Zum Event", discount_event, class: "btn-u btn-u-red"

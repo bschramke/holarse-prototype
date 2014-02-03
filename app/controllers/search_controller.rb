@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 
   def show
     @searchword = params[:q] || params[:search][:q]
-    @elements = search_content @searchword
+    @elements = search_content(@searchword)
 
     add_breadcrumb "Inhalte"
     add_breadcrumb @searchword, search_path(@searchword)
@@ -15,7 +15,7 @@ class SearchController < ApplicationController
 
   def tags
     @searchword = params[:q]
-    @elements = search_for_tags @searchword
+    @elements = search_for_tags(@searchword)
     
     add_breadcrumb "Tags"
     add_breadcrumb @searchword, searchtag_path(@searchword)
@@ -37,6 +37,7 @@ class SearchController < ApplicationController
 
   def suggestion(term)
     search_content(term, 25)
+    .map { |s| s.decorate}
     .map { |s| {  "title" => s.title,
 		  "secondary_title" => s.secondary_title,
 		  "icon" => s.icon,
@@ -47,12 +48,12 @@ class SearchController < ApplicationController
   end
 
   def search_for_tags(searchword)
-    News.tagged_with(searchword).decorate + Article.tagged_with(searchword).decorate
+    News.tagged_with(searchword) + Article.tagged_with(searchword)
   end
 
   def search_content(searchword, limit=200)
     q = "%#{searchword}%"
-    News.search(q, limit).decorate + Article.search(q, limit).decorate
+    News.search(q, limit).decorate + Article.search(q, limit).decorate + DiscountEvent.search(q, limit).decorate
   end
 
   def set_start_time
