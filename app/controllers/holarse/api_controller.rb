@@ -63,6 +63,16 @@ class Holarse::ApiController < ApplicationController
     render :text => taglist_by_context(params[:context], params[:term])
   end
 
+  def mumble
+    count = Rails.cache.fetch "mumble-count", expires_in: 1.minute do
+      {
+	count: Holarse::Mumble.count
+      }
+    end
+
+    render :text => count.to_json
+  end
+
   protected
 
   def taglist_by_context(context, searchword="")

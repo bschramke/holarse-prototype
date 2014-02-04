@@ -11,6 +11,7 @@ Holarse::Application.routes.draw do
   get "holarse/api/minecrafters" # die whitegelisteten minecraft-user
   get "holarse/api/site_statistics" # die holarse-statistik
   get "holarse/api/taglist" # die tagliste je kategorie
+  get "holarse/api/mumble" # der mumble-user count
 
   # holarse-services-seiten
   get "holarse/service/index", as: :holarse_service
