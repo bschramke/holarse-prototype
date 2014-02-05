@@ -66,6 +66,7 @@ class Holarse::ApiController < ApplicationController
   def mumble
     count = Rails.cache.fetch "mumble-count", expires_in: 1.minute do
       {
+	url: Holarse::Application.config.mumbleurl,
 	count: Holarse::Mumble.count
       }
     end
