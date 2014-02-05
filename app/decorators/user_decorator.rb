@@ -1,6 +1,18 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  def teaser_image
+    h.content_tag :img, nil, class: "img-responsive", "src" => "http://lorempixel.com/500/281/people/#{Random.rand(10)+1}", "alt" => "Generic image"
+  end
+
+  def notice
+    "#{link} hat sich registriert."
+  end
+
+  def changetime
+    h.time_ago_in_words model.created_at
+  end
+
   def avatar
     h.image_tag model.avatar.url
   end

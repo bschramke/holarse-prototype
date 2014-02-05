@@ -19,11 +19,15 @@ class WelcomeController < ApplicationController
   end
 
   def all_activities
-    latest_comments + latest_version_activities + latest_news_updates
+    latest_comments + latest_version_activities + latest_news_updates + latest_new_users
   end
 
   def welcome_elements
     latest_news + upcoming_discounts
+  end
+
+  def latest_new_users
+    User.order("created_at desc").limit(5)
   end
 
   def latest_news_updates
