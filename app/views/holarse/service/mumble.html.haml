@@ -2,17 +2,13 @@
   %h1
     Mumble
     %small
-      Ein Holarse-Service fz&uuml;r unsere Nutzer
+      Ein Holarse-Service f&uuml;r unsere Nutzer
 
-  %p
-    = button_to "Zurück", :back, class: "btn-u btn-primary"
+= semantic_form_for 'mumble', :url => Holarse::Application.config.mumbleurl do |f|
+  = f.actions do
+    = f.action :submit, button_html: { class: "btn-u btn-block" }, label: "Mumble beitreten"
 
-markdown:
-  
-  [![Button][Button]][MumbleAdresse]
-  
-  -------
-  
+:markdown
   ### Serverinformationen
   Wir haben für Euch einen aktuellen Mumble VoIP-Server bereitstehen. Klickt einfach oben auf den Button und öffnet den Link mit Mumble, oder betretet den Server manuell über die [Serverdaten](#Serverdaten).
   
@@ -27,6 +23,4 @@ markdown:
   
   Passwort:
   : `holarse`
-  
-  [Button]: http://dabuttonfactory.com/b.png?t=Mumble%20beitreten&f=Calibri&ts=24&tc=ffffff&it=png&c=0&bgt=unicolored&bgc=e74d3c&hp=20&vp=11
-  [MumbleAdresse]: mumble://www.holarse-linuxgaming.de/Lobby?title=Wurzel&version=1.2.0
+

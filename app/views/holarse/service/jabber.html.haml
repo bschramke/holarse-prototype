@@ -1,13 +1,14 @@
 .page-header
   %h1
-    Irc und Jabber
+    IRC und Jabber
     %small
-      Quatschen im Holarse-Standart
+      Quatschen mit Linuxgamern
 
-  %p
-    = button_to "Zurück", :back, class: "btn-u btn-primary"
+= semantic_form_for 'irc', :url => Holarse::Application.config.webchaturl do |f|
+  = f.actions do
+    = f.action :submit, button_html: { class: "btn-u btn-block" }, label: "IRC-Webchat starten"
 
-markdown:
+:markdown
   
   ### Jabber
   
@@ -29,8 +30,6 @@ markdown:
   
   Wenn Ihr eine Frage stellt, erwartet bitte nicht, innerhalb von fünf Minuten eine Antwort zu erhalten. Geduldet Euch bitte und bleibt ein paar Stunden online. Viele im Holarse-Channel schauen nur sporadisch rein und werden erst nach einiger Zeit antworten. Sollte es trotzdem keine Antwort geben versucht es einfach später noch einmal. Geholfen wird auf jeden Fall.
   
-  [![IRC Beitreten][Button]][IRC]
-  
   #### Serverdaten
   
   Adresse:
@@ -41,6 +40,3 @@ markdown:
   
   Raum:
   : `#holarse-gaming`
-  
-  [Button]: http://dabuttonfactory.com/b.png?t=IRC%20beitreten&f=Calibri&ts=20&tc=ffffff&it=png&c=0&bgt=unicolored&bgc=e74d3c&hp=20&vp=11
-  [IRC]: http://webchat.oftc.net/?nick=HolarseWebnutzer&channels=%23holarse-gaming&uio=d4
