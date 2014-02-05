@@ -1,2 +1,32 @@
-%h1 HolarseService#mumble
-%p Find me in app/views/holarse_service/mumble.html.haml
+.page-header
+  %h1
+    Mumble
+    %small
+      Ein Holarse-Service fz&uuml;r unsere Nutzer
+
+  %p
+    = button_to "Zurück", :back, class: "btn-u btn-primary"
+
+markdown:
+  
+  [![Button][Button]][MumbleAdresse]
+  
+  -------
+  
+  ### Serverinformationen
+  Wir haben für Euch einen aktuellen Mumble VoIP-Server bereitstehen. Klickt einfach oben auf den Button und öffnet den Link mit Mumble, oder betretet den Server manuell über die [Serverdaten](#Serverdaten).
+  
+  #### Wichtiges:
+  * Anders als bei TeamSpeak händelt jeder Nutzer nur den eigenen Ton. Andere Personen können nicht einzeln beeinflusst werden. Umso wichtiger ist es die Einstellungen an Eure Lautsprecher und Euer Mikrofon anzupassen. Folgt hierzu am Besten dem Audioassistenten von Mumble – zu finden unter *Konfiguration*.
+  
+  * Achtet darauf, dass Ihr die aktuelle Version benutzt und den Opus-Codec installiert habt. Ansonsten kann es vorkommen, dass Ihr andere Teilnehmer weder hört, noch sprechen seht.
+  
+  ### Serverdaten
+  Adresse:
+  : `holarse-linuxgaming.de`
+  
+  Passwort:
+  : `holarse`
+  
+  [Button]: http://dabuttonfactory.com/b.png?t=Mumble%20beitreten&f=Calibri&ts=24&tc=ffffff&it=png&c=0&bgt=unicolored&bgc=e74d3c&hp=20&vp=11
+  [MumbleAdresse]: mumble://www.holarse-linuxgaming.de/Lobby?title=Wurzel&version=1.2.0

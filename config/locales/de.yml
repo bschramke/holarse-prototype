@@ -28,12 +28,12 @@ de:
         one: "vor einer Minute"
         other: "vor %{count} Minuten"
       less_than_x_minutes:
-        one: "eben gerade"
+        one: "gerade eben"
         other: "vor weniger als %{count} Minuten"
       x_months:
         one: "vor einem Monat"
         other: "vor %{count} Monaten"
-      over_x_years:
+      about_x_years:
         one: "vor über einem Jahr"
         other: "vor über %{count} Jahren"
   time:
