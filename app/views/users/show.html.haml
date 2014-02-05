@@ -1,15 +1,8 @@
-.container
-  .media.margin-bottom-40
-    = @user.avatar
-    .media-body
-      .page-header
-        %h1
-          =@user.username
-          %small= @user.signature
-  %p
+.row
+  .col-md-6
     .headline
       %h2
-        Fun Facts &uuml;ber #{@user.username}
+        Über #{@user.username}
     %dl.dl-horizontal
       %dt
         Angemeldet seit
@@ -27,55 +20,24 @@
         Kommentare
       %dd
         = @user.comments
-
-  %p
+  .col-md-6
     .headline
       %h2
-        Über mich
+        Gaming-Daten
     %dl.dl-horizontal
       %dt
-        Stadt
-      %dd
-        = link_to_osm(@user.city)
-      %dt
-        Geburtstag
-      %dd
-        = @user.birthday
-
-  %p
-    .headline
-      %h2
-        Holarse-Daten
-    %dl.dl-horizontal
-      %dt
-        Rollen
-      %dd
-        = @user.roles
-      %dt
-        Erlaubt Zusammenarbeit 
-      %dd
-        = @user.collaborate
-        %small
-          (
-          = link_to "TogetherJS", "https://togetherjs.com/"
-          )
-    .headline
-      %h2
-        Minecraft
-    %dl.dl-horizontal
-      %dt
-        Benutzername
+        Minecraft-User
       %dd
         = @user.minecraft_username
       %dt
-        freigeschaltet?
+        Minecraft freigeschaltet?
       %dd
         = @user.minecraft_whitelisted?
-
-  %p
+.row
+  .col-md-6
     .headline
       %h2
-        Wo findet man mich?
+        Social Gaming
     %dl.dl-horizontal
       %dt
         Jabber
@@ -87,21 +49,20 @@
         = link_to @user.diaspora, @user.diaspora if @user.diaspora
       %dt
         Steam
-      %dd
+      %dd 
         = link_to @user.steam, @user.steam_path if @user.steam
       %dt
         Twitter
       %dd
         = link_to @user.twitter, @user.twitter if @user.twitter
-
-  %p
+  .col-md-6
     .headline
       %h2
-        Meine Technik
+        Technik
     %dl.dl-horizontal
       %dt
         Computer
-      %dd 
+      %dd
         = @user.computer
       %dt
         Distribution
@@ -111,4 +72,3 @@
         Grafikchip
       %dd
         = @user.graphics
-
