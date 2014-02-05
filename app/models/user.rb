@@ -26,9 +26,16 @@ class User < ActiveRecord::Base
 
     def do_authenticate(password)
       return false if password.empty?
-      if self.old_password_hash.present? && old_password_is_correct(password)
-	self.old_password_hash = nil
-	self.password = password
+      Rails.logger.debug("password: #{password}")
+      if self.old_password_hash.present?
+	if old_password_is_correct(password)
+	  self.old_password_hash = nil
+	  self.password = password
+
+	  Rails.logger.debug("user: #{self.inspect}")
+        else
+	  return false
+	end
       end
 
       authenticate(password)
