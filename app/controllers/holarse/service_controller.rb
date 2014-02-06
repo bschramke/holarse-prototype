@@ -13,7 +13,7 @@ class Holarse::ServiceController < ApplicationController
   end
 
   def jabber
-    add_breadcrumb "Jabber"
+    add_breadcrumb "IRC und Jabber"
   end
 
   def gameserver
