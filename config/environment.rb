@@ -8,7 +8,7 @@ Holarse::Application.config.mumbleurl = "mumble://www.holarse-linuxgaming.de/Lob
 Holarse::Application.config.netfile = "/proc/net/tcp6"
 Holarse::Application.config.mumbleport = 64738
 
-Holarse::Application.config.webchaturl = "http://webchat.oftc.net/?nick=HolarseWebnutzer&channels=%23holarse-gaming&uio=d4"
+Holarse::Application.config.webchaturl = "http://webchat.oftc.net/?channels=%23holarse-gaming&uio=d4"
 
 # Initialize the rails application
 Holarse::Application.initialize!
