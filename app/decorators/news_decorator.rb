@@ -39,8 +39,12 @@ class NewsDecorator < BaseNodeDecorator
     h.is_youtube?(model.content) ? h.embed_youtube(model.content) : super
   end
 
+  def is_video_news?
+    h.is_youtube?(model.content)
+  end
+
   def type
-    "die News"
+    is_video_news? ? "die Videonews" : "die News"
   end
 
   private
