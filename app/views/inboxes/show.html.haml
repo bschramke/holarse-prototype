@@ -1,0 +1,8 @@
+%h1
+  Einreichung
+  %small
+    von #{@inbox.sender} #{@inbox.created_at}
+%p
+  = @inbox.info
+%p
+  = link_to @inbox.url, @inbox.url

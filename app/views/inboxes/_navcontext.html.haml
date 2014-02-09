@@ -1,0 +1,5 @@
+%li
+  - if @inbox.present? && !@inbox.new_record?
+    = link_to inbox_path(@inbox), confirm: "Sicher?", method: :delete do
+      = fa_icon "trash-o"
+      Löschen

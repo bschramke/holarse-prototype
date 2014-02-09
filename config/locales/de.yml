@@ -33,7 +33,7 @@ de:
       x_months:
         one: "vor einem Monat"
         other: "vor %{count} Monaten"
-      about_x_years:
+      over_x_years:
         one: "vor über einem Jahr"
         other: "vor über %{count} Jahren"
   time:
