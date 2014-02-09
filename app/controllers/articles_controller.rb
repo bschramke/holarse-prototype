@@ -82,6 +82,7 @@ class ArticlesController < DraftableController
   def require_edit_permissions
     if !is_logged_in?
       flash[:info] = "Bitte #{view_context.link_to('anmelden', login_path, class: "alert-link")} zum Bearbeiten des Artikels."
+      # TODO vereinheitlichen DRY
       persist_position self.controller_name, self.action_name, params[:id]
       redirect_to login_path
     end

@@ -82,6 +82,10 @@ de:
         comments_allowed: "Artikelkommentare erlaubt"
         unreleased: "Veröffentlichung ausstehend"
         releasedate: "Geplante Veröffentlichung"
+      inbox:
+        sender: "Absender"
+        url: "Web-Adresse"
+        info: "Info-Text"
       discount_event:
         name: "Name oder Titel der Aktion"
         startdate: "Anfangsdatum"

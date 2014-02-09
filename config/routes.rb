@@ -24,11 +24,14 @@ Holarse::Application.routes.draw do
     resources :comments
   end
 
+  resources :inboxes
+
   # die suche
   get "search/suggest" => "search#suggest"
   match "search/(:q)" => "search#show", as: :search, via: [:get, :post]
   get "search/tags/:q" => "search#tags", as: :searchtag
 
+  # die entwuerfe
   resources :drafts
 
   # webseiten resourcen
@@ -53,6 +56,7 @@ Holarse::Application.routes.draw do
     resources :history
   end
 
+  # abwaertskompatibilitaet
   get "wiki/:name", to: redirect("/articles/%{name}")
 
   # login und sessionverwaltung
@@ -77,6 +81,7 @@ Holarse::Application.routes.draw do
   get '/version/:commitid' => redirect("https://github.com/commel/holarse/commit/%{commitid}"), as: :version
   get '/github'	=> redirect("https://github.com/commel/holarse"), as: :github 
   get '/yt/holarse' => redirect("https://www.youtube.com/user/holarse"), as: :youtube
+
   # root
   root :to => "welcome#index"
   

@@ -1,0 +1,23 @@
+.row
+  .col-md-12
+    %p
+      Hier könnt ihr Links, Neuigkeiten, Hinweise oder Anregungen einwerfen.
+
+    %p
+      Die aktuell zu Bearbeitenden Einreichungen könnt ihr 
+      = link_to "hier", inboxes_path
+      einsehen.
+      
+.row  
+  .col-md-12
+    = semantic_form_for @inbox do |f|
+      = f.inputs do
+        .form-group
+          = f.input :sender, input_html: { class: "form-control" }
+        .form-group
+          = f.input :url, input_html: { class: "form-control" }
+        .form-group
+          = f.input :info, as: :text, input_html: { class: "form-control" }
+      = f.actions do
+        .form-group
+          = f.action :submit, button_html: { class: "btn btn-primary" }, label: "Einreichen"

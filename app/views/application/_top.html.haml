@@ -2,6 +2,11 @@
 .top
   .container
     %ul.loginbar.pull-right
+      %li
+        = link_to new_inbox_path do
+          = fa_icon "inbox 2x" 
+          Neuigkeiten einreichen
+      %li.devider
       - if current_user
         %li
           = link_to user_path(current_user) do
@@ -10,7 +15,8 @@
             = current_user.decorate.unread_messages.count
             )
       - else
-        %li=link_to "Registrieren", register_path
+        %li
+          = link_to "Registrieren", register_path
       %li.devider
       - if current_user
         %li=link_to "Abmelden", logout_path
