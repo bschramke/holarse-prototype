@@ -30,7 +30,7 @@ class UserDecorator < Draper::Decorator
   end
   
   def roles
-    model.roles.join[", "]
+    model.roles.pluck(:name).map(&:capitalize).sort.join(", ")
   end
 
   def comments
