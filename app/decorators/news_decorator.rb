@@ -20,7 +20,7 @@ class NewsDecorator < BaseNodeDecorator
   end
 
   def teaser
-    h.is_youtube?(model.content) ? model.content : super
+    h.is_youtube?(model.content) ? "" : super
   end
 
   def teaser_image
