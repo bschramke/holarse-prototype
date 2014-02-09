@@ -8,14 +8,14 @@ class NewsUpdatesController < ApplicationController
     add_breadcrumb @news.title, @news
     add_breadcrumb "Updates"
     add_breadcrumb "Übersicht"
-    @news_updates = @news.news_updates
+    @news_updates = @news.news_updates.decorate
   end
 
   def show
     @news = load_news
     add_breadcrumb @news.title, @news
     add_breadcrumb "Updates"
-    @news_update = NewsUpdate.find(params[:id])
+    @news_update = NewsUpdate.find(params[:id]).decorate
     add_breadcrumb @news_update.id
   end
 
