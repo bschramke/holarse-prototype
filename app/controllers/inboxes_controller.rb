@@ -20,6 +20,9 @@ class InboxesController < ApplicationController
   def create
     @inbox = Inbox.new(inbox_params)
     @inbox.save
+
+    flash[:info] = "Vielen Dank für deine Einsendung!"
+    redirect_to inboxes_path
   end
  
   def edit

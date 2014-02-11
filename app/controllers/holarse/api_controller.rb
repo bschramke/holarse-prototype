@@ -4,6 +4,16 @@ class Holarse::ApiController < ApplicationController
 
   respond_to :json
 
+  def grab_title
+    raise "no url given" if params[:url].empty?
+
+    title = Mechanize.new.get(params[:url]).title
+    Rails.logger.debug("Grabbing title for #{params[:url]} => #{title}")
+    render :text => {
+      title: title
+    }.to_json
+  end
+
   def autolinkable
     articles = Article.select("title, alternate_title, id")
     a = articles.map { |a| { :id => a.id, :title => a.title } }

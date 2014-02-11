@@ -2,10 +2,11 @@
   %td
     = link_to inbox.id, inbox_path(inbox)
   %td
-    = inbox.sender
+    = inbox.created_at
   %td
-    = link_to inbox.url, inbox.url
+    = inbox.sender
   %td
     = inbox.info
   %td
-    = inbox.created_at
+    = link_to inbox.url do
+      = fa_icon "link"
