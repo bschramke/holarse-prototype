@@ -1,5 +1,13 @@
 %li
-  - if @inbox.present? && !@inbox.new_record?
+  = link_to inboxes_path do
+    = fa_icon "inbox"
+    Aktuelle Einreichungen
+%li
+  = link_to new_inbox_path do
+    = fa_icon "inbox"
+    Neue Einreichung
+- if @inbox.present? && !@inbox.new_record?
+  %li
     = link_to inbox_path(@inbox), confirm: "Sicher?", method: :delete do
       = fa_icon "trash-o"
       Löschen
