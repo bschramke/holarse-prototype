@@ -6,6 +6,8 @@
         = link_to new_inbox_path do
           = fa_icon "inbox" 
           Neuigkeiten einreichen
+        %span#inbox-count.badge
+          0
       %li.devider
       - if current_user
         %li

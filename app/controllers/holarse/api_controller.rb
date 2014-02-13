@@ -31,11 +31,6 @@ class Holarse::ApiController < ApplicationController
     render :text => result.to_json
   end
 
-  def discount_count
-    render :text => { 
-      count: DiscountEvent.all.count
-    }.to_json
-  end
 
   def markup_preview
     render :text => Holarse::Markup.render( params[:content] )
@@ -71,6 +66,26 @@ class Holarse::ApiController < ApplicationController
 
   def taglist
     render :text => taglist_by_context(params[:context], params[:term])
+  end
+
+  def discount_count
+    count = Rails.cache.fetch "discount-count", expires_in: 1.minute do
+      {
+	count: DiscountEvent.all.count
+      }
+    end
+    
+    render text: count.to_json
+  end
+
+  def inbox_count
+    count = Rails.cache.fetch "inbox-count", expires_in: 1.minute do
+      {
+	count: Inbox.all.count
+      }
+    end
+
+    render text: count.to_json
   end
 
   def mumble

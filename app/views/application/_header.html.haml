@@ -23,12 +23,11 @@
                   = link_to genre.name, searchtag_path(genre.name)
           %li
             = link_to "Videos", videos_path
-          %li#discount-events-count
-            %script{:id => "discount-events-count-tmpl", :type => "text/html"}
-              = link_to discount_events_path do
-                Rabattaktionen
-                %span.badge
-                  {{count}}
+          %li
+            = link_to discount_events_path do
+              Rabattaktionen
+              %span#discount-event-count.badge
+                0
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :"data-hover" => "dropdown", :"data-delay" => "0", :"data-close-others" => "false", :href => "#"}
               Dienste

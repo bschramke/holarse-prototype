@@ -13,6 +13,7 @@ Holarse::Application.routes.draw do
   get "holarse/api/taglist" # die tagliste je kategorie
   get "holarse/api/mumble" # der mumble-user count
   post "holarse/api/grab_title" # der seitentitel
+  get "holarse/api/inbox_count"
 
   # holarse-services-seiten
   get "holarse/service/index", as: :holarse_service
