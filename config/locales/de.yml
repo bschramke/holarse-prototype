@@ -36,6 +36,9 @@ de:
       about_x_years:
         one: "vor ungefähr einem Jahr"
         other: "vor ungefähr %{count} Jahren"
+      almost_x_years:
+        one: "vor fast einem Jahr"
+        other: "vor fast %{count} Jahren"
       over_x_years:
         one: "vor über einem Jahr"
         other: "vor über %{count} Jahren"

@@ -1,10 +1,17 @@
+#encoding: utf-8
 namespace :holarse do
   namespace :import do
 
 
     desc "clear db"
     task :clear => :environment do
-      [Comment, Article, News, NewsUpdate, DiscountEvent, Revision, Inbox, Comment, User, Role].each(&:delete_all)
+      data = [Comment, Article, News, NewsUpdate, DiscountEvent, Revision, Inbox, Comment, User, Role]
+
+      progress = ProgressBar.create(title: "Datenbank löschen", starting_at: 0, total: data.size)
+      data.each do |item|
+	item.delete_all
+	progress.increment
+      end
     end
 
     desc "user import"

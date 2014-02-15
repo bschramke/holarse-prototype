@@ -17,8 +17,6 @@ class RoleConverter
   @@modify = {"Administrator" => "admin", "Reporter" => "reporter"}
 
   def convert(role)
-    Role.new(
-      name: @@modify.key?(role.name)? @@modify[role.name] : role.name
-    )
+    Role.find_or_create_by(name: @@modify.key?(role.name)? @@modify[role.name] : role.name)
   end
 end
