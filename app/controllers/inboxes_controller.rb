@@ -19,10 +19,13 @@ class InboxesController < ApplicationController
 
   def create
     @inbox = Inbox.new(inbox_params)
-    @inbox.save
 
-    flash[:info] = "Vielen Dank für deine Einsendung!"
-    redirect_to inboxes_path
+    if @inbox.save
+      flash[:info] = "Vielen Dank für deine Einsendung!"
+      redirect_to inboxes_path and return
+    else
+      redirect_to :back and return
+    end
   end
  
   def edit

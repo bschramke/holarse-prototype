@@ -48,6 +48,10 @@ de:
         messages:
             record_invalid: "Ungültiger Datensatz: %{errors}"
         models:
+            inbox:
+                attributes:
+                  url:
+                    taken: "Diese Adresse wurde bereits eingereicht"
             user:
                 attributes:
                     username:
