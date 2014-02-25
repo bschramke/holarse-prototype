@@ -34,14 +34,26 @@
               = fa_icon "angle-down"
             %ul.dropdown-menu
               %li
-                = link_to "Allgemein", holarse_service_path
+                = link_to holarse_service_path do
+                  = fa_icon "bars"
+                  Allgemein
               %li.divider
               %li
-                = link_to "Mumble", holarse_service_mumble_path
+                = link_to holarse_service_mumble_path do
+                  = fa_icon "microphone"
+                  Mumble
               %li
-                = link_to "IRC und Jabber", holarse_service_jabber_path
+                = link_to holarse_service_jabber_path do
+                  = fa_icon "comments"
+                  IRC und Jabber
               %li
-                = link_to "Gameserver", holarse_service_gameserver_path
+                = link_to holarse_service_gameserver_path do
+                  = fa_icon "gamepad"
+                  Gameserver
+              %li
+                = link_to holarse_service_communities_path do
+                  = fa_icon "group"
+                  Communities
           %li
             = semantic_form_for 'search', html: { class: "navbar-form", role: "search"}, :url => search_path do |f|
               = f.input :q, :label => false, :as => :search, :input_html => { :class => "form-control searchfield" }

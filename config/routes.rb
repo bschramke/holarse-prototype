@@ -20,6 +20,7 @@ Holarse::Application.routes.draw do
   get "holarse/service/mumble", as: :holarse_service_mumble
   get "holarse/service/jabber", as: :holarse_service_jabber
   get "holarse/service/gameserver", as: :holarse_service_gameserver
+  get "holarse/service/communities", as: :holarse_service_communities
 
   # die angebotsaktionen
   resources :discount_events do

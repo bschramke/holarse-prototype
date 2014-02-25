@@ -19,4 +19,8 @@ class Holarse::ServiceController < ApplicationController
   def gameserver
     add_breadcrumb "Gameserver"
   end
+
+  def communities
+    add_breadcrumb "Communities"
+  end
 end
