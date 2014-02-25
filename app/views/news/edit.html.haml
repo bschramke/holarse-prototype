@@ -1,5 +1,13 @@
-#toggle-edit.pull-right
-  = fa_icon "arrows-h"
+.row.margin-bottom-40
+  .col-md-6
+    %button#toggle-newsview.btn-u.btn-block{:type => "button", :"data-newsview" => "short"}
+      = fa_icon "file"
+      Kurz-/Lang-News
+  .col-md-6.hidden-sm.hidden-xs
+    %button#toggle-livepreview.btn-u.btn-block{:type => "button"}
+      = fa_icon "refresh"
+      Live-Vorschau
+ 
 .row
   #input.col-md-6
     = semantic_form_for @news do |f|
