@@ -1,5 +1,3 @@
-require "lib/wiki"
-
 module ApplicationHelper
 
   #

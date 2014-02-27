@@ -28,10 +28,4 @@ class News < ActiveRecord::Base
 
   scope :search, ->(q, limit=200) { where("content like ? or title like ? or subtitle like ?", q, q, q).limit(limit) }
 
-  protected
-
-  def save_revision
-    self.revisions << Revision.new(changedset: self.to_json, user: self.user, event: self.new_record? ? "create" : "update")
-  end
-
 end
