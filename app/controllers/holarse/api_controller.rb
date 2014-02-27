@@ -69,23 +69,11 @@ class Holarse::ApiController < ApplicationController
   end
 
   def discount_count
-    count = Rails.cache.fetch "discount-count", expires_in: 1.minute do
-      {
-	count: DiscountEvent.all.count
-      }
-    end
-    
-    render text: count.to_json
+    render text: cached_model_count(DiscountEvent).to_json
   end
 
   def inbox_count
-    count = Rails.cache.fetch "inbox-count", expires_in: 1.minute do
-      {
-	count: Inbox.all.count
-      }
-    end
-
-    render text: count.to_json
+    render text: cached_model_count(Inbox).to_json
   end
 
   def mumble
@@ -100,6 +88,14 @@ class Holarse::ApiController < ApplicationController
   end
 
   protected
+
+  def cached_model_count(model)
+    count = Rails.cache.fetch "#{model.to_s.downcase}-count", expires_in: 1.minute do
+      {
+	count: model.all.count
+      }
+    end
+  end
 
   def taglist_by_context(context, searchword="")
     ActsAsTaggableOn::Tagging.joins("inner join tags on tags.id = tag_id").where(context: context).where("tags.name like ?", "%#{searchword}%").select("tags.name").map(&:name).uniq
