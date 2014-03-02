@@ -11,18 +11,17 @@ describe User do
     expect(admin_user.roles.select{ |role| role.name == "admin" }.size).to eq(1)
   end
 
-  it "should not allow a minecraft whitelisting without minecraftusername" do
+  it "should not list minecraft accounts without minecraftusername" do
     user = Fabricate.build(:user, minecraft_username: nil)
     user.minecraft_whitelisted = true
-    user.should_not be_valid
+
+    expect(user.valid_minecraft_account?).to be false
   end
 
-  it "should avoid duplicate minecraft usernames" do
-    user = Fabricate(:user, minecraft_username: "abc")
-    user.should be_valid
+  it "should list a minecraft account with mc-username and whitelisted-flag" do
+    user = Fabricate.build(:user, minecraft_username: "abc", minecraft_whitelisted: true)
 
-    user2 = Fabricate.build(:user, minecraft_username: "abc")
-    user2.should_not be_valid
+    expect(user.valid_minecraft_account?).to be true
   end
 
 end
