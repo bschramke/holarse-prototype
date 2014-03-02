@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
     end
 
     def valid_minecraft_account?
-      self.minecraft_whitelisted and not self.minecraft_username.empty?
+      self.minecraft_whitelisted and self.minecraft_username.present?
     end
 
     private
