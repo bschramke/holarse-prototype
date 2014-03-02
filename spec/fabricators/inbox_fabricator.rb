@@ -1,2 +1,0 @@
-Fabricator(:inbox) do
-end
