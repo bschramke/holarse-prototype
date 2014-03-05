@@ -2,7 +2,6 @@
 namespace :holarse do
   namespace :import do
 
-
     desc "clear db"
     task :clear => :environment do
       data = [Comment, Article, News, NewsUpdate, DiscountEvent, Revision, Inbox, Comment, User, Role]
@@ -25,9 +24,23 @@ namespace :holarse do
 
       u = ImportUser.all
       progress = ProgressBar.create(title: "Benutzer-Import", starting_at: 0, total: u.size)
-      ImportUser.all.each do |user|
+      u.each do |user|
 	user.convert.save!(validations: false)
 	progress.increment
+      end
+    end
+
+    desc "articles import"
+    task :articles => :environment do
+      require "lib/tasks/importmodels"
+      require "lib/tasks/converters"
+
+      Article.delete_all
+      u = ImportArticle.all
+      progress = ProgressBar.create(title: "Artikel-Import", starting_at: 0, total: u.size)
+      u.each do |article|
+        article.convert.save!(validations: false)
+        progress.increment
       end
     end
   

@@ -4,8 +4,8 @@ class ImportModel < ActiveRecord::Base
     establish_connection(
       adapter: "mysql",
       database: "holarse",
-      username: "root",
-      password: "iwiw1h",
+      username: "migration",
+      password: "migrationpassword",
       host: "localhost"
     )   
 end 

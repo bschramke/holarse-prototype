@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   add_breadcrumb "Home", :root_path
   helper_method :current_user, :is_logged_in?, :has_role, :can_edit_comment?, :create_anchor_name, :breadcrumbs, :get_genres, :current_logged_in_users
 
-  before_filter :update_user_activity
+  #before_filter :update_user_activity
 
   def persist_position(controller, action, id)
     session[:former_controller] = controller
