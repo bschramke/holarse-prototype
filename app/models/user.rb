@@ -65,6 +65,10 @@ class User < ActiveRecord::Base
       User.where(:minecraft_whitelisted)
     end
 
+    def valid_minecraft_account?
+      self.minecraft_whitelisted and self.minecraft_username.present?
+    end
+
     private
 
     def old_password_is_correct(old_password)

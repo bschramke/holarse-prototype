@@ -8,7 +8,6 @@ development:
 
 test:
   adapter:  mysql
-  username: holarse2014
-  password: holarse2014
-  url: "jdbc:mysql://localhost:3306/holarse2014_test"
+  database: holarse2014_test
+  username: travis
   encoding: utf8

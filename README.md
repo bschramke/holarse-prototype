@@ -1,8 +1,10 @@
 # Holarse 2014
 Die neue Webseite von Holarse - Spielen unter Linux wird wieder in Eigenregie erstellt. Wir können dadurch auf eine Vielzahl von Generikas und Umwegen verzichten und uns direkt auf unser Kernthema stürzen.
 
-## Build-Status
-![Status](https://travis-ci.org/commel/holarse.png)
+# Code
+[Travis CI](https://travis-ci.org/commel/holarse): ![Status](https://travis-ci.org/commel/holarse.png)
+
+[Code Climate](https://codeclimate.com/github/commel/holarse): ![CodeClimate](https://codeclimate.com/github/commel/holarse.png)
 
 ## Software
 * JRuby: 1.7.x oder höher
