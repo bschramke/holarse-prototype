@@ -1,6 +1,13 @@
-def get_pv(result, field) 
-  result = result.rows.select {|a| a[0] == field}
-  return result.flatten[1]
+class ArticleConverter
+  def convert(article)
+    return nil if article.node_revisions.nil?
+    Article.new(
+                title: article.title,
+                content: article.node_revisions.present? ? article.node_revisions.body : "",
+                created_at: Time.at(article.created).to_datetime,
+                user: User.friendly.find(article.user.name)
+                )
+  end
 end
 
 class UserConverter
@@ -25,6 +32,14 @@ class UserConverter
       distro: get_pv(pv, 10)
     )
   end
+
+  private
+
+  def get_pv(result, field) 
+    result = result.rows.select {|a| a[0] == field}
+    return result.flatten[1]
+  end
+  
 end
 
 class RoleConverter

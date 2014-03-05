@@ -36,11 +36,16 @@ namespace :holarse do
       require "lib/tasks/converters"
 
       Article.delete_all
+
       u = ImportArticle.all
-      progress = ProgressBar.create(title: "Artikel-Import", starting_at: 0, total: u.size)
+      #progress = ProgressBar.create(title: "Artikel-Import", starting_at: 0, total: u.size)
       u.each do |article|
-        article.convert.save!(validations: false)
-        progress.increment
+        next if article.nil?
+        puts "#{article.nid}"
+        converted = article.convert
+        next if converted.nil?
+        converted.save!(validations: false)
+        #progress.increment
       end
     end
   

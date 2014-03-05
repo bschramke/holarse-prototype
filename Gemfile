@@ -6,6 +6,7 @@ gem 'rails', '4.0.3'
 gem 'json'
 gem 'stringex'
 gem "mechanize"
+gem 'safe_attributes'
 
 group :production do
   gem 'puma'

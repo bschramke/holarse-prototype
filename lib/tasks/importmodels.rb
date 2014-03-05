@@ -10,6 +10,29 @@ class ImportModel < ActiveRecord::Base
     )   
 end 
 
+class ImportArticle < ImportModel
+  self.table_name = "node"
+  self.primary_key = "nid"
+  self.inheritance_column = "type2"
+
+  belongs_to :user, class_name: "ImportUser", foreign_key: "uid"
+  belongs_to :node_revisions, class_name: "ImportNodeRevision", foreign_key: "vid"
+
+  default_scope { where("type = ?", ["page"]).where("status = 1") }
+
+  class ImportNodeRevision < ImportModel
+    self.table_name = "node_revisions"
+    self.primary_key = "vid"
+
+    default_scope { where("body <> ''") }
+  end
+
+  def convert
+    ArticleConverter.new.convert(self)
+  end
+
+end
+
 class ImportUser < ImportModel
   self.table_name = "users"
   self.primary_key = "uid"
