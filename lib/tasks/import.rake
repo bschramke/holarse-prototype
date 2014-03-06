@@ -2,6 +2,8 @@
 namespace :holarse do
   namespace :import do
 
+    @@progressbar_format = "%a %B %c/%C (%p%%) %t (%e)"
+
     desc "clear db"
     task :clear => :environment do
       data = [Comment, Article, News, NewsUpdate, DiscountEvent, Revision, Inbox, Comment, User, Role]
@@ -23,7 +25,7 @@ namespace :holarse do
       Role.delete_all
 
       u = ImportUser.all
-      progress = ProgressBar.create(title: "Benutzer-Import", starting_at: 0, total: u.size)
+      progress = ProgressBar.create(title: "Benutzer-Import", starting_at: 0, total: u.size, format: @@progressbar_format)
       u.each do |user|
 	user.convert.save!(validations: false)
 	progress.increment
@@ -36,16 +38,17 @@ namespace :holarse do
       require "lib/tasks/converters"
 
       Article.delete_all
+      Comment.where(commentable_type: "Article").delete_all
+      Revision.where(historical_type: "Article").delete_all
 
       u = ImportArticle.all
-      #progress = ProgressBar.create(title: "Artikel-Import", starting_at: 0, total: u.size)
+      progress = ProgressBar.create(title: "Artikel-Import", starting_at: 0, total: u.size, format: @@progressbar_format)
       u.each do |article|
         next if article.nil?
-        puts "#{article.nid}"
         converted = article.convert
         next if converted.nil?
         converted.save!(validations: false)
-        #progress.increment
+        progress.increment
       end
     end
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209103345) do
+ActiveRecord::Schema.define(version: 20140306193659) do
 
   create_table "articles", force: true do |t|
     t.string   "title",                                     null: false
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20140209103345) do
     t.integer  "project_activity_state_id"
     t.string   "slug",                                      null: false
   end
+
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
+  add_index "articles", ["title"], name: "index_articles_on_title", using: :btree
 
   create_table "articles_attachments", id: false, force: true do |t|
     t.integer "article_id"
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140209103345) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
-    t.string   "content"
+    t.text     "content"
     t.boolean  "enabled",          default: true
     t.integer  "commentable_id"
     t.string   "commentable_type"
@@ -268,6 +271,9 @@ ActiveRecord::Schema.define(version: 20140209103345) do
     t.boolean  "collaborate",           default: false
     t.string   "slug",                                  null: false
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
   create_table "videos", force: true do |t|
     t.string   "url"

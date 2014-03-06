@@ -5,9 +5,22 @@ class ArticleConverter
                 title: article.title,
                 content: article.node_revisions.present? ? article.node_revisions.body : "",
                 created_at: Time.at(article.created).to_datetime,
-                user: User.friendly.find(article.user.name)
+		updated_at: Time.at(article[:changed]).to_datetime,
+                user: User.find_by_username!(article.user.name),
+		comments: article.comments.map(&:convert)
                 )
   end
+end
+
+class CommentConverter
+  def convert(comment)
+    Comment.new(
+      user: User.find_by_username!(comment.user.name),
+      content: comment.comment,
+      created_at: Time.at(comment.timestamp).to_datetime,
+      updated_at: Time.at(comment.timestamp).to_datetime
+    )
+  end 
 end
 
 class UserConverter

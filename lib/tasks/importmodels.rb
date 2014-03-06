@@ -10,6 +10,18 @@ class ImportModel < ActiveRecord::Base
     )   
 end 
 
+class ImportComment < ImportModel
+  self.table_name = "comments"
+  self.primary_key = "cid"
+
+  belongs_to :user, class_name: "ImportUser", foreign_key: "uid"
+  default_scope { where("status = 0") }
+
+  def convert
+    CommentConverter.new.convert(self)
+  end 
+end
+
 class ImportArticle < ImportModel
   self.table_name = "node"
   self.primary_key = "nid"
@@ -17,6 +29,7 @@ class ImportArticle < ImportModel
 
   belongs_to :user, class_name: "ImportUser", foreign_key: "uid"
   belongs_to :node_revisions, class_name: "ImportNodeRevision", foreign_key: "vid"
+  has_many :comments, class_name: "ImportComment", foreign_key: "nid"
 
   default_scope { where("type = ?", ["page"]).where("status = 1") }
 

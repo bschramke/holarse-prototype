@@ -33,7 +33,7 @@ gem 'draper', '~> 1.3.0'
 gem 'sass-rails',   '~> 4.0.1'
 gem 'haml-rails'
 
-gem 'friendly_id', '~> 5.0.0'
+gem 'friendly_id', '~> 5.0.3'
 
 # View
 # 
