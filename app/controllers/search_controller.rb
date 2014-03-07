@@ -11,6 +11,11 @@ class SearchController < ApplicationController
 
     add_breadcrumb "Inhalte"
     add_breadcrumb @searchword, search_path(@searchword)
+
+    if @elements.length == 1
+      flash[:info] = "Es wurde direkt auf das einzige Suchergebnis umgeleitet"
+      redirect_to @elements.first and return
+    end
   end
 
   def tags
