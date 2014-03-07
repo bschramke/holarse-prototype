@@ -40,12 +40,11 @@ holarse.update_yt_videos = function(playlists) {
   var channels = all_vids.map(function(data) { return data.channel; }).filter(function(itm,i,a) { return i===a.indexOf(itm); }).map(function(data) { return { channel: data }; });
 
   // ausgabe
-  $.Mustache.addFromDom('youtube-tmpl');
-  $("#yt-videos").mustache("youtube-tmpl", sorted_vids);
+  $("#yt-videos").mustache("youtube-item-template", sorted_vids);
   $(".autolinkable").each(function(index) { holarse.autolink_fn($(this)); });
-
-  $.Mustache.addFromDom("youtube-channel-tmpl");
-  $("#navcontext").mustache("youtube-channel-tmpl", channels);
+  
+  // channels
+  $("#navcontext").mustache("youtube-channel-template", channels);
 };
 
 $(document).ready(function() {

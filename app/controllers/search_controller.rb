@@ -41,22 +41,22 @@ class SearchController < ApplicationController
   private
 
   def suggestion(term)
-    search_content(term, 25)
-    .map { |s| s.decorate}
-    .map { |s| {  "title" => s.title,
-		  "secondary_title" => s.secondary_title,
-		  "icon" => s.icon,
-		  "accuracy" => 0,
-		  "url" => url_for(s)
-	}
-    }
+    search_content(term)
+      .map { |s| s.decorate}
+      .map { |s| {  "title" => s.title,
+		    "secondary_title" => s.secondary_title,
+		    "icon" => s.icon,
+		    "accuracy" => 0,
+		    "url" => url_for(s)
+	  }
+      }
   end
 
   def search_for_tags(searchword)
     News.tagged_with(searchword) + Article.tagged_with(searchword)
   end
 
-  def search_content(searchword, limit=200)
+  def search_content(searchword, limit=5)
     q = "%#{searchword}%"
     News.search(q, limit).decorate + Article.search(q, limit).decorate + DiscountEvent.search(q, limit).decorate
   end

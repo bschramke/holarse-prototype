@@ -36,6 +36,9 @@
     .copyright.hidden-xs.hidden-sm
       .container
         = render :partial => "copyright"
+
+    / mustache templates
+    = render partial: "mustaches"
     
     :javascript
       var holarse = holarse || {}; // Namespace deklarieren
@@ -47,4 +50,10 @@
         App.init();
         App.initBxSlider();
       });
+
+      $("[id$=template]").each(function(i, template) {
+        $.Mustache.addFromDom(template.id);
+        console.debug("loaded " + template.id + " as mustache template");
+      });
+
     = javascript_include_tag "//togetherjs.com/togetherjs-min.js" if user_wants_to_collaborate? current_user

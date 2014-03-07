@@ -1,0 +1,41 @@
+<script id="autocomplete-item-template" type="text/html">
+  {{#.}}
+    <a href="{{url}}">
+      <i class="{{icon}}" />
+      <b>{{title}}</b>
+      <br />
+      <i>{{secondary_title}}</i>
+    </a>
+  {{/.}}
+</script>
+
+<script id="youtube-item-template" type="text/html">
+  <li class="media">
+    <a href="{{link}}" class="pull-left fancybox.iframe">
+      <img src="{{img_url}}" class="media-object" />
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">
+	<i class="fa fa-youtube" />
+	{{name}}
+      </h4>
+      <div class="text-muted">
+	<time class="timeago" datetime="{{published_ts}}">{{published}}</time>
+	von
+	<a href="/redirect/youtube/{{author}}">{{author}}</a>
+      </div>
+      <div class="autolinkable" data-ignores="">
+	{{desc}}
+      </div>
+    </div>  
+  </li>
+</script>
+
+<script id="youtube-channel-template" type="text/html">
+  <li>
+    <a href="/redirect/youtube/{{channel}}">
+      <i class="fa fa-youtube" />
+      {{channel}}
+    </a>
+  </li>
+</script>
