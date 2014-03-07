@@ -4,11 +4,9 @@
     %small
       Holarse im Web
 
-Ihr könnt Holarse an vielen Gaming-Stellen im Web finden. Wir haben Gruppen bei Desura und Steam:
+Ihr könnt Holarse an vielen Stellen im Netz finden. Wir bevorzugen jedoch, wenn möglich, freie Alternativen.
 
-%ul.unstyled-list
-  %li
-    = link_to "http://www.desura.com/groups/holarse-linuxgaming" do
-      = image_tag "http://media.desura.com/images/global/desura.png"
-  %li
-    = link_to "http://steamcommunity.com/groups/holarse", "Steam-Gruppe"
+.list-group
+  = link_to "Desura",   "http://www.desura.com/groups/holarse-linuxgaming", class: "list-group-item"
+  = link_to "Steam",    "http://steamcommunity.com/groups/holarse", class: "list-group-item"
+  = link_to "Diaspora", "https://pod.geraspora.de/u/holarse", class: "list-group-item"
