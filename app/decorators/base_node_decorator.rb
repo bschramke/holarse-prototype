@@ -25,7 +25,7 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def title
-    model.title
+    model.title.blank? ? "" : model.title
   end
 
   def titles

@@ -2,7 +2,7 @@ class DiscountEventDecorator < BaseNodeDecorator
   delegate_all
 
   def icon
-    "icon-gift"
+    "fa fa-gift"
   end
 
   def intro

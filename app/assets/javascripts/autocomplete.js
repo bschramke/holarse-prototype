@@ -14,15 +14,11 @@ $(document).ready(function() {
       "autoFocus": "false",
       "minLength": 2,
       "source": "/search/suggest.json",
-      "position": {
-	  "my": "left bottom",
-	  "at": "left top",
-	  "collision": "flip"
-      },
+      "delay": 500,
       "select": function(event, ui) {
 	$("#search_q").val(ui.item.title);
 	window.location = ui.item.url;
-	return false;
+	return true;
       }}).data("uiAutocomplete")._renderItem = function(ul, item) {
 	return $("<li></li>")
 	  .data("item.autocomplete", item)

@@ -12,7 +12,7 @@ class NewsDecorator < BaseNodeDecorator
   end
 
   def icon
-    "icon-bell"
+    "fa fa-bell"
   end
 
   def category

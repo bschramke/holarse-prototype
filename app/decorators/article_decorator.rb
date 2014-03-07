@@ -3,7 +3,7 @@ class ArticleDecorator < BaseNodeDecorator
   delegate_all
 
   def icon
-    "icon-gamepad"
+    "fa fa-gamepad"
   end
 
   def tags
@@ -15,7 +15,7 @@ class ArticleDecorator < BaseNodeDecorator
   end
 
   def secondary_title
-    model.alternate_title
+    model.alternate_title.blank? ? "" : model.alternate_title
   end
 
   def project_state
