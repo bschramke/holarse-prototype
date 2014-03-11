@@ -7,7 +7,8 @@ class ArticleConverter
                 created_at: Time.at(article.created).to_datetime,
 		updated_at: Time.at(article[:changed]).to_datetime,
                 user: User.find_by_username!(article.user.name),
-		comments: article.comments.map(&:convert)
+		comments: article.comments.map(&:convert),
+		genre_list: article.tags.map(&:convert)
                 )
   end
 end

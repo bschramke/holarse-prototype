@@ -10,6 +10,15 @@ class ImportModel < ActiveRecord::Base
     )   
 end 
 
+class ImportTag < ImportModel
+  self.table_name = "term_data"
+  self.primary_key = "tid"
+
+  def convert
+    name
+  end 
+end
+
 class ImportComment < ImportModel
   self.table_name = "comments"
   self.primary_key = "cid"
@@ -30,6 +39,7 @@ class ImportArticle < ImportModel
   belongs_to :user, class_name: "ImportUser", foreign_key: "uid"
   belongs_to :node_revisions, class_name: "ImportNodeRevision", foreign_key: "vid"
   has_many :comments, class_name: "ImportComment", foreign_key: "nid"
+  has_many :tags, class_name: "ImportTag", foreign_key: "vid", through: "termNodes"
 
   default_scope { where("type = ?", ["page"]).where("status = 1") }
 

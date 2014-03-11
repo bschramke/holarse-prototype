@@ -41,7 +41,7 @@ holarse.update_yt_videos = function(playlists) {
 
   // ausgabe
   $("#yt-videos").mustache("youtube-item-template", sorted_vids);
-  $(".autolinkable").each(function(index) { holarse.autolink_fn($(this)); });
+  //$(".autolinkable").each(function(index) { holarse.autolink_fn($(this)); });
   
   // channels
   $("#navcontext").mustache("youtube-channel-template", channels);
