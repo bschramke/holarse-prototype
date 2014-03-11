@@ -7,6 +7,7 @@ gem 'json'
 gem 'stringex'
 gem "mechanize"
 gem 'safe_attributes'
+gem 'searchkick'
 
 group :production do
   gem 'puma'

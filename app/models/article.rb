@@ -22,8 +22,16 @@ class Article < ActiveRecord::Base
 
   acts_as_taggable_on :categories, :genres
 
-  default_scope { where(enabled: true) }
+  searchkick language: "German"
 
-  scope :search, ->(q, limit=200) { where("content like ? or title like ? or alternate_title like ?", q, q, q).limit(limit) }
+  def search_data
+    as_json only: [:title, :alternate_title, :content]
+  end
+
+  def should_index?
+    enabled
+  end
+
+  default_scope { where(enabled: true) }
 
 end

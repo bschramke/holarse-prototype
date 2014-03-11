@@ -24,8 +24,16 @@ class News < ActiveRecord::Base
   validates_presence_of :user  
   validates :content, :length => { :minimum => 10 }
 
-  default_scope { where(enabled: true) }
+  searchkick language: "German"
 
-  scope :search, ->(q, limit=200) { where("content like ? or title like ? or subtitle like ?", q, q, q).limit(limit) }
+  def search_data
+    as_json only: [:title, :content, :subtitle]
+  end
+
+  def should_index?
+    enabled
+  end
+
+  default_scope { where(enabled: true) }
 
 end

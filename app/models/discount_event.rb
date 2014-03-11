@@ -12,8 +12,16 @@ class DiscountEvent < ActiveRecord::Base
   validates_presence_of :name
 
   default_scope { where(enabled: true) }
+  
+  searchkick language: "German"
 
-  scope :search, ->(q, limit=200) { where("description like ? or name like ?", q, q).limit(limit) }
+  def search_data
+    as_json only: [:title, :alternate_title, :content]
+  end
+
+  def should_index?
+    enabled
+  end
 
   protected
 

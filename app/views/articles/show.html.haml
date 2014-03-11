@@ -35,6 +35,16 @@
       = @article.content.html_safe
 
 .container
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        Ähnliche Artikel
+    .panel-body
+      .list-group
+        - @article.similar(fields: ["title", "alternate_title"]).each do |similar_article|
+          = link_to similar_article.title, similar_article, class: "list-group-item"
+
+.container
   %h3
     Screenshots
   .gallery-page
