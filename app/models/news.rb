@@ -24,7 +24,11 @@ class News < ActiveRecord::Base
   validates_presence_of :user  
   validates :content, :length => { :minimum => 10 }
 
-  searchkick language: "German"
+  searchkick language: "German", word_middle: [:title]
+
+  def self.sk_search(term, limit=100)
+    search(term, fields: [{title: :word_middle}, :alternate_title, :content], limit: limit).map(&:decorate)
+  end
 
   def search_data
     as_json only: [:title, :content, :subtitle]

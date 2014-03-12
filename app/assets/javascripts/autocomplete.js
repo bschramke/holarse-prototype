@@ -14,7 +14,6 @@ $(document).ready(function() {
       "autoFocus": "false",
       "minLength": 2,
       "source": "/search/suggest.json",
-      "delay": 500,
       "select": function(event, ui) {
 	$("#search_q").val(ui.item.title);
 	window.location = ui.item.url;

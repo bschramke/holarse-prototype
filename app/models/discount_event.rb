@@ -13,7 +13,11 @@ class DiscountEvent < ActiveRecord::Base
 
   default_scope { where(enabled: true) }
   
-  searchkick language: "German"
+  searchkick language: "German", word_middle: [:title]
+
+  def self.sk_search(term, limit=100)
+    search(term, fields: [{title: :word_middle}, :alternate_title, :content], limit: limit).map(&:decorate)
+  end
 
   def search_data
     as_json only: [:title, :alternate_title, :content]

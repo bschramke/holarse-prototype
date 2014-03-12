@@ -32,6 +32,22 @@ class Article < ActiveRecord::Base
     enabled
   end
 
+  def self.sk_search(term, limit=100)
+    search(term, fields: [{title: :word_middle}, :alternate_title, :content], limit: limit).map(&:decorate)
+  end
+
+  def self.autosuggest(term)
+    sk_search(term, 5).map { |s|
+      {
+	"title" => s.title,
+	"secondary_title" => s.secondary_title,
+	"icon" => s.icon,
+	"accuracy" => 0,
+	"url" => s.link_to
+      }
+    }
+  end
+
   default_scope { where(enabled: true) }
 
 end

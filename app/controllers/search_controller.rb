@@ -41,25 +41,15 @@ class SearchController < ApplicationController
   private
 
   def suggestion(term)
-    Article.search(term, fields: [:title], limit: 5)
-      .map { |s| s.decorate}
-      .map { |s| {  "title" => s.title,
-		    "secondary_title" => s.secondary_title,
-		    "icon" => s.icon,
-		    "accuracy" => 0,
-		    "url" => url_for(s)
-	  }
-      }
+    Article.autosuggest(term)
   end
 
   def search_for_tags(searchword)
     News.tagged_with(searchword) + Article.tagged_with(searchword)
   end
 
-  def search_content(searchword, limit=5)
-    Article.search(searchword, fields: [{title: :word_middle}, :alternate_title, :content]).map(&:decorate)
-
-    #News.search(q).decorate + Article.search(q).decorate + DiscountEvent.search(q).decorate
+  def search_content(searchword)
+    [Article, News, DiscountEvent].map { |s| s.sk_search(searchword) }.flatten
   end
 
   def set_start_time

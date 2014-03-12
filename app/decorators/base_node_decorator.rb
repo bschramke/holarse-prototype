@@ -9,6 +9,10 @@ class BaseNodeDecorator < Draper::Decorator
     user.link
   end
 
+  def link_to
+    h.url_for(model)
+  end
+
   def teaser(highlight=nil)
     h.highlight(
       h.truncate( h.strip_tags(content), length: 500 ), 
