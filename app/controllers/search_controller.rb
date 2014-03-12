@@ -57,7 +57,7 @@ class SearchController < ApplicationController
   end
 
   def search_content(searchword, limit=5)
-    Article.search(searchword, fields: [:title, :alternate_title, :content]).map(&:decorate)
+    Article.search(searchword, fields: [{title: :word_middle}, :alternate_title, :content]).map(&:decorate)
 
     #News.search(q).decorate + Article.search(q).decorate + DiscountEvent.search(q).decorate
   end

@@ -10,5 +10,5 @@
     .col-md-8
       %h2
         = link_to news.title, news
-      %p=news.teaser
+      %p=news.teaser(@searchword)
       = button_to "Zur News", news, class: "btn-u btn-u-red"

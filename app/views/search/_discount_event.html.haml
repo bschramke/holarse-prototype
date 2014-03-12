@@ -14,5 +14,5 @@
     .col-md-8
       %h2
         = link_to discount_event.title, discount_event 
-      %p=discount_event.teaser
+      %p=discount_event.teaser(@searchword)
       = button_to "Zum Event", discount_event, class: "btn-u btn-u-red"

@@ -41,7 +41,7 @@
         Ähnliche Artikel
     .panel-body
       .list-group
-        - @article.similar(fields: ["title", "alternate_title"]).each do |similar_article|
+        - @article.similar(fields: ["title", "content"]).each do |similar_article|
           = link_to similar_article.title, similar_article, class: "list-group-item"
 
 .container

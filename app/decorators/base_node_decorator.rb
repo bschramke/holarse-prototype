@@ -9,8 +9,11 @@ class BaseNodeDecorator < Draper::Decorator
     user.link
   end
 
-  def teaser
-    h.truncate( h.strip_tags(content), length: 500 )
+  def teaser(highlight=nil)
+    h.highlight(
+      h.truncate( h.strip_tags(content), length: 500 ), 
+      highlight
+    )
   end
 
   def teaser_image

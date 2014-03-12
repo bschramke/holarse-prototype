@@ -22,7 +22,7 @@ class Article < ActiveRecord::Base
 
   acts_as_taggable_on :categories, :genres
 
-  searchkick language: "German"
+  searchkick language: "German", word_middle: [:title]
 
   def search_data
     as_json only: [:title, :alternate_title, :content]
