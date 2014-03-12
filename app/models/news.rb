@@ -27,7 +27,7 @@ class News < ActiveRecord::Base
   searchkick language: "German", word_middle: [:title]
 
   def self.sk_search(term, limit=100)
-    search(term, fields: [{title: :word_middle}, :alternate_title, :content], limit: limit).map(&:decorate)
+    search(term, fields: [{title: :word_middle}, :subtitle, :content], limit: limit).map(&:decorate)
   end
 
   def search_data

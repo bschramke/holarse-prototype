@@ -16,11 +16,11 @@ class DiscountEvent < ActiveRecord::Base
   searchkick language: "German", word_middle: [:title]
 
   def self.sk_search(term, limit=100)
-    search(term, fields: [{title: :word_middle}, :alternate_title, :content], limit: limit).map(&:decorate)
+    search(term, fields: [{title: :word_middle}, :content], limit: limit).map(&:decorate)
   end
 
   def search_data
-    as_json only: [:title, :alternate_title, :content]
+    as_json only: [:title, :content]
   end
 
   def should_index?
