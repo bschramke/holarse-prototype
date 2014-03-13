@@ -9,8 +9,12 @@ class UserDecorator < Draper::Decorator
     "#{link} hat sich registriert."
   end
 
+  def activity_changetime
+    model.updated_at || model.created_at
+  end
+
   def changetime
-    h.time_ago_in_words model.created_at
+    h.time_ago_in_words activity_changetime
   end
 
   def avatar

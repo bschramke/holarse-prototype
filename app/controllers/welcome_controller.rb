@@ -1,14 +1,14 @@
 class WelcomeController < ApplicationController
 
   def index
-    sorting = lambda { |a,b| b.updated_at <=> a.updated_at }
-
-    @elements = Rails.cache.fetch "welcome-elements", expires_in: 1.minute do
-      decorate(welcome_elements).sort &sorting
-    end
-    @activities = Rails.cache.fetch "all-activities", expires_in: 1.minute do
-      decorate(all_activities).sort &sorting
-    end
+    #Rails.cache.fetch "welcome-elements", expires_in: 1.minute do
+    @elements = 
+      welcome_elements.map(&:decorate).sort(&chronological)[0..20]
+#    end
+    @activities =
+   # = Rails.cache.fetch "all-activities", expires_in: 1.minute do
+      all_activities.map(&:decorate).sort(&chronological)[0..20]
+#    end
 
     #@tags = {
     #  :genres => Article.tag_counts_on(:genres),
@@ -18,8 +18,8 @@ class WelcomeController < ApplicationController
 
   private
 
-  def decorate(list)
-    list.map(&:decorate)
+  def chronological
+    lambda { |a,b| b.activity_changetime <=> a.activity_changetime }
   end
 
   def all_activities
@@ -35,7 +35,7 @@ class WelcomeController < ApplicationController
   end
 
   def latest_news_updates
-    NewsUpdate.all.limit(10)
+    NewsUpdate.order("created_at desc").limit(10)
   end
 
   def latest_version_activities
@@ -51,7 +51,7 @@ class WelcomeController < ApplicationController
   end
 
   def latest_news
-    News.order("updated_at desc").limit(10)
+    News.order("created_at desc").limit(10)
   end
 
   def latest_article_updates

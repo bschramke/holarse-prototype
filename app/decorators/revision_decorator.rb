@@ -12,6 +12,10 @@ class RevisionDecorator < Draper::Decorator
     user.link
   end
 
+  def activity_changetime
+    model.updated_at || model.created_at
+  end
+
   def changetime
     h.time_ago_in_words model.created_at
   end

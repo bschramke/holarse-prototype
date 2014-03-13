@@ -5,6 +5,10 @@ class BaseNodeDecorator < Draper::Decorator
   decorates_association :user
   decorates_association :comments
 
+  def activity_changetime
+    model.updated_at || model.created_at
+  end
+
   def author
     user.link
   end
