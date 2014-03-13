@@ -45,7 +45,7 @@ class SearchController < ApplicationController
   end
 
   def search_for_tags(searchword)
-    News.tagged_with(searchword) + Article.tagged_with(searchword)
+    (News.tagged_with(searchword) + Article.tagged_with(searchword)).map(&:decorate)
   end
 
   def search_content(searchword)
