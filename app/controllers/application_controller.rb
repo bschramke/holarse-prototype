@@ -56,7 +56,9 @@ class ApplicationController < ActionController::Base
   end
 
   def get_genres
-    Article.tag_counts_on(:genres).sort { |a,b| a.name.downcase <=> b.name.downcase }
+    Rails.cache.fetch "get-genres", expires_in: 1.minute do
+      Article.tag_counts_on(:genres).sort { |a,b| a.name.downcase <=> b.name.downcase }
+    end
   end
 
   #
