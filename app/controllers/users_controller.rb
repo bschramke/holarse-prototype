@@ -100,7 +100,7 @@ class UsersController < ApplicationController
   # prueft, ob die aufzurufende seite, das eigene profil ist
   #
   def accesses_own_profile
-    User.friendly.find(params[:id]) == current_user
+    User.friendly.find(params[:id]).id == current_user.id
   end
 
   def is_spammer?(user)

@@ -22,3 +22,8 @@
       %li
         = link_to "http://www.jugendschutzprogramm.de/download" do
           = image_tag "jusprog-age-de-icon-18.png"
+      %li
+        - if user_wants_to_collaborate? current_user
+          %button.btn-u{:onclick => "TogetherJS(this); return false;"}
+            = fa_icon "users"
+            Zusammenarbeit 

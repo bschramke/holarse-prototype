@@ -13,10 +13,6 @@
       %dd
         = time_field @user.lastlogin
       %dt
-        Letzte Aktivität
-      %dd
-        = time_field @user.lastactivity
-      %dt
         Kommentare
       %dd
         = @user.comments
@@ -24,6 +20,10 @@
         Rollen
       %dd
         = @user.roles 
+      %dt
+        = link_to "TogetherJS", "https://togetherjs.com/"
+      %dd
+        = check_box_tag(@user.collaborate, value="1", checked = @user.collaborate, disabled: true)
   .col-md-6
     .headline
       %h2
