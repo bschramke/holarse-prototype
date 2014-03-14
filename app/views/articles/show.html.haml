@@ -1,21 +1,48 @@
-.container.blog-page.blog-item
-  .blog.margin-bottom-40
-    %h2
-      = @article.title
-    %h3
-      = @article.secondary_title
-    .blog-post-tags
-      %ul.list-unstyled.list-inline.blog-info.blog-tags
+.container
+  .row.blog-page.blog-item
+    / left sidebar
+    .col-md-9.md-margin-bottom-60
+      / blog post
+      .blog-margin-bottom-40
+        %h2
+          = link_to @article.title, @article
+          %small
+            = @article.secondary_title
+      .autolinkable{:"data-ignores" => @article.titles}
+        = @article.content.html_safe
+      / end blog post
+      
+      %hr
+
+      / recent comments
+      .media
+        %a{:name => "comments"}
+        %h3
+          Kommentare
+        = render @article.comments
+      / end recent comments
+
+      .post-comment
+        = show_commentbox @article
+    
+    / end left sidebar
+
+    / right sidebar
+    .col-md-3.magazine-page
+      / article-infos
+      .headline.headline-md
+        %h2
+          Meta
+      %ul.list-unstyled.margin-bottom-30
         %li
-          = fa_icon "clock-o"
+          = fa_icon "pencil-square"
+          = @article.createdtime
+        %li
+          = fa_icon "pencil-square-o"
           = @article.changetime
         %li
-          = fa_icon "pencil"
+          = fa_icon "users"
           = @article.authors_list.html_safe
-        %li
-          = fa_icon "tags"
-          - @article.tags.each do |tag|
-            = link_to tag, searchtag_path(tag)
         %li
           = fa_icon "tachometer"
           = @article.project_state
@@ -31,37 +58,30 @@
           %li
             = fa_icon "warning"
             Kommentare deaktiviert
-    .autolinkable{:"data-ignores" => @article.titles}
-      = @article.content.html_safe
+      / article tags
+      .headline.headline-md
+        %h2
+          Tags
+      %ul.list-unstyled.list-inline.blog-info
+        %li
+          = fa_icon "tags"
+          - @article.tags.each do |tag|
+            = link_to tag, searchtag_path(tag)
 
-.container
-  .panel.panel-default
-    .panel-heading
-      %h3.panel-title
-        Ähnliche Artikel
-    .panel-body
-      .list-group
+      / screenshots
+      .headline.headline-md
+        %h2
+          Screenshots/Videos
+      %ul.list-unstyled.blog-photos.margin-bottom-30
+        - (1..10).each do |photo|
+          %li
+            = link_to "http://lorempixel.com/1024/768/technics/#{photo}", class: "fancybox fancybox.image", rel: "gallery" do
+              = image_tag "http://lorempixel.com/300/180/technics/#{photo}", class: "hover-effect"
+
+      / similar articles
+      .headline.headline-md
+        %h2
+          Ähnliche Artikel
+      %ul.list-unstyled.blog-tags.margin-bottom-30
         - @article.similar(fields: ["title", "content"]).each do |similar_article|
-          = link_to similar_article.title, similar_article, class: "list-group-item"
-
-.container
-  %h3
-    Screenshots
-  .gallery-page
-    - require 'faker'
-    - (1..10).each_slice(4).to_a.each do |row|
-      .row.margin-bottom-20
-        - row.each do |item|
-          .col-md-3.col-sm-6
-            = link_to "http://lorempixel.com/1024/768/technics/#{item}", class: "thumbnail fancybox fancybox.image zoomer", :rel => "gallery", title: "#{Faker::Lorem.words(3).join " "}" do
-              %span.overlay-zoom
-                %img.img-responsive{:"src" => "http://lorempixel.com/300/180/technics/#{item}"}
-                .zoom-icon
-.container
-  .media
-    %a{:name => "comments"}
-    %h3
-      Kommentare
-    = render @article.comments
-
-  = show_commentbox @article
+          %li= link_to similar_article.title, similar_article

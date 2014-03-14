@@ -9,7 +9,7 @@
       Bearbeiten
   %li
     = link_to article_history_index_path(@article) do
-      = fa_icon "book"
+      = fa_icon :book
       Revisionen
       = content_tag :span, :class => "badge" do
         #{@article.revisions.length}

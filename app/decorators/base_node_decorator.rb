@@ -31,7 +31,7 @@ class BaseNodeDecorator < Draper::Decorator
   def authors_list
     UserDecorator.decorate_collection( authors.uniq.sort(&by_username) )
 		 .map(&link_users)
-		 .join(",")
+		 .join(", ")
 		 .html_safe
   end
 
@@ -45,6 +45,10 @@ class BaseNodeDecorator < Draper::Decorator
 
   def content
     Holarse::Markup.render(model.content)
+  end
+
+  def createdtime
+    h.time_ago_in_words model.created_at
   end
 
   def changetime
