@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+
+    attr_accessor :avatarweb
+
     friendly_id :username, use: :slugged
 
     has_secure_password(validations: false)
@@ -69,7 +72,23 @@ class User < ActiveRecord::Base
       self.minecraft_whitelisted and self.minecraft_username.present?
     end
 
+    def avatar_from_web(webavatar_url)
+      require "tempfile"
+      agent = Mechanize.new
+      agent.pluggable_parser.default = Mechanize::Download
+
+      tempfile = create_temp_webavatarfile(webavatar_url)
+      Rails.logger.debug("Trying to download webavatar from #{webavatar_url} to #{tempfile.path}")
+      agent.get(webavatar_url).save(tempfile.path)
+
+      self.avatar = tempfile      
+    end
+
     private
+
+    def create_temp_webavatarfile(url="")
+      Tempfile.new(["holarse-avatar-", "." + url.split(//).last(3).join])
+    end
 
     def old_password_is_correct(old_password)
         Digest::MD5.hexdigest(old_password) == self.old_password_hash

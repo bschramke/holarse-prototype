@@ -38,3 +38,18 @@
       = f.input :minecraft_username, input_html: { class: "form-control" }
   = f.actions do 
     = f.action :submit
+
+= semantic_form_for @user do |f|
+  = f.inputs "Avatar hochladen" do
+    .form-group
+      = f.input :avatar, input_html: { class: "form-control" }
+  = f.actions do
+    = f.action :submit
+
+= semantic_form_for @user do |f|
+  = f.inputs "Avatar aus dem Web laden" do
+    .form-group
+      = f.input :avatarweb, input_html: { class: "form-control" }
+  = f.actions do
+    = f.action :submit
+  

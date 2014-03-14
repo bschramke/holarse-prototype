@@ -38,6 +38,9 @@ class UsersController < ApplicationController
   #
   def update
     user = User.friendly.find(params[:id])
+
+    user.avatar_from_web(params[:user][:avatarweb]) if has_web_avatar?
+
     if user.update_attributes(user_params)
       redirect_to user
     else
@@ -114,12 +117,16 @@ class UsersController < ApplicationController
 
   private
 
+  def has_web_avatar?
+    params[:user][:avatarweb].present?
+  end
+
   def register_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :steam, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar, :collaborate)
+    params.require(:user).permit(:username, :email, :signature, :jabber, :icq, :twitter, :diaspora, :steam, :homepage, :city, :job, :birthday, :computer, :graphics, :distro, :minecraft_username, :password, :password_confirmation, :avatar, :collaborate, :avatar, :avatarweb)
   end
 
 end
