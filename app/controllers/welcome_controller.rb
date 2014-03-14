@@ -1,14 +1,12 @@
 class WelcomeController < ApplicationController
 
   def index
-    #Rails.cache.fetch "welcome-elements", expires_in: 1.minute do
-    @elements = 
+    @elements = Rails.cache.fetch "welcome-elements", expires_in: 1.minute do
       welcome_elements.map(&:decorate).sort(&chronological)[0..20]
-#    end
-    @activities =
-   # = Rails.cache.fetch "all-activities", expires_in: 1.minute do
+    end
+    @activities = Rails.cache.fetch "all-activities", expires_in: 1.minute do
       all_activities.map(&:decorate).sort(&chronological)[0..20]
-#    end
+    end
 
     #@tags = {
     #  :genres => Article.tag_counts_on(:genres),
@@ -51,7 +49,7 @@ class WelcomeController < ApplicationController
   end
 
   def latest_news
-    News.order("created_at desc").limit(10)
+    News.order("updated_at desc").limit(10)
   end
 
   def latest_article_updates
