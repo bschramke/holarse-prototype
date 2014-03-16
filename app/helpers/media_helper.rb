@@ -8,7 +8,7 @@ module MediaHelper
 
   def link_to_youtube(video)
     vid_id = video.url.match(/v=([^&]*)/)[1]
-    link_to image_tag("http://img.youtube.com/vi/#{vid_id}/0.jpg"), video.url, { :class => 'fancybox-media img-responsive' }
+    link_to image_tag("http://img.youtube.com/vi/#{vid_id}/sddefault.jpg"), video.url, { :class => 'fancybox-media img-responsive' }
   end
 
   def embed_youtube(url)
@@ -18,7 +18,7 @@ module MediaHelper
   end
 
   def youtube_poster(url)
-    image_tag "http://img.youtube.com/vi/#{get_youtube_id(url)}/0.jpg"
+    image_tag "http://img.youtube.com/vi/#{get_youtube_id(url)}/hqdefault.jpg"
   end
 
   def is_youtube?(text)

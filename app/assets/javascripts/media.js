@@ -11,4 +11,16 @@ $(document).ready(function() {
       media: {}
     }
   });
+
+
+  $(".bxslider").bxSlider({
+    video: true,
+    useCSS: false,
+    captions: true,
+    adaptiveHeight: true,
+    auto: true,
+    autoControls: false,
+    autoHover: true
+  });
+
 });

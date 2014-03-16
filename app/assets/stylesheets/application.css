@@ -20,6 +20,7 @@
  *= require unify/responsive
  *= require unify/plugins/fancybox/jquery.fancybox
  *= require font-awesome
+ *= require jquery.bxslider
  *= require unify/themes/red
  *= require unify/themes/headers/header1-red
  *= require unify/pages/blog

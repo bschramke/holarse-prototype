@@ -8,7 +8,14 @@
           = link_to @article.title, @article
           %small
             = @article.secondary_title
-        %img.img-responsive
+          %ul.bxslider
+            - (1..10).each do |photo|
+              %li
+                = link_to "http://lorempixel.com/1024/768/technics/#{photo}", class: "fancybox fancybox.image", :"data-fancybox-group" => "gallery" do
+                  = image_tag "http://lorempixel.com/300/180/technics/#{photo}", class: "hover-effect da-img"
+            - @article.videos.each do |video|
+              %li
+                = embed_youtube video.url
 
       .autolinkable{:"data-ignores" => @article.titles}
         = @article.content.html_safe
@@ -69,16 +76,6 @@
           = fa_icon "tags"
           - @article.tags.each do |tag|
             = link_to tag, searchtag_path(tag)
-
-      / screenshots
-      .headline.headline-md
-        %h2
-          Screenshots/Videos
-      %ul.list-unstyled.blog-photos.margin-bottom-30
-        - (1..10).each do |photo|
-          %li
-            = link_to "http://lorempixel.com/1024/768/technics/#{photo}", class: "fancybox fancybox.image", :"data-fancybox-group" => "gallery" do
-              = image_tag "http://lorempixel.com/300/180/technics/#{photo}", class: "hover-effect"
 
       / similar articles
       .headline.headline-md

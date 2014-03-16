@@ -23,7 +23,8 @@
 //= require back-to-top
 //= require bootstrap-sortable
 //= require jquery.tagsinput.min
-//= require jquery.bxslider
+//= require jquery.fitvids
+//= require jquery.bxslider.min
 //= require unify/jquery.fancybox.pack
 //= require unify/jquery.fancybox-media
 //= require unify/index
