@@ -7,11 +7,22 @@ Die neue Webseite von Holarse - Spielen unter Linux wird wieder in Eigenregie er
 [![Code Climate](https://codeclimate.com/github/commel/holarse.png)](https://codeclimate.com/github/commel/holarse)
 
 ## Software
-* JRuby: 1.7.x oder höher
 * Java: OpenJDK 7 oder Oracle JDK 7
-* Rails: 4.0 oder höher
+* JRuby: ab 1.7.x
+* ElasticSearch: ab 1.0
 
 ## Installation
+
+### Externe Komponenten
+
+#### Java
+Installiert Java über euer Paketmanagement. Alternativ von http://java.oracle.com herunterladen und installieren.
+
+#### JRuby
+Ladet das tar-Archiv von http://www.jruby.org herunter und entpackt es. Das Unterverzeichnis ''bin'' muss im PATH sein. 
+
+#### ElasticSearch
+Unsere Suchengine könnt ihr von http://www.elasticsearch.org/ herunterladen. Entpackt das Archiv und startet ES. 
 
 ### Ruby On Rails
 ```
@@ -39,11 +50,6 @@ $ rspec
 ```
 
 ### Starten
-Webserver starten mit 
-```
-$ rails s
-```
-Einen Multithreaded-Webserver könnt ihr mit
 ```
 $ rails s puma
 ```
