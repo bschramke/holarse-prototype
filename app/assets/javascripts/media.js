@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("a.fancybox").attr("rel", "gallery").fancybox({
+  $("a.fancybox").fancybox({
     openEffect: 'none',
     closeEffect: 'none'
   });
