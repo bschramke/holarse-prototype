@@ -5,10 +5,7 @@ class News < ActiveRecord::Base
   before_save :save_revision, on: [:create, :update, :delete]
 
   belongs_to :user
-  has_and_belongs_to_many :screenshots
-  has_and_belongs_to_many :attachments  
-  has_and_belongs_to_many :videos
-  has_and_belongs_to_many :links
+  has_many :videos, as: :videoable
   has_many :comments, as: :commentable
   belongs_to :news_category
 

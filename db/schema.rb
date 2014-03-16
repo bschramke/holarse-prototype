@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306193659) do
+ActiveRecord::Schema.define(version: 20140315103333) do
 
   create_table "articles", force: true do |t|
     t.string   "title",                                     null: false
@@ -35,36 +35,6 @@ ActiveRecord::Schema.define(version: 20140306193659) do
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
   add_index "articles", ["title"], name: "index_articles_on_title", using: :btree
-
-  create_table "articles_attachments", id: false, force: true do |t|
-    t.integer "article_id"
-    t.integer "attachment_id"
-  end
-
-  create_table "articles_links", id: false, force: true do |t|
-    t.integer "article_id"
-    t.integer "link_id"
-  end
-
-  create_table "articles_screenshots", id: false, force: true do |t|
-    t.integer "article_id"
-    t.integer "screenshot_id"
-  end
-
-  create_table "articles_videos", id: false, force: true do |t|
-    t.integer "article_id"
-    t.integer "video_id"
-  end
-
-  create_table "attachments", force: true do |t|
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "attachfile_file_name"
-    t.string   "attachfile_content_type"
-    t.integer  "attachfile_file_size"
-    t.datetime "attachfile_updated_at"
-  end
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -123,19 +93,6 @@ ActiveRecord::Schema.define(version: 20140306193659) do
     t.datetime "updated_at"
   end
 
-  create_table "links", force: true do |t|
-    t.string   "url"
-    t.string   "description"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "links_news", id: false, force: true do |t|
-    t.integer "news_id"
-    t.integer "link_id"
-  end
-
   create_table "news", force: true do |t|
     t.string   "title",                            null: false
     t.text     "content"
@@ -161,22 +118,12 @@ ActiveRecord::Schema.define(version: 20140306193659) do
     t.string "description"
   end
 
-  create_table "news_screenshots", id: false, force: true do |t|
-    t.integer "news_id"
-    t.integer "screenshot_id"
-  end
-
   create_table "news_updates", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.integer  "news_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "news_videos", id: false, force: true do |t|
-    t.integer "news_id"
-    t.integer "video_id"
   end
 
   create_table "project_activity_states", force: true do |t|
@@ -205,22 +152,6 @@ ActiveRecord::Schema.define(version: 20140306193659) do
     t.integer "role_id"
   end
 
-  create_table "screenshots", force: true do |t|
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  create_table "shops", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -237,6 +168,17 @@ ActiveRecord::Schema.define(version: 20140306193659) do
   create_table "tags", force: true do |t|
     t.string "name"
   end
+
+  create_table "trigrams", force: true do |t|
+    t.string  "trigram",     limit: 3
+    t.integer "score",       limit: 2
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.string  "fuzzy_field"
+  end
+
+  add_index "trigrams", ["owner_id", "owner_type", "fuzzy_field", "trigram", "score"], name: "index_for_match", using: :btree
+  add_index "trigrams", ["owner_id", "owner_type"], name: "index_by_owner", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -276,10 +218,9 @@ ActiveRecord::Schema.define(version: 20140306193659) do
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
   create_table "videos", force: true do |t|
-    t.string   "url"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "url"
+    t.integer "videoable_id"
+    t.string  "videoable_type"
   end
 
 end

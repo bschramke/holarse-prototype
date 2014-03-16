@@ -5,6 +5,7 @@ class DiscountEvent < ActiveRecord::Base
   alias_attribute :content, :description
   alias_attribute :title, :name
 
+  has_many :videos, as: :videoable
   has_many :comments, as: :commentable
   has_many :revisions, as: :historical
   belongs_to :user

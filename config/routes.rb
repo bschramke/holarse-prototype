@@ -41,21 +41,14 @@ Holarse::Application.routes.draw do
   resources :users
   resources :news do
     resources :comments
-    resources :links
-    resources :screenshots
     resources :videos
-    resources :attachments
     resources :history
     resources :news_updates
   end
 
   resources :articles do
     resources :comments
-    resources :links
-    resources :screenshots
     resources :videos
-    resources :attachments
-    resources :shops
     resources :history
   end
 

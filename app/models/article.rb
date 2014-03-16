@@ -10,10 +10,7 @@ class Article < ActiveRecord::Base
 
   # referenzen
   belongs_to :user
-  has_and_belongs_to_many :screenshots
-  has_and_belongs_to_many :videos
-  has_and_belongs_to_many :links
-  has_and_belongs_to_many :attachments
+  has_many :videos, as: :videoable
   has_many :revisions, as: :historical
 
   has_many :comments, as: :commentable
