@@ -2,10 +2,6 @@ holarse.createPreview = function(content, target, autolink) {
   $.post(holarse.current_host + "/holarse/api/markup_preview.json", { content: $(content).val() || $(content).html() }, function(data) {
     var elem = $(target);
     elem.html(data);
-
-    if (autolink === undefined || autolink) {
-      holarse.autolink_fn(elem);
-    }
   }, "html");
 };
 

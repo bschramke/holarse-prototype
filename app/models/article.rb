@@ -45,6 +45,10 @@ class Article < ActiveRecord::Base
     }
   end
 
+  def self.title_list
+    Article.select(:id, :title, :slug) + Article.select("id, alternate_title as title, slug").where("alternate_title is not null")
+  end
+
   default_scope { where(enabled: true) }
 
 end

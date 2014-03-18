@@ -17,7 +17,7 @@
               %li
                 = embed_youtube video.url
 
-      .autolinkable{:"data-ignores" => @article.titles}
+      %div
         = @article.content.html_safe
       / end blog post
       

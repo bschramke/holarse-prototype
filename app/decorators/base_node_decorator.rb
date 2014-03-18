@@ -44,7 +44,9 @@ class BaseNodeDecorator < Draper::Decorator
   end
 
   def content
-    Holarse::Markup.render(model.content)
+    Rails.cache.fetch "#{model.class.name.downcase}-#{model.id}-#{activity_changetime.to_i}-content", expires_in: 10.minute do
+      autolink( Holarse::Markup.render(model.content) )
+    end
   end
 
   def createdtime
@@ -67,6 +69,17 @@ class BaseNodeDecorator < Draper::Decorator
 
   def by_username
     lambda { |x,y| x.username.downcase <=> y.username.downcase }
+  end
+
+  def autolink(text)
+    Article.title_list.delete_if(&is_current_article).each do |article|
+      text.gsub!(/\s(#{article.title})\s/i, " #{h.link_to(article.title, article)} ")
+    end
+    text
+  end
+
+  def is_current_article
+    lambda { |a| ([title.downcase, secondary_title.downcase] & [a.title.downcase]).present? } 
   end
 
 end

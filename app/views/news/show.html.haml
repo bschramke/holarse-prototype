@@ -20,7 +20,7 @@
           - @news.tags.each do |tag|
             = link_to tag, searchtag_path(tag)
     = render @news.news_updates
-    .autolinkable{:"data-ignores" => @news.titles}
+    %div
       = @news.content.html_safe
 
 .container
