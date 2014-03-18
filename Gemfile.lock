@@ -50,6 +50,8 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
+    connection_pool (2.0.0)
+    dalli (2.7.0)
     diff-lcs (1.2.5)
     domain_name (0.5.15)
       unf (>= 0.0.5, < 1.0.0)
@@ -219,6 +221,8 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   breadcrumbs_on_rails
   capybara
+  connection_pool
+  dalli
   draper (~> 1.3.0)
   fabrication
   faker

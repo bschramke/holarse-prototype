@@ -18,7 +18,8 @@ Holarse::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  config.cache_store = :memory_store
+  # caching
+  config.cache_store = :dalli_store, { pool_size: 5 }
 
   # Expands the lines which load the assets
   config.assets.debug = true

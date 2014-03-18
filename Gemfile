@@ -9,10 +9,9 @@ gem "mechanize"
 gem 'safe_attributes'
 gem 'searchkick'
 
-group :production do
-  gem 'puma'
-#  gem 'dalli' # memcache
-end
+gem 'puma' # multithread webserver
+gem 'dalli' # memcache
+gem 'connection_pool'
 
 # Database backend
 platforms :jruby do
