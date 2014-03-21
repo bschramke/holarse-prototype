@@ -10,13 +10,14 @@ Die neue Webseite von Holarse - Spielen unter Linux wird wieder in Eigenregie er
 * Java: OpenJDK 7 oder Oracle JDK 7
 * JRuby: ab 1.7.x
 * ElasticSearch: ab 1.0
+* Memcached: ab 1.4.x
 
 ## Installation
 
 ### Externe Komponenten
 
 #### Java
-Installiert Java über euer Paketmanagement. Alternativ von http://java.oracle.com herunterladen und installieren.
+Installiert das Java SDK/OpenJDK über euer Paketmanagement. Alternativ das SDK von http://java.oracle.com herunterladen und installieren.
 
 #### JRuby
 Ladet das tar-Archiv von http://www.jruby.org herunter und entpackt es. Das Unterverzeichnis ''bin'' muss im PATH sein. 
