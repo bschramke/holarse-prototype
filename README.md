@@ -24,6 +24,9 @@ Ladet das tar-Archiv von http://www.jruby.org herunter und entpackt es. Das Unte
 #### ElasticSearch
 Unsere Suchengine könnt ihr von http://www.elasticsearch.org/ herunterladen. Entpackt das Archiv und startet ES. 
 
+#### Memcached
+Caching übernimmt der Memcached. Dieses könnt ihr am besten über euer Repository installieren. Sourcen gibts auf http://memcached.org/
+
 ### Ruby On Rails
 ```
 $ gem install bundler

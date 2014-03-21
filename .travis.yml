@@ -5,3 +5,6 @@ jdk:
   - openjdk7
 before_script:
   - mysql -e 'create database holarse2014_test;'
+services:
+  - memcached
+  - elasticsearch
