@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
-ruby "1.9.3"
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.0'
 
 gem 'json'
 gem 'stringex'
@@ -31,7 +30,7 @@ gem 'paperclip', "~> 3.0"
 gem 'draper', '~> 1.3.0'
 
 gem 'sass-rails',   '~> 4.0.1'
-gem 'haml-rails'
+gem 'haml-rails', '~> 0.5.3'
 
 gem 'friendly_id', '~> 5.0.3'
 

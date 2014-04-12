@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 20140320095432) do
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
   add_index "articles", ["title"], name: "index_articles_on_title", using: :btree
 
+  create_table "articles_attachments", id: false, force: true do |t|
+    t.integer "article_id"
+    t.integer "attachment_id"
+  end
+
+  create_table "articles_links", id: false, force: true do |t|
+    t.integer "article_id"
+    t.integer "link_id"
+  end
+
+  create_table "articles_screenshots", id: false, force: true do |t|
+    t.integer "article_id"
+    t.integer "screenshot_id"
+  end
+
   create_table "comments", force: true do |t|
     t.integer  "user_id"
     t.text     "content"
@@ -169,17 +184,6 @@ ActiveRecord::Schema.define(version: 20140320095432) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-
-  create_table "trigrams", force: true do |t|
-    t.string  "trigram",     limit: 3
-    t.integer "score",       limit: 2
-    t.integer "owner_id"
-    t.string  "owner_type"
-    t.string  "fuzzy_field"
-  end
-
-  add_index "trigrams", ["owner_id", "owner_type", "fuzzy_field", "trigram", "score"], name: "index_for_match", using: :btree
-  add_index "trigrams", ["owner_id", "owner_type"], name: "index_by_owner", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
