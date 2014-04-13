@@ -6,6 +6,8 @@
     %base(href="/")
     %title= build_site_title
     = csrf_meta_tags
+    = stylesheet_link_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/themes/jquery-ui.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body
@@ -34,6 +36,13 @@
       .container
         = render :partial => "copyright"
 
+    / javascript einladen
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery/2.1.0/jquery.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/mustache.js/0.8.1/mustache.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery.mustache/0.2.7/jquery.mustache.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/bootstrap/3.1.1/js/bootstrap.min.js"
+    
     / mustache templates
     = render partial: "mustaches"
     

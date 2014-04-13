@@ -57,12 +57,6 @@ gem 'formtastic', '~> 2.3.0rc'
 gem 'formtastic-bootstrap'
 gem "breadcrumbs_on_rails"
 
-# jquery
-gem "jquery-rails", "~> 3.0.4"
-gem "jquery-ui-rails"
-
-# moustache for templating
-gem 'mustache-js-rails'
 gem 'momentjs-rails'
 
 gem 'ruby-progressbar'
