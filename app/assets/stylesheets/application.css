@@ -8,20 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require jquery.ui.all
  *= require formtastic-bootstrap
- *= require custom-theme/jquery-ui
- *= require bootstrap.min
  *= require bootstrap-sortable
  *= require jquery.tagsinput
- *= require jquery.bxslider
  *= require unify/style
  *= require unify/header/header1
  *= require unify/responsive
  *= require unify/plugins/fancybox/jquery.fancybox
  *= require font-awesome
- *= require jquery.bxslider
- *= require unify/themes/red
+  *= require unify/themes/red
  *= require unify/themes/headers/header1-red
  *= require unify/pages/blog
  *= require unify/pages/page_magazine

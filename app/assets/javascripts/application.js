@@ -10,16 +10,11 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require moment
-//= require moment/de
 //= require jquery-migrate-1.2.1.min
-//= require bootstrap.min
 //= require hover-dropdown.min
 //= require back-to-top
 //= require bootstrap-sortable
 //= require jquery.tagsinput.min
-//= require jquery.fitvids
-//= require jquery.bxslider.min
 //= require unify/jquery.fancybox.pack
 //= require unify/jquery.fancybox-media
 //= require unify/index

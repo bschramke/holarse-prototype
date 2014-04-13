@@ -8,6 +8,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/themes/jquery-ui.min.css", media: "all"
     = stylesheet_link_tag "//cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body
@@ -43,6 +44,8 @@
     = javascript_include_tag "//cdn.jsdelivr.net/jquery.mustache/0.2.7/jquery.mustache.js"
     = javascript_include_tag "//cdn.jsdelivr.net/bootstrap/3.1.1/js/bootstrap.min.js"
     = javascript_include_tag "//cdn.jsdelivr.net/momentjs/2.5.1/moment-with-langs.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/bxslider/4.1.1/plugins/jquery.fitvids.js"
     
     / mustache templates
     = render partial: "mustaches"
