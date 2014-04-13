@@ -57,6 +57,4 @@ gem 'formtastic', '~> 2.3.0rc'
 gem 'formtastic-bootstrap'
 gem "breadcrumbs_on_rails"
 
-gem 'momentjs-rails'
-
 gem 'ruby-progressbar'
