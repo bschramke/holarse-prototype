@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$("#search_q").val(ui.item.title);
 	window.location = ui.item.url;
 	return true;
-      }}).data("uiAutocomplete")._renderItem = function(ul, item) {
+      }}).data("ui-autocomplete")._renderItem = function(ul, item) {
 	console.debug(item);
 	return $("<li></li>")
 	  .data("item.autocomplete", item)

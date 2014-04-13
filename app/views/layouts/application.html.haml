@@ -61,9 +61,6 @@
         //App.initBxSlider();
       });
 
-      $("[id$=template]").each(function(i, template) {
-        $.Mustache.addFromDom(template.id);
-        console.debug("loaded " + template.id + " as mustache template");
-      });
+      holarse.mustaches.init();
 
     = javascript_include_tag "//togetherjs.com/togetherjs-min.js" if user_wants_to_collaborate? current_user
