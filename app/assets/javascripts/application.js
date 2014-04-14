@@ -14,7 +14,6 @@
 //= require hover-dropdown.min
 //= require back-to-top
 //= require bootstrap-sortable
-//= require jquery.tagsinput.min
 //= require unify/jquery.fancybox.pack
 //= require unify/jquery.fancybox-media
 //= require unify/index

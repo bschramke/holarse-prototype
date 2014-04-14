@@ -10,8 +10,7 @@
  *
  *= require formtastic-bootstrap
  *= require bootstrap-sortable
- *= require jquery.tagsinput
- *= require unify/style
+  *= require unify/style
  *= require unify/header/header1
  *= require unify/responsive
  *= require unify/plugins/fancybox/jquery.fancybox

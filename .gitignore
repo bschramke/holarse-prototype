@@ -22,3 +22,6 @@
 /public/system/*
 /sites
 .project
+
+.codio
+.settings
