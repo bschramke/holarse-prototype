@@ -13,8 +13,6 @@
 //= require hover-dropdown.min
 //= require back-to-top
 //= require bootstrap-sortable
-//= require unify/jquery.fancybox.pack
-//= require unify/jquery.fancybox-media
 //= require unify/index
 //= require unify/portfolio
 //= require unify/app

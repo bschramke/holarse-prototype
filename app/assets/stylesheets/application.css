@@ -10,12 +10,11 @@
  *
  *= require formtastic-bootstrap
  *= require bootstrap-sortable
-  *= require unify/style
+ *= require unify/style
  *= require unify/header/header1
  *= require unify/responsive
- *= require unify/plugins/fancybox/jquery.fancybox
  *= require font-awesome
-  *= require unify/themes/red
+ *= require unify/themes/red
  *= require unify/themes/headers/header1-red
  *= require unify/pages/blog
  *= require unify/pages/page_magazine
