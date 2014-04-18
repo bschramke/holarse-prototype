@@ -1,7 +1,5 @@
-/ breadcrumbs
-.breadcrumbs.margin-bottom-40
+.breadcrumbs
   .container
-    .pull-left
-      = render partial: "contextmenu"
-    %ul.breadcrumb.pull-right.hidden-xs.hidden-sm
+    %ul.pull-right.breadcrumb
       = render_breadcrumbs :tag => :li, :separator => ""
+      

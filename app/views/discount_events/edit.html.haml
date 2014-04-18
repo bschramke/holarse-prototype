@@ -5,9 +5,14 @@
       .form-group
         = f.input :name, input_html: { class: "form-control" }
       .form-group
-        = f.input :startdate, as: :string, input_html: { class: "form-control" }
-      .form-group
-        = f.input :enddate, as: :string, input_html: { class: "form-control" }
+        .input-group.date#startdate
+          = f.input :startdate, as: :string
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+      .input-group.date#enddate
+        = f.input :enddate, as: :string
+        %span.input-group-addon
+          %span.glyphicon.glyphicon-calendar          
       .form-group
         = f.input :website, as: :url, required: true, input_html: { class: "form-control" }
       .form-group

@@ -1,0 +1,33 @@
+/ topbar
+.topbar-v1.margin-bottom-20
+  .container
+    .row
+      .col-md-6
+        %ul.list-unstyled.top-v1-contacts
+          %li
+            = link_to "#" do
+              %i.fa.fa-envelope
+              Kontakt
+          %li
+            = link_to "mumble://www.holarse-linuxgaming.de:64738" do
+              %i.fa.fa-phone
+              Mumble
+          %li
+            = link_to "irc://irc.oftc.net:6667/holarse-gaming" do
+              %i.fa.fa-users
+              Chat
+      .col-md-6
+        %ul.list-unstyled.top-v1-data
+          %li
+            = link_to root_path do
+              %i.fa.fa-home
+          %li
+            = link_to discount_events_path do
+              %i.fa.fa-shopping-cart
+          %li
+            = link_to videos_path do
+              %i.fa.fa-youtube-play
+          %li
+            = link_to "Login", login_path
+          %li
+            = link_to "Registrieren", register_path

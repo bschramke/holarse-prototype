@@ -3,50 +3,59 @@
   %head
     %meta(charset="utf-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta(name="description" content="Spielen unter Linux")
+    %meta(name="author" content="Holarse")
     %base(href="/")
     %title= build_site_title
     = csrf_meta_tags
-    = stylesheet_link_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/themes/jquery-ui.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/themes/jquery.ui.core.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/themes/jquery.ui.menu.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/themes/jquery.ui.autocomplete.min.css", media: "all"
     = stylesheet_link_tag "//cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css", media: "all"
     = stylesheet_link_tag "//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.css", media: "all"
     = stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.3/jquery.tagsinput.css", media: "all"
     = stylesheet_link_tag "//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/bootstrap.datetimepicker/2.1.11/css/bootstrap-datetimepicker.min.css", media: "all"
+    = stylesheet_link_tag "//cdn.jsdelivr.net/fontawesome/4.0.3/css/font-awesome.min.css", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body
-    = render partial: "top"
-    = render partial: "header"
+    .wrapper
+      / header
+      .header.header-v1
+        = render partial: "topbar"
+                   
+        / navbar
+        .navbar.navbar-default(role="navigation")
 
-    / content
-    = render partial: "breadcrumbs"
+      / breadcrumbs
+      = render partial: "breadcrumbs"
 
-    .container
-      .row
-        .col-md-12
-          = render :partial => "flash", object: flash
-      .row
-        .col-md-12.content
-          = yield.force_encoding("UTF-8")
-
-    - if content_for?(:footer)
+      / content
+      .container.content
+        = yield
+        
       / footer
       .footer
         .container
-          = yield(:footer)
-
-    / copyright
-    .copyright.hidden-xs.hidden-sm
-      .container
-        = render :partial => "copyright"
+        
+      / copyright
+      .copyright
+        .container
+          = render partial: "copyright"
 
     / javascript einladen
     = javascript_include_tag "//cdn.jsdelivr.net/jquery/2.1.0/jquery.min.js"
-    = javascript_include_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/jquery.ui.core.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/jquery.ui.widget.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/jquery.ui.menu.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/jquery.ui/1.10.4/jquery.ui.autocomplete.min.js"
     = javascript_include_tag "//cdn.jsdelivr.net/jquery.migrate/1.2.1/jquery-migrate.min.js"
     = javascript_include_tag "//cdn.jsdelivr.net/mustache.js/0.8.1/mustache.min.js"
     = javascript_include_tag "//cdn.jsdelivr.net/jquery.mustache/0.2.7/jquery.mustache.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/momentjs/2.5.1/moment-with-langs.min.js"    
     = javascript_include_tag "//cdn.jsdelivr.net/bootstrap/3.1.1/js/bootstrap.min.js"
-    = javascript_include_tag "//cdn.jsdelivr.net/momentjs/2.5.1/moment-with-langs.min.js"
+    = javascript_include_tag "//cdn.jsdelivr.net/bootstrap.datetimepicker/2.1.11/js/bootstrap-datetimepicker.min.js"
     = javascript_include_tag "//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.min.js"
     = javascript_include_tag "//cdn.jsdelivr.net/bxslider/4.1.1/plugins/jquery.fitvids.js"
     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.3/jquery.tagsinput.min.js"
@@ -64,8 +73,7 @@
     :javascript
       jQuery(document).ready(function() {
         App.init();
-        //App.initBxSlider();
-      });
+      });    
 
       holarse.mustaches.init();
 

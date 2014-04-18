@@ -1,12 +1,14 @@
 .row
   .col-md-6
-    %p.copyright-space
+    %p
       &copy; 2000 -
       = Date.today.year
       Bernd Ritter, und viele andere
+      |
       = link_to imprint_path do
         = fa_icon "legal"
         Impressum
+      |
       = link_to version_path(get_app_version) do
         = fa_icon "github"
         = get_short_version

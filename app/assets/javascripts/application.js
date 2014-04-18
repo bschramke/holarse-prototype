@@ -10,10 +10,5 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require hover-dropdown.min
-//= require back-to-top
 //= require bootstrap-sortable
-//= require unify/index
-//= require unify/portfolio
-//= require unify/app
 //= require_tree .
