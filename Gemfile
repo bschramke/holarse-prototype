@@ -38,7 +38,6 @@ gem 'friendly_id', '~> 5.0.3'
 # 
 gem 'kramdown'
 #gem 'wikicloth'
-gem 'font-awesome-rails'
 
 #
 # Testing-Gems
