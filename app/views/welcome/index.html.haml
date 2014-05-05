@@ -1,36 +1,20 @@
 / einführung
-.purchase
-  .container
-    .row
-      .col-md-9
-        %span
-          Willkommen auf Holarse - Spielen unter Linux
-        %p
-          Spielen unter Linux? Wir zeigen Euch wie es geht, was Ihr spielen könnt und geben Euch alle Mittel an die Hand in der Linuxspiele-Community Mit- und Gegenspieler zu finden!
-      .col-md-3
-        = link_to "Zeige mir eine Einführung", introduction_path, class: "btn-buy hover-effect"
-
-/ aktivitäten
-.container.content
-  .row.margin-bottom-40
-    .col-lg-12
-      .headline
-        %h2
-          Aktivitäten auf Holarse
-      %ul.bxslider.recent-work
-        - @activities.each do |activity|
-          %li
-            %em.overflow-hidden
-              = activity.teaser_image
-            %span
-              %strong
-                = activity.changetime.html_safe
-              %i
-                = activity.notice.html_safe
+.jumbotron
+  %h1
+    Willkommen auf Holarse
+  %p
+    Spielen unter Linux? Wir zeigen Euch wie es geht, was Ihr spielen könnt und geben Euch alle Mittel an die Hand in der Linuxspiele-Community Mit- und Gegenspieler zu finden!
+  %p
+    = link_to introduction_path, class: "btn-u btn-u-lg", role: "button" do
+      Zeige mir eine Einführung
 
 / news
-.one-page
+.row.blog-page
+  / left sidebar
+  .col-md-9.md-margin-bottom-40
   - @elements.each do |element|
-    .one-page-inner{:class => "#{cycle('one-default', 'one-red', 'one-grey', 'one-blue')}"}
-      .container
+    .row.blog.blog-medium.margin-bottom-40
+      .col-md-5
+        = element.teaser_image.html_safe
+      .col-md-7
         = render partial: element.model.class.name.underscore, object: element

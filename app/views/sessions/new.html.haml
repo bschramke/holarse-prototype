@@ -1,24 +1,15 @@
 .row
-  .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
+  .col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3
     = semantic_form_for 'session', { html: { id: "new_session", class: "reg-page", role: "form" }, url: session_path } do |f|
       .reg-header
         %h2
           Bei Holarse anmelden
-       = f.inputs do        .margin-bottom-20
-          = f.input :username, input_html: { class: "form-control" }
-          argin-bottom-20
-            f.input :password, input_html: { class: "form-control" }
-          actions do
-        .row
-          .col-md-6
-            Merken
-          .col-md-6
-            = f.action :submit, label: "Anmelden", as: :button, button_html: { class: "btn-u pull-right" }
-      
-      %hr
-
-      %h4
-        Passwort vergessen?
-      %p
-        Kein Problem, #{link_to "hier klicken", root_path}, um es zurückzusetzen.
-
+        = f.inputs do
+          = f.input :username
+          = f.input :password
+        = f.actions do
+          .row
+            .col-md-6
+              Merken
+            .col-md-6
+              = f.action :submit, label: "Anmelden", as: :button, button_html: { class: "btn-u pull-right" }

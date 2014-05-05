@@ -1,19 +1,19 @@
-%h1
+%h2
   = discount_event.title
-.row
-  .col-md-6
-    %p
-      = discount_event.teaser
-    = link_to discount_event, class: "btn-u btn-u-large btn-u-green one-page-btn" do
-      = fa_icon "gift"
-      = discount_event.title
-  .col-md-6
-    = discount_event.teaser_image
-.row.margin-bottom-20
-  .col-md-12
-    = fa_icon "comments"
-    = link_to discount_event_path(discount_event, anchor: "comments") do
-      = t('.comments', count: discount_event.comments.length)
-    = fa_icon "clock-o"
-    = time_field discount_event.updated_at
-
+%ul.list-unstyled.list-inline.blog-info
+  %li
+    = fa_icon "calendar" do
+      = discount_event.changetime
+  %li
+    = fa_icon "comments" do
+      = link_to discount_event_path(discount_event, anchor: "comments") do
+        = t('.comments', count: discount_event.comments.length)
+  %li
+    = fa_icon "clock" do
+      = time_field discount_event.enddate
+%p
+  = discount_event.teaser
+%p
+  = link_to discount_event, class: "btn-u btn-u-small" do
+    = fa_icon "gift" do
+      Weiterlesen
