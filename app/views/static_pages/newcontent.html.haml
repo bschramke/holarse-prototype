@@ -1,0 +1,44 @@
+.row
+  .col-md-12
+    .panel.panel-red
+      .panel-heading
+        %h3.panel-title
+          = fa_icon "gamepad" do
+            Artikel
+      .panel-body
+        %h4
+          Spielbeschreibung, Tool, usw
+        %p
+          blabla
+        %p
+          = link_to "Neuer Artikel", new_article_path, class: "btn-u btn-u-red"
+          
+.row
+  .col-md-12
+    .panel.panel-blue
+      .panel-heading
+        %h3.panel-title
+          = fa_icon "shoutbox" do
+            News
+      .panel-body
+        %h4
+          Neuigkeiten, Spiele-Update, Brandheisse Infos
+        %p
+          blabla
+        %p
+          = link_to "Neue News", new_news_path, class: "btn-u btn-u-blue"
+          
+.row
+  .col-md-12
+    .panel.panel-green
+      .panel-heading
+        %h3.panel-title
+          = fa_icon "euro" do
+            Rabattaktionen
+      .panel-body
+        %h4
+          Vergünstigungen aller Art
+        %p
+          blabla
+        %p
+          = link_to "Neue Rabattaktion", new_discount_event_path, class: "btn-u btn-u-green"

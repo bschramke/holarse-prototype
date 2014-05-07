@@ -1,3 +1,4 @@
+#encoding: utf-8
 class WelcomeController < ApplicationController
 
   def index
@@ -21,12 +22,26 @@ class WelcomeController < ApplicationController
     lambda { |a,b| b.activity_changetime <=> a.activity_changetime }
   end
 
-  def activity_elements
-    latest_comments + latest_version_activities + latest_news_updates + latest_new_users
-  end
-
+  #
+  # willkommens-elemente
+  #
   def welcome_elements
     latest_news + upcoming_discounts
+  end
+  
+  def latest_news
+    News.order("updated_at desc").limit(10)
+  end
+  
+  def upcoming_discounts
+    DiscountEvent.order("updated_at desc").limit(10)
+  end
+
+  #
+  # letzte änderungen
+  #
+  def activity_elements
+    latest_comments + latest_version_activities + latest_news_updates + latest_new_users
   end
 
   def latest_new_users
@@ -43,14 +58,6 @@ class WelcomeController < ApplicationController
 
   def latest_comments
     Comment.order("updated_at desc").limit(10)
-  end
-
-  def upcoming_discounts
-    DiscountEvent.order("updated_at desc").limit(10)
-  end
-
-  def latest_news
-    News.order("updated_at desc").limit(10)
   end
 
   def latest_article_updates
