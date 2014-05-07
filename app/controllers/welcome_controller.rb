@@ -1,26 +1,27 @@
 class WelcomeController < ApplicationController
 
   def index
-    @elements = Rails.cache.fetch "welcome-elements", expires_in: 1.minute do
-      welcome_elements.map(&:decorate).sort(&chronological)[0..20]
-    end
-    @activities = Rails.cache.fetch "all-activities", expires_in: 1.minute do
-      all_activities.map(&:decorate).sort(&chronological)[0..20]
-    end
-
-    #@tags = {
-    #  :genres => Article.tag_counts_on(:genres),
-    #  :categories => Article.tag_counts_on(:categories)
-    #}
+    @elements = do_load(:welcome_elements)
+    @activities = do_load(:activity_elements)
   end
 
   private
+  
+  def do_load(type)
+    Rails.cache.fetch type.to_s, expires_in: 1.minute do
+      exec_load(type)
+    end
+  end
+  
+  def exec_load(type)
+    send(type.to_s).map(&:decorate).sort(&chronological)[0..20]
+  end
 
   def chronological
     lambda { |a,b| b.activity_changetime <=> a.activity_changetime }
   end
 
-  def all_activities
+  def activity_elements
     latest_comments + latest_version_activities + latest_news_updates + latest_new_users
   end
 
