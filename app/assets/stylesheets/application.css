@@ -10,8 +10,8 @@
  *
  *= require formtastic-bootstrap
  *= require bootstrap-sortable
- *= require unify/style
- *= require unify/themes/red
- *= require unify/pages/blog_magazine
+ *= require summarize/base
+ *= require summarize/components
+ *= require summarize/colorschemes/default
  *= require_tree .
 */

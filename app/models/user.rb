@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     has_many :comments
 
     # der benutzer-avatar
-    has_attached_file :avatar, :default_url => '/assets/noavatar.png'
+    has_attached_file :avatar, default_url: '/assets/noavatar.png'
 
     # validierungen
     validates_presence_of :username, :email

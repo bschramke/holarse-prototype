@@ -11,5 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require bootstrap-sortable
-//= require unify/app
+//= require summarize/main
 //= require_tree .
