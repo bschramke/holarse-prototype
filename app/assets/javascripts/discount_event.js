@@ -1,5 +1,5 @@
   // Datumsauswahl
-  $("#startdate, #enddate").datetimepicker({language: "de"});
+  $("#startdate, #enddate").datepicker({language: "de"});
   
   //
   // Live-Anzeige der Anzahl der Rabattaktionen

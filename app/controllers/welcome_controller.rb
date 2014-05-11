@@ -2,8 +2,8 @@
 class WelcomeController < ApplicationController
 
   def index
-    @elements = do_load(:welcome_elements)
-    @activities = do_load(:activity_elements)
+    @news = latest_news.decorate
+    Rails.logger.debug(@news)
   end
 
   private

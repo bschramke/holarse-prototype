@@ -49,14 +49,6 @@ class BaseNodeDecorator < Draper::Decorator
     end
   end
 
-  def createdtime
-    h.time_ago_in_words model.created_at
-  end
-
-  def changetime
-    h.time_ago_in_words model.updated_at
-  end
-
   protected
 
   def link_users

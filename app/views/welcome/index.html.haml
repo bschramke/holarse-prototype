@@ -1,20 +1,39 @@
-/ einführung
-.jumbotron
-  %h1
-    Willkommen auf Holarse
-  %p
-    Spielen unter Linux? Wir zeigen Euch wie es geht, was Ihr spielen könnt und geben Euch alle Mittel an die Hand in der Linuxspiele-Community Mit- und Gegenspieler zu finden!
-  %p
-    = link_to introduction_path, class: "btn-u btn-u-lg", role: "button" do
-      Zeige mir eine Einführung
+#content.content.section.row
+  .col-md-8.bg-base.col-lg-8.col-xl-9
+    .ribbon.ribbon-highlight
+      %ol.breadcrumb.ribbon-inner
+        = render_breadcrumbs :tag => :li, :separator => ""
 
-/ news
-.row.blog-page
-  / left sidebar
-  .col-md-9.md-margin-bottom-40
-  - @elements.each do |element|
-    .row.blog.blog-medium.margin-bottom-40
-      .col-md-5
-        = element.teaser_image.html_safe
-      .col-md-7
-        = render partial: element.model.class.name.underscore, object: element
+    .entries
+      - @news.each do |news|
+        %article.entry.style-media.media.type-post
+          %figure.media-object.pull-left.entry-thumbnail.hidden-xs
+            = news.teaser_image
+          .media-body
+            %header.entry-header
+              %h3.entry-title
+                =link_to news.title_with_updates, news, rel: "bookmark"
+              .entry-meta
+                %span.author
+                  von 
+                  = link_to news.authors_list.html_safe
+                %span.entry-date
+                  = time_field news.created_at
+                %span.category
+                  in 
+                  = news.category
+            %p
+              = news.teaser.html_safe
+              = link_to news, class: "more-link" do
+                Mehr lesen
+                = fa_icon "arrow-right"
+    %ul.pagination
+        
+  .sidebar.col-md-4.col-lg4.col-xl-3
+    %aside.widget
+      %h2.widget-title.ribbon
+        %span
+          Featured Posts
+      .entries.row
+    %aside#reviewCarousel.widget.carousel.slide
+      
