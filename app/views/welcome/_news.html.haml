@@ -3,7 +3,7 @@
 %ul.list-unstyled.list-inline.blog-info
   %li
     = fa_icon "calendar" do
-      = news_changetime
+      = news.changetime
   %li
     = fa_icon "comments" do
       = link_to news_path(news, anchor: "comments") do
