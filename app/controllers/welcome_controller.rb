@@ -1,9 +1,10 @@
 #encoding: utf-8
 class WelcomeController < ApplicationController
-
+  
   def index
     @news = latest_news.decorate
-    Rails.logger.debug(@news)
+    @events = upcoming_discounts.decorate
+    @comments = latest_comments.decorate
   end
 
   private
