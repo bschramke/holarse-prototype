@@ -22,7 +22,6 @@
 		<h1 class="sr-only">Summarize</h1>
 			
 		<nav id="header" class="header-navbar" role="navigation">
-
 			<div class="header-navbar-inner container">
 			
 				<div id="brand" class="navbar-brand">
@@ -32,11 +31,56 @@
 				</div>
 
 				<ul class="nav nav-pages hidden-xs">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Advertise </a></li>
-					<li><a href="#">Terms &amp; Conditions</a></li>
-					<li><a href="#">Privacy</a></li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-database"></i>
+              Spielefinder
+            <% end %>
+          <li>
+            <a href="http://files.holarse-linuxgaming.de">
+              <i class="fa fa-cloud"></i>
+              Holarse kla&#650;d
+            </a>
+          </li>
+          <li>
+            <%= link_to "irc://irc.oftc.net:6667/holarse-gaming" do %>
+              <i class="fa fa-users"></i>
+              Chat
+            <% end %>
+          </li>
+					<li>
+            <%= link_to "mumble://www.holarse-linuxgaming.de/Lobby" do %>
+              <i class="fa fa-headphones"></i>
+              Mumble
+            <% end %>
+          </li>
+          <% if current_user %>
+            <li>
+              <%= link_to current_user do %>
+                <i class="fa fa-user"></i>
+                <%= current_user.username %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to logout_path do %>
+                <i class="fa fa-sign-out"></i>
+                Abmelden
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to login_path do %>
+                <i class="fa fa-sign-in"></i>
+                Login
+              <% end %>
+            </li>
+            <li>
+              <%= link_to register_path do %>
+                <i class="fa fa-plus-square"></i>
+                Registrieren
+              <% end %>
+            </li>
+          <% end %>
 				</ul>
 	
 				<ul class="nav nav-icons">
@@ -481,18 +525,21 @@
 						<h4 class="widget-title">Information</h4>
 
 						<ul class="entries links links">
-							<li><a href="#">About</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Advertise </a></li>
-							<li><a href="#">Terms &amp; Conditions</a></li>
-							<li><a href="#">Privacy</a></li>
+							<li><a href="#"><i class="fa fa-linux"></i>&Uuml;ber uns</a></li>
+							<li><a href="#"><i class="fa fa-envelope"></i>Kontakt</a></li>
+							<li>
+                <%= link_to imprint_path do %>
+                <%= fa_icon "legal" %>
+                Impressum
+                <% end %>
+              </li>
 						</ul>
 
 					</div><!--/.col-3-->
 
 					<div class="widget col-xs-6 col-sm-2">
 
-						<h4 class="widget-title">Soziales Linuxgaming</h4>
+						<h4 class="widget-title">Holarse goes Social</h4>
 
 						<ul class="entries links">
 							<li><a href="#"><i class="fa-diaspora-sign icon-2x"></i> Diaspora</a></li>

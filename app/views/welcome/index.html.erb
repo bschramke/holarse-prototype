@@ -87,7 +87,7 @@ c
 								<img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
 
 								<!--fallback for no javascript browsers-->
-								<noscript>
+								<noscript>d
 									<img src="http://placehold.it/480x280" alt="">
 								</noscript>
 
@@ -720,124 +720,22 @@ c
 						
 					<aside class="widget">
 
-						<h2 class="widget-title ribbon"><span>Latest Review</span></h2>
+						<h2 class="widget-title ribbon"><span>Latest Review</span></h2>^^^
 
 						<div class="entries row">
+              
+              <% @article_updates.each do |article_update| %>
+							  <article class="type-post style-media-list style-review-list media col-sm-6 col-md-12">
+                  <%= image_tag "", width: "80", height: "80", class: "media-object pull-left" %>
 
-							<article class="type-post style-media-list style-review-list media col-sm-6 col-md-12">
-
-								<div class="style-review-score">
-									80
-								</div>
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="../img/placeholder.gif" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									<img src="http://placehold.it/80x80" alt="">
-								</noscript>
-
-								<div class="media-body">
-									<h3  class="entry-title">
-										<a href="single-full.html" rel="bookmark">xPhone 15s</a>
-									</h3>
-									<p class="small">xPhone Designer: The most secure xPhone Ever?</p>
-								</div>
-
-							</article>
-
-							<article class="type-post style-media-list style-review-list media col-sm-6 col-md-12">
-
-								<div class="style-review-score">
-									79
-								</div>
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="../img/placeholder.gif" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									<img src="http://placehold.it/80x80" alt="">
-								</noscript>
-
-								<div class="media-body">
-									<h3  class="entry-title">
-										<a href="single-full.html" rel="bookmark">xPhone 15c.</a>
-									</h3>
-									<p class="small">Sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								</div>
-
-							</article>
-
-							<article class="type-post style-media-list style-review-list media col-sm-6 col-md-12">
-
-								<div class="style-review-score">
-									76
-								</div>
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="../img/placeholder.gif" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									<img src="http://placehold.it/80x80" alt="">
-								</noscript>
-
-								<div class="media-body">
-									<h3  class="entry-title">
-										<a href="single-full.html" rel="bookmark">Droid Maxxi.</a>
-									</h3>
-									<p class="small">Laborum sunt in culpa qui officia deserunt mollit anim id est </p>
-								</div>
-
-							</article>
-
-							<article class="type-post style-media-list style-review-list media col-sm-6 col-md-12">
-
-								<div class="style-review-score">
-									79
-								</div>
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="../img/placeholder.gif" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									<img src="http://placehold.it/80x80" alt="">
-								</noscript>
-
-								<div class="media-body">
-									<h3  class="entry-title">
-										<a href="single-full.html" rel="bookmark">NOKIEM Lumpia</a>
-									</h3>
-									<p class="small">Deserunt laborum sunt in culpa qui officia  mollit anim id est </p>
-								</div>
-
-							</article>
-
-							<article class="type-post style-media-list style-review-list media col-sm-6 col-md-12">
-
-								<div class="style-review-score">
-									74
-								</div>
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="../img/placeholder.gif" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									<img src="http://placehold.it/80x80" alt="">
-								</noscript>
-								<div class="media-body">
-									<h3  class="entry-title">
-										<a href="single-full.html" rel="bookmark">NFC Dragonfly</a>
-									</h3>
-									<p class="small">Culpa deserunt laborum sunt in qui officia  mollit anim id est </p>
-								</div>
-
-							</article>
-
+  								<div class="media-body">
+	  								<h3  class="entry-title">
+                      <%= link_to article_update.title, article_update, rel: "bookmark" %>
+			  						</h3>
+				  					<p class="small">xPhone Designer: The most secure xPhone Ever?</p>
+					  			</div>
+              	</article>
+              <% end %>
 						</div><!--/.entries.colheight-->
 
 						<div class="more-wrapper">
